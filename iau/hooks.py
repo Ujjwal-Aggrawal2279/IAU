@@ -242,23 +242,14 @@ app_license = "mit"
 # 	"Logging DocType Name": 30  # days to retain logs
 # }
 
-# # Fixtues
+# Fixtues
 # fixtures = [
 #     {
 #         "doctype": "Website Settings",
 #         "filters": [
-#             ["top_bar_items", "label", "=", "E-Services"]
-#         ],
-#         "child_tables": {
-#             "top_bar_items": {
-#                 "doctype": "Top Bar Item",
-#                 "filters": [
-#                     ["label", "=", "E-Services"]
-#                 ]
-#             }
-#         }
+#             ["home_page", "!=", ""]
+#         ]
 #     }
 # ]
-
 
 
