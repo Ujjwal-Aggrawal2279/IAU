@@ -34,7 +34,7 @@
                     <li><a href="/eservice/home#latest_news"
                             style="text-decoration: none; font-family: 'Encode Sans Condensed'; font-size: 24px; text-transform: capitalize;">News</a>
                     </li>
-                    <li><a href="/eservice/jobs"
+                    <li><a href="/eservice/home#jobs_openings"
                             style="text-decoration: none; font-family: 'Encode Sans Condensed'; font-size: 24px; text-transform: capitalize;">Jobs</a>
                     </li>
                     <li><a href="#"
@@ -49,7 +49,7 @@
                     <li><a href="/eservice/home#partners"
                             style="text-decoration: none; font-family: 'Encode Sans Condensed'; font-size: 24px; text-transform: capitalize;">Partners</a>
                     </li>
-                    <li><a href="#"
+                    <li><a href="/eservice/login"
                             style="text-decoration: none; font-family: 'Encode Sans Condensed'; font-size: 24px; text-transform: capitalize;">E-services</a>
                     </li>
                 </ul>
@@ -154,7 +154,7 @@
             var pageTitle = document.title;
             var styleSheet = document.getElementById('dynamic-styles').sheet;
 
-            if (pageTitle === 'Job Information') {
+            if (pageTitle !== 'Home') {
                 // Apply styles if the page title is 'Job Information'
                 styleSheet.insertRule('ul li a { color: black; }', styleSheet.cssRules.length);
             } else {
