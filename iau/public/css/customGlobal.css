@@ -1,0 +1,298 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Encode+Sans+Condensed:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+.container {
+    width: 100%;
+    padding-right: 20px;
+    padding-left: 20px;
+    margin-right: auto;
+    margin-left: auto;
+    max-width: 1323px;
+    /* Ensure max-width is 100% */
+}
+
+@media (min-width: 640px) {
+    .container {
+        padding-right: 15px;
+        padding-left: 15px;
+        max-width: 610px;
+    }
+}
+
+@media (min-width: 768px) {
+    .container {
+        max-width: 728px;
+    }
+}
+
+@media (min-width: 1024px) {
+    .container {
+        max-width: 974px;
+    }
+}
+
+@media (min-width: 1280px) {
+    .container {
+        max-width: 1180px;
+    }
+}
+
+@media (min-width: 1536px) {
+    .container {
+        max-width: 1323px;
+    }
+}
+
+.header {
+    width: 100%;
+    position: absolute;
+    top: 115px;
+    z-index: 1000;
+}
+
+.header nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 auto;
+}
+
+.banner_section {
+    background-image: linear-gradient(to right,
+            rgba(15, 15, 44, 0.825) 0%,
+            rgba(217, 217, 217, 0.25) 50%,
+            rgba(15, 15, 44, 0.825) 100%), url('/assets/iau/images/jobs_listings_banner.png');
+    height: 784px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: rgb(30, 30, 53);
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.banner_section .container {
+    position: absolute;
+    bottom: 0;
+    padding: 80px 0px;
+}
+
+.select_container {
+    display: flex;
+    align-items: center;
+    font-family: Arial, sans-serif;
+    background-color: #2e3a59;
+    padding-left: 10px;
+    position: relative;
+}
+
+.custom-label {
+    color: #b0b0b0;
+    margin-right: 8px;
+    font-size: 16px;
+}
+
+.custom-select {
+    background-color: transparent;
+    appearance: none;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    font-size: 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    padding-right: 24px;
+    outline: none;
+}
+
+.custom-select:focus {
+    border-color: #4a90e2;
+}
+
+.custom-select::after {
+    content: '▼';
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none;
+    color: white;
+}
+
+.select_container::after {
+    content: '\25BE';
+    position: absolute;
+    right: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none;
+    color: white;
+}
+
+.custom-select option {
+    background-color: #2e3a59;
+    color: white;
+}
+
+/* Style for unchecked checkboxes */
+.custom-checkbox input[type="checkbox"] {
+    appearance: none;
+    width: 24px;
+    height: 24px;
+    border: 1px solid #101423;
+    border-radius: 4px;
+    position: relative;
+    cursor: pointer;
+}
+
+/* Style for checked checkboxes with gradient */
+.custom-checkbox input[type="checkbox"]:checked {
+    background: linear-gradient(180deg, #2B354E 0%, #101423 100%);
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Optional: Checkmark style */
+.custom-checkbox input[type="checkbox"]:checked::before {
+    content: "\2713";
+    font-size: 16px;
+    color: white;
+    position: absolute;
+}
+
+.divider {
+    display: flex;
+    align-items: center;
+    text-align: center;
+}
+
+.divider::before,
+.divider::after {
+    content: '';
+    flex: 1;
+    border-bottom: 1px solid #ccc;
+    margin: 0;
+}
+
+.divider .text_span {
+    font-family: DM Sans, sans-serif;
+    font-size: 20px;
+    color: #929292;
+    font-weight: 700;
+    padding: 0 80px;
+}
+
+.divider div {
+    font-size: 20px;
+    color: #929292;
+    font-weight: 700;
+    padding: 0 20px;
+}
+
+.swiper {
+    margin: 40px 0px;
+    width: 100%;
+    height: 499px;
+}
+
+.swiper-wrapper {
+    width: 100%;
+    height: 469px !important;
+}
+
+.swiper-pagination {
+    bottom: -30px;
+}
+
+.swiper-pagination-bullet {
+    background-color: #000 !important;
+}
+
+.swiper-pagination-bullet-active {
+    background-color: #000 !important;
+}
+
+.swiper-slide {
+    background: linear-gradient(180deg, #EFE6D2 0%, rgba(239, 230, 210, 0) 100%);
+}
+
+.swiper-slide img {
+    width: 100%;
+    height: 243px;
+}
+
+.swiper-slide h4 {
+    font-family: 'Encode Sans Condensed';
+    color: #101423;
+    font-weight: 700;
+    font-size: 24px;
+}
+
+.swiper-slide p {
+    font-family: Inter Display;
+    font-size: 22px;
+    font-weight: 500;
+    color: #101423;
+    letter-spacing: -2%;
+    line-height: 32px;
+}
+
+.about_us_section {
+    background-image:
+        linear-gradient(to right, rgba(15, 15, 44, 0.825) 0%, rgba(15, 15, 44, 0.25) 50%, rgba(15, 15, 44, 0.825) 100%),
+        url('/assets/iau/images/About Us Banner.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: rgb(30, 30, 53);
+    height: 852px;
+    width: 100%;
+    padding: 72px 0px;
+}
+
+.partnerships_section {
+    background-color: #FFFBF1;
+    height: 894px;
+    padding: 52px 0px;
+}
+
+.partners_section {
+    padding: 123px 0px;
+}
+
+.job_info {
+    position: relative;
+    padding-top: 224px;
+}
+
+.bulletin-container {
+    display: flex;
+    align-items: center;
+    /* Align items vertically centered */
+    gap: 20px;
+    /* Space between each bulletin */
+}
+
+.bulletin {
+    color: #8092A7;
+    font-size: 22px;
+    font-family: Inter Display;
+    font-weight: 400;
+}
+
+.disc-bulletin {
+    width: 5px;
+    height: 5px;
+    background-color: #8092A7;
+    border-radius: 50%;
+    align-self: center;
+}

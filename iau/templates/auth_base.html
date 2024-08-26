@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Default Title{% endblock %}</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    @import url('https://fonts.googleapis.com/css2?family=Encode+Sans+Condensed:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+    .divider {
+        display: flex;
+        align-items: center;
+        text-align: center;
+        margin-top: 24px;
+    }
+
+    .divider::before,
+    .divider::after {
+        content: '';
+        flex: 1;
+        border-bottom: 1px solid #ccc;
+        margin: 0;
+    }
+
+    .divider span {
+        font-family: DM Sans, sans-serif;
+        font-size: 20px;
+        color: #929292;
+        font-weight: 700;
+        padding : 0 10px;
+    }
+</style>
+
+<body style="background-image: linear-gradient(to right,
+                    rgba(15, 15, 44, 0.825) 0%,
+                    rgba(217, 217, 217, 0.25) 50%,
+                    rgba(15, 15, 44, 0.825) 100%), url('../assets/iau/images/company_background.png');
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+            width: 100vw;
+            height: 100vh;
+            background-color: rgb(30, 30, 53);
+            display: flex;
+            justify-content: center;
+            align-items: center;">
+    {% block content %}
+    <!-- Default content -->
+    {% endblock %}
+</body>
+
+</html>

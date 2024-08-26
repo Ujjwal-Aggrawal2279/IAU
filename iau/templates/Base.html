@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Default Title{% endblock %}</title>
+    <link rel="stylesheet" href="/assets/iau/css/customGlobal.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <style id="dynamic-styles">
+        /* Default styles */
+        ul li a {
+            color: white;
+            /* Default color */
+        }
+    </style>
+</head>
+
+<body style="width: 100%; height: 100vh;">
+    <div class="header">
+        <nav class="container">
+            <div>
+                <img src="/assets/iau/images/company_logo.png" alt="company_logo" />
+            </div>
+            <div>
+                <ul style="display: flex; gap: 32px; list-style: none;">
+                    <li><a href="/eservice/home"
+                            style="text-decoration: none; font-family: 'Encode Sans Condensed'; font-size: 24px; text-transform: capitalize;">Home</a>
+                    </li>
+                    <li><a href="/eservice/home#about_us"
+                            style="text-decoration: none; font-family: 'Encode Sans Condensed'; font-size: 24px; text-transform: capitalize;">About</a>
+                    </li>
+                    <li><a href="/eservice/home#latest_news"
+                            style="text-decoration: none; font-family: 'Encode Sans Condensed'; font-size: 24px; text-transform: capitalize;">News</a>
+                    </li>
+                    <li><a href="/eservice/jobs"
+                            style="text-decoration: none; font-family: 'Encode Sans Condensed'; font-size: 24px; text-transform: capitalize;">Jobs</a>
+                    </li>
+                    <li><a href="#"
+                            style="text-decoration: none; font-family: 'Encode Sans Condensed'; font-size: 24px; text-transform: capitalize;">Services</a>
+                    </li>
+                    <li><a href="#"
+                            style="text-decoration: none; font-family: 'Encode Sans Condensed'; font-size: 24px; text-transform: capitalize;">Projects</a>
+                    </li>
+                    <li><a href="/eservice/home#partnerships"
+                            style="text-decoration: none; font-family: 'Encode Sans Condensed'; font-size: 24px; text-transform: capitalize;">Partnerships</a>
+                    </li>
+                    <li><a href="/eservice/home#partners"
+                            style="text-decoration: none; font-family: 'Encode Sans Condensed'; font-size: 24px; text-transform: capitalize;">Partners</a>
+                    </li>
+                    <li><a href="#"
+                            style="text-decoration: none; font-family: 'Encode Sans Condensed'; font-size: 24px; text-transform: capitalize;">E-services</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+
+    {% block content %}
+    <!-- Default content -->
+    {% endblock %}
+
+    <div class="footer" style="background-image: linear-gradient(180deg, #2B354E 0%, #101423 100%); height : 504px;">
+        <div class="container" style="padding-top: 62px; padding-bottom : 62px;">
+            <div class="divider">
+                <span
+                    style="text-transform: uppercase; font-size: 40px; font-weight : bold; font-family: 'Encode Sans Condensed'; color : white; margin : 0px 15px;">Contact
+                    US</span>
+            </div>
+            <div style="margin-top : 40px; display: grid; grid-template-columns: repeat(3, 411px); gap: 30px;">
+                <div
+                    style="height : 101px; display: flex; align-items : center; padding : 11px;background: linear-gradient(180deg, #FFFFFF 0%, #EFE6D2 100%); gap: 35px">
+                    <div
+                        style="background: linear-gradient(180deg, #5C6B8F 0%, #1E2439 100%); width : 79px; height : 79px; display : flex; justify-content: center; align-items: center;">
+                        <svg width="34" height="33" viewBox="0 0 34 33" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M2.28772 1.23118C3.6088 -0.0892547 7.6026 -0.309897 7.63261 0.389079C7.66261 1.08694 11.2293 8.83192 11.2601 9.53107C11.2911 10.2298 8.90916 12.61 8.21249 13.3067C7.52185 13.9963 12.8729 20.0409 12.9742 20.1551C13.088 20.2573 19.1357 25.6048 19.8263 24.9141C20.5232 24.2175 22.906 21.8373 23.6027 21.8683C24.3014 21.8982 32.0521 25.4626 32.751 25.4946C33.4497 25.5245 33.2296 29.5146 31.9084 30.836C30.7784 31.9647 24.9282 36.0629 14.7555 28.7445C13.64 28.1033 11.8733 26.6324 9.19378 23.9556C9.19286 23.9547 9.19078 23.9526 9.1887 23.9514C9.18663 23.9485 9.18455 23.9473 9.18247 23.9452C9.18039 23.9432 9.17832 23.9411 9.17624 23.939C9.17532 23.9369 9.17324 23.9349 9.17209 23.934C6.49459 21.256 5.02233 19.4892 4.38037 18.375C-2.94193 8.2075 1.15897 2.35983 2.28782 1.23129L2.28772 1.23118Z"
+                                fill="white" />
+                        </svg>
+                    </div>
+                    <p
+                        style="font-family: 'Encode Sans Condensed'; font-size : 28px; color : #101423; font-weight : 700; line-height : 35px">
+                        013 333 5024</p>
+                </div>
+                <div
+                    style="height : 101px; display: flex; align-items : center; padding : 11px;background: linear-gradient(180deg, #FFFFFF 0%, #EFE6D2 100%); gap: 35px">
+                    <div
+                        style="background: linear-gradient(180deg, #5C6B8F 0%, #1E2439 100%); width : 79px; height : 79px; display : flex; justify-content: center; align-items: center;">
+                        <svg width="38" height="21" viewBox="0 0 38 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M1.34082 0L18.8998 13.6111L36.4588 0H1.34082ZM0.390625 1.41736V19.845L11.4909 10.0274L0.390625 1.41736ZM37.4099 1.41736L26.3096 10.0274L37.4099 19.845V1.41736ZM12.8681 11.0909L1.6852 21H36.1153L24.9324 11.0909L19.4513 15.3434H19.4516C19.1294 15.5892 18.672 15.5892 18.3498 15.3434L12.8687 11.0909H12.8681Z"
+                                fill="white" />
+                        </svg>
+                    </div>
+                    <p
+                        style="font-family: 'Encode Sans Condensed'; font-size : 28px; color : #101423; font-weight : 700; line-height : 35px">
+                        ics@iau.edu.sa</p>
+                </div>
+                <div
+                    style="height : 101px; display: flex; align-items : center; padding : 11px;background: linear-gradient(180deg, #FFFFFF 0%, #EFE6D2 100%); gap: 35px">
+                    <div
+                        style="background: linear-gradient(180deg, #5C6B8F 0%, #1E2439 100%); width : 79px; height : 79px; display : flex; justify-content: center; align-items: center;">
+                        <svg width="33" height="32" viewBox="0 0 33 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <g clip-path="url(#clip0_288_537)">
+                                <path
+                                    d="M19.72 13.5513L31.6409 0H28.817L18.4617 11.764L10.1972 0H0.662598L13.163 17.791L0.662598 31.9999H3.48647L14.4148 19.574L23.1447 31.9999H32.6793M4.50566 2.08252H8.84392L28.8149 30.0197H24.4755"
+                                    fill="white" />
+                            </g>
+                            <defs>
+                                <clipPath id="clip0_288_537">
+                                    <rect width="32.0167" height="32" fill="white" transform="translate(0.662598)" />
+                                </clipPath>
+                            </defs>
+                        </svg>
+                    </div>
+                    <p
+                        style="font-family: 'Encode Sans Condensed'; font-size : 28px; color : #101423; font-weight : 700; line-height : 35px">
+                        @iau_icss</p>
+                </div>
+            </div>
+            <div style="margin-top : 120px; display: grid; grid-template-columns: repeat(3, 411px); gap: 30px">
+                <div>
+                    <p
+                        style="text-decoration: underline; font-size : 22px; font-weight: 700; color : white; font-family : Inter Display;">
+                        Homepage</p>
+                </div>
+                <div>
+                    <p
+                        style="font-size : 20px; text-align : center; font-family : Inter Display; font-weight : 400; color : white">
+                        © 2024 Imam Abdulrahman Bin Faisal University.
+                    </p>
+                    <p
+                        style="font-size : 20px; text-align : center; font-family : Inter Display; font-weight : 400; color : white">
+                        All rights reserved.
+                    </p>
+                </div>
+                <div>
+                    <p
+                        style="font-size : 22px; font-weight: 400; color : white; font-family : Inter Display; text-align : right;">
+                        Implemented by Makwiz Technologies</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <button id="scrollToTopBtn"
+        style="display: none; position: fixed; bottom: 20px; right: 20px; background-color: #2B354E; color: white; border: none; border-radius: 50%; width: 50px; height: 50px; cursor: pointer; font-size : 30px;">
+        ↑
+    </button>
+    <script>
+        // Function to update styles based on page title
+        function updateStylesBasedOnTitle() {
+            var pageTitle = document.title;
+            var styleSheet = document.getElementById('dynamic-styles').sheet;
+
+            if (pageTitle === 'Job Information') {
+                // Apply styles if the page title is 'Job Information'
+                styleSheet.insertRule('ul li a { color: black; }', styleSheet.cssRules.length);
+            } else {
+                // Apply default styles
+                styleSheet.insertRule('ul li a { color: white; }', styleSheet.cssRules.length);
+            }
+        }
+
+        // Call the function to apply styles
+        updateStylesBasedOnTitle();
+
+        // Scroll-to-top button functionality
+        const scrollToTopBtn = document.getElementById('scrollToTopBtn');
+        window.onscroll = function () {
+            if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+                scrollToTopBtn.style.display = "block";
+            } else {
+                scrollToTopBtn.style.display = "none";
+            }
+        };
+        scrollToTopBtn.addEventListener('click', function () {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    </script>
+</body>
+
+</html>
