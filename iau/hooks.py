@@ -243,13 +243,20 @@ app_license = "mit"
 # }
 
 # Fixtues
-# fixtures = [
-#     {
-#         "doctype": "Website Settings",
-#         "filters": [
-#             ["home_page", "!=", ""]
-#         ]
-#     }
-# ]
+fixtures = [
+    {
+        "doctype": "Website Settings",
+        "filters": [
+            ["home_page", "!=", ""]
+        ]
+    },
+    {
+        "doctype": "Website Theme",
+        "filters": [
+            ["name", "=", "IAU Web"]
+        ]
+    }
+]
+
 
 

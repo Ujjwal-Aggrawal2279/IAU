@@ -1,0 +1,33 @@
+{% extends "templates/Base.html" %}
+
+{% block title %}
+News
+{% endblock %}
+
+{% block content %}
+<section class="news_listing" style="background-color: #FFFBF1;">
+    <div class="container">
+        <div class="divider" style="margin-top: 72px; padding-bottom : 42px;">
+            <span class="text_span"
+                style="text-transform: uppercase; font-size: 40px; font-weight : bold; font-family: 'Encode Sans Condensed'; color : #3D4667;">All
+                News</span>
+        </div>
+        <div class="select_container" style="width : 215px;padding: 10px 5px;">
+            <label for="sort" class="custom-label">Sort by:</label>
+            <select id="sort" class="custom-select">
+                <option value="most-recent">Most Recent</option>
+                <option value="oldest">Oldest</option>
+                <option value="highest-rated">Highest Rated</option>
+                <option value="lowest-rated">Lowest Rated</option>
+            </select>
+        </div>
+        <div id="news_listings_container"
+            style="width: 100%; display: grid; grid-template-columns: repeat(3, 421px); gap: 15px; grid-auto-rows: 469px; padding : 56px 0px">
+            <!-- Dynamic Divs will be rendering here -->
+        </div>
+    </div>
+</section>
+<script>
+    {% include "templates/includes/news_listings.js" %}
+</script>
+{% endblock %}

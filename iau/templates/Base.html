@@ -37,7 +37,7 @@
                     <li><a href="/eservice/home#jobs_openings"
                             style="text-decoration: none; font-family: 'Encode Sans Condensed'; font-size: 24px; text-transform: capitalize;">Jobs</a>
                     </li>
-                    <li><a href="#"
+                    <li><a href="/eservice/home#services"
                             style="text-decoration: none; font-family: 'Encode Sans Condensed'; font-size: 24px; text-transform: capitalize;">Services</a>
                     </li>
                     <li><a href="#"
@@ -49,7 +49,7 @@
                     <li><a href="/eservice/home#partners"
                             style="text-decoration: none; font-family: 'Encode Sans Condensed'; font-size: 24px; text-transform: capitalize;">Partners</a>
                     </li>
-                    <li><a href="/eservice/login"
+                    <li><a href="/login"
                             style="text-decoration: none; font-family: 'Encode Sans Condensed'; font-size: 24px; text-transform: capitalize;">E-services</a>
                     </li>
                 </ul>
@@ -149,22 +149,25 @@
         ↑
     </button>
     <script>
-        // Function to update styles based on page title
         function updateStylesBasedOnTitle() {
             var pageTitle = document.title;
             var styleSheet = document.getElementById('dynamic-styles').sheet;
+            var logoImg = document.querySelector('nav img');
 
             if (pageTitle !== 'Home') {
-                // Apply styles if the page title is 'Job Information'
+                // Apply styles for non-Home pages
                 styleSheet.insertRule('ul li a { color: black; }', styleSheet.cssRules.length);
+                logoImg.src = '/assets/iau/images/Auth Logo.png';
             } else {
                 // Apply default styles
                 styleSheet.insertRule('ul li a { color: white; }', styleSheet.cssRules.length);
+                logoImg.src = '/assets/iau/images/company_logo.png';
             }
         }
 
-        // Call the function to apply styles
+        // Call the function to apply styles and update the logo
         updateStylesBasedOnTitle();
+
 
         // Scroll-to-top button functionality
         const scrollToTopBtn = document.getElementById('scrollToTopBtn');
