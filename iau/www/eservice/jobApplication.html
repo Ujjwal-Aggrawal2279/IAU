@@ -1,0 +1,180 @@
+{% extends "templates/Base.html" %}
+
+{% block title %}
+Job Application
+{% endblock %}
+
+{% block content %}
+<section class="job_application" style="background-color: #EFE6D2;">
+    <div class="container">
+        <div style="display: flex; align-items: center; justify-content: space-between; padding : 40px 0px; border-bottom: 2px solid transparent; /* Make the border transparent initially */
+        border-image: linear-gradient(90deg, #93A1BB 0%, rgba(67, 73, 85, 0) 100%);
+        border-image-slice: 1; ">
+            <div>
+                <h1
+                    style="text-transform: capitalize; font-size: 40px; font-weight: 700; color: #3D4667; font-family: Encode Sans Condensed;">
+                    Applying for Senior Project Manager
+                </h1>
+                <div class="bulletin-container">
+                    <div style="padding: 20px 20px 20px 0; color: #8092A7; font-size: 22px;
+                        font-family: Inter Display; font-weight: 400;">Management</div>
+                    <div class="disc-bulletin"></div>
+                    <div class="bulletin" style="padding: 20px 20px 20px 0;">Full-time</div>
+                    <div class="disc-bulletin"></div>
+                    <div class="bulletin" style="padding: 20px 20px 20px 0;">Riyadh</div>
+                </div>
+            </div>
+            <div>
+                <div
+                    style="background: #FFBCBC; padding : 10px 140px; font-family: Inter Display; font-size: 22px;
+                font-weight: 700;line-height: 26.62px; letter-spacing: -0.03em; text-align: center; color : #9B0000;                ">
+                    Not Saved
+                </div>
+            </div>
+        </div>
+        <form style="padding-top: 40px;">
+            <div style="display : flex; justify-content: space-between;">
+                <div style="display : flex; flex-direction: column; width : 49%">
+                    <label for="job title"
+                        style="font-family: inter; font-size: 20px; line-height: 24px; color : #929292; font-weight: 600">Job
+                        Title</label>
+                    <input type="text" class="form-control" id="job_title" readonly placeholder="HR-OPN-2024-0010"
+                        style="border: 1px solid #324362;font-family: Inter;
+                    margin-top: 14px;
+                        font-size: 22px;
+                        font-weight: 500;
+                        line-height: 26.63px;
+                        letter-spacing: -0.02em;
+                        text-align: left;
+                        color : black;
+                        padding : 10px 24px;
+                        background-color: #f2e6ce;">
+                </div>
+                <div style="display : flex; flex-direction: column; width : 49%">
+                    <label for="applicant name"
+                        style="font-family: inter; font-size: 20px; line-height: 24px; color : #929292; font-weight: 600">Applicant
+                        Name</label>
+                    <input type="text" class="form-control" id="job_title" placeholder="johndoe@gmail.com" style="border: 1px solid #324362;font-family: Inter;
+                        margin-top: 14px;
+                        font-size: 22px;
+                        font-weight: 500;
+                        line-height: 26.63px;
+                        letter-spacing: -0.02em;
+                        text-align: left;
+                        color : black;
+                        padding : 10px 24px;">
+                </div>
+            </div>
+            <div style="display : flex; justify-content: space-between; margin-top: 24px;">
+                <div style="display : flex; flex-direction: column; width : 49%">
+                    <label for="applicant email"
+                        style="font-family: inter; font-size: 20px; line-height: 24px; color : #929292; font-weight: 600">Email
+                    </label>
+                    <input type="text" class="form-control" id="applicant_email" placeholder="johndoe@gmail.com" style="border: 1px solid #324362;font-family: Inter;
+                    margin-top: 14px;
+                    font-size: 22px;
+                    font-weight: 500;
+                    line-height: 26.63px;
+                    letter-spacing: -0.02em;
+                    text-align: left;
+                    color : black;
+                    padding : 10px 24px;">
+                </div>
+                <div style="display : flex; justify-content: space-between; width: 49%;">
+                    <div style="display : flex; flex-direction: column; width : 49.5%">
+                        <label for="applicant phone number"
+                            style="font-family: inter; font-size: 20px; line-height: 24px; color : #929292; font-weight: 600">Phone
+                            Number
+                        </label>
+                        <input type="text" class="form-control" id="applicant_phone_number"
+                            placeholder="+91 99999 22222" style="border: 1px solid #324362;font-family: Inter;
+                        margin-top: 14px;
+                        font-size: 22px;
+                        font-weight: 500;
+                        line-height: 26.63px;
+                        letter-spacing: -0.02em;
+                        text-align: left;
+                        color : black;
+                        padding : 10px 24px;">
+                    </div>
+                    <div style="display : flex; flex-direction: column; width : 49.5%">
+                        <label for="country of Reseidence"
+                            style="font-family: inter; font-size: 20px; line-height: 24px; color : #929292; font-weight: 600;">Country
+                            of Reseidence
+                        </label>
+                        <input type="text" class="form-control" id="country_of_residence" placeholder="India" style="border: 1px solid #324362;font-family: Inter;
+                        margin-top: 14px;
+                        font-size: 22px;
+                        font-weight: 500;
+                        line-height: 26.63px;
+                        letter-spacing: -0.02em;
+                        text-align: left;
+                        color : black;
+                        padding : 10px 24px;">
+                    </div>
+                </div>
+            </div>
+            <div style="margin-top: 24px;">
+                <label for="applicant_email"
+                    style="font-family: Inter, sans-serif; font-size: 20px; line-height: 24px; color: #929292; font-weight: 600;">
+                    Cover Letter
+                </label>
+                <textarea id="applicant_email"
+                    style="border: 1px solid #324362; font-family: Inter, sans-serif; margin-top: 14px; 
+                        font-size: 22px; font-weight: 500; line-height: 26.63px; letter-spacing: -0.02em; 
+                        text-align: left; color: black; padding: 10px 14px; width: 100%; box-sizing: border-box; min-height: 221px;">
+                </textarea>
+            </div>
+            <button type="button" style="width: 100%; background: linear-gradient(180deg, #FFFBF1 0%, rgba(255, 251, 241, 0) 100%); font-family: Inter Display;
+            margin-top: 22px;
+            font-size: 22px;
+            font-weight: 700;
+            line-height: 32px;
+            letter-spacing: -0.02em;
+            text-align: center;
+            color : #101423;
+            outline: none;
+            box-shadow: none;
+            border: 1px solid transparent !important;
+            border-image: linear-gradient(180deg, #324362 -77.78%, rgba(50, 67, 98, 0) 129.63%) !important;
+            border-image-slice: 1 !important;">
+                Upload Resume
+            </button>
+            <div class="submit-button-container"
+                style="display: flex; gap: 20px; justify-content: flex-end; margin-top: 40px;">
+                <button style="background: linear-gradient(180deg, #FFFBF1 0%, rgba(255, 251, 241, 0) 100%);
+            font-family: Inter Display;
+            font-size: 22px;
+            font-weight: 700;
+            line-height: 32px;
+            letter-spacing: -0.02em;
+            text-align: center;
+            color: #101423;
+            outline: none;
+            box-shadow: none;
+            padding: 10px 40px; /* Increased padding for consistent button height */
+            border: 1px solid transparent;
+            border-image: linear-gradient(180deg, #324362 -77.78%, rgba(50, 67, 98, 0) 129.63%);
+            border-image-slice: 1;">
+                    Discard
+                </button>
+                <button style="background-color: #101423;
+            color: white;
+            font-family: Inter Display;
+            font-size: 22px;
+            font-weight: 700;
+            line-height: 32px;
+            letter-spacing: -0.02em;
+            padding: 10px 40px; /* Increased padding for consistent button height */
+            outline: none;
+            box-shadow: none;
+            border: 1px solid transparent;
+            border-image: linear-gradient(180deg, #324362 -77.78%, rgba(50, 67, 98, 0) 129.63%);
+            border-image-slice: 1;">
+                    Save
+                </button>
+            </div>
+        </form>
+    </div>
+</section>
+{% endblock %}

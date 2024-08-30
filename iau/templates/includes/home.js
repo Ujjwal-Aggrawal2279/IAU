@@ -1,8 +1,11 @@
-// Swiper JS
-var swiper = new Swiper(".mySwiper", {
-    slidesPerView: 3,
-    slidesPerGroup: 1,
-    spaceBetween: 30,
+var swiper = new Swiper(".myBannerSwiper", {
+    slidesPerView: 1,
+    spaceBetween: 0,
+    loop: true,
+    autoplay: {
+        delay: 3000,
+        disableOnInteraction: false,
+    },
     pagination: {
         el: ".swiper-pagination",
         clickable: true,
@@ -13,7 +16,7 @@ var swiper = new Swiper(".mySwiper", {
 
 const fetchJobOpenings = async () => {
     try {
-        const response = await fetch('/api/resource/Job Opening?fields=["*"]');
+        const response = await fetch('/api/resource/Job Opening?fields=["*"]&limit_page_length=null');
         if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`);
         }
@@ -71,3 +74,87 @@ const renderJobOpenings = (jobOpenings) => {
 };
 
 fetchJobOpenings();
+
+// Fetching the Blog Posts records for rendering
+
+const fetchBlogPosts = async () => {
+    try {
+        const response = await fetch('/api/resource/Blog%20Post?fields=["*"]&filters=[["meta_image","!=",""]]&limit_page_length=null');
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        const data = await response.json();
+        renderBlogPost(data.data);
+
+        // Initialize Swiper JS after rendering blog posts
+        var swiper = new Swiper(".mySwiper", {
+            slidesPerView: 3,
+            slidesPerGroup: 1,
+            spaceBetween: 30,
+            pagination: {
+                el: ".swiper-pagination",
+                clickable: true,
+            },
+        });
+    } catch (error) {
+        console.error('Error:', error);
+    }
+};
+
+fetchBlogPosts();
+
+
+// Render Job Openings into the container
+const renderBlogPost = (blogs) => {
+    const listingsContainer = document.getElementById('featured_blogs_seection');
+
+    // Clearing the container if there are any existing listings
+    listingsContainer.innerHTML = '';
+
+    if (blogs.length === 0) {
+        // Create a message element
+        const messageDiv = document.createElement('div');
+        messageDiv.style.display = 'flex';
+        messageDiv.style.justifyContent = 'center';
+        messageDiv.style.alignItems = 'center';
+        messageDiv.style.height = '100px';
+        messageDiv.style.textAlign = 'center';
+        messageDiv.innerHTML = `
+            <p style="font-family: 'Encode Sans Condensed'; font-size: 22px; font-weight: 700; color: #101423;">
+                No News available right now!
+            </p>
+        `;
+        listingsContainer.appendChild(messageDiv);
+    } else {
+        // Creating and appending divs for each blog post
+        blogs.forEach(blog => {
+            const date = new Date(blog.published_on);
+            const options = { year: 'numeric', month: 'long', day: 'numeric' };
+            const formattedDate = date.toLocaleDateString('en-US', options);
+            const blogDiv = document.createElement('div');
+
+            // Add the global class and swiper-slide class
+            blogDiv.classList.add('blogDiv', 'swiper-slide');
+
+            blogDiv.innerHTML = `
+                <div style="height: 243px;">
+                    <img src="${blog.meta_image}" alt="news 1" />
+                </div>
+                <article style="padding: 24px">
+                    <h4 style="font-family: 'Encode Sans Condensed'; font-size: 22px; font-weight: 700; line-height: 28px; color: #101423;">
+                        ${blog.title}
+                    </h4>
+                    <p style="font-family: Inter Display; font-size: 18px; line-height: 26px; color: #101423;">
+                        ${blog.blog_intro}
+                    </p>
+                    <p style="color: #3D4667; font-family: Inter Display; font-weight: 500; font-size: 22px; line-height: 32px; margin-top: 6px;">
+                        ${formattedDate}
+                    </p>
+                </article>
+            `;
+            listingsContainer.appendChild(blogDiv);
+        });
+    }
+};
+
+fetchBlogPosts();
