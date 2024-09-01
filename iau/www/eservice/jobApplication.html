@@ -11,23 +11,22 @@ Job Application
         border-image: linear-gradient(90deg, #93A1BB 0%, rgba(67, 73, 85, 0) 100%);
         border-image-slice: 1; ">
             <div>
-                <h1
+                <h1 id="job_title"
                     style="text-transform: capitalize; font-size: 40px; font-weight: 700; color: #3D4667; font-family: Encode Sans Condensed;">
-                    Applying for Senior Project Manager
                 </h1>
                 <div class="bulletin-container">
-                    <div style="padding: 20px 20px 20px 0; color: #8092A7; font-size: 22px;
-                        font-family: Inter Display; font-weight: 400;">Management</div>
+                    <div id="department" style="padding: 20px 20px 20px 0; color: #8092A7; font-size: 22px;
+                        font-family: Inter Display; font-weight: 400;"></div>
                     <div class="disc-bulletin"></div>
-                    <div class="bulletin" style="padding: 20px 20px 20px 0;">Full-time</div>
+                    <div id="employment_type" class="bulletin" style="padding: 20px 20px 20px 0;"></div>
                     <div class="disc-bulletin"></div>
-                    <div class="bulletin" style="padding: 20px 20px 20px 0;">Riyadh</div>
+                    <div id="location" class="bulletin" style="padding: 20px 20px 20px 0;"></div>
                 </div>
             </div>
             <div>
-                <div
-                    style="background: #FFBCBC; padding : 10px 140px; font-family: Inter Display; font-size: 22px;
-                font-weight: 700;line-height: 26.62px; letter-spacing: -0.03em; text-align: center; color : #9B0000;                ">
+                <div id="not-saved-indicator" style="background: #FFBCBC; padding : 10px 140px; font-family: Inter Display; font-size: 22px;
+                        font-weight: 700;line-height: 26.62px; letter-spacing: -0.03em; text-align: center; color : #9B0000;
+                        display: none;">
                     Not Saved
                 </div>
             </div>
@@ -38,8 +37,7 @@ Job Application
                     <label for="job title"
                         style="font-family: inter; font-size: 20px; line-height: 24px; color : #929292; font-weight: 600">Job
                         Title</label>
-                    <input type="text" class="form-control" id="job_title" readonly placeholder="HR-OPN-2024-0010"
-                        style="border: 1px solid #324362;font-family: Inter;
+                    <input type="text" class="form-control" id="job_title" readonly style="border: 1px solid #324362;font-family: Inter;
                     margin-top: 14px;
                         font-size: 22px;
                         font-weight: 500;
@@ -54,7 +52,7 @@ Job Application
                     <label for="applicant name"
                         style="font-family: inter; font-size: 20px; line-height: 24px; color : #929292; font-weight: 600">Applicant
                         Name</label>
-                    <input type="text" class="form-control" id="job_title" placeholder="johndoe@gmail.com" style="border: 1px solid #324362;font-family: Inter;
+                    <input type="text" class="form-control" id="applicant_name" placeholder="johndoe@gmail.com" style="border: 1px solid #324362;font-family: Inter;
                         margin-top: 14px;
                         font-size: 22px;
                         font-weight: 500;
@@ -115,29 +113,30 @@ Job Application
                 </div>
             </div>
             <div style="margin-top: 24px;">
-                <label for="applicant_email"
+                <label for="cover_letter"
                     style="font-family: Inter, sans-serif; font-size: 20px; line-height: 24px; color: #929292; font-weight: 600;">
                     Cover Letter
                 </label>
-                <textarea id="applicant_email"
+                <textarea id="cover_letter"
                     style="border: 1px solid #324362; font-family: Inter, sans-serif; margin-top: 14px; 
                         font-size: 22px; font-weight: 500; line-height: 26.63px; letter-spacing: -0.02em; 
                         text-align: left; color: black; padding: 10px 14px; width: 100%; box-sizing: border-box; min-height: 221px;">
                 </textarea>
             </div>
-            <button type="button" style="width: 100%; background: linear-gradient(180deg, #FFFBF1 0%, rgba(255, 251, 241, 0) 100%); font-family: Inter Display;
-            margin-top: 22px;
-            font-size: 22px;
-            font-weight: 700;
-            line-height: 32px;
-            letter-spacing: -0.02em;
-            text-align: center;
-            color : #101423;
-            outline: none;
-            box-shadow: none;
-            border: 1px solid transparent !important;
-            border-image: linear-gradient(180deg, #324362 -77.78%, rgba(50, 67, 98, 0) 129.63%) !important;
-            border-image-slice: 1 !important;">
+            <input type="file" id="fileInput" style="display: none;" />
+            <button type="button" id="uploadButton" style="width: 100%; background: linear-gradient(180deg, #FFFBF1 0%, rgba(255, 251, 241, 0) 100%); font-family: Inter Display;
+                margin-top: 22px;
+                font-size: 22px;
+                font-weight: 700;
+                line-height: 32px;
+                letter-spacing: -0.02em;
+                text-align: center;
+                color : #101423;
+                outline: none;
+                box-shadow: none;
+                border: 1px solid transparent !important;
+                border-image: linear-gradient(180deg, #324362 -77.78%, rgba(50, 67, 98, 0) 129.63%) !important;
+                border-image-slice: 1 !important;">
                 Upload Resume
             </button>
             <div class="submit-button-container"
@@ -177,4 +176,7 @@ Job Application
         </form>
     </div>
 </section>
+<script>
+    {% include "templates/includes/job_application.js" %}
+</script>
 {% endblock %}

@@ -1,0 +1,109 @@
+async function getUserFullName() {
+    try {
+        // Fetch the logged-in user's ID
+        const response = await fetch('/api/method/frappe.auth.get_logged_user', {
+            method: 'GET',
+        });
+
+        if (!response.ok) {
+            throw new Error('User is not logged in or session has expired.');
+        }
+
+        const { message: userId } = await response.json(); // Extract the user ID
+
+        // Fetch the user's details using their ID
+        const userDetailsResponse = await fetch(`/api/resource/User/${userId}`, {
+            method: 'GET',
+        });
+
+        if (!userDetailsResponse.ok) {
+            throw new Error('Failed to fetch user details.');
+        }
+
+        const { data: userDetails } = await userDetailsResponse.json(); // Extract user details
+
+        // Access the user's Full Name and Image and set it
+        const fullNameHeadingEle = document.getElementById('full_name');
+        const userImageEle = document.getElementById('user_avatar');
+        const userEmailId = userDetails.email;
+        fullNameHeadingEle.textContent = `${userDetails.full_name}`;
+        userImageEle.src = userDetails.user_image;
+
+        // Fetch job applicant data using the email ID
+        const jobApplicantResponse = await fetch(`/api/resource/Job Applicant?limit_page_length=null&fields=["*"]&filters=[["email_id", "=", "${userEmailId}"]]`, {
+            method: 'GET',
+        });
+
+        if (!jobApplicantResponse.ok) {
+            throw new Error('Failed to fetch job applicant data.');
+        }
+
+        const { data: jobApplicants } = await jobApplicantResponse.json(); // Extract job applicant data
+
+        // Get the jobsTableBody element
+        const jobsTableBody = document.getElementById('jobsTableBody');
+
+        // Clear existing rows (if any)
+        jobsTableBody.innerHTML = '';
+
+        // Helper function to format the date
+        function formatDate(dateString) {
+            const date = new Date(dateString);
+            const options = { year: 'numeric', month: 'long', day: 'numeric' };
+            return date.toLocaleDateString(undefined, options);
+        }
+
+        // Append each job applicant as a table row
+        jobApplicants.forEach(job => {
+            let statusClass = '';
+            let statusText = '';
+
+            switch (job.status) {
+                case 'Applied':
+                    statusClass = 'status-applied';
+                    statusText = 'Applied';
+                    break;
+                case 'Hold':
+                    statusClass = 'status-under-review';
+                    statusText = 'Hold';
+                    break;
+                case 'Rejected':
+                    statusClass = 'status-rejected';
+                    statusText = 'Rejected';
+                    break;
+                default:
+                    statusClass = '';
+                    statusText = job.status;
+            }
+
+            const row = document.createElement('tr');
+            row.innerHTML = `
+                <td>${job.job_title}</td>
+                <td>${formatDate(job.creation)}</td>
+                <td class="${statusClass}">${statusText} <span class="status-dot"></span></td>
+            `;
+            jobsTableBody.appendChild(row);
+        });
+
+    } catch (error) {
+        console.error('Error:', error.message);
+    }
+}
+
+// Usage
+getUserFullName();
+
+// Adding the search functionality
+document.getElementById('jobSearchInput').addEventListener('input', function () {
+    const filter = this.value.toLowerCase();
+    const rows = document.querySelectorAll('#jobsTableBody tr');
+
+    rows.forEach(row => {
+        const title = row.querySelector('td:first-child').textContent.toLowerCase();
+        if (title.includes(filter)) {
+            row.style.display = '';
+        } else {
+            row.style.display = 'none';
+        }
+    });
+});

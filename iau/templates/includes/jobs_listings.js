@@ -33,12 +33,18 @@ const renderJobOpenings = (jobOpenings) => {
 
         // Customize the content inside the div
         jobDiv.innerHTML = `
-            <p style = "font-family : 'Encode Sans Condensed'; font-size : 24px; font-weight : 700; line-height : 30px; color : #101423">${job.job_title}</p>
-            <div style="display : flex; justify-content : space-between; margin-top : 36px;">
-                <a href="/eservice/jobInfo">
-                    <p style = "font-family : Inter Display; font-weight : 500; font-size : 22px; line-height : 32px; color : #3D4667; text-decoration : underline; text-decoration-color : #3D4667">Learn More</p>
+            <p class="job-title-class" style="font-family: 'Encode Sans Condensed'; font-size: 24px; font-weight: 700; line-height: 30px; color: #101423">
+                ${job.job_title}
+            </p>
+            <div style="display: flex; justify-content: space-between; margin-top: 36px;">
+                <a href="/eservice/jobInfo?JobTitle=${encodeURIComponent(job.job_title)}">
+                    <p style="font-family: Inter Display; font-weight: 500; font-size: 22px; line-height: 32px; color: #3D4667; text-decoration: underline; text-decoration-color: #3D4667">
+                        Learn More
+                    </p>
                 </a>
-                <p style="font-family : Inter Display; font-size : 18px; line-height : 32px; color : #8092A7;">${formattedDate}</p>
+                <p style="font-family: Inter Display; font-size: 18px; line-height: 32px; color: #8092A7;">
+                    ${formattedDate}
+                </p>
             </div>
         `;
         listingsContainer.appendChild(jobDiv);
@@ -46,3 +52,22 @@ const renderJobOpenings = (jobOpenings) => {
 };
 
 fetchJobOpenings();
+
+document.getElementById('jobSearchInput').addEventListener('input', function () {
+    const filter = this.value.toLowerCase();
+    const divs = document.querySelectorAll('#listings_container > div');
+
+    divs.forEach(div => {
+        const titleElement = div.querySelector('.job-title-class');
+        if (titleElement) {
+            const title = titleElement.textContent.toLowerCase();
+            if (title.includes(filter)) {
+                div.style.display = '';
+            } else {
+                div.style.display = 'none';
+            }
+        }
+    });
+});
+
+

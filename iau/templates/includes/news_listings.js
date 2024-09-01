@@ -53,21 +53,20 @@ const renderBlogPosts = async (blogPosts) => {
 
         // Customize the content inside the div
         blogDiv.innerHTML = `
-            <div style="height : 243px;">
-                <img src="${imageUrl}" alt="${blog.name}" style="width: 100%; height: 243px;" />
-            </div>
-            <article style="padding: 14px">
-                <h4 style="color : #101423; font-weight : 700; font-size : 24px; line-height : 30px; font-family : Encode Sans Condensed;">${blog.name}</h4>
-                <p style="margin-top : 12px; font-family : Inter Display; font-size : 22px; line-height : 32px; color : #101423; font-weight : 500;">${blog.blog_intro}</p>
-                <div style="display : flex; gap : 20px; align-items : center; margin-top : 14px;">
-                    <p style="color: #3D4667; font-family: Inter Display; font-weight: 500; font-size: 22px; line-height: 32px; margin-top: 6px;">
-                    ${formattedDate}
-                    </p>
-                    <a href="/eservice/newsinfo">
-                        <p style = "font-family : Inter Display; font-weight : 500; font-size : 22px; line-height : 32px; color : #3D4667; text-decoration : underline; text-decoration-color : #3D4667">Read More</p>
-                    </a>
+            <a href="/eservice/newsinfo?NewsTitle=${encodeURIComponent(blog.title)}" style="text-decoration : none;">
+                <div style="height : 243px;">
+                    <img src="${imageUrl}" alt="${blog.name}" style="width: 100%; height: 243px;" />
                 </div>
-            </article>
+                <article style="padding: 14px">
+                    <h4 style="color : #101423; font-weight : 700; font-size : 24px; line-height : 30px; font-family : Encode Sans Condensed;">${blog.name}</h4>
+                    <p style="margin-top : 12px; font-family : Inter Display; font-size : 22px; line-height : 32px; color : #101423; font-weight : 500;">${blog.blog_intro}</p>
+                    <div style="display : flex; gap : 20px; align-items : center; margin-top : 14px;">
+                        <p style="color: #3D4667; font-family: Inter Display; font-weight: 500; font-size: 22px; line-height: 32px; margin-top: 6px;">
+                        ${formattedDate}
+                        </p>
+                    </div>
+                </article>
+            </a>
         `;
         listingsContainer.appendChild(blogDiv);
     }

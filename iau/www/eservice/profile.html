@@ -1,0 +1,103 @@
+{% extends "templates/Base.html" %}
+
+{% block title %}
+News
+{% endblock %}
+
+{% block content %}
+<section class="profile_section" style="background-color: #EFE6D2;">
+    <div class="container"
+        style="background: linear-gradient(180deg, #FFFBF1 0%, rgba(255, 251, 241, 0) 100%); margin-top: 50px;">
+        <div style="padding-top : 40px;">
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+                <h1
+                    style="font-family: Encode Sans Condensed; font-size: 28px; font-weight: 700; line-height: 35px; text-align: left; color : #3D4667; text-transform : uppercase">
+                    About</h1>
+                <div
+                    style="background: linear-gradient(90deg, #93A1BB 0%, rgba(67, 73, 85, 0) 100%); height : 1px; width: 80%;">
+                </div>
+            </div>
+            <div style="margin-top : 40px; display : flex; justify-content: space-between; align-items: center;">
+                <div style="display : flex; gap : 14px ; align-items: center;">
+                    <div style="width : 150px; height : 150px; border-radius: 50%; border : 1px solid #D9D9D9">
+                        <img id="user_avatar" alt="User Avatar"
+                            style="width : 100%; height : 100%; border-radius: 50%;">
+                    </div>
+                    <h2 id="full_name"
+                        style="font-family: Encode Sans Condensed;font-size: 32px; font-weight: 700; line-height: 40px; text-align: left; color : #101423">
+                    </h2>
+                </div>
+                <div
+                    style="height : 101px; display: flex; align-items : center; padding : 11px;background: linear-gradient(90deg, #EFE6D2 0%, rgba(239, 230, 210, 0) 100%); gap: 35px">
+                    <div
+                        style="background: linear-gradient(180deg, #5C6B8F 0%, #1E2439 100%); width : 79px; height : 79px; display : flex; justify-content: center; align-items: center;">
+                        <svg width="34" height="33" viewBox="0 0 34 33" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M2.28772 1.23118C3.6088 -0.0892547 7.6026 -0.309897 7.63261 0.389079C7.66261 1.08694 11.2293 8.83192 11.2601 9.53107C11.2911 10.2298 8.90916 12.61 8.21249 13.3067C7.52185 13.9963 12.8729 20.0409 12.9742 20.1551C13.088 20.2573 19.1357 25.6048 19.8263 24.9141C20.5232 24.2175 22.906 21.8373 23.6027 21.8683C24.3014 21.8982 32.0521 25.4626 32.751 25.4946C33.4497 25.5245 33.2296 29.5146 31.9084 30.836C30.7784 31.9647 24.9282 36.0629 14.7555 28.7445C13.64 28.1033 11.8733 26.6324 9.19378 23.9556C9.19286 23.9547 9.19078 23.9526 9.1887 23.9514C9.18663 23.9485 9.18455 23.9473 9.18247 23.9452C9.18039 23.9432 9.17832 23.9411 9.17624 23.939C9.17532 23.9369 9.17324 23.9349 9.17209 23.934C6.49459 21.256 5.02233 19.4892 4.38037 18.375C-2.94193 8.2075 1.15897 2.35983 2.28782 1.23129L2.28772 1.23118Z"
+                                fill="white" />
+                        </svg>
+                    </div>
+                    <p
+                        style="font-family: 'Encode Sans Condensed'; font-size : 28px; color : #101423; font-weight : 700; line-height : 35px">
+                        +91 999 999 1234</p>
+                </div>
+                <div
+                    style="height : 101px; display: flex; align-items : center; padding : 11px;background: linear-gradient(90deg, #EFE6D2 0%, rgba(239, 230, 210, 0) 100%); gap: 35px">
+                    <div
+                        style="background: linear-gradient(180deg, #5C6B8F 0%, #1E2439 100%); width : 79px; height : 79px; display : flex; justify-content: center; align-items: center;">
+                        <svg width="38" height="21" viewBox="0 0 38 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M1.34082 0L18.8998 13.6111L36.4588 0H1.34082ZM0.390625 1.41736V19.845L11.4909 10.0274L0.390625 1.41736ZM37.4099 1.41736L26.3096 10.0274L37.4099 19.845V1.41736ZM12.8681 11.0909L1.6852 21H36.1153L24.9324 11.0909L19.4513 15.3434H19.4516C19.1294 15.5892 18.672 15.5892 18.3498 15.3434L12.8687 11.0909H12.8681Z"
+                                fill="white" />
+                        </svg>
+                    </div>
+                    <p
+                        style="font-family: 'Encode Sans Condensed'; font-size : 28px; color : #101423; font-weight : 700; line-height : 35px">
+                        johndoe@abc.com</p>
+                </div>
+            </div>
+        </div>
+        <div style="padding-top : 40px;">
+            <div style="display : flex; justify-content: space-between; align-items: center;">
+                <h1
+                    style="font-family: Encode Sans Condensed; font-size: 28px; font-weight: 700; line-height: 35px; text-align: left; color : #3D4667; text-transform : uppercase">
+                    Your Jobs</h1>
+                <div
+                    style="background: linear-gradient(90deg, #93A1BB 0%, rgba(67, 73, 85, 0) 100%); height : 1px; width: 80%;">
+                </div>
+            </div>
+            <div style="margin-top : 30px; display : flex; justify-content: space-between; align-items: center;">
+                <div style="display : flex; width : 633px">
+                    <input id="jobSearchInput"
+                        style="width : 100%;padding : 11px; border : 1px solid #324362; font-size : 22px; font-family : Inter; line-height : 26.63px"
+                        type="text" placeholder="Type in a job title" />
+                    <button
+                        style="padding : 11px 36px; text-align : center; background-color : #101243; color : white; font-weight : 700; font-family : Inter Display ; font-size : 22px; line-height : 32px">Search</button>
+                </div>
+                <div class="select_container" style="padding : 11px !important">
+                    <label for="sort" class="custom-label">Sort by:</label>
+                    <select id="sort" class="custom-select">
+                        <option value="most-recent">Most Recent</option>
+                        <option value="oldest">Oldest</option>
+                    </select>
+                </div>
+            </div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Job Title</th>
+                        <th>Applied On</th>
+                        <th style="text-align: right !important;">Status</th>
+                    </tr>
+                </thead>
+                <tbody id="jobsTableBody">
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>
+<script>
+    {% include "templates/includes/profile.js" %}
+</script>
+{% endblock %}

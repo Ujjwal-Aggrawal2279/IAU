@@ -62,11 +62,12 @@ const renderJobOpenings = (jobOpenings) => {
 
             // Customize the content inside the div
             jobDiv.innerHTML = `
-                <p style="font-family: 'Encode Sans Condensed'; font-size: 22px; font-weight: 700; line-height: 28px; color: #101423">${job.job_title}</p>
-                <div style="display: flex; justify-content: space-between; margin-top: 36px;">
-                    <p style="font-family: Inter Display; font-weight: 500; font-size: 22px; line-height: 32px; color: #3D4667">Learn More</p>
-                    <p style="font-family: Inter Display; font-size: 18px; line-height: 32px; color: #8092A7;">${formattedDate}</p>
-                </div>
+                <a href="/eservice/jobInfo?JobTitle=${encodeURIComponent(job.job_title)}" style="text-decoration : none;">
+                    <p style="font-family: 'Encode Sans Condensed'; font-size: 22px; font-weight: 700; line-height: 28px; color: #101423">${job.job_title}</p>
+                    <div style="margin-top: 36px;">
+                        <p style="font-family: Inter Display; font-size: 18px; line-height: 32px; color: #8092A7;">${formattedDate}</p>
+                    </div>
+                </a>
             `;
             listingsContainer.appendChild(jobDiv);
         });
@@ -137,6 +138,7 @@ const renderBlogPost = (blogs) => {
             blogDiv.classList.add('blogDiv', 'swiper-slide');
 
             blogDiv.innerHTML = `
+            <a href="/eservice/newsinfo?NewsTitle=${encodeURIComponent(blog.title)}" style="text-decoration : none;">
                 <div style="height: 243px;">
                     <img src="${blog.meta_image}" alt="news 1" />
                 </div>
@@ -151,6 +153,7 @@ const renderBlogPost = (blogs) => {
                         ${formattedDate}
                     </p>
                 </article>
+            </a>
             `;
             listingsContainer.appendChild(blogDiv);
         });

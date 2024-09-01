@@ -273,7 +273,8 @@
 .job_info,
 .news_listing,
 .news_info,
-.job_application {
+.job_application,
+.profile_section {
     position: relative;
     padding-top: 224px;
 }
@@ -361,4 +362,87 @@
     height: 1px;
     bottom: 0;
     left: 0;
+}
+
+table {
+    margin-top: 30px;
+    width: 100%;
+    border-collapse: collapse;
+}
+
+thead {
+    background-color: #f6f1e7;
+    text-align: left;
+    font-weight: bold;
+}
+
+thead th {
+    padding: 12px;
+    color: #10142380;
+    font-family: Inter Display;
+    font-size: 22px;
+    font-weight: 700;
+    line-height: 32px;
+    letter-spacing: 0.03em;
+    text-align: left;
+    border-bottom: 1px solid #ccc;
+}
+
+tbody tr {
+    border-bottom: 1px solid #e7dac7;
+}
+
+tbody td {
+    font-family: Inter Display;
+    font-size: 22px;
+    font-weight: 600;
+    line-height: 26.62px;
+    letter-spacing: -0.03em;
+    padding: 12px;
+}
+
+tbody td:nth-child(3) {
+    text-align: right;
+    font-weight: bold;
+}
+
+/* Status colors */
+.status-applied {
+    color: #000000;
+}
+
+.status-under-review {
+    color: #899d77;
+}
+
+.status-accepted {
+    color: #000000;
+}
+
+.status-rejected {
+    color: #b62f2f;
+}
+
+.status-dot {
+    display: inline-block;
+    margin-left: 8px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+}
+
+.status-applied .status-dot {
+    background-color: #000000;
+}
+
+.status-under-review .status-dot {
+    background-color: #899d77;
+}
+
+.status-accepted .status-dot {
+    background-color: #000000;
+}
+
+.status-rejected .status-dot {
+    background-color: #b62f2f;
 }

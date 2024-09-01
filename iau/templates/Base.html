@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="/assets/iau/css/customGlobal.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/qrious/dist/qrious.min.js"></script>
     <style id="dynamic-styles">
         /* Default styles */
         ul li a {
@@ -24,7 +25,7 @@
                 <img src="/assets/iau/images/company_logo.png" alt="company_logo" />
             </div>
             <div>
-                <ul style="display: flex; gap: 32px; list-style: none;">
+                <ul style="display: flex; gap: 32px; list-style: none; align-items: center;">
                     <li><a href="/eservice/home"
                             style="text-decoration: none; font-family: 'Encode Sans Condensed'; font-size: 24px; text-transform: capitalize;">Home</a>
                     </li>
@@ -49,7 +50,7 @@
                     <li><a href="/eservice/home#partners"
                             style="text-decoration: none; font-family: 'Encode Sans Condensed'; font-size: 24px; text-transform: capitalize;">Partners</a>
                     </li>
-                    <li><a href="/login"
+                    <li id="nav-item-eservices"><a href="/login"
                             style="text-decoration: none; font-family: 'Encode Sans Condensed'; font-size: 24px; text-transform: capitalize;">E-services</a>
                     </li>
                 </ul>
@@ -149,6 +150,51 @@
         ↑
     </button>
     <script>
+        // Async function to check if the User is logged in and get their avatar
+        async function getUserAvatar() {
+            try {
+                // Getting the logged-in user's ID
+                const response = await fetch('/api/method/frappe.auth.get_logged_user', {
+                    method: 'GET',
+                });
+
+                if (!response.ok) {
+                    throw new Error('User is not logged in or session has expired.');
+                }
+
+                const { message: userId } = await response.json(); // Extract the user ID
+
+                // Getting the user's details using their ID
+                const userDetailsResponse = await fetch(`/api/resource/User/${userId}`, {
+                    method: 'GET',
+                });
+
+                if (!userDetailsResponse.ok) {
+                    throw new Error('Failed to fetch user details.');
+                }
+
+                const { data: userDetails } = await userDetailsResponse.json(); // Extract user details
+
+                // Access the user's avatar
+                const userImage = userDetails.user_image;
+
+                if (userImage) {
+                    // Replace the "E-services" link with the user's avatar
+                    const navItemEservices = document.getElementById('nav-item-eservices');
+                    navItemEservices.innerHTML = `
+                                <a href="/eservice/profile" style="text-decoration: none; font-family: 'Encode Sans Condensed'; font-size: 24px; text-transform: capitalize;">
+                                    <img src="${userImage}" alt="User Avatar" style="width: 40px; height: 40px; border-radius: 50%; border : 1px solid #101423" />
+                                </a>`;
+                }
+
+            } catch (error) {
+                console.error('Error:', error.message);
+            }
+        }
+
+        // Call the function to get the user's avatar
+        getUserAvatar();
+
         function updateStylesBasedOnTitle() {
             var pageTitle = document.title;
             var styleSheet = document.getElementById('dynamic-styles').sheet;
@@ -167,7 +213,6 @@
 
         // Call the function to apply styles and update the logo
         updateStylesBasedOnTitle();
-
 
         // Scroll-to-top button functionality
         const scrollToTopBtn = document.getElementById('scrollToTopBtn');
