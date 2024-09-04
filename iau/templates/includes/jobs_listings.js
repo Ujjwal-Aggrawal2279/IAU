@@ -33,19 +33,17 @@ const renderJobOpenings = (jobOpenings) => {
 
         // Customize the content inside the div
         jobDiv.innerHTML = `
+        <a href="/eservice/jobInfo?JobTitle=${encodeURIComponent(job.job_title)}" style="text-decoration : none !important;">
             <p class="job-title-class" style="font-family: 'Encode Sans Condensed'; font-size: 24px; font-weight: 700; line-height: 30px; color: #101423">
                 ${job.job_title}
             </p>
             <div style="display: flex; justify-content: space-between; margin-top: 36px;">
-                <a href="/eservice/jobInfo?JobTitle=${encodeURIComponent(job.job_title)}">
-                    <p style="font-family: Inter Display; font-weight: 500; font-size: 22px; line-height: 32px; color: #3D4667; text-decoration: underline; text-decoration-color: #3D4667">
-                        Learn More
-                    </p>
-                </a>
-                <p style="font-family: Inter Display; font-size: 18px; line-height: 32px; color: #8092A7;">
-                    ${formattedDate}
-                </p>
+
+            <p style="font-family: Inter Display; font-size: 18px; line-height: 32px; color: #8092A7;">
+            ${formattedDate}
+            </p>
             </div>
+        </a>
         `;
         listingsContainer.appendChild(jobDiv);
     });
