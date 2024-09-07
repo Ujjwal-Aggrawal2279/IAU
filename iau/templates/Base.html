@@ -15,43 +15,74 @@
             color: white;
             /* Default color */
         }
+
+        .sticky {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 20px 0px;
+            z-index: 1000;
+            background-color: rgba(0, 0, 0, 0.537);
+        }
+
+        .language-toggle {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1000;
+        }
+
+        .toggle-btn {
+            font-size: 16px;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .toggle-btn:hover {
+            background-color: #0056b3;
+        }
     </style>
 </head>
 
 <body style="width: 100%; height: 100vh;">
-    <div class="header">
+    <div class="header sticky">
         <nav class="container">
             <div>
-                <img src="/assets/iau/images/company_logo.png" alt="company_logo" />
+                <img src="/assets/iau/images/company_logo.png" alt="company_logo" style="width: 85%;" />
             </div>
             <div>
-                <ul style="display: flex; gap: 32px; list-style: none; align-items: center;">
+                <ul id="nav_items" style="display: flex; gap: 20px; list-style: none; align-items: center;">
                     <li><a href="/eservice/home"
-                            style="text-decoration: none; font-family: 'Encode Sans Condensed'; font-size: 24px; text-transform: capitalize;">Home</a>
+                            style="text-decoration: none; font-family: 'Encode Sans Condensed'; font-size: 20px; text-transform: uppercase;">Home</a>
                     </li>
                     <li><a href="/eservice/home#about_us"
-                            style="text-decoration: none; font-family: 'Encode Sans Condensed'; font-size: 24px; text-transform: capitalize;">About</a>
+                            style="text-decoration: none; font-family: 'Encode Sans Condensed'; font-size: 20px; text-transform: uppercase;">About</a>
                     </li>
                     <li><a href="/eservice/home#latest_news"
-                            style="text-decoration: none; font-family: 'Encode Sans Condensed'; font-size: 24px; text-transform: capitalize;">News</a>
+                            style="text-decoration: none; font-family: 'Encode Sans Condensed'; font-size: 20px; text-transform: uppercase;">News</a>
                     </li>
                     <li><a href="/eservice/home#jobs_openings"
-                            style="text-decoration: none; font-family: 'Encode Sans Condensed'; font-size: 24px; text-transform: capitalize;">Jobs</a>
+                            style="text-decoration: none; font-family: 'Encode Sans Condensed'; font-size: 20px; text-transform: uppercase;">Jobs</a>
                     </li>
                     <li><a href="/eservice/home#services"
-                            style="text-decoration: none; font-family: 'Encode Sans Condensed'; font-size: 24px; text-transform: capitalize;">Services</a>
+                            style="text-decoration: none; font-family: 'Encode Sans Condensed'; font-size: 20px; text-transform: uppercase;">Services</a>
                     </li>
                     <li><a href="/eservice/home#projects"
-                            style="text-decoration: none; font-family: 'Encode Sans Condensed'; font-size: 24px; text-transform: capitalize;">Projects</a>
+                            style="text-decoration: none; font-family: 'Encode Sans Condensed'; font-size: 20px; text-transform: uppercase;">Projects</a>
                     </li>
                     <li><a href="/eservice/home#partnerships"
-                            style="text-decoration: none; font-family: 'Encode Sans Condensed'; font-size: 24px; text-transform: capitalize;">Partnerships</a>
+                            style="text-decoration: none; font-family: 'Encode Sans Condensed'; font-size: 20px; text-transform: uppercase;">Partnerships</a>
                     </li>
                     <li><a href="/eservice/home#partners"
-                            style="text-decoration: none; font-family: 'Encode Sans Condensed'; font-size: 24px; text-transform: capitalize;">Partners</a>
+                            style="text-decoration: none; font-family: 'Encode Sans Condensed'; font-size: 20px; text-transform: uppercase;">Partners</a>
                     </li>
                     <li id="nav-item-eservices"><a href="/login"
-                            style="text-decoration: none; font-family: 'Encode Sans Condensed'; font-size: 24px; text-transform: capitalize;">E-services</a>
+                            style="text-decoration: none; font-family: 'Encode Sans Condensed'; font-size: 20px; text-transform: uppercase;">E-services</a>
                     </li>
                 </ul>
             </div>
@@ -144,12 +175,28 @@
             </div>
         </div>
     </div>
-
-    <button id="scrollToTopBtn"
-        style="display: none; position: fixed; bottom: 20px; right: 20px; background-color: #2B354E; color: white; border: none; border-radius: 50%; width: 50px; height: 50px; cursor: pointer; font-size : 30px;">
-        ↑
-    </button>
+    <div id="language-toggle" class="language-toggle">
+        <button id="toggle-btn" class="toggle-btn">English</button>
+        <!-- Hidden select element to simulate language change -->
+        <select id="language-selector" style="display:none;">
+            <option value="en">English</option>
+            <option value="ar">Arabic</option>
+        </select>
+    </div>
     <script>
+        // Add sticky Header
+        window.onscroll = function () { stickyHeader() };
+
+        const header = document.querySelector('.header');
+        const sticky = 150;
+
+        function stickyHeader() {
+            if (window.pageYOffset > sticky) {
+                header.classList.add('sticky');
+            } else {
+                header.classList.remove('sticky');
+            }
+        }
         // Async function to check if the User is logged in and get their avatar
         async function getUserAvatar() {
             try {
@@ -214,18 +261,100 @@
         // Call the function to apply styles and update the logo
         updateStylesBasedOnTitle();
 
-        // Scroll-to-top button functionality
-        const scrollToTopBtn = document.getElementById('scrollToTopBtn');
-        window.onscroll = function () {
-            if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
-                scrollToTopBtn.style.display = "block";
+        let currentLanguage = 'en'; // Default language
+
+        // Event listener for the toggle button
+        document.getElementById('toggle-btn').addEventListener('click', () => {
+            const button = document.getElementById('toggle-btn');
+            const languageSelector = document.getElementById('language-selector');
+
+            // Toggle between English and Arabic
+            if (currentLanguage === 'en') {
+                currentLanguage = 'ar';
+                button.textContent = 'Arabic';
+                languageSelector.value = 'ar'; // Simulate select change
             } else {
-                scrollToTopBtn.style.display = "none";
+                currentLanguage = 'en';
+                button.textContent = 'English';
+                languageSelector.value = 'en'; // Simulate select change
             }
-        };
-        scrollToTopBtn.addEventListener('click', function () {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
+
+            // Trigger the change event
+            languageSelector.dispatchEvent(new Event('change'));
         });
+
+        // Event listener for the language selector
+        document.getElementById('language-selector').addEventListener('change', async (event) => {
+            const selectedLanguage = event.target.value;
+
+            if (selectedLanguage === 'en') {
+                // If English is selected, reset to original sourceTexts
+                resetToEnglish();
+            } else {
+                try {
+                    // Fetch translations for the selected language (e.g., Arabic)
+                    const response = await fetch(`/api/resource/Translation?filters=[["language", "=", "ar"]]&fields=["source_text", "translated_text"]`);
+                    const { data } = await response.json();
+
+                    // Reset sourceTexts and translations before updating
+                    sourceTexts = [];
+                    translations = {};
+
+                    data.forEach(item => {
+                        // Split source_text by newline and add each to sourceTexts array
+                        const sources = item.source_text.split('\n');
+                        const translationsList = item.translated_text.split('\n');
+
+                        // Update sourceTexts dynamically
+                        sources.forEach((text, index) => {
+                            const trimmedText = text.trim();
+                            sourceTexts.push(trimmedText); // Add source text to sourceTexts array
+                            translations[trimmedText] = translationsList[index].trim(); // Map source to translation
+                        });
+                    });
+
+                    // Replace text in the navigation with the new translations
+                    replaceTextInDocument();
+
+                } catch (error) {
+                    console.error('Error fetching translations:', error);
+                }
+            }
+        });
+
+        function replaceTextInDocument() {
+            const navItems = document.querySelector('#nav_items');
+
+            // Loop through all source texts and replace them
+            sourceTexts.forEach(sourceText => {
+                const translatedText = translations[sourceText] || sourceText;
+
+                // Replace text in all <a> tags within #nav_items
+                navItems.querySelectorAll('a').forEach(anchor => {
+                    if (anchor.textContent.includes(sourceText)) {
+                        anchor.textContent = anchor.textContent.replace(new RegExp(sourceText, 'g'), translatedText);
+                    }
+                });
+            });
+        }
+
+        function resetToEnglish() {
+            const navItems = document.querySelector('#nav_items');
+
+            // Loop through all <a> tags within #nav_items
+            navItems.querySelectorAll('a').forEach(anchor => {
+                // Find the original source text that corresponds to the current translated text
+                const originalText = Object.keys(translations).find(sourceText => {
+                    const translatedText = translations[sourceText];
+                    return anchor.textContent.trim() === translatedText;
+                });
+
+                // If a matching original text is found, reset it to the source text (English)
+                if (originalText) {
+                    anchor.textContent = originalText;
+                }
+            });
+        }
     </script>
 </body>
 

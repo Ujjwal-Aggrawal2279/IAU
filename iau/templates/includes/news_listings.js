@@ -15,15 +15,14 @@ const fetchBlogPosts = async () => {
 // Fetch additional info including the image for a specific blog post
 const fetchDocInfo = async (name) => {
     try {
-        const response = await fetch(`/api/method/frappe.desk.form.load.get_docinfo?doctype=Blog Post&name=${name}`);
+        const response = await fetch(`/api/resource/Blog Post/${name}?fields=["*"]`);
         if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`);
         }
         const docInfo = await response.json();
-        const attachments = docInfo.docinfo.attachments;
 
-        // Assuming the image is the first attachment
-        return attachments.length > 0 ? attachments[0].file_url : '';
+        // Returning docIfnfo
+        return docInfo.data.meta_image;
     } catch (error) {
         console.error('Error fetching doc info:', error);
         return '';
@@ -45,6 +44,7 @@ const renderBlogPosts = async (blogPosts) => {
 
         // Fetch the image URL
         const imageUrl = await fetchDocInfo(blog.name);
+        console.log(imageUrl)
 
         const blogDiv = document.createElement('div');
         blogDiv.style.width = '421px';

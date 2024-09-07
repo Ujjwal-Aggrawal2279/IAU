@@ -39,6 +39,10 @@ document.addEventListener('DOMContentLoaded', async function () {
                 // Get paragraphs
                 const paragraphs = getParagraphs(BlogDetails.custom_blog_description);
 
+                // Set the image
+                const news_image_ele = document.getElementById('news_image');
+                news_image_ele.src = BlogDetails.meta_image;
+
                 // Set the first paragraph in the news_intro element
                 const newsIntroEle = document.getElementById('news_intro');
                 if (paragraphs.length > 0) {

@@ -58,3 +58,93 @@ document.addEventListener('DOMContentLoaded', async function () {
     // Initial check in case fields are pre-filled
     checkInputFields();
 });
+
+// Function to create a Job Applicant record in Frappe with file upload
+async function submitJobApplication(event) {
+    event.preventDefault();  // Prevent default form submission
+
+    // Collect form data
+    const jobTitle = document.getElementById('job_title').value;
+    const applicantName = document.getElementById('applicant_name').value;
+    const applicantEmail = document.getElementById('applicant_email').value;
+    const applicantPhone = document.getElementById('applicant_phone_number').value;
+    const countryOfResidence = document.getElementById('country_of_residence').value;
+    const coverLetter = document.getElementById('cover_letter').value;
+    const resumeFile = document.getElementById('fileInput').files[0];  // Corrected file input ID
+
+    if (!resumeFile) {
+        console.error('No resume file selected.');
+        return;
+    }
+
+    // First, upload the resume file to Frappe's file storage
+    const uploadedFileUrl = await uploadResumeFile(resumeFile);
+
+    if (!uploadedFileUrl) {
+        console.error('Failed to upload resume file.');
+        return;
+    }
+
+    // Now, create the Job Applicant record with the resume URL
+    const formData = {
+        "doctype": "Job Applicant",
+        "applicant_name": applicantName,
+        "email_id": applicantEmail,
+        "phone_number": applicantPhone,
+        "country": countryOfResidence,
+        "cover_letter": coverLetter,
+        "resume_attachment": uploadedFileUrl // Use the correct field name
+    };
+
+    try {
+        const response = await fetch('/api/resource/Job%20Applicant', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json',
+                'Authorization': `token ece9e6462948f84:eeae5e6d50ebb9c`
+            },
+            body: JSON.stringify(formData)
+        });
+
+        if (response.ok) {
+            const result = await response.json();
+            console.log('Job application submitted successfully:', result);
+        } else {
+            console.error('Failed to submit job application:', response.statusText);
+        }
+    } catch (error) {
+        console.error('Error submitting job application:', error);
+    }
+}
+
+// Function to upload resume file to Frappe
+async function uploadResumeFile(file) {
+    const formData = new FormData();
+    formData.append('file', file);
+    formData.append('doctype', 'Job Applicant');
+    formData.append('docname', 'resume_attachment'); // Ensure this matches the field in your DocType
+
+    try {
+        const response = await fetch('/api/method/upload_file', {
+            method: 'POST',
+            headers: {
+                'Authorization': `token ece9e6462948f84:eeae5e6d50ebb9c`
+            },
+            body: formData
+        });
+
+        if (response.ok) {
+            const result = await response.json();
+            return result.message.file_url; // Return the file URL
+        } else {
+            console.error('Failed to upload file:', response.statusText);
+        }
+    } catch (error) {
+        console.error('Error uploading file:', error);
+    }
+}
+
+// Add submit event listener
+const form = document.getElementById('jobApplicationForm');
+form.addEventListener('submit', submitJobApplication);
