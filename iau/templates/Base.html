@@ -10,17 +10,43 @@
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/qrious/dist/qrious.min.js"></script>
     <style id="dynamic-styles">
+        /* Default LTR (English) */
+        .header nav.container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            direction: ltr;
+        }
+
+        #nav_items {
+            direction: ltr;
+            text-align: left;
+        }
+
+        /* RTL (Arabic) */
+        .rtl .header nav.container {
+            direction: rtl;
+        }
+
+        .rtl #nav_items {
+            direction: rtl;
+            text-align: right;
+        }
+
         /* Default styles */
         ul li a {
             color: white;
             /* Default color */
         }
 
+        .header {
+            transition: all 0.3s ease;
+        }
+
         .sticky {
             position: fixed;
             top: 0;
             width: 100%;
-            padding: 20px 0px;
             z-index: 1000;
             background-color: rgba(0, 0, 0, 0.537);
         }
@@ -40,7 +66,7 @@
             border: none;
             border-radius: 25px;
             cursor: pointer;
-            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.514);
         }
 
         .toggle-btn:hover {
@@ -50,7 +76,7 @@
 </head>
 
 <body style="width: 100%; height: 100vh;">
-    <div class="header sticky">
+    <div class="header">
         <nav class="container">
             <div>
                 <img src="/assets/iau/images/company_logo.png" alt="company_logo" style="width: 85%;" />
@@ -81,7 +107,7 @@
                     <li><a href="/eservice/home#partners"
                             style="text-decoration: none; font-family: 'Encode Sans Condensed'; font-size: 20px; text-transform: uppercase;">Partners</a>
                     </li>
-                    <li id="nav-item-eservices"><a href="/login"
+                    <li id="nav-item-eservices" style="position: relative;"><a href="/login"
                             style="text-decoration: none; font-family: 'Encode Sans Condensed'; font-size: 20px; text-transform: uppercase;">E-services</a>
                     </li>
                 </ul>
@@ -153,9 +179,11 @@
             </div>
             <div style="margin-top : 120px; display: grid; grid-template-columns: repeat(3, 411px); gap: 30px">
                 <div>
-                    <p
-                        style="text-decoration: underline; font-size : 22px; font-weight: 700; color : white; font-family : Inter Display;">
-                        Homepage</p>
+                    <a href="/eservice/home" style="text-decoration: none;">
+                        <p
+                            style="text-decoration: underline; font-size : 22px; font-weight: 700; color : white; font-family : Inter Display;">
+                            Homepage</p>
+                    </a>    
                 </div>
                 <div>
                     <p
@@ -176,11 +204,11 @@
         </div>
     </div>
     <div id="language-toggle" class="language-toggle">
-        <button id="toggle-btn" class="toggle-btn">English</button>
+        <button id="toggle-btn" class="toggle-btn">عربي</button>
         <!-- Hidden select element to simulate language change -->
         <select id="language-selector" style="display:none;">
             <option value="en">English</option>
-            <option value="ar">Arabic</option>
+            <option value="ar">عربي</option>
         </select>
     </div>
     <script>
@@ -188,12 +216,11 @@
         window.onscroll = function () { stickyHeader() };
 
         const header = document.querySelector('.header');
-        const sticky = 150;
 
         function stickyHeader() {
-            if (window.pageYOffset > sticky) {
+            if (window.scrollY > 150) {
                 header.classList.add('sticky');
-            } else {
+            } else if (window.scrollY < 150) {
                 header.classList.remove('sticky');
             }
         }
@@ -222,17 +249,51 @@
 
                 const { data: userDetails } = await userDetailsResponse.json(); // Extract user details
 
-                // Access the user's avatar
+                // Access the user's avatar and name
                 const userImage = userDetails.user_image;
+                const userName = userDetails.full_name;
 
-                if (userImage) {
-                    // Replace the "E-services" link with the user's avatar
-                    const navItemEservices = document.getElementById('nav-item-eservices');
-                    navItemEservices.innerHTML = `
-                                <a href="/eservice/profile" style="text-decoration: none; font-family: 'Encode Sans Condensed'; font-size: 24px; text-transform: capitalize;">
-                                    <img src="${userImage}" alt="User Avatar" style="width: 40px; height: 40px; border-radius: 50%; border : 1px solid #101423" />
-                                </a>`;
-                }
+                // Replace the "E-services" link with the user's avatar and dropdown menu
+                const navItemEservices = document.getElementById('nav-item-eservices');
+                navItemEservices.innerHTML = `
+                    <a href="#" id="user-menu-toggle" style="text-decoration: none; font-family: 'Encode Sans Condensed'; font-size: 20px; text-transform: uppercase; display: flex; align-items: center;">
+                        <img src="${userImage}" alt="User Avatar" id="user-avatar" style="width: 40px; height: 40px; border-radius: 50%; border: 1px solid #101423; margin-right: 10px;">
+                    </a>
+                    <div id="dropdown-menu" style="display: none; position: absolute; top: 100%; right: 0; background-color: #fff; box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2); z-index: 1; width: 200px; background-color: #EFE6D2;">
+                        <a href="/eservice/profile" style="display: block; padding: 12px 16px; text-decoration: none; color: #000; font-family: 'Encode Sans Condensed'; font-size: 16px; font-weight : bold;">Profile</a>
+                        <a href="#" id="logout-link" style="display: block; padding: 12px 16px; text-decoration: none; color: #000; font-family: 'Encode Sans Condensed'; font-size: 16px; font-weight : bold;">Logout</a>
+                    </div>
+                `;
+
+                // Add event listener for the dropdown toggle
+                document.getElementById('user-menu-toggle').addEventListener('click', (event) => {
+                    event.preventDefault();
+                    const dropdownMenu = document.getElementById('dropdown-menu');
+                    dropdownMenu.style.display = (dropdownMenu.style.display === 'none' || dropdownMenu.style.display === '') ? 'block' : 'none';
+                });
+
+                // Logout Link
+                document.getElementById('logout-link').addEventListener('click', async (event) => {
+                    event.preventDefault();
+                    try {
+                        const logoutResponse = await fetch('/api/method/logout');
+                        if (logoutResponse.ok) {
+                            window.location.href = '/eservice/home';
+                        } else {
+                            throw new Error('Logout failed.');
+                        }
+                    } catch (error) {
+                        console.error('Error:', error.message);
+                    }
+                });
+
+                // Close dropdown when clicking outside of it
+                document.addEventListener('click', (event) => {
+                    const dropdownMenu = document.getElementById('dropdown-menu');
+                    if (!event.target.closest('#nav-item-eservices')) {
+                        dropdownMenu.style.display = 'none';
+                    }
+                });
 
             } catch (error) {
                 console.error('Error:', error.message);
@@ -267,16 +328,23 @@
         document.getElementById('toggle-btn').addEventListener('click', () => {
             const button = document.getElementById('toggle-btn');
             const languageSelector = document.getElementById('language-selector');
+            const body = document.body; // Select the body to add the RTL class
 
             // Toggle between English and Arabic
             if (currentLanguage === 'en') {
                 currentLanguage = 'ar';
-                button.textContent = 'Arabic';
+                button.textContent = 'English';
                 languageSelector.value = 'ar'; // Simulate select change
+
+                // Add RTL class to body
+                body.classList.add('rtl');
             } else {
                 currentLanguage = 'en';
-                button.textContent = 'English';
+                button.textContent = 'عربي';
                 languageSelector.value = 'en'; // Simulate select change
+
+                // Remove RTL class from body
+                body.classList.remove('rtl');
             }
 
             // Trigger the change event

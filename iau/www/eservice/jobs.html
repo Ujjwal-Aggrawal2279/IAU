@@ -20,8 +20,6 @@ Jobs Listings
                 <select id="sort" class="custom-select">
                     <option value="most-recent">Most Recent</option>
                     <option value="oldest">Oldest</option>
-                    <option value="highest-rated">Highest Rated</option>
-                    <option value="lowest-rated">Lowest Rated</option>
                 </select>
             </div>
         </div>
@@ -97,6 +95,11 @@ Jobs Listings
                 style="width: 970px; display: grid; grid-template-columns: repeat(2, 475px); gap: 20px; grid-auto-rows: 127px;">
                 <!-- Dynamic Divs will be rendering here -->
             </div>
+        </div>
+        <div id="pagination">
+            <button id="prevPage">Previous</button>
+            <span id="currentPage">1</span>
+            <button id="nextPage">Next</button>
         </div>
     </div>
 </section>

@@ -59,17 +59,25 @@ async function getUserFullName() {
             let statusText = '';
 
             switch (job.status) {
-                case 'Applied':
-                    statusClass = 'status-applied';
-                    statusText = 'Applied';
+                case 'Open':
+                    statusClass = 'status-open';
+                    statusText = 'Open';
                     break;
                 case 'Hold':
-                    statusClass = 'status-under-review';
+                    statusClass = 'status-hold';
                     statusText = 'Hold';
+                    break;
+                case 'Accepted':
+                    statusClass = 'status-accepted';
+                    statusText = 'Accepted';
                     break;
                 case 'Rejected':
                     statusClass = 'status-rejected';
                     statusText = 'Rejected';
+                    break;
+                case 'Replied':
+                    statusClass = 'status-replied';
+                    statusText = 'Replied';
                     break;
                 default:
                     statusClass = '';

@@ -1,7 +1,7 @@
 // Fetching the Blog Post Records for rendering
-const fetchBlogPosts = async () => {
+const fetchBlogPosts = async (sortOrder = 'desc') => {
     try {
-        const response = await fetch('/api/resource/Blog Post?fields=["*"]');
+        const response = await fetch(`/api/resource/Blog Post?fields=["*"]&order_by=creation ${sortOrder}`);
         if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`);
         }
@@ -21,7 +21,7 @@ const fetchDocInfo = async (name) => {
         }
         const docInfo = await response.json();
 
-        // Returning docIfnfo
+        // Returning docInfo
         return docInfo.data.meta_image;
     } catch (error) {
         console.error('Error fetching doc info:', error);
@@ -44,7 +44,7 @@ const renderBlogPosts = async (blogPosts) => {
 
         // Fetch the image URL
         const imageUrl = await fetchDocInfo(blog.name);
-        console.log(imageUrl)
+        console.log(imageUrl);
 
         const blogDiv = document.createElement('div');
         blogDiv.style.width = '421px';
@@ -72,4 +72,11 @@ const renderBlogPosts = async (blogPosts) => {
     }
 };
 
+// Handle Sorting
+document.getElementById('sort').addEventListener('change', (event) => {
+    const sortOrder = event.target.value === 'most-recent' ? 'desc' : 'asc';
+    fetchBlogPosts(sortOrder);
+});
+
+// Initial fetch
 fetchBlogPosts();

@@ -16,7 +16,7 @@ var swiper = new Swiper(".myBannerSwiper", {
 
 const fetchJobOpenings = async () => {
     try {
-        const response = await fetch('/api/resource/Job Opening?fields=["*"]&limit_page_length=null');
+        const response = await fetch('/api/resource/Job Opening?fields=["*"]&limit_page_length=9&order_by=creation desc');
         if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`);
         }
@@ -40,7 +40,7 @@ const renderJobOpenings = (jobOpenings) => {
         messageDiv.style.display = 'flex';
         messageDiv.style.justifyContent = 'center';
         messageDiv.style.alignItems = 'center';
-        messageDiv.style.height = '100px'; // Adjust height as needed
+        messageDiv.style.height = '100px';
         messageDiv.style.textAlign = 'center';
         messageDiv.innerHTML = `
             <p style="font-family: 'Encode Sans Condensed'; font-size: 22px; font-weight: 700; color: #101423;">
@@ -80,7 +80,7 @@ fetchJobOpenings();
 
 const fetchBlogPosts = async () => {
     try {
-        const response = await fetch('/api/resource/Blog%20Post?fields=["*"]&filters=[["meta_image","!=",""]]&limit_page_length=null');
+        const response = await fetch('/api/resource/Blog%20Post?fields=["*"]&filters=[["meta_image","!=",""]]&limit_page_length=9&order_by=creation desc');
         if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`);
         }

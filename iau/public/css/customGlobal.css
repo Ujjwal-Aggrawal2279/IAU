@@ -406,20 +406,29 @@ tbody td:nth-child(3) {
 }
 
 /* Status colors */
-.status-applied {
-    color: #000000;
+.status-open {
+    color: #007bff;
+    /* Blue for Open */
 }
 
-.status-under-review {
-    color: #899d77;
-}
-
-.status-accepted {
-    color: #000000;
+.status-replied {
+    color: #28a745;
+    /* Green for Replied */
 }
 
 .status-rejected {
-    color: #b62f2f;
+    color: #dc3545;
+    /* Red for Rejected */
+}
+
+.status-hold {
+    color: #ffc107;
+    /* Yellow for Hold */
+}
+
+.status-accepted {
+    color: #17a2b8;
+    /* Teal for Accepted */
 }
 
 .status-dot {
@@ -430,20 +439,29 @@ tbody td:nth-child(3) {
     border-radius: 50%;
 }
 
-.status-applied .status-dot {
-    background-color: #000000;
+.status-open .status-dot {
+    background-color: #007bff;
+    /* Blue dot for Open */
 }
 
-.status-under-review .status-dot {
-    background-color: #899d77;
-}
-
-.status-accepted .status-dot {
-    background-color: #000000;
+.status-replied .status-dot {
+    background-color: #28a745;
+    /* Green dot for Replied */
 }
 
 .status-rejected .status-dot {
-    background-color: #b62f2f;
+    background-color: #dc3545;
+    /* Red dot for Rejected */
+}
+
+.status-hold .status-dot {
+    background-color: #ffc107;
+    /* Yellow dot for Hold */
+}
+
+.status-accepted .status-dot {
+    background-color: #17a2b8;
+    /* Teal dot for Accepted */
 }
 
 #partners_img_grid img {
@@ -454,4 +472,49 @@ tbody td:nth-child(3) {
 #projects_grid_img img {
     width: 70%;
     height: 70%;
+}
+
+#pagination {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-top: 20px;
+}
+
+#pagination button {
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #ffffff;
+    background-color: #101243;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, box-shadow 0.3s;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+#pagination button:hover {
+    background-color: #0a0e30;
+}
+
+#pagination button:disabled {
+    background-color: #b0b0b0;
+    cursor: not-allowed;
+    box-shadow: none;
+}
+
+#pagination #currentPage {
+    margin: 0 20px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #3D4667;
+}
+
+#pagination #prevPage {
+    margin-right: 10px;
+}
+
+#pagination #nextPage {
+    margin-left: 10px;
 }
