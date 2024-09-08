@@ -1,28 +1,3 @@
-// Function to check if user is authenticated
-document.addEventListener('DOMContentLoaded', async function () {
-    async function checkAuthentication() {
-        try {
-            const response = await fetch('/api/method/frappe.auth.get_logged_user', {
-                method: 'GET',
-            });
-    
-            if (response.ok) {
-                const data = await response.json();
-                if (!data.message) {
-                    window.location.href = '/login';
-                }
-            } else {
-                throw new Error('Failed to check authentication');
-            }
-        } catch (error) {
-            console.error('Error checking authentication:', error);
-            window.location.href = '/login'; 
-        }
-    }
-    // Calling the function
-    checkAuthentication();
-})
-
 // Upload button 
 document.getElementById('uploadButton').addEventListener('click', function () {
     document.getElementById('fileInput').click();

@@ -1,18 +1,19 @@
 let currentPage = 1;
 const recordsPerPage = 12;
-let sortOrder = 'desc'; // Default sort order
+let sortOrder = 'desc';
+let allJobOpenings = [];
 
-// Fetch Job Openings from API
-const fetchJobOpenings = async (page = 1) => {
+// Fetch All Job Openings Initially
+const fetchAllJobOpenings = async () => {
     try {
-        const offset = (page - 1) * recordsPerPage;
-        const response = await fetch(`/api/resource/Job Opening?fields=["*"]&limit_page_length=${recordsPerPage}&limit_start=${offset}&order_by=posted_on ${sortOrder}`);
+        const response = await fetch(`/api/resource/Job Opening?fields=["*"]&order_by=posted_on ${sortOrder}`);
         if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`);
         }
         const data = await response.json();
-        renderJobOpenings(data.data);
-        updatePagination(page);
+        allJobOpenings = data.data;
+        renderJobOpenings(allJobOpenings.slice(0, recordsPerPage)); // Show first 12 records initially
+        updatePagination();
     } catch (error) {
         console.error('Error:', error);
     }
@@ -23,7 +24,6 @@ const renderJobOpenings = (jobOpenings) => {
     const listingsContainer = document.getElementById('listings_container');
     listingsContainer.innerHTML = ''; // Clear previous listings
 
-    // Creating and appending divs for each job opening
     jobOpenings.forEach(job => {
         const date = new Date(job.posted_on);
         const options = { year: 'numeric', month: 'long', day: 'numeric' };
@@ -53,45 +53,41 @@ const renderJobOpenings = (jobOpenings) => {
 };
 
 // Update Pagination Controls
-const updatePagination = (page) => {
-    document.getElementById('currentPage').textContent = `${page}`;
-    currentPage = page;
-};
+const updatePagination = () => {
+    const totalRecords = allJobOpenings.length;
+    const totalPages = Math.ceil(totalRecords / recordsPerPage);
+    const paginationContainer = document.getElementById('pagination');
+    paginationContainer.innerHTML = ''; // Clear existing pagination
 
-// Add Event Listeners for Pagination Controls
-document.getElementById('prevPage').addEventListener('click', () => {
-    if (currentPage > 1) {
-        fetchJobOpenings(currentPage - 1);
+    // Create page numbers dynamically
+    for (let i = 1; i <= totalPages; i++) {
+        const pageButton = document.createElement('button');
+        pageButton.textContent = i;
+        pageButton.className = 'page-button';
+        if (i === currentPage) {
+            pageButton.classList.add('active');
+        }
+        pageButton.addEventListener('click', () => {
+            currentPage = i;
+            const start = (i - 1) * recordsPerPage;
+            const end = start + recordsPerPage;
+            renderJobOpenings(allJobOpenings.slice(start, end)); // Render the records for the selected page
+            updatePagination(); // Update pagination to reflect the active page
+        });
+        paginationContainer.appendChild(pageButton);
     }
-});
-
-document.getElementById('nextPage').addEventListener('click', () => {
-    fetchJobOpenings(currentPage + 1);
-});
+};
 
 // Search Functionality
 document.getElementById('jobSearchInput').addEventListener('input', function () {
     const filter = this.value.toLowerCase();
-    const divs = document.querySelectorAll('#listings_container > div');
+    const filteredJobOpenings = allJobOpenings.filter(job => job.job_title.toLowerCase().includes(filter));
 
-    divs.forEach(div => {
-        const titleElement = div.querySelector('.job-title-class');
-        if (titleElement) {
-            const title = titleElement.textContent.toLowerCase();
-            if (title.includes(filter)) {
-                div.style.display = '';
-            } else {
-                div.style.display = 'none';
-            }
-        }
-    });
+    // Render filtered job openings and reset to first page
+    currentPage = 1;
+    renderJobOpenings(filteredJobOpenings.slice(0, recordsPerPage));
+    updatePagination();
 });
 
-// Handle Sorting
-document.getElementById('sort').addEventListener('change', (event) => {
-    sortOrder = event.target.value === 'most-recent' ? 'desc' : 'asc';
-    fetchJobOpenings(currentPage);
-});
-
-// Initial Fetch for the First Page
-fetchJobOpenings(1);
+// Initial Fetch for All Job Openings
+fetchAllJobOpenings();

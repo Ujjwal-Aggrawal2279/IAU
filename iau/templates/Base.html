@@ -183,7 +183,7 @@
                         <p
                             style="text-decoration: underline; font-size : 22px; font-weight: 700; color : white; font-family : Inter Display;">
                             Homepage</p>
-                    </a>    
+                    </a>
                 </div>
                 <div>
                     <p
@@ -322,73 +322,106 @@
         // Call the function to apply styles and update the logo
         updateStylesBasedOnTitle();
 
-        let currentLanguage = 'en'; // Default language
+        // Initialize the currentLanguage from localStorage or default to 'en'
+        let currentLanguage = localStorage.getItem('language') || 'en';
+
+        // Set the initial language on page load
+        document.addEventListener('DOMContentLoaded', () => {
+            const button = document.getElementById('toggle-btn');
+            const languageSelector = document.getElementById('language-selector');
+            const body = document.body;
+
+            if (currentLanguage === 'ar') {
+                button.textContent = 'English';
+                languageSelector.value = 'ar'; // Simulate select change
+                body.classList.add('rtl');
+            } else {
+                button.textContent = 'عربي';
+                languageSelector.value = 'en'; // Simulate select change
+                body.classList.remove('rtl');
+            }
+
+            // Fetch translations on page load if language is not English
+            if (currentLanguage !== 'en') {
+                fetchTranslations(currentLanguage);
+            }
+        });
 
         // Event listener for the toggle button
         document.getElementById('toggle-btn').addEventListener('click', () => {
             const button = document.getElementById('toggle-btn');
             const languageSelector = document.getElementById('language-selector');
-            const body = document.body; // Select the body to add the RTL class
+            const body = document.body;
 
             // Toggle between English and Arabic
             if (currentLanguage === 'en') {
                 currentLanguage = 'ar';
                 button.textContent = 'English';
                 languageSelector.value = 'ar'; // Simulate select change
-
-                // Add RTL class to body
                 body.classList.add('rtl');
             } else {
                 currentLanguage = 'en';
                 button.textContent = 'عربي';
                 languageSelector.value = 'en'; // Simulate select change
-
-                // Remove RTL class from body
                 body.classList.remove('rtl');
             }
 
-            // Trigger the change event
-            languageSelector.dispatchEvent(new Event('change'));
+            // Save the selected language to localStorage
+            localStorage.setItem('language', currentLanguage);
+
+            // Fetch translations if not English
+            if (currentLanguage !== 'en') {
+                fetchTranslations(currentLanguage);
+            } else {
+                resetToEnglish();
+            }
         });
 
         // Event listener for the language selector
-        document.getElementById('language-selector').addEventListener('change', async (event) => {
+        document.getElementById('language-selector').addEventListener('change', (event) => {
             const selectedLanguage = event.target.value;
 
             if (selectedLanguage === 'en') {
-                // If English is selected, reset to original sourceTexts
+                currentLanguage = 'en';
+                localStorage.setItem('language', 'en');
                 resetToEnglish();
             } else {
-                try {
-                    // Fetch translations for the selected language (e.g., Arabic)
-                    const response = await fetch(`/api/resource/Translation?filters=[["language", "=", "ar"]]&fields=["source_text", "translated_text"]`);
-                    const { data } = await response.json();
-
-                    // Reset sourceTexts and translations before updating
-                    sourceTexts = [];
-                    translations = {};
-
-                    data.forEach(item => {
-                        // Split source_text by newline and add each to sourceTexts array
-                        const sources = item.source_text.split('\n');
-                        const translationsList = item.translated_text.split('\n');
-
-                        // Update sourceTexts dynamically
-                        sources.forEach((text, index) => {
-                            const trimmedText = text.trim();
-                            sourceTexts.push(trimmedText); // Add source text to sourceTexts array
-                            translations[trimmedText] = translationsList[index].trim(); // Map source to translation
-                        });
-                    });
-
-                    // Replace text in the navigation with the new translations
-                    replaceTextInDocument();
-
-                } catch (error) {
-                    console.error('Error fetching translations:', error);
-                }
+                currentLanguage = 'ar';
+                localStorage.setItem('language', 'ar');
+                fetchTranslations(selectedLanguage);
             }
         });
+
+        // Fetch translations from the server
+        async function fetchTranslations(language) {
+            try {
+                const response = await fetch(`/api/resource/Translation?filters=[["language", "=", "${language}"]]&fields=["source_text", "translated_text"]`);
+                const { data } = await response.json();
+
+                // Reset sourceTexts and translations before updating
+                sourceTexts = [];
+                translations = {};
+
+                data.forEach(item => {
+                    // Split source_text by newline and add each to sourceTexts array
+                    const sources = item.source_text.split('\n');
+                    const translationsList = item.translated_text.split('\n');
+
+                    // Update sourceTexts dynamically
+                    sources.forEach((text, index) => {
+                        const trimmedText = text.trim();
+                        sourceTexts.push(trimmedText); // Add source text to sourceTexts array
+                        translations[trimmedText] = translationsList[index].trim(); // Map source to translation
+                    });
+                });
+
+                // Replace text in the navigation with the new translations
+                replaceTextInDocument();
+
+            } catch (error) {
+                console.error('Error fetching translations:', error);
+            }
+        }
 
         function replaceTextInDocument() {
             const navItems = document.querySelector('#nav_items');
@@ -409,15 +442,12 @@
         function resetToEnglish() {
             const navItems = document.querySelector('#nav_items');
 
-            // Loop through all <a> tags within #nav_items
             navItems.querySelectorAll('a').forEach(anchor => {
-                // Find the original source text that corresponds to the current translated text
                 const originalText = Object.keys(translations).find(sourceText => {
                     const translatedText = translations[sourceText];
                     return anchor.textContent.trim() === translatedText;
                 });
 
-                // If a matching original text is found, reset it to the source text (English)
                 if (originalText) {
                     anchor.textContent = originalText;
                 }

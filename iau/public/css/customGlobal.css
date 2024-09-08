@@ -262,7 +262,7 @@
 
 .partnerships_section {
     background-color: #FFFBF1;
-    padding: 52px 0px;
+    padding: 60px 0px;
 }
 
 .partners_section {
@@ -474,47 +474,44 @@ tbody td:nth-child(3) {
     height: 70%;
 }
 
-#pagination {
+/* Pagination Container */
+.pagination-container {
     display: flex;
     justify-content: flex-end;
-    align-items: center;
     margin-top: 20px;
+    gap: 10px;
 }
 
-#pagination button {
-    padding: 10px 20px;
-    font-size: 16px;
-    font-weight: bold;
-    color: #ffffff;
-    background-color: #101243;
-    border: none;
+/* Pagination Buttons */
+.page-button {
+    padding: 10px 15px;
+    border: 1px solid #ccc;
     border-radius: 5px;
+    background-color: #f8f9fa;
+    /* Light background */
+    color: #007bff;
+    /* Blue text */
     cursor: pointer;
-    transition: background-color 0.3s, box-shadow 0.3s;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-#pagination button:hover {
-    background-color: #0a0e30;
-}
-
-#pagination button:disabled {
-    background-color: #b0b0b0;
-    cursor: not-allowed;
-    box-shadow: none;
-}
-
-#pagination #currentPage {
-    margin: 0 20px;
+    font-family: 'Inter', sans-serif;
     font-size: 16px;
-    font-weight: bold;
-    color: #3D4667;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-#pagination #prevPage {
-    margin-right: 10px;
+/* Hover Effect */
+.page-button:hover {
+    background-color: #007bff;
+    color: #fff;
 }
 
-#pagination #nextPage {
-    margin-left: 10px;
+/* Active Page Button */
+.page-button.active {
+    background-color: #007bff;
+    color: #fff;
+    border-color: #007bff;
+    font-weight: 700;
+}
+.page-button.disabled {
+    background-color: #eaeaea;
+    color: #999;
+    cursor: not-allowed;
 }

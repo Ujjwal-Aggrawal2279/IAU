@@ -49,6 +49,42 @@ document.addEventListener('DOMContentLoaded', async function () {
 
                 // Set the href dynamically using the job title
                 applyLink.href = `/eservice/jobApplication?JobTitle=${encodeURIComponent(jobDetails.job_title)}`;
+
+                // Function to check if user is authenticated
+                async function checkAuthentication() {
+                    try {
+                        const response = await fetch('/api/method/frappe.auth.get_logged_user', {
+                            method: 'GET',
+                        });
+
+                        if (response.ok) {
+                            const data = await response.json();
+                            if (!data.message) {
+                                return false;
+                            }
+                            return true;
+                        } else {
+                            throw new Error('Failed to check authentication');
+                        }
+                    } catch (error) {
+                        console.error('Error checking authentication:', error);
+                        return false;
+                    }
+                }
+
+                applyLink.addEventListener('click', async function (event) {
+                    event.preventDefault();
+
+                    const isAuthenticated = await checkAuthentication();
+
+                    if (isAuthenticated) {
+                        // If authenticated, navigate to the jobApplication page
+                        window.location.href = applyLink.href;
+                    } else {
+                        // If not authenticated, redirecting to login page with "next" parameter
+                        window.location.href = `/login?redirect-to=${encodeURIComponent(applyLink.href)}`;
+                    }
+                });
             } else {
                 console.error('Job not found');
             }
