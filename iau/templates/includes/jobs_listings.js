@@ -6,7 +6,7 @@ let allJobOpenings = [];
 // Fetch All Job Openings Initially
 const fetchAllJobOpenings = async () => {
     try {
-        const response = await fetch(`/api/resource/Job Opening?fields=["*"]&order_by=posted_on ${sortOrder}`);
+        const response = await fetch(`/api/resource/Job Opening?fields=["*"]&order_by=posted_on ${sortOrder}&limit_page_length=null`);
         if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`);
         }
