@@ -47,6 +47,7 @@ const renderBlogPosts = async (blogPosts) => {
         console.log(imageUrl);
 
         const blogDiv = document.createElement('div');
+        blogDiv.className = 'news-display';
         blogDiv.style.width = '421px';
         blogDiv.style.height = '469px';
         blogDiv.style.backgroundImage = 'linear-gradient(180deg, #EFE6D2 0%, rgba(239, 230, 210, 0) 100%)';

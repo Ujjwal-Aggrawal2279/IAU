@@ -55,6 +55,7 @@ const renderJobOpenings = (jobOpenings) => {
             const options = { year: 'numeric', month: 'long', day: 'numeric' };
             const formattedDate = date.toLocaleDateString('en-US', options);
             const jobDiv = document.createElement('div');
+            jobDiv.className = 'job-opening';
             jobDiv.style.width = '417.67px';
             jobDiv.style.height = '127px';
             jobDiv.style.backgroundImage = 'linear-gradient(to bottom, #FFFBF1, #EAE2C4)';
@@ -133,6 +134,7 @@ const renderBlogPost = (blogs) => {
             const options = { year: 'numeric', month: 'long', day: 'numeric' };
             const formattedDate = date.toLocaleDateString('en-US', options);
             const blogDiv = document.createElement('div');
+            blogDiv.className = 'news-display';
 
             // Add the global class and swiper-slide class
             blogDiv.classList.add('blogDiv', 'swiper-slide');

@@ -50,10 +50,7 @@
 }
 
 .header {
-    width: 100%;
-    position: absolute;
-    top: 95px;
-    z-index: 1000;
+    padding: 20px 0;
 }
 
 .header nav {
@@ -510,8 +507,22 @@ tbody td:nth-child(3) {
     border-color: #007bff;
     font-weight: 700;
 }
+
 .page-button.disabled {
     background-color: #eaeaea;
     color: #999;
     cursor: not-allowed;
+}
+
+.job-opening,
+.news-display {
+    transition: transform 0.3s ease, box-shadow 0.1s ease;
+}
+
+.job-opening:hover,
+.news-display:hover {
+    transform: scale(1.02);
+    /* Slightly increase the size of the div on hover */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    /* Add shadow on hover */
 }

@@ -10,27 +10,25 @@
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/qrious/dist/qrious.min.js"></script>
     <style id="dynamic-styles">
-        /* Default LTR (English) */
-        .header nav.container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            direction: ltr;
-        }
-
-        #nav_items {
+        body.ltr {
             direction: ltr;
             text-align: left;
         }
 
-        /* RTL (Arabic) */
-        .rtl .header nav.container {
-            direction: rtl;
-        }
-
-        .rtl #nav_items {
+        /* RTL */
+        body.rtl {
             direction: rtl;
             text-align: right;
+        }
+
+        /* Specific styles for RTL languages */
+        body.rtl #nav_items a {
+            letter-spacing: 1.25px;
+            line-height: 1.5;
+        }
+
+        .myBannerSwiper {
+            direction: ltr !important;
         }
 
         /* Default styles */
@@ -48,7 +46,7 @@
             top: 0;
             width: 100%;
             z-index: 1000;
-            background-color: rgba(0, 0, 0, 0.537);
+            background-color: white;
         }
 
         .language-toggle {
@@ -79,7 +77,7 @@
     <div class="header">
         <nav class="container">
             <div>
-                <img src="/assets/iau/images/company_logo.png" alt="company_logo" style="width: 85%;" />
+                <img src="/assets/iau/images/Auth Logo.png" alt="company_logo" style="width: 85%;" />
             </div>
             <div>
                 <ul id="nav_items" style="display: flex; gap: 20px; list-style: none; align-items: center;">
@@ -303,156 +301,113 @@
         // Call the function to get the user's avatar
         getUserAvatar();
 
-        function updateStylesBasedOnTitle() {
-            var pageTitle = document.title;
-            var styleSheet = document.getElementById('dynamic-styles').sheet;
-            var logoImg = document.querySelector('nav img');
+        function applyTranslations(translations) {
+            // Function to apply translations to text content
+            function translateElement(element) {
+                if (element) {
+                    // Use innerHTML to handle HTML tags
+                    let htmlContent = element.innerText;
+                    console.log('Original HTML Content:', htmlContent);
 
-            if (pageTitle !== 'Home') {
-                // Apply styles for non-Home pages
-                styleSheet.insertRule('ul li a { color: black; }', styleSheet.cssRules.length);
-                logoImg.src = '/assets/iau/images/Auth Logo.png';
-            } else {
-                // Apply default styles
-                styleSheet.insertRule('ul li a { color: black; }', styleSheet.cssRules.length);
-                logoImg.src = '/assets/iau/images/company_logo.png';
-            }
-        }
-
-        // Call the function to apply styles and update the logo
-        updateStylesBasedOnTitle();
-
-        // Initialize the currentLanguage from localStorage or default to 'en'
-        let currentLanguage = localStorage.getItem('language') || 'en';
-
-        // Set the initial language on page load
-        document.addEventListener('DOMContentLoaded', () => {
-            const button = document.getElementById('toggle-btn');
-            const languageSelector = document.getElementById('language-selector');
-            const body = document.body;
-
-            if (currentLanguage === 'ar') {
-                button.textContent = 'English';
-                languageSelector.value = 'ar'; // Simulate select change
-                body.classList.add('rtl');
-            } else {
-                button.textContent = 'عربي';
-                languageSelector.value = 'en'; // Simulate select change
-                body.classList.remove('rtl');
-            }
-
-            // Fetch translations on page load if language is not English
-            if (currentLanguage !== 'en') {
-                fetchTranslations(currentLanguage);
-            }
-        });
-
-        // Event listener for the toggle button
-        document.getElementById('toggle-btn').addEventListener('click', () => {
-            const button = document.getElementById('toggle-btn');
-            const languageSelector = document.getElementById('language-selector');
-            const body = document.body;
-
-            // Toggle between English and Arabic
-            if (currentLanguage === 'en') {
-                currentLanguage = 'ar';
-                button.textContent = 'English';
-                languageSelector.value = 'ar'; // Simulate select change
-                body.classList.add('rtl');
-            } else {
-                currentLanguage = 'en';
-                button.textContent = 'عربي';
-                languageSelector.value = 'en'; // Simulate select change
-                body.classList.remove('rtl');
-            }
-
-            // Save the selected language to localStorage
-            localStorage.setItem('language', currentLanguage);
-
-            // Fetch translations if not English
-            if (currentLanguage !== 'en') {
-                fetchTranslations(currentLanguage);
-            } else {
-                resetToEnglish();
-            }
-        });
-
-        // Event listener for the language selector
-        document.getElementById('language-selector').addEventListener('change', (event) => {
-            const selectedLanguage = event.target.value;
-
-            if (selectedLanguage === 'en') {
-                currentLanguage = 'en';
-                localStorage.setItem('language', 'en');
-                resetToEnglish();
-            } else {
-                currentLanguage = 'ar';
-                localStorage.setItem('language', 'ar');
-                fetchTranslations(selectedLanguage);
-            }
-        });
-
-        // Fetch translations from the server
-        async function fetchTranslations(language) {
-            try {
-                const response = await fetch(`/api/resource/Translation?filters=[["language", "=", "${language}"]]&fields=["source_text", "translated_text"]`);
-                const { data } = await response.json();
-
-                // Reset sourceTexts and translations before updating
-                sourceTexts = [];
-                translations = {};
-
-                data.forEach(item => {
-                    // Split source_text by newline and add each to sourceTexts array
-                    const sources = item.source_text.split('\n');
-                    const translationsList = item.translated_text.split('\n');
-
-                    // Update sourceTexts dynamically
-                    sources.forEach((text, index) => {
-                        const trimmedText = text.trim();
-                        sourceTexts.push(trimmedText); // Add source text to sourceTexts array
-                        translations[trimmedText] = translationsList[index].trim(); // Map source to translation
+                    // Iterate over each translation pair
+                    Object.keys(translations).forEach(key => {
+                        const value = translations[key];
+                        // Replace exact matches with their corresponding values
+                        if (htmlContent === key) {
+                            htmlContent = value;
+                        }
                     });
-                });
 
-                // Replace text in the navigation with the new translations
-                replaceTextInDocument();
-
-            } catch (error) {
-                console.error('Error fetching translations:', error);
-            }
-        }
-
-        function replaceTextInDocument() {
-            const navItems = document.querySelector('#nav_items');
-
-            // Loop through all source texts and replace them
-            sourceTexts.forEach(sourceText => {
-                const translatedText = translations[sourceText] || sourceText;
-
-                // Replace text in all <a> tags within #nav_items
-                navItems.querySelectorAll('a').forEach(anchor => {
-                    if (anchor.textContent.includes(sourceText)) {
-                        anchor.textContent = anchor.textContent.replace(new RegExp(sourceText, 'g'), translatedText);
-                    }
-                });
-            });
-        }
-
-        function resetToEnglish() {
-            const navItems = document.querySelector('#nav_items');
-
-            navItems.querySelectorAll('a').forEach(anchor => {
-                const originalText = Object.keys(translations).find(sourceText => {
-                    const translatedText = translations[sourceText];
-                    return anchor.textContent.trim() === translatedText;
-                });
-
-                if (originalText) {
-                    anchor.textContent = originalText;
+                    // Update the element's HTML content
+                    element.innerHTML = htmlContent;
+                    console.log('Translated HTML Content:', htmlContent);
                 }
-            });
+            }
+
+            // Select all <a> elements within the #nav_items <ul>
+            const navItems = document.querySelectorAll('#nav_items a');
+
+            // Select the element containing the About Us article
+            const aboutUsHeading = document.querySelector('.about-us-heading');
+
+            // Apply translations to each navigation link
+            navItems.forEach(link => translateElement(link));
+
+            // Apply translations to the About Us article
+            translateElement(aboutUsHeading);
         }
+
+        function setLanguage(language_code) {
+            // Save the selected language in cookies
+            document.cookie = `preferred_language=${language_code}; path=/`;
+
+            // Update the text direction based on the language
+            const body = document.body;
+            if (language_code === 'ar') {
+                body.classList.add('rtl');
+                body.classList.remove('ltr');
+            } else {
+                body.classList.add('ltr');
+                body.classList.remove('rtl');
+            }
+
+            // Reload the page to apply the selected language
+            location.reload();
+        }
+
+        function getPreferredLanguage() {
+            // Get the saved language from cookies
+            const cookieValue = document.cookie
+                .split('; ')
+                .find(row => row.trim().startsWith('preferred_language='))
+                ?.split('=')[1];
+
+            return cookieValue || 'en';  // Default to English if no language is set
+        }
+
+        function loadTranslations(language) {
+            // Fetch translations based on the selected language
+            fetch(`/api/method/iau.custom_api.get_translations?lang=${language}`)
+                .then(response => response.json())
+                .then(data => {
+                    applyTranslations(data.message);
+                })
+                .catch(error => console.error('Error loading translations:', error));
+        }
+
+        document.addEventListener('DOMContentLoaded', function () {
+            // Retrieve the preferred language from cookies or default to 'en'
+            const selectedLanguage = getPreferredLanguage();
+            loadTranslations(selectedLanguage);
+
+            // Set up language toggle button
+            const toggleButton = document.getElementById('toggle-btn');
+            if (toggleButton) {
+                // Update the button text based on the current language
+                toggleButton.textContent = selectedLanguage === 'ar' ? 'English' : 'العربية';
+
+                // Add event listener for the language toggle button
+                toggleButton.addEventListener('click', function () {
+                    const currentLang = getPreferredLanguage();
+                    const newLang = currentLang === 'en' ? 'ar' : 'en';
+                    setLanguage(newLang);
+
+                    // Update the button text after changing the language
+                    toggleButton.textContent = newLang === 'ar' ? 'English' : 'العربية';
+                });
+            }
+
+            // Update text direction based on the preferred language
+            const body = document.body;
+            if (selectedLanguage === 'ar') {
+                body.classList.add('rtl');
+                body.classList.remove('ltr');
+            } else {
+                body.classList.add('ltr');
+                body.classList.remove('rtl');
+            }
+        });
+
     </script>
 </body>
 

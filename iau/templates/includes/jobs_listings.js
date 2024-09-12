@@ -30,6 +30,7 @@ const renderJobOpenings = (jobOpenings) => {
         const formattedDate = date.toLocaleDateString('en-US', options);
 
         const jobDiv = document.createElement('div');
+        jobDiv.className = 'job-opening';
         jobDiv.style.width = '475px';
         jobDiv.style.height = '127px';
         jobDiv.style.backgroundImage = 'linear-gradient(to bottom, #FFFBF1, #EAE2C4)';
