@@ -303,24 +303,10 @@
 
         function applyTranslations(translations) {
             // Function to apply translations to text content
-            function translateElement(element) {
-                if (element) {
-                    // Use innerHTML to handle HTML tags
-                    let htmlContent = element.innerText;
-                    console.log('Original HTML Content:', htmlContent);
-
-                    // Iterate over each translation pair
-                    Object.keys(translations).forEach(key => {
-                        const value = translations[key];
-                        // Replace exact matches with their corresponding values
-                        if (htmlContent === key) {
-                            htmlContent = value;
-                        }
-                    });
-
-                    // Update the element's HTML content
-                    element.innerHTML = htmlContent;
-                    console.log('Translated HTML Content:', htmlContent);
+            function translateElement(element, key) {
+                if (element && key in translations) {
+                    // Set the element's HTML content to the translated value
+                    element.innerHTML = translations[key];
                 }
             }
 
@@ -330,12 +316,36 @@
             // Select the element containing the About Us article
             const aboutUsHeading = document.querySelector('.about-us-heading');
 
-            // Apply translations to each navigation link
-            navItems.forEach(link => translateElement(link));
+            // Select the element for the latest news
+            const latestNewsEle = document.querySelector('.latest_news');
 
-            // Apply translations to the About Us article
-            translateElement(aboutUsHeading);
+            // Select the element for the all news button
+            const allNewsEle = document.querySelector('.all_news_button');
+
+            // Select the element for recent job openings
+            const recentJobOpeningsEle = document.querySelector('.recent_job_openings');
+
+            // Select the About Us paragraphs (with the keys "ABOUT US PARA1" and "ABOUT US PARA2")
+            const aboutUsPara1 = document.querySelector('.about_us_para1');
+            const aboutUsPara2 = document.querySelector('.about_us_para2');
+
+            // Apply translations to each navigation link
+            navItems.forEach(link => {
+                const text = link.innerText.trim();
+                if (text in translations) {
+                    link.innerText = translations[text];
+                }
+            });
+
+            // Apply translations to other elements
+            translateElement(aboutUsHeading, 'ABOUT US');  // Key is 'ABOUT US' in translations
+            translateElement(latestNewsEle, 'LATEST NEWS');  // Key is 'LATEST NEWS'
+            translateElement(allNewsEle, 'ALL NEWS');  // Key is 'ALL NEWS'
+            translateElement(recentJobOpeningsEle, 'RECENT JOB OPENINGS');  // Key is 'RECENT JOB OPENINGS'
+            translateElement(aboutUsPara1, 'ABOUT US PARA1');  // Key is 'ABOUT US PARA1'
+            translateElement(aboutUsPara2, 'ABOUT US PARA2');  // Key is 'ABOUT US PARA2'
         }
+
 
         function setLanguage(language_code) {
             // Save the selected language in cookies
