@@ -97,6 +97,24 @@ const fetchBlogPosts = async () => {
                 el: ".swiper-pagination",
                 clickable: true,
             },
+            breakpoints: {
+                640: {
+                    slidesPerView: 1,
+                    spaceBetween: 20,
+                },
+                1024: {
+                    slidesPerView: 3,
+                    spaceBetween: 30,
+                },
+                1280: {
+                    slidesPerView: 3,
+                    spaceBetween: 30,
+                },
+                1536: {
+                    slidesPerView: 3,
+                    spaceBetween: 30,
+                }
+            }
         });
     } catch (error) {
         console.error('Error:', error);

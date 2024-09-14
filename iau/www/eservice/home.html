@@ -5,38 +5,38 @@ Home
 {% endblock %}
 
 {% block content %}
-<section style="height: 584px; overflow: hidden; position: relative;">
+<section id="news_slider_section">
     <div class="myBannerSwiper" style="height: 100%;">
         <div class="swiper-wrapper">
             <!-- Slide 1 -->
             <div class="swiper-slide"
-                style="background: linear-gradient(to right, rgba(15, 15, 44, 0.825) 0%, rgba(217, 217, 217, 0.25) 50%, rgba(15, 15, 44, 0.825) 100%), rgb(30, 30, 53); height: 584px;">
+                style="background: linear-gradient(to right, rgba(15, 15, 44, 0.825) 0%, rgba(217, 217, 217, 0.25) 50%, rgba(15, 15, 44, 0.825) 100%), rgb(30, 30, 53); height: 100%;">
                 <img src="/assets/iau/images/slider1.jpg" alt="Slide 1"
-                    style="width: 100%; height: 584px; object-fit: cover;" />
+                    style="width: 100%; height: 100%; object-fit: cover;" />
             </div>
             <!-- Slide 2 -->
             <div class="swiper-slide"
-                style="background: linear-gradient(to right, rgba(15, 15, 44, 0.825) 0%, rgba(217, 217, 217, 0.25) 50%, rgba(15, 15, 44, 0.825) 100%), rgb(30, 30, 53); height: 584px;">
+                style="background: linear-gradient(to right, rgba(15, 15, 44, 0.825) 0%, rgba(217, 217, 217, 0.25) 50%, rgba(15, 15, 44, 0.825) 100%), rgb(30, 30, 53); height: 100%;">
                 <img src="/assets/iau/images/slider2.jpg" alt="Slide 2"
-                    style="width: 100%; height: 584px; object-fit: cover;" />
+                    style="width: 100%; height: 100%; object-fit: cover;" />
             </div>
             <!-- Slide 3 -->
             <div class="swiper-slide"
-                style="background: linear-gradient(to right, rgba(15, 15, 44, 0.825) 0%, rgba(217, 217, 217, 0.25) 50%, rgba(15, 15, 44, 0.825) 100%), rgb(30, 30, 53); height: 584px;">
+                style="background: linear-gradient(to right, rgba(15, 15, 44, 0.825) 0%, rgba(217, 217, 217, 0.25) 50%, rgba(15, 15, 44, 0.825) 100%), rgb(30, 30, 53); height: 100%;">
                 <img src="/assets/iau/images/slider3.jpg" alt="Slide 3"
-                    style="width: 100%; height: 584px; object-fit: cover;" />
+                    style="width: 100%; height: 100%; object-fit: cover;" />
             </div>
             <!-- Slide 4 -->
             <div class="swiper-slide"
-                style="background: linear-gradient(to right, rgba(15, 15, 44, 0.825) 0%, rgba(217, 217, 217, 0.25) 50%, rgba(15, 15, 44, 0.825) 100%), rgb(30, 30, 53); height: 584px;">
+                style="background: linear-gradient(to right, rgba(15, 15, 44, 0.825) 0%, rgba(217, 217, 217, 0.25) 50%, rgba(15, 15, 44, 0.825) 100%), rgb(30, 30, 53); height: 100%;">
                 <img src="/assets/iau/images/slider4.jpg" alt="Slide 4"
-                    style="width: 100%; height: 584px; object-fit: cover;" />
+                    style="width: 100%; height: 100%; object-fit: cover;" />
             </div>
             <!-- Slide 5 -->
             <div class="swiper-slide"
-                style="background: linear-gradient(to right, rgba(15, 15, 44, 0.825) 0%, rgba(217, 217, 217, 0.25) 50%, rgba(15, 15, 44, 0.825) 100%), rgb(30, 30, 53); height: 584px;">
+                style="background: linear-gradient(to right, rgba(15, 15, 44, 0.825) 0%, rgba(217, 217, 217, 0.25) 50%, rgba(15, 15, 44, 0.825) 100%), rgb(30, 30, 53); height: 100%;">
                 <img src="/assets/iau/images/slider5.jpg" alt="Slide 5"
-                    style="width: 100%; height: 584px; object-fit: cover;" />
+                    style="width: 100%; height: 100%; object-fit: cover;" />
             </div>
         </div>
         <div class="swiper-pagination"></div>
@@ -87,7 +87,7 @@ Home
             </div>
         </div>
         <div id="jobs_listing_section"
-            style="width: 100%; display: grid; grid-template-columns: repeat(3, 417.67px); gap: 20px; grid-auto-rows: 127px; padding : 40px 0px;">
+            style="width: 100%; display: grid; grid-template-columns: repeat(auto-fit, minmax(417.67px, 1fr));; gap: 20px; grid-auto-rows: 127px; padding : 40px 0px;">
             <!-- Dynamic Divs will be rendering here -->
         </div>
         <div style="display: flex; justify-content: center; align-items: center;">
@@ -140,7 +140,7 @@ Home
                 University.
             </p>
         </article>
-        <div style="display: grid; grid-template-columns: repeat(2, 50%); gap : 24px;">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(50%, 1fr)); gap : 24px;">
             <div style="width: 100%;">
                 <div style="display: flex; align-items: center;">
                     <h2
@@ -189,7 +189,7 @@ Home
             OUTSIDE THE UNIVERSITY
         </h4>
         <div
-            style="margin-top: 44px; display: grid; grid-template-columns: repeat(3, 1fr); justify-items: center; align-items : center;">
+            style="margin-top: 44px; display: grid; grid-template-columns: repeat(auto-fit, minmax(350px,1fr)); justify-items: center; align-items : center;">
             <img src="/assets/iau/images/partner 1.png" />
             <img src="/assets/iau/images/partner 2.png" />
             <img src="/assets/iau/images/partner 3.png" />
@@ -199,7 +199,7 @@ Home
             within THE UNIVERSITY
         </h4>
         <div
-            style="margin-top: 44px; display: grid; grid-template-columns: repeat(3, 1fr); justify-items: center; align-items : center;">
+            style="margin-top: 44px; display: grid; grid-template-columns: repeat(auto-fit, minmax(350px,1fr)); justify-items: center; align-items : center;">
             <img src="/assets/iau/images/partner 4.png" />
             <img src="/assets/iau/images/partner 5.png" />
             <img src="/assets/iau/images/partner 6.png" />
@@ -213,7 +213,7 @@ Home
                 style="text-transform: uppercase; font-size: 40px; font-weight : bold; font-family: 'Encode Sans Condensed'; color : #3D4667;">Partners</span>
         </div>
         <div id="partners_img_grid"
-            style="margin-top: 47px; display: grid; grid-template-columns: repeat(5, 254.6px); grid-gap: 5px; justify-items: center; align-items: center;">
+            style="margin-top: 47px; display: grid; grid-template-columns: repeat(auto-fit, minmax(254.6px,1fr)); grid-gap: 5px; justify-items: center; align-items: center;">
             <img src="/assets/iau/images/PARTNER1.png" />
             <img src="/assets/iau/images/PARTNER2.png" />
             <img src="/assets/iau/images/PARTNER3.png" />
@@ -292,7 +292,7 @@ Home
                 style="text-transform: uppercase; font-size: 40px; font-weight : bold; font-family: 'Encode Sans Condensed'; color : #3D4667;">Projects</span>
         </div>
         <div id="projects_grid_img"
-            style="margin-top: 47px; display: grid; grid-template-columns: repeat(5, 254.6px); grid-gap: 5px; justify-items: center; align-items: center;">
+            style="margin-top: 47px; display: grid; grid-template-columns: repeat(auto-fit, minmax(254.6px,1fr)); grid-gap: 5px; justify-items: center; align-items: center;">
             <img src="/assets/iau/images/Project1.png" />
             <img src="/assets/iau/images/Project2.png" />
             <img src="/assets/iau/images/Project3.png" />
@@ -314,7 +314,7 @@ Home
                 style="text-transform: uppercase; font-size: 40px; font-weight : bold; font-family: 'Encode Sans Condensed'; color : #3D4667;">Services</span>
         </div>
         <div
-            style="margin-top : 30px;background: linear-gradient(180deg, #FFFBF1 0%, rgba(255, 251, 241, 0) 100%); display: grid; grid-template-columns: repeat(4, 323.25px); grid-auto-rows: 310px;">
+            style="margin-top : 30px;background: linear-gradient(180deg, #FFFBF1 0%, rgba(255, 251, 241, 0) 100%); display: grid; grid-template-columns: repeat(auto-fit, minmax(323.25px,1fr)); grid-auto-rows: 310px;">
             <div class="first-row" style="display: flex; justify-content: center; align-items: center; flex-direction: column;
                 border-right: 1px solid transparent;
                 position: relative;">

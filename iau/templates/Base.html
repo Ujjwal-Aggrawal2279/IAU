@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/qrious/dist/qrious.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style id="dynamic-styles">
         body.ltr {
             direction: ltr;
@@ -77,54 +78,98 @@
     <div class="header">
         <nav class="container">
             <div>
-                <img src="/assets/iau/images/Auth Logo.png" alt="company_logo" style="width: 85%;" />
+                <img src="/assets/iau/images/Auth Logo.png" alt="company_logo" class="company_logo" />
             </div>
             <div>
-                <ul id="nav_items" style="display: flex; gap: 20px; list-style: none; align-items: center;">
+                <ul id="nav_items">
                     <li><a href="/eservice/home"
-                            style="text-decoration: none; font-family: 'Encode Sans Condensed'; font-size: 20px; text-transform: uppercase;">Home</a>
+                            style="text-decoration: none; font-family: 'Encode Sans Condensed'; text-transform: uppercase;">Home</a>
                     </li>
                     <li><a href="/eservice/home#about_us"
-                            style="text-decoration: none; font-family: 'Encode Sans Condensed'; font-size: 20px; text-transform: uppercase;">About</a>
+                            style="text-decoration: none; font-family: 'Encode Sans Condensed'; text-transform: uppercase;">About</a>
                     </li>
                     <li><a href="/eservice/home#latest_news"
-                            style="text-decoration: none; font-family: 'Encode Sans Condensed'; font-size: 20px; text-transform: uppercase;">News</a>
+                            style="text-decoration: none; font-family: 'Encode Sans Condensed'; text-transform: uppercase;">News</a>
                     </li>
                     <li><a href="/eservice/home#jobs_openings"
-                            style="text-decoration: none; font-family: 'Encode Sans Condensed'; font-size: 20px; text-transform: uppercase;">Jobs</a>
+                            style="text-decoration: none; font-family: 'Encode Sans Condensed'; text-transform: uppercase;">Jobs</a>
                     </li>
                     <li><a href="/eservice/home#services"
-                            style="text-decoration: none; font-family: 'Encode Sans Condensed'; font-size: 20px; text-transform: uppercase;">Services</a>
+                            style="text-decoration: none; font-family: 'Encode Sans Condensed'; text-transform: uppercase;">Services</a>
                     </li>
                     <li><a href="/eservice/home#projects"
-                            style="text-decoration: none; font-family: 'Encode Sans Condensed'; font-size: 20px; text-transform: uppercase;">Projects</a>
+                            style="text-decoration: none; font-family: 'Encode Sans Condensed'; text-transform: uppercase;">Projects</a>
                     </li>
                     <li><a href="/eservice/home#partnerships"
-                            style="text-decoration: none; font-family: 'Encode Sans Condensed'; font-size: 20px; text-transform: uppercase;">Partnerships</a>
+                            style="text-decoration: none; font-family: 'Encode Sans Condensed'; text-transform: uppercase;">Partnerships</a>
                     </li>
                     <li><a href="/eservice/home#partners"
-                            style="text-decoration: none; font-family: 'Encode Sans Condensed'; font-size: 20px; text-transform: uppercase;">Partners</a>
+                            style="text-decoration: none; font-family: 'Encode Sans Condensed'; text-transform: uppercase;">Partners</a>
+                    </li>
+                    <li><a href="/eservice/home#connect_with_us"
+                            style="text-decoration: none; font-family: 'Encode Sans Condensed'; text-transform: uppercase;">Connect
+                            With
+                            Us</a>
                     </li>
                     <li id="nav-item-eservices" style="position: relative;"><a href="/login"
-                            style="text-decoration: none; font-family: 'Encode Sans Condensed'; font-size: 20px; text-transform: uppercase;">E-services</a>
+                            style="text-decoration: none; font-family: 'Encode Sans Condensed'; text-transform: uppercase;">E-services</a>
                     </li>
                 </ul>
             </div>
-        </nav>
+            <div class="mobile_nav" onclick="toggleMenu()">
+                <i class="fas fa-bars"></i>
+            </div>
+            <div id="mobile_menu" style="display: none;">
+                <ul>
+                    <li><a href="/eservice/home"
+                            style="text-decoration: none; font-family: 'Encode Sans Condensed'; text-transform: uppercase;">HOME</a>
+                    </li>
+                    <li><a href="/eservice/home#about_us"
+                            style="text-decoration: none; font-family: 'Encode Sans Condensed'; text-transform: uppercase;">ABOUT</a>
+                    </li>
+                    <li><a href="/eservice/home#latest_news"
+                            style="text-decoration: none; font-family: 'Encode Sans Condensed'; text-transform: uppercase;">NEWS</a>
+                    </li>
+                    <li><a href="/eservice/home#jobs_openings"
+                            style="text-decoration: none; font-family: 'Encode Sans Condensed'; text-transform: uppercase;">JOBS</a>
+                    </li>
+                    <li><a href="/eservice/home#services"
+                            style="text-decoration: none; font-family: 'Encode Sans Condensed'; text-transform: uppercase;">SERVICES</a>
+                    </li>
+                    <li><a href="/eservice/home#projects"
+                            style="text-decoration: none; font-family: 'Encode Sans Condensed'; text-transform: uppercase;">PROJECTS</a>
+                    </li>
+                    <li><a href="/eservice/home#partnerships"
+                            style="text-decoration: none; font-family: 'Encode Sans Condensed'; text-transform: uppercase;">PARTNERSHIPS</a>
+                    </li>
+                    <li><a href="/eservice/home#partners"
+                            style="text-decoration: none; font-family: 'Encode Sans Condensed'; text-transform: uppercase;">PARTNERS</a>
+                    </li>
+                    <li><a href="/eservice/home#connect_with_us"
+                            style="text-decoration: none; font-family: 'Encode Sans Condensed'; text-transform: uppercase;">CONNECT
+                            WITH US</a>
+                    </li>
+                    <li><a href="/login"
+                            style="text-decoration: none; font-family: 'Encode Sans Condensed'; text-transform: uppercase;">E-SERVICES</a>
+                    </li>
+                </ul>
+            </div>
     </div>
 
     {% block content %}
     <!-- Default content -->
     {% endblock %}
 
-    <div class="footer" style="background-image: linear-gradient(180deg, #2B354E 0%, #101423 100%); height : 504px;">
+    <div class="footer" id="connect_with_us"
+        style="background-image: linear-gradient(180deg, #2B354E 0%, #101423 100%); height : auto;">
         <div class="container" style="padding-top: 62px; padding-bottom : 62px;">
             <div class="divider">
                 <span
                     style="text-transform: uppercase; font-size: 40px; font-weight : bold; font-family: 'Encode Sans Condensed'; color : white; margin : 0px 15px;">Contact
                     US</span>
             </div>
-            <div style="margin-top : 40px; display: grid; grid-template-columns: repeat(3, 411px); gap: 30px;">
+            <div
+                style="margin-top : 40px; display: grid; grid-template-columns: repeat(auto-fit, minmax(411px, 1fr)); gap: 30px;">
                 <div
                     style="height : 101px; display: flex; align-items : center; padding : 11px;background: linear-gradient(180deg, #FFFFFF 0%, #EFE6D2 100%); gap: 35px">
                     <div
@@ -175,7 +220,8 @@
                         @iau_icss</p>
                 </div>
             </div>
-            <div style="margin-top : 120px; display: grid; grid-template-columns: repeat(3, 411px); gap: 30px">
+            <div
+                style="margin-top : 120px; display: grid; grid-template-columns: repeat(auto-fit, minmax(411px, 1fr)); gap: 30px">
                 <div>
                     <a href="/eservice/home" style="text-decoration: none;">
                         <p
@@ -184,18 +230,18 @@
                     </a>
                 </div>
                 <div>
-                    <p
-                        style="font-size : 20px; text-align : center; font-family : Inter Display; font-weight : 400; color : white">
+                    <p class="footer-copyright"
+                        style="font-size : 20px; font-family : Inter Display; font-weight : 400; color : white">
                         © 2024 Imam Abdulrahman Bin Faisal University.
                     </p>
-                    <p
-                        style="font-size : 20px; text-align : center; font-family : Inter Display; font-weight : 400; color : white">
+                    <p class="footer-copyright"
+                        style="font-size : 20px; font-family : Inter Display; font-weight : 400; color : white">
                         All rights reserved.
                     </p>
                 </div>
                 <div>
-                    <p
-                        style="font-size : 22px; font-weight: 400; color : white; font-family : Inter Display; text-align : right;">
+                    <p class="footer-implementation"
+                        style="font-size : 22px; font-weight: 400; color : white; font-family : Inter Display;">
                         Implemented by Makwiz Technologies</p>
                 </div>
             </div>
@@ -210,6 +256,15 @@
         </select>
     </div>
     <script>
+        // Toggle menu
+        function toggleMenu() {
+            var menu = document.getElementById("mobile_menu");
+            if (menu.style.display === "none" || menu.style.display === "") {
+                menu.style.display = "block";
+            } else {
+                menu.style.display = "none";
+            }
+        }
         // Add sticky Header
         window.onscroll = function () { stickyHeader() };
 
@@ -254,7 +309,7 @@
                 // Replace the "E-services" link with the user's avatar and dropdown menu
                 const navItemEservices = document.getElementById('nav-item-eservices');
                 navItemEservices.innerHTML = `
-                    <a href="#" id="user-menu-toggle" style="text-decoration: none; font-family: 'Encode Sans Condensed'; font-size: 20px; text-transform: uppercase; display: flex; align-items: center;">
+                    <a href="#" id="user-menu-toggle" style="text-decoration: none; font-family: 'Encode Sans Condensed'; text-transform: uppercase; display: flex; align-items: center;">
                         <img src="${userImage}" alt="User Avatar" id="user-avatar" style="width: 40px; height: 40px; border-radius: 50%; border: 1px solid #101423; margin-right: 10px;">
                     </a>
                     <div id="dropdown-menu" style="display: none; position: absolute; top: 100%; right: 0; background-color: #fff; box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2); z-index: 1; width: 200px; background-color: #EFE6D2;">
@@ -313,6 +368,9 @@
             // Select all <a> elements within the #nav_items <ul>
             const navItems = document.querySelectorAll('#nav_items a');
 
+            // select all <a> elements within the #mobile_menu <ul>
+            const mobileMenuItems = document.querySelectorAll('#mobile_menu a');
+
             // Select the element containing the About Us article
             const aboutUsHeading = document.querySelector('.about-us-heading');
 
@@ -331,6 +389,13 @@
 
             // Apply translations to each navigation link
             navItems.forEach(link => {
+                const text = link.innerText.trim();
+                if (text in translations) {
+                    link.innerText = translations[text];
+                }
+            });
+
+            mobileMenuItems.forEach(link => {
                 const text = link.innerText.trim();
                 if (text in translations) {
                     link.innerText = translations[text];
