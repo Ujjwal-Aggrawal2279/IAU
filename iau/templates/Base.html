@@ -107,9 +107,8 @@
                             style="text-decoration: none; font-family: 'Encode Sans Condensed'; text-transform: uppercase;">Partners</a>
                     </li>
                     <li><a href="/eservice/home#connect_with_us"
-                            style="text-decoration: none; font-family: 'Encode Sans Condensed'; text-transform: uppercase;">Connect
-                            With
-                            Us</a>
+                            style="text-decoration: none; font-family: 'Encode Sans Condensed'; text-transform: uppercase;">CONNECT
+                            WITH US</a>
                     </li>
                     <li id="nav-item-eservices" style="position: relative;"><a href="/login"
                             style="text-decoration: none; font-family: 'Encode Sans Condensed'; text-transform: uppercase;">E-services</a>
@@ -145,9 +144,11 @@
                     <li><a href="/eservice/home#partners"
                             style="text-decoration: none; font-family: 'Encode Sans Condensed'; text-transform: uppercase;">PARTNERS</a>
                     </li>
-                    <li><a href="/eservice/home#connect_with_us"
-                            style="text-decoration: none; font-family: 'Encode Sans Condensed'; text-transform: uppercase;">CONNECT
-                            WITH US</a>
+                    <li>
+                        <a href="/eservice/home#connect_with_us"
+                            style="text-decoration: none; font-family: 'Encode Sans Condensed'; text-transform: uppercase;">
+                            CONNECT WITH US
+                        </a>
                     </li>
                     <li><a href="/login"
                             style="text-decoration: none; font-family: 'Encode Sans Condensed'; text-transform: uppercase;">E-SERVICES</a>
@@ -165,11 +166,11 @@
         <div class="container" style="padding-top: 62px; padding-bottom : 62px;">
             <div class="divider">
                 <span
-                    style="text-transform: uppercase; font-size: 40px; font-weight : bold; font-family: 'Encode Sans Condensed'; color : white; margin : 0px 15px;">Contact
-                    US</span>
+                    style="text-transform: uppercase; font-size: 40px; font-weight : bold; font-family: 'Encode Sans Condensed'; color : white; margin : 0px 15px;">
+                    CONNECT WITH US</span>
             </div>
             <div
-                style="margin-top : 40px; display: grid; grid-template-columns: repeat(auto-fit, minmax(411px, 1fr)); gap: 30px;">
+                style="margin-top : 40px; display: grid; grid-template-columns: repeat(auto-fit, minmax(380px, 1fr)); gap: 30px;">
                 <div
                     style="height : 101px; display: flex; align-items : center; padding : 11px;background: linear-gradient(180deg, #FFFFFF 0%, #EFE6D2 100%); gap: 35px">
                     <div
@@ -387,6 +388,27 @@
             const aboutUsPara1 = document.querySelector('.about_us_para1');
             const aboutUsPara2 = document.querySelector('.about_us_para2');
 
+            // Select the elements for Our Vision Heading and Description
+            const ourVisionHeading = document.querySelector('#our_vision_heading');
+            const ourVisionDescription = document.querySelector('#our_vision_desc');
+
+            // Select the elements for Our Message Heading and Description
+            const ourMessageHeading = document.querySelector('#our_message_heading');
+            const ourMessageDescription = document.querySelector('#our_message_desc');
+
+            // Select the elements for All Jobs Button
+            const allJobsButton = document.querySelector('#all_jobs_button');
+
+            // Select the Partnerships Heading
+            const partnerships_heading_ele = document.querySelector('#partnerships_heading');
+
+            // Select the Outside the University Heading
+            const outside_university_heading_ele = document.querySelector('#outside_university_heading');
+            const within_university_heading_ele = document.querySelector('#within_university_heading');
+            const partner_heading_ele = document.querySelector('#partner_heading');
+            const projects_heading_ele = document.querySelector('#projects_heading');
+            const services_heading_ele = document.querySelector('#services_heading');
+
             // Apply translations to each navigation link
             navItems.forEach(link => {
                 const text = link.innerText.trim();
@@ -396,7 +418,7 @@
             });
 
             mobileMenuItems.forEach(link => {
-                const text = link.innerText.trim();
+                const text = link.textContent.trim();
                 if (text in translations) {
                     link.innerText = translations[text];
                 }
@@ -409,6 +431,17 @@
             translateElement(recentJobOpeningsEle, 'RECENT JOB OPENINGS');  // Key is 'RECENT JOB OPENINGS'
             translateElement(aboutUsPara1, 'ABOUT US PARA1');  // Key is 'ABOUT US PARA1'
             translateElement(aboutUsPara2, 'ABOUT US PARA2');  // Key is 'ABOUT US PARA2'
+            translateElement(ourVisionHeading, 'OUR VISION');  // Key is 'Our Vision'
+            translateElement(ourVisionDescription, 'OUR VISION DESC');  // Key is 'Our Vision Desc'
+            translateElement(ourMessageHeading, 'OUR MESSAGE');  // Key is 'Our Message'
+            translateElement(ourMessageDescription, 'OUR MESSAGE DESC');  // Key is 'Our Message Desc'
+            translateElement(allJobsButton, "ALL JOBS"); // Key is 'ALL JOBS'
+            translateElement(partnerships_heading_ele, 'PARTNERSHIPS');  // Key is 'Partnerships'
+            translateElement(outside_university_heading_ele, 'OUTSIDE THE UNIVERSITY');  // Key is 'Outside University'
+            translateElement(within_university_heading_ele, 'WITHIN THE UNIVERSITY');  // Key is 'Within University'
+            translateElement(partner_heading_ele, "PARTNERS"); // Key is 'Partners"
+            translateElement(projects_heading_ele, 'PROJECTS');  // Key is 'Projects'
+            translateElement(services_heading_ele, 'SERVICES'); // Key is 'Services'
         }
 
 

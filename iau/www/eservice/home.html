@@ -47,7 +47,7 @@ Home
     <div class="container">
         <div class="divider">
             <span class="text_span latest_news"
-                style="text-transform: uppercase; font-size: 40px; font-weight : bold; font-family: 'Encode Sans Condensed'; color : #3D4667;">Latest
+                style="text-transform: uppercase; font-size: 40px; font-weight : bold; font-family: 'Encode Sans Condensed', sans-serif; color : #3D4667;">Latest
                 News</span>
         </div>
     </div>
@@ -81,18 +81,18 @@ Home
                         fill="#3D4667" />
                 </svg>
                 <span class="recent_job_openings"
-                    style="text-transform: uppercase; font-size: 40px; font-weight : bold; font-family: 'Encode Sans Condensed'; color : #3D4667; margin-left : 15px;">Recent
+                    style="text-transform: uppercase; font-size: 40px; font-weight : bold; font-family: 'Encode Sans Condensed', sans-serif; color : #3D4667; margin-left : 15px;">Recent
                     Job Openings
                 </span>
             </div>
         </div>
         <div id="jobs_listing_section"
-            style="width: 100%; display: grid; grid-template-columns: repeat(auto-fit, minmax(417.67px, 1fr));; gap: 20px; grid-auto-rows: 127px; padding : 40px 0px;">
+            style="width: 100%; display: grid; grid-template-columns: repeat(auto-fit, minmax(317.67px, 1fr)); gap: 20px; grid-auto-rows: 127px; padding : 40px 0px;">
             <!-- Dynamic Divs will be rendering here -->
         </div>
         <div style="display: flex; justify-content: center; align-items: center;">
             <a href="/eservice/jobs">
-                <button
+                <button id="all_jobs_button"
                     style="padding: 11px 20px; background-color: #101423; color: white; font-size: 22px; font-weight: 700; border: none; font-family : Inter Display; cursor : pointer">
                     All Jobs
                 </button>
@@ -104,7 +104,7 @@ Home
     <div class="container">
         <div class="divider">
             <span class="about-us-heading"
-                style="text-transform: uppercase; font-size: 40px; font-weight : bold; font-family: 'Encode Sans Condensed'; color : #FFFFFF; margin : 0px 15px;">About
+                style="text-transform: uppercase; font-size: 40px; font-weight : bold; font-family: 'Encode Sans Condensed', sans-serif; color : #FFFFFF; margin : 0px 15px;">About
                 us</span>
         </div>
         <article style="font-family : Inter Display; font-size : 22px; font-weight : 500; text-align: justify;
@@ -140,31 +140,31 @@ Home
                 University.
             </p>
         </article>
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(50%, 1fr)); gap : 24px;">
-            <div style="width: 100%;">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(600px, 1fr)); gap : 24px;">
+            <div>
                 <div style="display: flex; align-items: center;">
-                    <h2
-                        style="text-transform: uppercase; font-family: Encode Sans Condensed; font-size: 40px; color: #FFFFFF; font-weight: 700;">
+                    <h2 id="our_vision_heading"
+                        style="text-transform: uppercase; font-family: 'Encode Sans Condensed', sans-serif; font-size: 40px; color: #FFFFFF; font-weight: 700;">
                         our vision
                     </h2>
                     <hr
                         style="flex-grow: 1; margin-left: 10px; border: 1px solid; border-image-source: linear-gradient(90deg, #93A1BB 0%, rgba(138, 151, 176, 0.89) 0%, rgba(129, 142, 165, 0.78) 0.01%); border-image-slice: 1;" />
                 </div>
-                <p
+                <p id="our_vision_desc"
                     style="font-size : 22px; font-family : Inter Display; font-weight : 500; line-height : 40px; color : #fff">
                     Local and regional leadership in providing advisory studies and distinguished training services.
                 </p>
             </div>
-            <div style="width: 100%;">
+            <div>
                 <div style="display: flex; align-items: center;">
-                    <h2
-                        style="text-transform: uppercase; font-family: Encode Sans Condensed; font-size: 40px; color: #FFFFFF; font-weight: 700;">
+                    <h2 id="our_message_heading"
+                        style="text-transform: uppercase; font-family: 'Encode Sans Condensed', sans-serif; font-size: 40px; color: #FFFFFF; font-weight: 700;">
                         our message
                     </h2>
                     <hr
                         style="flex-grow: 1; margin-left: 10px; border: 1px solid; border-image-source: linear-gradient(90deg, #93A1BB 0%, rgba(138, 151, 176, 0.89) 0%, rgba(129, 142, 165, 0.78) 0.01%); border-image-slice: 1;" />
                 </div>
-                <p
+                <p id="our_message_desc"
                     style="font-size : 22px; font-family : Inter Display; font-weight : 500; line-height : 40px; color : #fff">
                     Providing high quality advisory and training services that contribute to serving the local
                     community, achieving
@@ -174,17 +174,16 @@ Home
                 </p>
             </div>
         </div>
-
     </div>
 </section>
 <section class="partnerships_section" id="partnerships"
     style="background: linear-gradient(180deg, #FFFFFF 0%, #FFFBF1 100%);">
     <div class="container">
         <div class="divider">
-            <span class="text_span"
-                style="text-transform: uppercase; font-size: 40px; font-weight : bold; font-family: 'Encode Sans Condensed'; color : #3D4667;">Partnerships</span>
+            <span class="text_span" id="partnerships_heading"
+                style="text-transform: uppercase; font-size: 40px; font-weight : bold; font-family: 'Encode Sans Condensed' , sans-serif; color : #3D4667;">Partnerships</span>
         </div>
-        <h4
+        <h4 id="outside_university_heading"
             style="width : 100%; text-align : center; color : #10142380; text-transform: uppercase; font-size : 22px; font-weight : 700; line-height : 32px; margin-top : 59px;">
             OUTSIDE THE UNIVERSITY
         </h4>
@@ -194,7 +193,7 @@ Home
             <img src="/assets/iau/images/partner 2.png" />
             <img src="/assets/iau/images/partner 3.png" />
         </div>
-        <h4
+        <h4 id="within_university_heading"
             style="width : 100%; text-align : center; color : #10142380; text-transform: uppercase; font-size : 22px; font-weight : 700; line-height : 32px; margin-top : 59px;">
             within THE UNIVERSITY
         </h4>
@@ -209,8 +208,8 @@ Home
 <section class="partners_section" id="partners" style="background: linear-gradient(180deg, #FFFFFF 0%, #FFFBF1 100%);">
     <div class="container">
         <div class="divider">
-            <span class="text_span"
-                style="text-transform: uppercase; font-size: 40px; font-weight : bold; font-family: 'Encode Sans Condensed'; color : #3D4667;">Partners</span>
+            <span class="text_span" id="partner_heading"
+                style="text-transform: uppercase; font-size: 40px; font-weight : bold; font-family: 'Encode Sans Condensed', sans-serif; color : #3D4667;">Partners</span>
         </div>
         <div id="partners_img_grid"
             style="margin-top: 47px; display: grid; grid-template-columns: repeat(auto-fit, minmax(254.6px,1fr)); grid-gap: 5px; justify-items: center; align-items: center;">
@@ -288,8 +287,8 @@ Home
     style="padding: 60px 0px; background: linear-gradient(180deg, #FFFFFF 0%, #FFFBF1 100%);">
     <div class="container">
         <div class="divider">
-            <span class="text_span"
-                style="text-transform: uppercase; font-size: 40px; font-weight : bold; font-family: 'Encode Sans Condensed'; color : #3D4667;">Projects</span>
+            <span class="text_span" id="projects_heading"
+                style="text-transform: uppercase; font-size: 40px; font-weight : bold; font-family: 'Encode Sans Condensed' , sans-serif; color : #3D4667;">Projects</span>
         </div>
         <div id="projects_grid_img"
             style="margin-top: 47px; display: grid; grid-template-columns: repeat(auto-fit, minmax(254.6px,1fr)); grid-gap: 5px; justify-items: center; align-items: center;">
@@ -310,11 +309,11 @@ Home
 <section class="services_section" id="services">
     <div class="container">
         <div class="divider">
-            <span class="text_span"
-                style="text-transform: uppercase; font-size: 40px; font-weight : bold; font-family: 'Encode Sans Condensed'; color : #3D4667;">Services</span>
+            <span class="text_span" id="services_heading"
+                style="text-transform: uppercase; font-size: 40px; font-weight : bold; font-family: 'Encode Sans Condensed' , sans-serif; color : #3D4667;">Services</span>
         </div>
         <div
-            style="margin-top : 30px;background: linear-gradient(180deg, #FFFBF1 0%, rgba(255, 251, 241, 0) 100%); display: grid; grid-template-columns: repeat(auto-fit, minmax(323.25px,1fr)); grid-auto-rows: 310px;">
+            style="margin-top : 30px;background: linear-gradient(180deg, #FFFBF1 0%, rgba(255, 251, 241, 0) 100%); display: grid; grid-template-columns: repeat(auto-fit, minmax(300px,1fr)); grid-auto-rows: 310px;">
             <div class="first-row" style="display: flex; justify-content: center; align-items: center; flex-direction: column;
                 border-right: 1px solid transparent;
                 position: relative;">

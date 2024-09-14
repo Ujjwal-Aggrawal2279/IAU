@@ -31,7 +31,7 @@ const renderJobOpenings = (jobOpenings) => {
 
         const jobDiv = document.createElement('div');
         jobDiv.className = 'job-opening';
-        jobDiv.style.width = '475px';
+        jobDiv.style.maxWidth = '450px';
         jobDiv.style.height = '127px';
         jobDiv.style.backgroundImage = 'linear-gradient(to bottom, #FFFBF1, #EAE2C4)';
         jobDiv.style.padding = '21px 24px';

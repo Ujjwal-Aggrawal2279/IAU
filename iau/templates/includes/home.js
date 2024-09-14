@@ -43,7 +43,7 @@ const renderJobOpenings = (jobOpenings) => {
         messageDiv.style.height = '100px';
         messageDiv.style.textAlign = 'center';
         messageDiv.innerHTML = `
-            <p style="font-family: 'Encode Sans Condensed'; font-size: 22px; font-weight: 700; color: #101423;">
+            <p style="font-family: 'Encode Sans Condensed', sans-serif; font-size: 22px; font-weight: 700; color: #101423;">
                 No openings available right now!
             </p>
         `;
@@ -56,7 +56,7 @@ const renderJobOpenings = (jobOpenings) => {
             const formattedDate = date.toLocaleDateString('en-US', options);
             const jobDiv = document.createElement('div');
             jobDiv.className = 'job-opening';
-            jobDiv.style.width = '417.67px';
+            jobDiv.style.width = '377.67px';
             jobDiv.style.height = '127px';
             jobDiv.style.backgroundImage = 'linear-gradient(to bottom, #FFFBF1, #EAE2C4)';
             jobDiv.style.padding = '21px 24px';
@@ -64,7 +64,7 @@ const renderJobOpenings = (jobOpenings) => {
             // Customize the content inside the div
             jobDiv.innerHTML = `
                 <a href="/eservice/jobInfo?JobTitle=${encodeURIComponent(job.job_title)}" style="text-decoration : none;">
-                    <p style="font-family: 'Encode Sans Condensed'; font-size: 22px; font-weight: 700; line-height: 28px; color: #101423">${job.job_title}</p>
+                    <p style="font-family: 'Encode Sans Condensed' , sans-serif; font-size: 18px; font-weight: 700; line-height: 28px; color: #101423">${job.job_title}</p>
                     <div style="margin-top: 36px;">
                         <p style="font-family: Inter Display; font-size: 18px; line-height: 32px; color: #8092A7;">${formattedDate}</p>
                     </div>

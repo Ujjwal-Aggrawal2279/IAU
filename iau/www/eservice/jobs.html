@@ -5,15 +5,16 @@ Jobs Listings
 {% endblock %}
 
 {% block content %}
-<section style="background-color: #EFE6D2; padding-top: 224px;">
+<section style="background-color: #EFE6D2; padding: 40px;">
     <div class="container">
-        <div class="search_section" style="display: flex; justify-content: space-between;">
-            <div style="display : flex; width : 1032px">
+        <div id="search_section"
+            >
+            <div id="search_div">
                 <input id="jobSearchInput"
-                    style="width : 100%;padding : 21px; border : 1px solid #324362; font-size : 22px; font-family : Inter; line-height : 26.63px"
+                    style="width : 100%;padding : 11px; border : 1px solid #324362; font-size : 22px; font-family : Inter; line-height : 26.63px"
                     type="text" placeholder="Type in a job title" />
                 <button
-                    style="padding : 21px 36px; text-align : center; background-color : #101243; color : white; font-weight : 700; font-family : Inter Display ; font-size : 22px; line-height : 32px">Search</button>
+                    style="padding : 11px 36px; text-align : center; background-color : #101243; color : white; font-weight : 700; font-family : Inter Display ; font-size : 22px; line-height : 32px">Search</button>
             </div>
             <div class="select_container">
                 <label for="sort" class="custom-label">Sort by:</label>
@@ -92,7 +93,7 @@ Jobs Listings
             </div>
 
             <div id="listings_container"
-                style="width: 970px; display: grid; grid-template-columns: repeat(2, 475px); gap: 20px; grid-auto-rows: 127px;">
+                style="width: 970px; display: grid; grid-template-columns: repeat(auto-fit, minmax(450px,1fr)); gap: 20px; grid-auto-rows: 127px;">
                 <!-- Dynamic Divs will be rendering here -->
             </div>
         </div>

@@ -5,7 +5,7 @@
     scroll-behavior: smooth
 }
 
-@import url('https://fonts.googleapis.com/css2?family=Encode+Sans+Condensed:wght@100;200;300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Encode+Sans+Condensed:wght@100,200,300,400,500,600,700&display=swap');
 
 .container {
     width: 100%;
@@ -17,7 +17,7 @@
     /* Ensure max-width is 100% */
 }
 
-@media (min-width: 640px) {
+@media (max-width: 1023px) {
     .container {
         padding-right: 15px;
         padding-left: 15px;
@@ -167,6 +167,97 @@
     .company_logo {
         width: 85%;
     }
+
+    #search_div {
+        display: flex;
+        width: 1032px !important;
+    }
+
+    .select_container {
+        margin-top: 0 !important;
+    }
+
+    .filter_section {
+        display: block !important;
+    }
+
+    #search_section {
+        display: flex !important;
+        flex-wrap: wrap !important;
+        gap: 20px !important;
+        justify-content: space-between !important;
+    }
+
+    .pagination-container {
+        justify-content: flex-end;
+    }
+
+    #job_desc {
+        width: 1000px !important;
+        padding: 66px 0px !important;
+        border-top: 2px solid #93A1BB !important;
+    }
+
+    #news_para1 {
+        width: 49% !important;
+        order: 1 !important;
+    }
+
+    #news_image_div {
+        width: 49% !important;
+        order: 2 !important;
+    }
+
+    #job_title_div,
+    #applicant_name_div,
+    #applicant_email_div,
+    #applicant_phone_number_div,
+    #phone_country_div,
+    #applicant_phone_number_div,
+    #country_div {
+        width: 49% !important;
+    }
+}
+
+#job_title_div,
+#applicant_name_div,
+#applicant_email_div,
+#applicant_phone_number_div,
+#phone_country_div,
+#applicant_phone_number_div,
+#country_div {
+    width: 100%;
+}
+
+#news_para1 {
+    width: 100%;
+    order: 2;
+}
+
+#news_image_div {
+    width: 50%;
+    order: 1;
+}
+
+#job_desc {
+    width: 100%;
+    padding: 46px 0px;
+    border-top: 2px solid #93A1BB;
+}
+
+.filter_section {
+    display: none;
+}
+
+#search_section {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+}
+
+#search_div {
+    display: flex;
+    width: 100%;
 }
 
 /* Hide the mobile menu by default */
@@ -234,6 +325,7 @@
 }
 
 .select_container {
+    margin-top: 20px;
     display: flex;
     align-items: center;
     font-family: Arial, sans-serif;
@@ -278,7 +370,7 @@
 .select_container::after {
     content: '\25BE';
     position: absolute;
-    right: 16px;
+    right: 4px;
     top: 50%;
     transform: translateY(-50%);
     pointer-events: none;
@@ -420,7 +512,7 @@
 .job_application,
 .profile_section {
     position: relative;
-    padding-top: 224px;
+    padding-top: 60px;
 }
 
 .bulletin-container {
@@ -622,7 +714,7 @@ tbody td:nth-child(3) {
 /* Pagination Container */
 .pagination-container {
     display: flex;
-    justify-content: flex-end;
+    justify-content: flex-start;
     margin-top: 20px;
     gap: 10px;
 }

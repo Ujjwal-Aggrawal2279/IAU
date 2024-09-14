@@ -32,8 +32,8 @@ Job Application
             </div>
         </div>
         <form style="padding-top: 40px;" id="jobApplicationForm">
-            <div style="display : flex; justify-content: space-between;">
-                <div style="display : flex; flex-direction: column; width : 49%">
+            <div style="display : flex; justify-content: space-between; flex-wrap : wrap">
+                <div id="job_title_div" style="display : flex; flex-direction: column;">
                     <label for="job title"
                         style="font-family: inter; font-size: 20px; line-height: 24px; color : #929292; font-weight: 600">Job
                         Title</label>
@@ -48,7 +48,7 @@ Job Application
                         padding : 10px 24px;
                         background-color: #f2e6ce;">
                 </div>
-                <div style="display : flex; flex-direction: column; width : 49%">
+                <div id="applicant_name_div" style="display : flex; flex-direction: column;">
                     <label for="applicant name"
                         style="font-family: inter; font-size: 20px; line-height: 24px; color : #929292; font-weight: 600">Applicant
                         Name</label>
@@ -63,8 +63,8 @@ Job Application
                         padding : 10px 24px;">
                 </div>
             </div>
-            <div style="display : flex; justify-content: space-between; margin-top: 24px;">
-                <div style="display : flex; flex-direction: column; width : 49%">
+            <div style="display : flex; justify-content: space-between; margin-top: 24px; flex-wrap : wrap;">
+                <div style="display : flex; flex-direction: column;" id="applicant_email_div">
                     <label for="applicant email"
                         style="font-family: inter; font-size: 20px; line-height: 24px; color : #929292; font-weight: 600">Email
                     </label>
@@ -78,8 +78,8 @@ Job Application
                     color : black;
                     padding : 10px 24px;">
                 </div>
-                <div style="display : flex; justify-content: space-between; width: 49%;">
-                    <div style="display : flex; flex-direction: column; width : 49.5%">
+                <div id="phone_country_div" style="display : flex; justify-content: space-between; flex-wrap : wrap">
+                    <div id="applicant_phone_number_div" style="display : flex; flex-direction: column;">
                         <label for="applicant phone number"
                             style="font-family: inter; font-size: 20px; line-height: 24px; color : #929292; font-weight: 600">Phone
                             Number
@@ -95,7 +95,7 @@ Job Application
                         color : black;
                         padding : 10px 24px;">
                     </div>
-                    <div style="display : flex; flex-direction: column; width : 49.5%">
+                    <div id="country_div" style="display : flex; flex-direction: column;">
                         <label for="country of Reseidence"
                             style="font-family: inter; font-size: 20px; line-height: 24px; color : #929292; font-weight: 600;">Country
                             of Reseidence
