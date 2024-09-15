@@ -12,11 +12,11 @@ Job Application
         border-image-slice: 1; ">
             <div>
                 <h1 id="job_title"
-                    style="text-transform: capitalize; font-size: 40px; font-weight: 700; color: #3D4667; font-family: Encode Sans Condensed;">
+                    style="text-transform: capitalize; font-size: 40px; font-weight: 700; color: #3D4667; font-family: 'Encode Sans Condensed', system-ui">
                 </h1>
                 <div class="bulletin-container">
                     <div id="department" style="padding: 20px 20px 20px 0; color: #8092A7; font-size: 22px;
-                        font-family: Inter Display; font-weight: 400;"></div>
+                        font-family: 'Inter', sans-serif; font-weight: 400;"></div>
                     <div class="disc-bulletin"></div>
                     <div id="employment_type" class="bulletin" style="padding: 20px 20px 20px 0;"></div>
                     <div class="disc-bulletin"></div>
@@ -24,7 +24,7 @@ Job Application
                 </div>
             </div>
             <div>
-                <div id="not-saved-indicator" style="background: #FFBCBC; padding : 10px 140px; font-family: Inter Display; font-size: 22px;
+                <div id="not-saved-indicator" style="background: #FFBCBC; padding : 10px 140px; font-family: 'Inter', sans-serif; font-size: 22px;
                         font-weight: 700;line-height: 26.62px; letter-spacing: -0.03em; text-align: center; color : #9B0000;
                         display: none;">
                     Not Saved
@@ -35,9 +35,9 @@ Job Application
             <div style="display : flex; justify-content: space-between; flex-wrap : wrap">
                 <div id="job_title_div" style="display : flex; flex-direction: column;">
                     <label for="job title"
-                        style="font-family: inter; font-size: 20px; line-height: 24px; color : #929292; font-weight: 600">Job
+                        style="font-family: 'Inter', sans-serif; font-size: 20px; line-height: 24px; color : #929292; font-weight: 600">Job
                         Title</label>
-                    <input type="text" class="form-control" id="job_title" readonly style="border: 1px solid #324362;font-family: Inter;
+                    <input type="text" class="form-control" id="job_title" readonly style="border: 1px solid #324362;font-family: 'Inter', sans-serif;
                     margin-top: 14px;
                         font-size: 22px;
                         font-weight: 500;
@@ -50,9 +50,10 @@ Job Application
                 </div>
                 <div id="applicant_name_div" style="display : flex; flex-direction: column;">
                     <label for="applicant name"
-                        style="font-family: inter; font-size: 20px; line-height: 24px; color : #929292; font-weight: 600">Applicant
+                        style="font-family: 'Inter', sans-serif; font-size: 20px; line-height: 24px; color : #929292; font-weight: 600">Applicant
                         Name</label>
-                    <input type="text" class="form-control" id="applicant_name" placeholder="johndoe@gmail.com" style="border: 1px solid #324362;font-family: Inter;
+                    <input type="text" class="form-control" id="applicant_name" readonly placeholder="johndoe@gmail.com"
+                        style="border: 1px solid #324362;font-family: 'Inter', sans-serif; 
                         margin-top: 14px;
                         font-size: 22px;
                         font-weight: 500;
@@ -60,15 +61,16 @@ Job Application
                         letter-spacing: -0.02em;
                         text-align: left;
                         color : black;
-                        padding : 10px 24px;">
+                        padding : 10px 24px;
+                        background-color: #f2e6ce;">
                 </div>
             </div>
             <div style="display : flex; justify-content: space-between; margin-top: 24px; flex-wrap : wrap;">
                 <div style="display : flex; flex-direction: column;" id="applicant_email_div">
                     <label for="applicant email"
-                        style="font-family: inter; font-size: 20px; line-height: 24px; color : #929292; font-weight: 600">Email
+                        style="font-family: 'Inter', sans-serif; font-size: 20px; line-height: 24px; color : #929292; font-weight: 600">Email
                     </label>
-                    <input type="text" class="form-control" id="applicant_email" placeholder="johndoe@gmail.com" style="border: 1px solid #324362;font-family: Inter;
+                    <input type="text" class="form-control" id="applicant_email" readonly placeholder="johndoe@gmail.com" style="border: 1px solid #324362;font-family: 'Inter', sans-serif;
                     margin-top: 14px;
                     font-size: 22px;
                     font-weight: 500;
@@ -76,16 +78,17 @@ Job Application
                     letter-spacing: -0.02em;
                     text-align: left;
                     color : black;
-                    padding : 10px 24px;">
+                    padding : 10px 24px;
+                    background-color: #f2e6ce;">
                 </div>
                 <div id="phone_country_div" style="display : flex; justify-content: space-between; flex-wrap : wrap">
                     <div id="applicant_phone_number_div" style="display : flex; flex-direction: column;">
                         <label for="applicant phone number"
-                            style="font-family: inter; font-size: 20px; line-height: 24px; color : #929292; font-weight: 600">Phone
+                            style="font-family: 'Inter', sans-serif; font-size: 20px; line-height: 24px; color : #929292; font-weight: 600">Phone
                             Number
                         </label>
                         <input type="text" class="form-control" id="applicant_phone_number"
-                            placeholder="+91 99999 22222" style="border: 1px solid #324362;font-family: Inter;
+                            placeholder="+91 99999 22222" style="border: 1px solid #324362;font-family: 'Inter', sans-serif;
                         margin-top: 14px;
                         font-size: 22px;
                         font-weight: 500;
@@ -97,10 +100,10 @@ Job Application
                     </div>
                     <div id="country_div" style="display : flex; flex-direction: column;">
                         <label for="country of Reseidence"
-                            style="font-family: inter; font-size: 20px; line-height: 24px; color : #929292; font-weight: 600;">Country
+                            style="font-family: 'Inter', sans-serif; font-size: 20px; line-height: 24px; color : #929292; font-weight: 600;">Country
                             of Reseidence
                         </label>
-                        <input type="text" class="form-control" id="country_of_residence" placeholder="India" style="border: 1px solid #324362;font-family: Inter;
+                        <input type="text" class="form-control" id="country_of_residence" placeholder="India" style="border: 1px solid #324362;font-family: 'Inter', sans-serif;
                         margin-top: 14px;
                         font-size: 22px;
                         font-weight: 500;
@@ -114,17 +117,17 @@ Job Application
             </div>
             <div style="margin-top: 24px;">
                 <label for="cover_letter"
-                    style="font-family: Inter, sans-serif; font-size: 20px; line-height: 24px; color: #929292; font-weight: 600;">
+                    style="font-family: 'Inter', sans-serif, sans-serif; font-size: 20px; line-height: 24px; color: #929292; font-weight: 600;">
                     Cover Letter
                 </label>
                 <textarea id="cover_letter"
-                    style="border: 1px solid #324362; font-family: Inter, sans-serif; margin-top: 14px; 
+                    style="border: 1px solid #324362; font-family: 'Inter', sans-serif, sans-serif; margin-top: 14px; 
                         font-size: 22px; font-weight: 500; line-height: 26.63px; letter-spacing: -0.02em; 
                         text-align: left; color: black; padding: 10px 14px; width: 100%; box-sizing: border-box; min-height: 221px;">
                 </textarea>
             </div>
             <input type="file" id="fileInput" style="display: none;" />
-            <button type="button" id="uploadButton" style="width: 100%; background: linear-gradient(180deg, #FFFBF1 0%, rgba(255, 251, 241, 0) 100%); font-family: Inter Display;
+            <button type="button" id="uploadButton" style="width: 100%; background: linear-gradient(180deg, #FFFBF1 0%, rgba(255, 251, 241, 0) 100%); font-family: 'Inter', sans-serif;
                 margin-top: 22px;
                 font-size: 22px;
                 font-weight: 700;
@@ -142,7 +145,7 @@ Job Application
             <div class="submit-button-container"
                 style="display: flex; gap: 20px; justify-content: flex-end; margin-top: 40px;">
                 <button style="background: linear-gradient(180deg, #FFFBF1 0%, rgba(255, 251, 241, 0) 100%);
-            font-family: Inter Display;
+            font-family: 'Inter', sans-serif;
             font-size: 22px;
             font-weight: 700;
             line-height: 32px;
@@ -159,7 +162,7 @@ Job Application
                 </button>
                 <button style="background-color: #101423;
             color: white;
-            font-family: Inter Display;
+            font-family: 'Inter', sans-serif;
             font-size: 22px;
             font-weight: 700;
             line-height: 32px;

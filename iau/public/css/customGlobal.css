@@ -5,7 +5,8 @@
     scroll-behavior: smooth
 }
 
-@import url('https://fonts.googleapis.com/css2?family=Encode+Sans+Condensed:wght@100,200,300,400,500,600,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Encode+Sans+Condensed:wght@100;200;300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 
 .container {
     width: 100%;
@@ -144,7 +145,7 @@
     }
 
     .about_us_section {
-        height: 852px;
+        height: 882px;
         padding: 72px 0px;
     }
 
@@ -286,7 +287,7 @@
 
 #mobile_menu ul li a {
     text-decoration: none;
-    font-family: 'Encode Sans Condensed';
+    font-family: "Encode Sans Condensed", system-ui;
     text-transform: uppercase;
 }
 
@@ -472,19 +473,20 @@
 }
 
 .swiper-slide h4 {
-    font-family: 'Encode Sans Condensed';
+    font-family: "Encode Sans Condensed", system-ui !important;
     color: #101423;
     font-weight: 700;
     font-size: 24px;
 }
 
 .swiper-slide p {
-    font-family: Inter Display;
+    font-family: "Inter", sans-serif;
     font-size: 22px;
     font-weight: 500;
     color: #101423;
-    letter-spacing: -2%;
-    line-height: 32px;
+    line-height: 24px;
+    margin-top: 8px;
+    min-height: 32px;
 }
 
 .about_us_section {
@@ -526,7 +528,7 @@
 .bulletin {
     color: #8092A7;
     font-size: 22px;
-    font-family: Inter Display;
+    font-family: "Inter", sans-serif;
     font-weight: 400;
 }
 
@@ -615,7 +617,7 @@ thead {
 thead th {
     padding: 12px;
     color: #10142380;
-    font-family: Inter Display;
+    font-family: "Inter", sans-serif;
     font-size: 22px;
     font-weight: 700;
     line-height: 32px;
@@ -629,7 +631,7 @@ tbody tr {
 }
 
 tbody td {
-    font-family: Inter Display;
+    font-family: "Inter", sans-serif;
     font-size: 22px;
     font-weight: 600;
     line-height: 26.62px;

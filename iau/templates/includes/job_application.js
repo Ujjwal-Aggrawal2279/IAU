@@ -1,3 +1,22 @@
+// 
+function getCookieValue(cookieName) {
+    // Split the cookie string into individual cookies
+    const cookies = document.cookie.split('; ');
+    // Iterate over the cookies
+    for (let cookie of cookies) {
+        // Split each cookie into name and value
+        const [name, value] = cookie.split('=');
+        // Check if the current cookie's name matches the one we're looking for
+        if (name === cookieName) {
+            return value; // Return the value if found
+        }
+    }
+    return null; // Return null if the cookie is not found
+}
+
+// Usage
+const fullName = getCookieValue('full_name');
+
 // Upload button 
 document.getElementById('uploadButton').addEventListener('click', function () {
     document.getElementById('fileInput').click();
@@ -28,11 +47,15 @@ document.addEventListener('DOMContentLoaded', async function () {
                 const employmentTypeEle = document.getElementById('employment_type');
                 const locationEle = document.getElementById('location');
                 const jobInputEle = document.querySelector('input#job_title');
+                const applicantInputEle = document.querySelector('input#applicant_name');
+                const emailInputEle = document.querySelector('input#applicant_email');
                 jobTitleEle.textContent = `Applying for ${jobDetails.job_title}`;
                 departmentEle.textContent = jobDetails.department;
                 employmentTypeEle.textContent = jobDetails.employment_type;
                 locationEle.textContent = jobDetails.location;
                 jobInputEle.value = jobDetails.name;
+                applicantInputEle.value = getCookieValue('full_name');
+                emailInputEle.value = getCookieValue('user_id');
             } else {
                 console.error('Job not found');
             }

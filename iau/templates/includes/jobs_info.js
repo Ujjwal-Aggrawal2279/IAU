@@ -37,6 +37,8 @@ document.addEventListener('DOMContentLoaded', async function () {
                 const employmentTypeEle = document.getElementById('employment_type');
                 const locationEle = document.getElementById('location');
                 const jobDescriptionEle = document.getElementById('job_description');
+                jobDescriptionEle.style.fontFamily = 'Inter, sans-serif';
+                jobDescriptionEle.style.fontWeight = 500;
                 const applyLink = document.getElementById('apply-link');
 
                 departmentEle.textContent = jobDetails.department;
