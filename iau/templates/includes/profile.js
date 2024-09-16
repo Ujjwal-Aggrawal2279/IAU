@@ -24,9 +24,12 @@ async function getUserFullName() {
 
         // Access the user's Full Name and Image and set it
         const fullNameHeadingEle = document.getElementById('full_name');
+        const emailIFEle = document.getElementById('email_id_para');
+        const phoneInputEle = document.getElementById('phoneInput');
         const userImageEle = document.getElementById('user_avatar');
         const userEmailId = userDetails.email;
         fullNameHeadingEle.textContent = `${userDetails.full_name}`;
+        emailIFEle.textContent = `${userDetails.email}`;
         userImageEle.src = userDetails.user_image;
 
         // Fetch job applicant data using the email ID

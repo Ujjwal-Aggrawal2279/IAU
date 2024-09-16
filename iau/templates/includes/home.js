@@ -56,7 +56,7 @@ const renderJobOpenings = (jobOpenings) => {
             const formattedDate = date.toLocaleDateString('en-US', options);
             const jobDiv = document.createElement('div');
             jobDiv.className = 'job-opening';
-            jobDiv.style.width = '377.67px';
+            jobDiv.style.minWidth = '377.67px';
             jobDiv.style.height = '127px';
             jobDiv.style.backgroundImage = 'linear-gradient(to bottom, #FFFBF1, #EAE2C4)';
             jobDiv.style.padding = '21px 24px';
@@ -98,7 +98,7 @@ const fetchBlogPosts = async () => {
                 clickable: true,
             },
             breakpoints: {
-                640: {
+                280: {
                     slidesPerView: 1,
                     spaceBetween: 20,
                 },

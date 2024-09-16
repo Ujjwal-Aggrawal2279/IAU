@@ -25,6 +25,16 @@
         max-width: 610px;
     }
 
+    .job_application_div {
+        justify-content: center !important;
+    }
+
+    .about_us_container,
+    .connect_with_us_paras,
+    .footer_text {
+        grid-template-columns: 1fr !important;
+    }
+
     #news_slider_section {
         height: 90vh;
         overflow: hidden;
@@ -120,9 +130,17 @@
     .header {
         padding: 15px 0;
     }
+
+    .about_us_divider {
+        display: block !important;
+    }
 }
 
 @media (min-width: 1536px) {
+    .about_us_divider {
+        display: block !important;
+    }
+
     .container {
         max-width: 1323px;
     }
@@ -218,6 +236,26 @@
     #country_div {
         width: 49% !important;
     }
+}
+
+.job_application_div {
+    justify-content: space-between;
+}
+
+.about_us_container {
+    grid-template-columns: repeat(auto-fit, minmax(600px, 1fr));
+}
+
+.connect_with_us_paras {
+    grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+}
+
+.footer_text {
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+}
+
+.about_us_divider {
+    display: none;
 }
 
 #job_title_div,

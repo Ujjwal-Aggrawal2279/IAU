@@ -39,6 +39,7 @@
         }
 
         .header {
+            position: relative;
             transition: all 0.3s ease;
         }
 
@@ -74,7 +75,7 @@
     </style>
 </head>
 
-<body style="width: 100%; height: 100vh;">
+<body style="width: 100vw; height: 100vh;">
     <div class="header">
         <nav class="container">
             <div>
@@ -169,8 +170,8 @@
                     style="text-transform: uppercase; font-size: 40px; font-weight : bold; font-family: 'Encode Sans Condensed', system-ui; color : white; margin : 0px 15px;">
                     CONNECT WITH US</span>
             </div>
-            <div
-                style="margin-top : 40px; display: grid; grid-template-columns: repeat(auto-fit, minmax(380px, 1fr)); gap: 30px;">
+            <div class="connect_with_us_paras"
+                style="margin-top : 40px; display: grid; gap: 30px;">
                 <div
                     style="height : 101px; display: flex; align-items : center; padding : 11px;background: linear-gradient(180deg, #FFFFFF 0%, #EFE6D2 100%); gap: 35px">
                     <div
@@ -221,7 +222,7 @@
                         @iau_icss</p>
                 </div>
             </div>
-            <div
+            <div class="footer_text"
                 style="margin-top : 120px; display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 30px">
                 <div>
                     <a href="/eservice/home" style="text-decoration: none;">
