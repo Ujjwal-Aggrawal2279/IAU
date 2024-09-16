@@ -30,19 +30,17 @@ const renderJobOpenings = (jobOpenings) => {
         const formattedDate = date.toLocaleDateString('en-US', options);
 
         const jobDiv = document.createElement('div');
-        jobDiv.className = 'job-opening';
-        jobDiv.style.maxWidth = '450px';
-        jobDiv.style.height = '127px';
+        jobDiv.className = 'job-opening1';
         jobDiv.style.backgroundImage = 'linear-gradient(to bottom, #FFFBF1, #EAE2C4)';
-        jobDiv.style.padding = '21px 24px';
+        jobDiv.style.padding = '10px 10px';
 
         jobDiv.innerHTML = `
         <a href="/eservice/jobInfo?JobTitle=${encodeURIComponent(job.job_title)}" style="text-decoration: none !important;">
-            <p class="job-title-class" style="font-family: 'Encode Sans Condensed'; font-size: 24px; font-weight: 700; line-height: 30px; color: #101423">
+            <p class="job-title-class" style="font-family: 'Encode Sans Condensed', system-ui; font-weight: 700; color: #101423">
                 ${job.job_title}
             </p>
             <div style="display: flex; justify-content: space-between; margin-top: 36px;">
-                <p style="font-family: Inter Display; font-size: 18px; line-height: 32px; color: #8092A7;">
+                <p style="font-family: 'Inter', sans-serif; font-size: 18px; color: #8092A7;">
                     ${formattedDate}
                 </p>
             </div>

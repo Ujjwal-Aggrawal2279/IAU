@@ -236,6 +236,32 @@
     #country_div {
         width: 49% !important;
     }
+
+    #listings_container {
+        grid-template-columns: repeat(auto-fit, minmax(450px, 1fr)) !important;
+        width: 970px !important;
+    }
+
+    .job-opening {
+        height : 127px !important;
+    }
+    
+    .job-opening1 {
+        width: 450px !important;
+    }
+
+    .job-title-class {
+        font-size: 24px !important;
+    }
+}
+
+.job-title-class {
+    font-size: 18px;
+}
+
+#listings_container {
+    grid-template-columns: 1fr;
+    width: 100%;
 }
 
 .job_application_div {
@@ -795,14 +821,24 @@ tbody td:nth-child(3) {
 }
 
 .job-opening,
+.job-opening1,
 .news-display {
     transition: transform 0.3s ease, box-shadow 0.1s ease;
 }
 
 .job-opening:hover,
+.job-opening1:hover,
 .news-display:hover {
     transform: scale(1.02);
     /* Slightly increase the size of the div on hover */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     /* Add shadow on hover */
+}
+
+.job-opening {
+    width: 100%;
+}
+
+.job-opening1 {
+    max-height: 130px;
 }
