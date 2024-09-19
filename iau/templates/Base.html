@@ -73,50 +73,8 @@
             background-color: #0056b3;
         }
 
-        /* Basic styling for the dropdown */
-        .dropdown {
-            position: relative;
-            display: inline-block;
-        }
-
-        /* Styling for the dropdown content (hidden by default) */
-        .dropdown-content {
-            display: none;
-            position: absolute;
-            background-color: #f9f9f9;
-            min-width: 160px;
-            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-            z-index: 999;
-            left: 10px;
-        }
-
-        /* Links inside the dropdown */
-        .dropdown-content a {
-            color: black;
-            padding: 12px 16px;
-            text-decoration: none;
-            display: block;
-            font-family: 'Encode Sans Condensed', system-ui;
-            text-transform: uppercase;
-        }
-
-        /* Change color of dropdown links on hover */
-        .dropdown-content a:hover {
-            background-color: #f1f1f1;
-        }
-
-        /* Show the dropdown content when hovering over the dropdown button */
-        .dropdown:hover .dropdown-content {
-            display: block;
-        }
-
-        /* Styling for the dropdown button */
-        .dropdown a {
-            text-decoration: none;
-            font-family: 'Encode Sans Condensed', system-ui;
-            text-transform: uppercase;
-            color: black;
-            padding: 10px;
+        .active a {
+            border-bottom: 1px black solid;
         }
     </style>
 </head>
@@ -129,7 +87,7 @@
             </div>
             <div>
                 <ul id="nav_items">
-                    <li><a href="/eservice/home"
+                    <li class="active"><a href="/eservice/home"
                             style="text-decoration: none; font-family: 'Encode Sans Condensed', system-ui; text-transform: uppercase; font-weight : 500; letter-spacing : -1px;">Home</a>
                     </li>
                     <li><a href="/eservice/home#about_us"
@@ -157,13 +115,8 @@
                             style="text-decoration: none; font-family: 'Encode Sans Condensed', system-ui; text-transform: uppercase; font-weight : 500; letter-spacing : -1px;">CONNECT
                             WITH US</a>
                     </li>
-                    <li id="nav-item-eservices" style="position: relative;" class="dropdown"><a
+                    <li id="nav-item-eservices" style="position: relative;" class="dropdown"><a href="/login"
                             style="text-decoration: none; font-family: 'Encode Sans Condensed', system-ui; text-transform: uppercase; font-weight : 500; letter-spacing : -1px;">E-services</a>
-                        <div class="dropdown-content">
-                            <a href="/login?redirect-to=/me">Employee</a>
-                            <a href="/login?redirect-to=/me">Supplier</a>
-                            <a href="/login?redirect-to=/eservice/home">Job Applicant</a>
-                        </div>
                     </li>
                 </ul>
             </div>
@@ -203,12 +156,7 @@
                         </a>
                     </li>
                     <li class="dropdown">
-                        <a href="javascript:void(0);" onclick="toggleDropdown()">E-SERVICES</a>
-                        <div id="dropdown-content" class="dropdown-content">
-                            <a href="/login?redirect-to=/me">Employee</a>
-                            <a href="/login?redirect-to=/me">Supplier</a>
-                            <a href="/login?redirect-to=/eservice/home">Job Applicant</a>
-                        </div>
+                        <a href="/login">E-SERVICES</a>
                     </li>
                 </ul>
             </div>
@@ -313,27 +261,35 @@
         </select>
     </div>
     <script>
-        function toggleDropdown() {
-            var dropdownContent = document.getElementById("dropdown-content");
-            if (dropdownContent.style.display === "block") {
-                dropdownContent.style.display = "none";
-            } else {
-                dropdownContent.style.display = "block";
-            }
-        }
 
-        // Close the dropdown if the user clicks outside of it
-        window.onclick = function (event) {
-            if (!event.target.matches('.dropdown a')) {
-                var dropdowns = document.getElementsByClassName("dropdown-content");
-                for (var i = 0; i < dropdowns.length; i++) {
-                    var openDropdown = dropdowns[i];
-                    if (openDropdown.style.display === "block") {
-                        openDropdown.style.display = "none";
-                    }
-                }
+        document.addEventListener('DOMContentLoaded', () => {
+            const navLinks = document.querySelectorAll('#nav_items li a');
+
+            // Function to handle adding 'active' class on click
+            function handleMenuClick(event) {
+                // Remove 'active' class from all <li> elements
+                document.querySelectorAll('#nav_items li').forEach(item => {
+                    item.classList.remove('active');
+                });
+
+                // Add 'active' class to the clicked <li> element
+                event.target.parentElement.classList.add('active');
             }
-        }
+
+            // Attach click event listeners to each nav link
+            navLinks.forEach(link => {
+                link.addEventListener('click', handleMenuClick);
+            });
+
+            // Optional: Set initial active class based on URL
+            const currentUrl = window.location.href;
+            navLinks.forEach(link => {
+                if (currentUrl.includes(link.getAttribute('href'))) {
+                    link.parentElement.classList.add('active');
+                }
+            });
+        });
+
         // Toggle menu
         function toggleMenu() {
             var menu = document.getElementById("mobile_menu");

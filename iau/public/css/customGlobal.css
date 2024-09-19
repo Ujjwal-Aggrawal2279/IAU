@@ -50,8 +50,8 @@
     }
 
     .about_us_section {
-        height: fit-content;
-        padding: 42px 0px;
+        height: auto;
+        padding: 50px 0px;
     }
 
     .header {
@@ -79,7 +79,7 @@
     }
 
     .about_us_section {
-        height: fit-content;
+        height: auto;
         padding: 52px 0px;
     }
 
@@ -111,7 +111,7 @@
     }
 
     .about_us_section {
-        height: fit-content;
+        height: auto;
         padding: 62px 0px;
     }
 
