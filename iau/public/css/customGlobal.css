@@ -7,6 +7,7 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Encode+Sans+Condensed:wght@100;200;300;400;500;600;700;800;900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap');
 
 .container {
     width: 100%;
@@ -164,7 +165,7 @@
 
     .about_us_section {
         height: 882px;
-        padding: 72px 0px;
+        padding: 100px 0px;
     }
 
     .footer-copyright {
@@ -243,9 +244,9 @@
     }
 
     .job-opening {
-        height : 127px !important;
+        height: 127px !important;
     }
-    
+
     .job-opening1 {
         width: 450px !important;
     }
@@ -254,6 +255,7 @@
         font-size: 24px !important;
     }
 }
+
 
 .job-title-class {
     font-size: 18px;
@@ -381,6 +383,33 @@
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+.login_section {
+    background-image: linear-gradient(to right,
+            rgba(15, 15, 44, 0.825) 0%,
+            rgba(217, 217, 217, 0.25) 50%,
+            rgba(15, 15, 44, 0.825) 100%),
+        url('/assets/iau/images/company_background.png');
+    background-repeat: no-repeat !important;
+    background-size: cover !important;
+    background-position: center !important;
+    background-color: rgb(30, 30, 53) !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#login_card,
+#signup_card {
+    width: 570px;
+    height: 470px;
+    padding: 20px;
+    background-image: linear-gradient(#ffffff 25%, #efe6d2 75%);
+}
+
+#signup_card {
+    height : 400px !important;
 }
 
 .banner_section .container {
@@ -605,7 +634,7 @@
 }
 
 .services_section {
-    padding: 72px 0px;
+    padding: 100px 0px;
     background-color: #EFE6D2;
 }
 

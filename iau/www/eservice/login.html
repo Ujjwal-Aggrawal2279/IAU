@@ -1,0 +1,65 @@
+{% extends "templates/Base.html" %}
+
+{% block title %}
+Login
+{% endblock %}
+{% block content %}
+<section style="width : 100vw; height : 100vh;" class="login_section">
+    <div id="login_card">
+        <div style="display :flex; justify-content: space-between;">
+            <h3
+                style="font-family: 'Encode Sans Condensed', system-ui; color : #3D4667; font-size : 32px; font-weight : 700;">
+                Sign in
+            </h3>
+            <img src="/assets/iau/images/Auth Logo.png" alt="company_logo" style="width: 50%;" />
+        </div>
+        <form style="margin-top : 30px;" id="login_form">
+            <div style="display: flex; flex-direction: column;">
+                <label
+                    style="font-family : 'Inter', sans-serif; color : #929292; font-weight : 600; font-size : 18px;">E-mail</label>
+                <input type="text" style="padding : 13px; margin-top : 6px; color : black; font-size : 18px"
+                    placeholder="johndoe@abc.com" id="userId" />
+            </div>
+            <div style="display: flex; flex-direction: column; margin-top : 10px; position : relative;">
+                <label
+                    style="font-family : 'Inter', sans-serif; color : #929292; font-weight : 600; font-size : 18px;">Password</label>
+                <input type="password" name="password"
+                    style="padding : 13px; margin-top : 6px; color : black; font-size : 18px" id="password" />
+                <div style="position : absolute; right : 15px; top : 45px;" id="password_toggler">
+                    <svg width="23" height="17" viewBox="0 0 23 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M11.5 11C12.163 11 12.7989 10.7366 13.2678 10.2678C13.7366 9.79893 14 9.16304 14 8.5C14 7.83696 13.7366 7.20107 13.2678 6.73223C12.7989 6.26339 12.163 6 11.5 6C10.837 6 10.2011 6.26339 9.73223 6.73223C9.26339 7.20107 9 7.83696 9 8.5C9 9.16304 9.26339 9.79893 9.73223 10.2678C10.2011 10.7366 10.837 11 11.5 11Z"
+                            fill="#929292" />
+                        <path fill-rule="evenodd" clip-rule="evenodd"
+                            d="M0 8.5C1.53542 3.57364 6.10312 0 11.5 0C16.8969 0 21.4646 3.57364 23 8.5C21.4646 13.4264 16.8969 17 11.5 17C6.10312 17 1.53542 13.4264 0 8.5ZM16.3208 8.5C16.3208 9.78819 15.8129 11.0236 14.9088 11.9345C14.0047 12.8454 12.7786 13.3571 11.5 13.3571C10.2214 13.3571 8.99526 12.8454 8.09118 11.9345C7.18711 11.0236 6.67921 9.78819 6.67921 8.5C6.67921 7.21181 7.18711 5.97637 8.09118 5.06548C8.99526 4.15459 10.2214 3.64286 11.5 3.64286C12.7786 3.64286 14.0047 4.15459 14.9088 5.06548C15.8129 5.97637 16.3208 7.21181 16.3208 8.5Z"
+                            fill="#929292" />
+                    </svg>
+                </div>
+            </div>
+            <div style=" margin-top : 10px; display: flex; justify-content: flex-end;">
+                <a href = "/login#forgot" style="text-decoration: none !important; font-family : 'Inter', sans-serif; font-weight : 600; color : #101423;">Forgot Password?</a>
+            </div>
+            <button type="submit"
+                style="width : 100%; background-color: #101423; padding : 15px; display : flex; align-items: center; justify-content: center; margin-top : 14px; font-family : 'Inter', sans-serif; font-weight : bold; font-size : 18px; color : white;"
+                id="login_button">
+                Log in ->
+            </button>
+            <div class="divider" style="margin-top : 20px;">
+                <hr class="line">
+                <span class="or-text"
+                    style="color : #929292; font-family: 'DM Sans', sans-serif; font-weight : bold; padding : 0 15px !important;">OR</span>
+                <hr class="line">
+            </div>
+            <div
+                style="width : 100%; margin-top : 14px; font-family : 'Inter', sans-serif; font-weight : 400; font-size : 20px; color : #101423; display : flex; justify-content: center; align-items : center;letter-spacing: 1%;">
+                Don’t have an account? <a href="/login#signup"
+                    style="text-decoration: underline; font-family : 'Inter', sans-serif; font-weight : 700; font-size : 20px; color : #101423;">Sign
+                    up</a>
+            </div>
+        </form>
+    </div>
+</section>
+<script>
+    {% include "templates/includes/login.js" %}
+</script>
+{% endblock %}

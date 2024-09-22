@@ -84,7 +84,7 @@ document.addEventListener('DOMContentLoaded', async function () {
                         window.location.href = applyLink.href;
                     } else {
                         // If not authenticated, redirecting to login page with "next" parameter
-                        window.location.href = `/login?redirect-to=${encodeURIComponent(applyLink.href)}`;
+                        window.location.href = `/eservice/login?redirect-to=${encodeURIComponent(applyLink.href)}`;
                     }
                 });
             } else {

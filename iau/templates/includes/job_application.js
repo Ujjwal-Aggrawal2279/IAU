@@ -1,25 +1,46 @@
-// 
-function getCookieValue(cookieName) {
-    // Split the cookie string into individual cookies
-    const cookies = document.cookie.split('; ');
-    // Iterate over the cookies
-    for (let cookie of cookies) {
-        // Split each cookie into name and value
-        const [name, value] = cookie.split('=');
-        // Check if the current cookie's name matches the one we're looking for
-        if (name === cookieName) {
-            return value; // Return the value if found
+// Fetching Logged In User Details
+async function fetchLoggedInUserDetails() {
+    try {
+        // Fetch the logged-in user's ID
+        const response = await fetch('/api/method/frappe.auth.get_logged_user');
+        const data = await response.json();
+
+        if (data.message) {
+            // Fetch the user details using the email
+            const userResponse = await fetch(`/api/resource/User?filters=[["email", "=", "${data.message}"]]&fields=["*"]`);
+            const userData = await userResponse.json();
+
+            // Check if user data exists and return full_name and email
+            if (userData.data && userData.data.length > 0) {
+                const user = userData.data[0];
+                return {
+                    full_name: user.full_name,
+                    email: user.email
+                };
+            }
         }
+        return null; // Return null if no user found
+    } catch (error) {
+        console.error('Error fetching logged in user details:', error);
+        return null;
     }
-    return null; // Return null if the cookie is not found
 }
-
-// Usage
-const fullName = getCookieValue('full_name');
-
-// Upload button 
+// Trigger file input on button click
 document.getElementById('uploadButton').addEventListener('click', function () {
     document.getElementById('fileInput').click();
+});
+
+// Show the file name in the UI when a file is selected
+document.getElementById('fileInput').addEventListener('change', function () {
+    const fileInput = document.getElementById('fileInput');
+    const fileNameDisplay = document.getElementById('fileNameDisplay');
+
+    if (fileInput.files.length > 0) {
+        const fileName = fileInput.files[0].name;
+        fileNameDisplay.textContent = `Selected file: ${fileName}`;
+    } else {
+        fileNameDisplay.textContent = 'No file selected';
+    }
 });
 
 // Function to get a query parameter value by name
@@ -31,6 +52,7 @@ function getQueryParam(name) {
 // Get the job title from the query parameter
 document.addEventListener('DOMContentLoaded', async function () {
     const jobTitle = getQueryParam('JobTitle');
+    const userDetails = await fetchLoggedInUserDetails();
 
     if (jobTitle) {
         const decodedTitle = decodeURIComponent(jobTitle);
@@ -54,8 +76,8 @@ document.addEventListener('DOMContentLoaded', async function () {
                 employmentTypeEle.textContent = jobDetails.employment_type;
                 locationEle.textContent = jobDetails.location;
                 jobInputEle.value = jobDetails.name;
-                applicantInputEle.value = getCookieValue('full_name');
-                emailInputEle.value = getCookieValue('user_id');
+                applicantInputEle.value = userDetails.full_name;
+                emailInputEle.value = userDetails.email;
             } else {
                 console.error('Job not found');
             }
@@ -64,7 +86,7 @@ document.addEventListener('DOMContentLoaded', async function () {
         }
     }
     const notSavedIndicator = document.getElementById('not-saved-indicator');
-    const inputFields = document.querySelectorAll('input:not(#job_title), textarea');
+    const inputFields = document.querySelectorAll('input:not(#job_title):not(#applicant_name):not(#applicant_email), textarea');
 
     function checkInputFields() {
         let isAnyFieldFilled = Array.from(inputFields).some(input => input.value.trim() !== '');
@@ -82,57 +104,55 @@ document.addEventListener('DOMContentLoaded', async function () {
     checkInputFields();
 });
 
-// Function to create a Job Applicant record in Frappe with file upload
 async function submitJobApplication(event) {
     event.preventDefault();  // Prevent default form submission
 
     // Collect form data
-    const jobTitle = document.getElementById('job_title').value;
+    const jobTitle = document.querySelector('input#job_title').value;
     const applicantName = document.getElementById('applicant_name').value;
     const applicantEmail = document.getElementById('applicant_email').value;
     const applicantPhone = document.getElementById('applicant_phone_number').value;
     const countryOfResidence = document.getElementById('country_of_residence').value;
     const coverLetter = document.getElementById('cover_letter').value;
-    const resumeFile = document.getElementById('fileInput').files[0];  // Corrected file input ID
+    const resumeFile = document.getElementById('fileInput').files[0];
 
+    // Ensure the resume file is selected
     if (!resumeFile) {
         console.error('No resume file selected.');
         return;
     }
 
-    // First, upload the resume file to Frappe's file storage
-    const uploadedFileUrl = await uploadResumeFile(resumeFile);
+    // Read file content as base64
+    const resumeFileData = await readFileAsBase64(resumeFile);
 
-    if (!uploadedFileUrl) {
-        console.error('Failed to upload resume file.');
-        return;
-    }
-
-    // Now, create the Job Applicant record with the resume URL
-    const formData = {
-        "doctype": "Job Applicant",
-        "applicant_name": applicantName,
-        "email_id": applicantEmail,
-        "phone_number": applicantPhone,
-        "country": countryOfResidence,
-        "cover_letter": coverLetter,
-        "resume_attachment": uploadedFileUrl // Use the correct field name
+    // Prepare data to send to the server-side function
+    const payload = {
+        applicant_name: applicantName,
+        jobTitle: jobTitle,
+        email_id: applicantEmail,
+        phone_number: applicantPhone,
+        country: countryOfResidence,
+        cover_letter: coverLetter,
+        resume_file_data: {
+            filename: resumeFile.name,
+            content: resumeFileData
+        }
     };
 
     try {
-        const response = await fetch('/api/resource/Job%20Applicant', {
+        const response = await fetch('/api/method/iau.jobApplicantCustom.submit_job_application', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
-                'Accept': 'application/json',
-                'Authorization': `token ece9e6462948f84:eeae5e6d50ebb9c`
             },
-            body: JSON.stringify(formData)
+            body: JSON.stringify(payload)
         });
 
         if (response.ok) {
             const result = await response.json();
-            console.log('Job application submitted successfully:', result);
+            showToast('Job application submitted successfully!');
+            window.location.pathname = "/eservice/profile"
+            console.log('Job application submitted successfully:', result.message);
         } else {
             console.error('Failed to submit job application:', response.statusText);
         }
@@ -141,33 +161,65 @@ async function submitJobApplication(event) {
     }
 }
 
-// Function to upload resume file to Frappe
-async function uploadResumeFile(file) {
-    const formData = new FormData();
-    formData.append('file', file);
-    formData.append('doctype', 'Job Applicant');
-    formData.append('docname', 'resume_attachment'); // Ensure this matches the field in your DocType
-
-    try {
-        const response = await fetch('/api/method/upload_file', {
-            method: 'POST',
-            headers: {
-                'Authorization': `token ece9e6462948f84:eeae5e6d50ebb9c`
-            },
-            body: formData
-        });
-
-        if (response.ok) {
-            const result = await response.json();
-            return result.message.file_url; // Return the file URL
-        } else {
-            console.error('Failed to upload file:', response.statusText);
-        }
-    } catch (error) {
-        console.error('Error uploading file:', error);
-    }
+// Utility function to read file as base64
+function readFileAsBase64(file) {
+    return new Promise((resolve, reject) => {
+        const reader = new FileReader();
+        reader.onload = () => resolve(reader.result.split(',')[1]);
+        reader.onerror = reject;
+        reader.readAsDataURL(file);
+    });
 }
+
+// Show toast notification
+function showToast(message) {
+    const toastContainer = document.getElementById('toastContainer');
+    const toastMessage = document.getElementById('toastMessage');
+
+    toastMessage.textContent = message;
+    toastContainer.style.display = 'block';
+
+    // Hide the toast after 3 seconds
+    setTimeout(() => {
+        toastContainer.style.display = 'none';
+    }, 3000);
+}
+
+// Attach the form submission handler
+document.getElementById('jobApplicationForm').addEventListener('submit', submitJobApplication);
+
 
 // Add submit event listener
 const form = document.getElementById('jobApplicationForm');
 form.addEventListener('submit', submitJobApplication);
+
+document.addEventListener("DOMContentLoaded", function () {
+    const formFields = document.querySelectorAll('#jobApplicationForm input, #jobApplicationForm textarea');
+    const saveButton = document.getElementById('saveButton');
+
+    function checkFormFields() {
+        let allFilled = true;
+        formFields.forEach(field => {
+            if (field.value.trim() === "") {
+                allFilled = false;
+            }
+        });
+
+        if (allFilled) {
+            saveButton.disabled = false;
+            saveButton.style.cursor = 'pointer';
+            saveButton.style.pointerEvents = 'auto';
+        } else {
+            saveButton.disabled = true;
+            saveButton.style.cursor = 'not-allowed';
+            saveButton.style.pointerEvents = 'none';
+        }
+    }
+
+    // Check fields on page load and when any field is changed
+    formFields.forEach(field => {
+        field.addEventListener('input', checkFormFields);
+    });
+
+    checkFormFields();  // Initial check on page load
+});

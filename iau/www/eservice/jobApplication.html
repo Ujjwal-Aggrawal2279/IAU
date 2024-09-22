@@ -143,6 +143,8 @@ Job Application
                 border-image-slice: 1 !important;">
                 Upload Resume
             </button>
+            <p id="fileNameDisplay" style="text-align: center; font-weight : 500; font-size : 18px; margint-op : 10px;">
+                No file selected</p>
             <div class="submit-button-container"
                 style="display: flex; gap: 20px; justify-content: flex-end; margin-top: 40px;">
                 <button style="background: linear-gradient(180deg, #FFFBF1 0%, rgba(255, 251, 241, 0) 100%);
@@ -161,25 +163,33 @@ Job Application
             border-image-slice: 1;">
                     Discard
                 </button>
-                <button style="background-color: #101423;
-            color: white;
-            font-family: 'Inter', sans-serif;
-            font-size: 22px;
-            font-weight: 700;
-            line-height: 32px;
-            letter-spacing: -0.02em;
-            padding: 10px 40px; /* Increased padding for consistent button height */
-            outline: none;
-            box-shadow: none;
-            border: 1px solid transparent;
-            border-image: linear-gradient(180deg, #324362 -77.78%, rgba(50, 67, 98, 0) 129.63%);
-            border-image-slice: 1;">
+                <button id="saveButton" disabled style="background-color: #101423;
+                    color: white;
+                    font-family: 'Inter', sans-serif;
+                    font-size: 22px;
+                    font-weight: 700;
+                    line-height: 32px;
+                    letter-spacing: -0.02em;
+                    padding: 10px 40px;
+                    outline: none;
+                    box-shadow: none;
+                    border: 1px solid transparent;
+                    border-image: linear-gradient(180deg, #324362 -77.78%, rgba(50, 67, 98, 0) 129.63%);
+                    border-image-slice: 1;
+                    cursor: not-allowed;
+                    pointer-events: none;">
                     Save
                 </button>
             </div>
         </form>
     </div>
 </section>
+<div id="toastContainer" style="position: fixed; bottom: 20px; right: 20px; z-index: 9999; display: none;">
+    <div id="toastMessage"
+        style="background-color: #4CAF50; color: white; padding: 10px 20px; border-radius: 5px; font-size: 18px;">
+        Job application submitted successfully!
+    </div>
+</div>
 <script>
     {% include "templates/includes/job_application.js" %}
 </script>

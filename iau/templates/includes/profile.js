@@ -27,10 +27,24 @@ async function getUserFullName() {
         const emailIFEle = document.getElementById('email_id_para');
         const phoneInputEle = document.getElementById('phoneInput');
         const userImageEle = document.getElementById('user_avatar');
+        const userInitialsEle = document.getElementById('user_initials');
         const userEmailId = userDetails.email;
+
         fullNameHeadingEle.textContent = `${userDetails.full_name}`;
         emailIFEle.textContent = `${userDetails.email}`;
-        userImageEle.src = userDetails.user_image;
+
+        // Handle the user image or fallback to initials
+        if (userDetails.user_image) {
+            // If user image exists, show it and hide initials
+            userImageEle.src = userDetails.user_image;
+            userInitialsEle.style.display = 'none';
+        } else {
+            // If no image, display initials and background color
+            userImageEle.style.display = 'none'; // Hide the img element
+            const initial = userDetails.full_name.charAt(0).toUpperCase(); // Get the first letter of the full name
+            userInitialsEle.textContent = initial;
+            userInitialsEle.style.display = 'block'; // Show the initials
+        }
 
         // Fetch job applicant data using the email ID
         const jobApplicantResponse = await fetch(`/api/resource/Job Applicant?limit_page_length=null&fields=["*"]&filters=[["email_id", "=", "${userEmailId}"]]`, {
