@@ -88,7 +88,7 @@ Job Application
                             style="font-family: 'Inter', sans-serif; font-size: 20px; line-height: 24px; color : #929292; font-weight: 600">Phone
                             Number
                         </label>
-                        <input type="text" class="form-control" id="applicant_phone_number"
+                        <input type="text" required class="form-control" id="applicant_phone_number"
                             placeholder="+91 99999 22222" style="border: 1px solid #324362;font-family: 'Inter', sans-serif;
                         margin-top: 14px;
                         font-size: 22px;
@@ -104,7 +104,7 @@ Job Application
                             style="font-family: 'Inter', sans-serif; font-size: 20px; line-height: 24px; color : #929292; font-weight: 600;">Country
                             of Reseidence
                         </label>
-                        <input type="text" class="form-control" id="country_of_residence" placeholder="India" style="border: 1px solid #324362;font-family: 'Inter', sans-serif;
+                        <input type="text" required class="form-control" id="country_of_residence" placeholder="India" style="border: 1px solid #324362;font-family: 'Inter', sans-serif;
                         margin-top: 14px;
                         font-size: 22px;
                         font-weight: 500;
@@ -121,13 +121,13 @@ Job Application
                     style="font-family: 'Inter', sans-serif, sans-serif; font-size: 20px; line-height: 24px; color: #929292; font-weight: 600;">
                     Cover Letter
                 </label>
-                <textarea id="cover_letter"
+                <textarea id="cover_letter" required
                     style="border: 1px solid #324362; font-family: 'Inter', sans-serif, sans-serif; margin-top: 14px; 
                         font-size: 22px; font-weight: 500; line-height: 26.63px; letter-spacing: -0.02em; 
                         text-align: left; color: black; padding: 10px 14px; width: 100%; box-sizing: border-box; min-height: 221px;">
                 </textarea>
             </div>
-            <input type="file" id="fileInput" style="display: none;" />
+            <input type="file" required id="fileInput" style="display: none;" />
             <button type="button" id="uploadButton" style="width: 100%; background: linear-gradient(180deg, #FFFBF1 0%, rgba(255, 251, 241, 0) 100%); font-family: 'Inter', sans-serif;
                 margin-top: 22px;
                 font-size: 22px;
@@ -143,27 +143,28 @@ Job Application
                 border-image-slice: 1 !important;">
                 Upload Resume
             </button>
-            <p id="fileNameDisplay" style="text-align: center; font-weight : 500; font-size : 18px; margint-op : 10px;">
+            <p id="fileNameDisplay" style="text-align: center; font-weight : 500; font-size : 18px; margin-top : 10px;">
                 No file selected</p>
             <div class="submit-button-container"
                 style="display: flex; gap: 20px; justify-content: flex-end; margin-top: 40px;">
-                <button style="background: linear-gradient(180deg, #FFFBF1 0%, rgba(255, 251, 241, 0) 100%);
-            font-family: 'Inter', sans-serif;
-            font-size: 22px;
-            font-weight: 700;
-            line-height: 32px;
-            letter-spacing: -0.02em;
-            text-align: center;
-            color: #101423;
-            outline: none;
-            box-shadow: none;
-            padding: 10px 40px; /* Increased padding for consistent button height */
-            border: 1px solid transparent;
-            border-image: linear-gradient(180deg, #324362 -77.78%, rgba(50, 67, 98, 0) 129.63%);
-            border-image-slice: 1;">
+                <button type="button" style="background: linear-gradient(180deg, #FFFBF1 0%, rgba(255, 251, 241, 0) 100%);
+                               font-family: 'Inter', sans-serif;
+                               font-size: 22px;
+                               font-weight: 700;
+                               line-height: 32px;
+                               letter-spacing: -0.02em;
+                               text-align: center;
+                               color: #101423;
+                               outline: none;
+                               box-shadow: none;
+                               padding: 10px 40px;
+                               cursor : pointer;
+                               border: 1px solid transparent;
+                               border-image: linear-gradient(180deg, #324362 -77.78%, rgba(50, 67, 98, 0) 129.63%);
+                               border-image-slice: 1;" onclick="window.history.back();">
                     Discard
                 </button>
-                <button id="saveButton" disabled style="background-color: #101423;
+                <button type="submit" id="saveButton" style="background-color: #101423;
                     color: white;
                     font-family: 'Inter', sans-serif;
                     font-size: 22px;
@@ -173,11 +174,10 @@ Job Application
                     padding: 10px 40px;
                     outline: none;
                     box-shadow: none;
+                    cursor: pointer;
                     border: 1px solid transparent;
                     border-image: linear-gradient(180deg, #324362 -77.78%, rgba(50, 67, 98, 0) 129.63%);
-                    border-image-slice: 1;
-                    cursor: not-allowed;
-                    pointer-events: none;">
+                    border-image-slice: 1;">
                     Save
                 </button>
             </div>

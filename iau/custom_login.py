@@ -20,7 +20,9 @@ def custom_login(usr, pwd):
         user_roles = [d.role for d in user_doc.get("roles")]
 
         # List of roles that typically have Desk access (can be customized)
-        desk_access_roles = ['System Manager']
+        roles = frappe.get_list("Role", filters=[["desk_access", "=", 1]], fields=["name"])
+        # Extract just the names
+        desk_access_roles = [role['name'] for role in roles]
         has_desk_access = frappe.utils.has_common(user_roles, desk_access_roles)
         if any(role in user_roles for role in ["Supplier", "Customer", "Employee"]):
             if has_desk_access:
@@ -70,6 +72,6 @@ def logout():
     frappe.local.login_manager.logout()
     return {
         "message": _("Logged out successfully."),
-        "url": "/eservice/login",
+        "url": "/Login",
     }
     

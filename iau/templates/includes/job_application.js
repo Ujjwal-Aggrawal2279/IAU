@@ -151,7 +151,7 @@ async function submitJobApplication(event) {
         if (response.ok) {
             const result = await response.json();
             showToast('Job application submitted successfully!');
-            window.location.pathname = "/eservice/profile"
+            window.location.pathname = "/profile"
             console.log('Job application submitted successfully:', result.message);
         } else {
             console.error('Failed to submit job application:', response.statusText);
@@ -206,20 +206,8 @@ document.addEventListener("DOMContentLoaded", function () {
         });
 
         if (allFilled) {
-            saveButton.disabled = false;
-            saveButton.style.cursor = 'pointer';
-            saveButton.style.pointerEvents = 'auto';
         } else {
-            saveButton.disabled = true;
-            saveButton.style.cursor = 'not-allowed';
-            saveButton.style.pointerEvents = 'none';
+            alert("Please Fill all the fields!");
         }
     }
-
-    // Check fields on page load and when any field is changed
-    formFields.forEach(field => {
-        field.addEventListener('input', checkFormFields);
-    });
-
-    checkFormFields();  // Initial check on page load
 });

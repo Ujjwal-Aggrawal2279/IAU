@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', async function () {
     if (jobTitle) {
         const decodedTitle = decodeURIComponent(jobTitle);
         const currentHost = window.location.host;
-        const url = `https://${currentHost}/eservice/jobApplication?JobTitle=${decodedTitle}`;
+        const url = `https://${currentHost}/jobApplication?JobTitle=${decodedTitle}`;
 
         // Generate QR code
         const qr = new QRious({
@@ -50,7 +50,7 @@ document.addEventListener('DOMContentLoaded', async function () {
                 jobDescriptionEle.innerHTML = formattedDescription;
 
                 // Set the href dynamically using the job title
-                applyLink.href = `/eservice/jobApplication?JobTitle=${encodeURIComponent(jobDetails.job_title)}`;
+                applyLink.href = `/jobApplication?JobTitle=${encodeURIComponent(jobDetails.job_title)}`;
 
                 // Function to check if user is authenticated
                 async function checkAuthentication() {
@@ -84,7 +84,7 @@ document.addEventListener('DOMContentLoaded', async function () {
                         window.location.href = applyLink.href;
                     } else {
                         // If not authenticated, redirecting to login page with "next" parameter
-                        window.location.href = `/eservice/login?redirect-to=${encodeURIComponent(applyLink.href)}`;
+                        window.location.href = `/Login?redirect-to=${encodeURIComponent(applyLink.href)}`;
                     }
                 });
             } else {

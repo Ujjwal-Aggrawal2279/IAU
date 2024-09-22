@@ -63,7 +63,7 @@ const renderJobOpenings = (jobOpenings) => {
 
             // Customize the content inside the div
             jobDiv.innerHTML = `
-                <a href="/eservice/jobInfo?JobTitle=${encodeURIComponent(job.job_title)}" style="text-decoration : none;">
+                <a href="/jobInfo?JobTitle=${encodeURIComponent(job.job_title)}" style="text-decoration : none;">
                     <p style="font-family: 'Encode Sans Condensed', system-ui; font-size: 18px; font-weight: 700; line-height: 28px; color: #101423">${job.job_title}</p>
                     <div style="margin-top: 36px;">
                         <p style="font-family: Inter Display; font-size: 18px; line-height: 32px; color: #8092A7;">${formattedDate}</p>
@@ -158,7 +158,7 @@ const renderBlogPost = (blogs) => {
             blogDiv.classList.add('blogDiv', 'swiper-slide');
 
             blogDiv.innerHTML = `
-            <a href="/eservice/newsinfo?NewsTitle=${encodeURIComponent(blog.title)}" style="text-decoration : none;">
+            <a href="/newsinfo?NewsTitle=${encodeURIComponent(blog.title)}" style="text-decoration : none;">
                 <div style="height: 243px;">
                     <img src="${blog.meta_image}" alt="news 1" />
                 </div>

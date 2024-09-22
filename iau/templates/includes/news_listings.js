@@ -54,7 +54,7 @@ const renderBlogPosts = async (blogPosts) => {
 
         // Customize the content inside the div
         blogDiv.innerHTML = `
-            <a href="/eservice/newsinfo?NewsTitle=${encodeURIComponent(blog.title)}" style="text-decoration : none;">
+            <a href="/newsinfo?NewsTitle=${encodeURIComponent(blog.title)}" style="text-decoration : none;">
                 <div style="height : 243px;">
                     <img src="${imageUrl}" alt="${blog.name}" style="width: 100%; height: 243px;" />
                 </div>

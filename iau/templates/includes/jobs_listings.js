@@ -35,7 +35,7 @@ const renderJobOpenings = (jobOpenings) => {
         jobDiv.style.padding = '10px 10px';
 
         jobDiv.innerHTML = `
-        <a href="/eservice/jobInfo?JobTitle=${encodeURIComponent(job.job_title)}" style="text-decoration: none !important;">
+        <a href="/jobInfo?JobTitle=${encodeURIComponent(job.job_title)}" style="text-decoration: none !important;">
             <p class="job-title-class" style="font-family: 'Encode Sans Condensed', system-ui; font-weight: 700; color: #101423">
                 ${job.job_title}
             </p>
