@@ -51,15 +51,22 @@ const renderJobOpenings = (jobOpenings) => {
     });
 };
 
-// Update Pagination Controls
 const updatePagination = () => {
     const totalRecords = allJobOpenings.length;
     const totalPages = Math.ceil(totalRecords / recordsPerPage);
     const paginationContainer = document.getElementById('pagination');
-    paginationContainer.innerHTML = ''; // Clear existing pagination
+    paginationContainer.innerHTML = '';
 
-    // Create page numbers dynamically
-    for (let i = 1; i <= totalPages; i++) {
+    // Calculate the range of pages to show
+    const pagesToShow = Math.min(3, totalPages);
+    let startPage = Math.max(1, currentPage - 1);
+    let endPage = Math.min(startPage + pagesToShow - 1, totalPages);
+
+    if (endPage - startPage < pagesToShow - 1) {
+        startPage = Math.max(1, endPage - pagesToShow + 1);
+    }
+
+    for (let i = startPage; i <= endPage; i++) {
         const pageButton = document.createElement('button');
         pageButton.textContent = i;
         pageButton.className = 'page-button';
@@ -70,12 +77,13 @@ const updatePagination = () => {
             currentPage = i;
             const start = (i - 1) * recordsPerPage;
             const end = start + recordsPerPage;
-            renderJobOpenings(allJobOpenings.slice(start, end)); // Render the records for the selected page
-            updatePagination(); // Update pagination to reflect the active page
+            renderJobOpenings(allJobOpenings.slice(start, end));
+            updatePagination();
         });
         paginationContainer.appendChild(pageButton);
     }
 };
+
 
 // Search Functionality
 document.getElementById('jobSearchInput').addEventListener('input', function () {
