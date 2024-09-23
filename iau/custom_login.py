@@ -24,35 +24,53 @@ def custom_login(usr, pwd):
         # Extract just the names
         desk_access_roles = [role['name'] for role in roles]
         has_desk_access = frappe.utils.has_common(user_roles, desk_access_roles)
+
+        # Check if the user has the "Job Applicant" role
+        if "Job Applicant" in user_roles:
+            return {
+                "message": _("Login successful"),
+                "redirect_url": "/Profile",
+                "user": usr
+            }
+
+        # Check for Supplier, Customer, or Employee roles
         if any(role in user_roles for role in ["Supplier", "Customer", "Employee"]):
             if has_desk_access:
                 # Redirect to desk if user has desk access
                 return {
-                    "message": _("Login successful, redirecting to desk"),
+                    "message": _("Login successful"),
                     "redirect_url": "/desk",
                     "user": usr
                 }
             else:
                 return {
-                    "message": _("Login successful, redirecting to /me"),
+                    "message": _("Login successful"),
                     "redirect_url": "/me",
                     "user": usr
                 }
+
+        # For other users, redirect based on desk access
+        if has_desk_access:
+            return {
+                "message": _("Login successful"),
+                "redirect_url": "/desk",
+                "user": usr
+            }
         else:
-            # Redirect to desk if user has desk access and other roles
-            if has_desk_access:
-                return {
-                    "message": _("Login successful, redirecting to desk"),
-                    "redirect_url": "/desk",
-                    "user": usr
-                }
-            else:
-                # Redirect to /me if no desk access
-                return {
-                    "message": _("Login successful, redirecting to /me"),
-                    "redirect_url": "/me",
-                    "user": usr
-                }
+            # Redirect to /me if no desk access
+            return {
+                "message": _("Login successful"),
+                "redirect_url": "/me",
+                "user": usr
+            }
+
+    except frappe.exceptions.AuthenticationError:
+        return {
+            "message": _("Invalid login credentials"),
+            "redirect_url": "/Login",
+            "error": True
+        }
+
 
     except frappe.AuthenticationError:
         frappe.clear_messages()

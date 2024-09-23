@@ -100,10 +100,10 @@ async function getUserFullName() {
                     statusClass = '';
                     statusText = job.status;
             }
-
+            const jobDetailsUrl = `/jobApplication?email=${encodeURIComponent(userDetails.email)}&job_title=${encodeURIComponent(job.job_title)}`;
             const row = document.createElement('tr');
             row.innerHTML = `
-                <td>${job.job_title}</td>
+                <td><a href="${jobDetailsUrl}" style="color : black !important;">${job.job_title}</a></td>
                 <td>${formatDate(job.creation)}</td>
                 <td class="${statusClass}">${statusText} <span class="status-dot"></span></td>
             `;

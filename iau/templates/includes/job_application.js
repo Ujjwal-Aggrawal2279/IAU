@@ -1,3 +1,120 @@
+// Function to extract query parameters
+function getQueryParams() {
+    const params = new URLSearchParams(window.location.search);
+    const email = params.get('email');
+    const jobTitle = params.get('job_title');
+    return { email, jobTitle };
+}
+
+// Fetch job application and job details using Frappe API
+async function fetchJobApplication(email, jobTitle) {
+    try {
+        const notSavedIndicator = document.querySelector('#not-saved-indicator');
+        notSavedIndicator.textContent = 'Saved';
+        notSavedIndicator.style.display = 'none';
+        const submit_button_container = document.querySelector('.submit-button-container');
+        submit_button_container.style.display = 'none';
+        const uploadButton = document.querySelector('#uploadButton');
+        uploadButton.style.display = 'none';
+        // API URL to fetch Job Applicant details
+        const applicantUrl = `/api/resource/Job%20Applicant?filters=[["email_id", "=", "${email}"], ["job_title", "=", "${jobTitle}"]]&fields=["*"]`;
+
+        // API URL to fetch Job Opening details
+        const jobUrl = `/api/resource/Job Opening?filters=[["name", "=", "${jobTitle}"]]&fields=["*"]`;
+
+        // Fetch Job Applicant data
+        const response = await fetch(applicantUrl, {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+        });
+
+        if (!response.ok) {
+            throw new Error('Failed to fetch job application.');
+        }
+
+        const data = await response.json();
+        if (data.data.length === 0) {
+            throw new Error('No job application found.');
+        }
+
+        const jobApplication = data.data[0];
+
+        // Set Job Applicant fields
+        const jobInputEle = document.querySelector('input#job_title');
+        const applicantInputEle = document.querySelector('input#applicant_name');
+        const emailInputEle = document.querySelector('input#applicant_email');
+        const applicantPhone = document.getElementById('applicant_phone_number');
+        const countryOfResidence = document.getElementById('country_of_residence');
+        const coverLetter = document.getElementById('cover_letter');
+        const fileInputEle = document.querySelector('#fileNameDisplay');
+
+        jobInputEle.value = jobApplication.job_title;
+        applicantInputEle.value = jobApplication.applicant_name;
+        emailInputEle.value = jobApplication.email_id;
+        applicantPhone.value = jobApplication.phone_number;
+        countryOfResidence.value = jobApplication.country;
+        coverLetter.value = jobApplication.cover_letter;
+        fileInputEle.textContent = `File uploaded ${jobApplication.resume_attachment}`;
+
+        // Set all fields to readonly
+        jobInputEle.readOnly = true;
+        emailInputEle.readOnly = true;
+        applicantInputEle.readOnly = true;
+        applicantPhone.readOnly = true;
+        countryOfResidence.readOnly = true;
+        coverLetter.readOnly = true;
+
+        // Fetch Job Opening details
+        const jobResponse = await fetch(jobUrl, {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+        });
+
+        if (!jobResponse.ok) {
+            throw new Error('Failed to fetch job details.');
+        }
+
+        const jobData = await jobResponse.json();
+        if (jobData.data.length === 0) {
+            throw new Error('No job details found.');
+        }
+
+        const jobDetails = jobData.data[0];
+
+        // Set Job Opening fields
+        const jobTitleEle = document.getElementById('job_title');
+        const departmentEle = document.getElementById('department');
+        const employmentTypeEle = document.getElementById('employment_type');
+        const locationEle = document.getElementById('location');
+
+        jobTitleEle.textContent = `Applied for ${jobDetails.job_title}`;
+        departmentEle.textContent = jobDetails.department;
+        employmentTypeEle.textContent = jobDetails.employment_type;
+        locationEle.textContent = jobDetails.location;
+
+    } catch (error) {
+        console.error('Error fetching job application or job details:', error.message);
+    }
+}
+
+// Usage
+const { email, jobTitle } = getQueryParams();
+if (email) { // Check if email exists in URL parameters
+    fetchJobApplication(email, jobTitle);
+} else {
+    console.warn('No email parameter found in the URL.');
+}
+
+
+
+
+
+
+
 // Fetching Logged In User Details
 async function fetchLoggedInUserDetails() {
     try {
@@ -151,8 +268,7 @@ async function submitJobApplication(event) {
         if (response.ok) {
             const result = await response.json();
             showToast('Job application submitted successfully!');
-            window.location.pathname = "/profile"
-            console.log('Job application submitted successfully:', result.message);
+            window.location.pathname = "/Profile"
         } else {
             console.error('Failed to submit job application:', response.statusText);
         }

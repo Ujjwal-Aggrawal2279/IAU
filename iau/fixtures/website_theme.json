@@ -14,15 +14,15 @@
   "font_size": null,
   "google_font": null,
   "ignored_apps": [],
-  "js": "document.addEventListener(\"DOMContentLoaded\", () => {\r\n    const navbarUl = document.querySelectorAll(\".nav-item\");\r\n\r\n    navbarUl.forEach(navItem => {\r\n        const loginLink = navItem.querySelector('a.btn-login-area');\r\n    \r\n        if (loginLink && loginLink.innerText.trim() === \"Login\") {\r\n            loginLink.innerText = \"E SERVICES\";\r\n            loginLink.href = \"/Login\";\r\n        }\r\n    });\r\n    const signUpLink = document.querySelector('.form-signup .sign-up-message a');\r\n    if (signUpLink) {\r\n        signUpLink.href = '/Login';\r\n    }\r\n    const signUpLinkForgot = document.querySelector('.form-forgot .sign-up-message a');\r\n    if (signUpLinkForgot) {\r\n        signUpLinkForgot.href = '/Login';\r\n    }\r\n});\r\n",
+  "js": "document.addEventListener(\"DOMContentLoaded\", () => {\r\n    const navbarUl = document.querySelectorAll(\".nav-item\");\r\n\r\n    navbarUl.forEach(navItem => {\r\n        const loginLink = navItem.querySelector('a.btn-login-area');\r\n    \r\n        if (loginLink && loginLink.innerText.trim() === \"Login\") {\r\n            loginLink.innerText = \"E SERVICES\";\r\n            loginLink.href = \"/Login\";\r\n        }\r\n    });\r\n    const signUpLink = document.querySelector('.form-signup .sign-up-message a');\r\n    if (signUpLink) {\r\n        signUpLink.href = '/Login';\r\n    }\r\n    const signUpLinkForgot = document.querySelector('.form-forgot .sign-up-message a');\r\n    if (signUpLinkForgot) {\r\n        signUpLinkForgot.href = '/Login';\r\n    }\r\n});\r\n\r\nconst url = window.location.href;\r\nif (url === \"http://64.227.129.99:90/?cmd=web_logout\") {\r\n    window.location.href = \"http://64.227.129.99:90/home\"\r\n}\r\n",
   "light_color": null,
-  "modified": "2024-09-22 20:59:31.616376",
+  "modified": "2024-09-23 09:26:40.342839",
   "module": "Website",
   "name": "IAU Web",
   "primary_color": null,
   "text_color": null,
   "theme": "IAU Web",
   "theme_scss": "$enable-shadows: false;\n$enable-gradients: false;\n$enable-rounded: true;\n\n// Bootstrap Variable Overrides\n\n\n// Import themes from installed apps\n@import \"frappe/public/scss/website.bundle\";\n@import \"erpnext/public/scss/website\";\n\n\n\n// Custom Theme\n@import url('https://fonts.googleapis.com/css2?family=Encode+Sans+Condensed:wght@100;200;300;400;500;600;700;800;900&display=swap');\n#page-login {\n    background-image: linear-gradient(to right,\n            rgba(15, 15, 44, 0.825) 0%,\n            rgba(217, 217, 217, 0.25) 50%,\n            rgba(15, 15, 44, 0.825) 100%),\n        url('/assets/iau/images/company_background.png');\n    background-repeat: no-repeat !important;\n    background-size: cover !important;\n    background-position: center !important;\n    background-color: rgb(30, 30, 53) !important;\n    height : 100vh !important; \n}\n#page-login .page-content-wrapper {\n    display : flex !important;\n    justify-content : center !important;\n    align-items : center !important;\n}\n.for-signup .page-card-head,\n.for-forgot .page-card-head {\n    display : none !important;\n}\n.for-signup .page-card,\n.for-forgot .page-card {\n    background-image: linear-gradient(#ffffff 25%, #efe6d2 75%) !important;\n}\n.navbar {\n    height : 90px !important;\n}\n.nav-item a {\n    font-family : 'Encode Sans Condensed', system-ui !important;\n    font-weight : 500 !important;\n    font-size : 16px !important;\n}\n\n:root {\n\t}\n",
-  "theme_url": "/files/website_theme/iau_web_134f43c2.css"
+  "theme_url": "/files/website_theme/iau_web_a1e28a3c.css"
  }
 ]
