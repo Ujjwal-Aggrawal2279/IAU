@@ -92,4 +92,9 @@ def logout():
         "message": _("Logged out successfully."),
         "url": "/Login",
     }
+
+
+@frappe.whitelist(allow_guest=True)
+def get_user_roles():
+    return frappe.get_roles()
     

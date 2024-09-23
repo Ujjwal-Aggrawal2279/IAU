@@ -34,7 +34,12 @@ login_form_ele.addEventListener('submit', async (event) => {
         // Handle the response
         if (response.ok) {
             const result = await response.json();
-            window.location.href = result.message.redirect_url;
+            if (new URLSearchParams(window.location.search).get("redirect-to")) {
+                window.location.href = new URLSearchParams(window.location.search).get("redirect-to");
+                return; 
+            } else {
+                window.location.href = result.message.redirect_url;
+            }
         } else {
             const error = await response.json();
             console.log('Login failed', error);

@@ -337,14 +337,13 @@
                 const { data: userDetails } = await userDetailsResponse.json(); // Extract user details
 
                 // Getting job applicant details based on email
-                const jobApplicantResponse = await fetch(`/api/resource/Job Applicant?filters=[["email_id", "=", "${userDetails.email}"]]`);
-
+                const jobApplicantResponse = await fetch(`/api/method/iau.custom_login.get_user_roles`);
+                
                 if (!jobApplicantResponse.ok) {
                     throw new Error('Failed to fetch job applicant details.');
                 }
-
+                
                 const jobApplicants = await jobApplicantResponse.json(); // Parse job applicant response
-                const jobApplicantCount = jobApplicants.data.length; // Get the count of job applicants
 
                 // Access the user's avatar and name
                 const userImage = userDetails.user_image;
@@ -353,26 +352,30 @@
 
                 // Prepare the Profile link based on jobApplicantResponse length
                 let profileLink = '';
-                if (jobApplicantCount > 0) {
+                let menuContent = ''; // Variable to hold dropdown content
+
+                if (jobApplicants.message.includes("Job Applicant")) {
                     profileLink = `<a href="/Profile" style="display: block; padding: 12px 16px; text-decoration: none; color: #000; font-family: 'Encode Sans Condensed', system-ui; font-size: 16px; font-weight: bold;">Profile</a>`;
-                }
+                    menuContent = `${profileLink}
+                        <a href="#" id="logout-link" style="display: block; padding: 12px 16px; text-decoration: none; color: #000; font-family: 'Encode Sans Condensed', system-ui; font-size: 16px; font-weight: bold;">Logout</a>`;
+                                } else {
+                                    menuContent = `<a href="/me" style="display: block; padding: 12px 16px; text-decoration: none; color: #000; font-family: 'Encode Sans Condensed', system-ui; font-size: 16px; font-weight: bold;">My Account</a>
+                        <a href="#" id="logout-link" style="display: block; padding: 12px 16px; text-decoration: none; color: #000; font-family: 'Encode Sans Condensed', system-ui; font-size: 16px; font-weight: bold;">Logout</a>`;
+                                }
 
-                // Replace the "E-services" link with the user's avatar and dropdown menu
-                const navItemEservices = document.getElementById('nav-item-eservices');
-                navItemEservices.innerHTML = `
-            <a href="#" id="user-menu-toggle" style="text-decoration: none; font-family: 'Encode Sans Condensed', system-ui; text-transform: uppercase; display: flex; align-items: center;">
-                <div id="avatar-container" style="position: relative; width: 40px; height: 40px; border-radius: 50%; background-color: #FFFBF1; border: 1px solid #101423; display: flex; align-items: center; justify-content: center; margin-right: 10px;">
-                    <img src="${userImage}" alt="User Avatar" id="user-avatar" style="width: 100%; height: 100%; border-radius: 50%; object-fit: cover; ${userImage ? '' : 'display: none;'}">
-                    <span id="user-initials" style="position: absolute; font-size: 18px; font-weight: bold; color: #101423; ${userImage ? 'display: none;' : 'display: block;'}">${userInitial}</span>
-                </div>
-            </a>
-            <div id="dropdown-menu" style="display: none; position: absolute; top: 100%; right: 0; background-color: #fff; box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2); z-index: 1000; width: 200px; background-color: #EFE6D2;">
-                <a href="/me" style="display: block; padding: 12px 16px; text-decoration: none; color: #000; font-family: 'Encode Sans Condensed', system-ui; font-size: 16px; font-weight: bold;">My Account</a>
-                ${profileLink} <!-- Include Profile link conditionally -->
-                <a href="#" id="logout-link" style="display: block; padding: 12px 16px; text-decoration: none; color: #000; font-family: 'Encode Sans Condensed', system-ui; font-size: 16px; font-weight: bold;">Logout</a>
-            </div>
-        `;
-
+                                // Replace the "E-services" link with the user's avatar and dropdown menu
+                                const navItemEservices = document.getElementById('nav-item-eservices');
+                                navItemEservices.innerHTML = `
+                    <a href="#" id="user-menu-toggle" style="text-decoration: none; font-family: 'Encode Sans Condensed', system-ui; text-transform: uppercase; display: flex; align-items: center;">
+                        <div id="avatar-container" style="position: relative; width: 40px; height: 40px; border-radius: 50%; background-color: #FFFBF1; border: 1px solid #101423; display: flex; align-items: center; justify-content: center; margin-right: 10px;">
+                            <img src="${userImage}" alt="User Avatar" id="user-avatar" style="width: 100%; height: 100%; border-radius: 50%; object-fit: cover; ${userImage ? '' : 'display: none;'}">
+                            <span id="user-initials" style="position: absolute; font-size: 18px; font-weight: bold; color: #101423; ${userImage ? 'display: none;' : 'display: block;'}">${userInitial}</span>
+                        </div>
+                    </a>
+                    <div id="dropdown-menu" style="display: none; position: absolute; top: 100%; right: 0; background-color: #fff; box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2); z-index: 1000; width: 200px; background-color: #EFE6D2;">
+                        ${menuContent}
+                    </div>
+                `;
                 // Add event listener for the dropdown toggle
                 document.getElementById('user-menu-toggle').addEventListener('click', (event) => {
                     event.preventDefault();
@@ -535,74 +538,74 @@
 
         function setLanguage(language_code) {
             // Save the selected language in cookies
-            document.cookie = `preferred_language=${language_code}; path=/`;
+            document.cookie = `preferred_language = ${ language_code }; path =/`;
 
-            // Update the text direction based on the language
-            const body = document.body;
-            if (language_code === 'ar') {
-                body.classList.add('rtl');
-                body.classList.remove('ltr');
-            } else {
-                body.classList.add('ltr');
-                body.classList.remove('rtl');
+                // Update the text direction based on the language
+                const body = document.body;
+                if (language_code === 'ar') {
+                    body.classList.add('rtl');
+                    body.classList.remove('ltr');
+                } else {
+                    body.classList.add('ltr');
+                    body.classList.remove('rtl');
+                }
+
+                // Reload the page to apply the selected language
+                location.reload();
             }
-
-            // Reload the page to apply the selected language
-            location.reload();
-        }
 
         function getPreferredLanguage() {
-            // Get the saved language from cookies
-            const cookieValue = document.cookie
-                .split('; ')
-                .find(row => row.trim().startsWith('preferred_language='))
-                ?.split('=')[1];
+                // Get the saved language from cookies
+                const cookieValue = document.cookie
+                    .split('; ')
+                    .find(row => row.trim().startsWith('preferred_language='))
+                    ?.split('=')[1];
 
-            return cookieValue || 'en';  // Default to English if no language is set
-        }
-
-        function loadTranslations(language) {
-            // Fetch translations based on the selected language
-            fetch(`/api/method/iau.custom_api.get_translations?lang=${language}`)
-                .then(response => response.json())
-                .then(data => {
-                    applyTranslations(data.message);
-                })
-                .catch(error => console.error('Error loading translations:', error));
-        }
-
-        document.addEventListener('DOMContentLoaded', function () {
-            // Retrieve the preferred language from cookies or default to 'en'
-            const selectedLanguage = getPreferredLanguage();
-            loadTranslations(selectedLanguage);
-
-            // Set up language toggle button
-            const toggleButton = document.getElementById('toggle-btn');
-            if (toggleButton) {
-                // Update the button text based on the current language
-                toggleButton.textContent = selectedLanguage === 'ar' ? 'English' : 'العربية';
-
-                // Add event listener for the language toggle button
-                toggleButton.addEventListener('click', function () {
-                    const currentLang = getPreferredLanguage();
-                    const newLang = currentLang === 'en' ? 'ar' : 'en';
-                    setLanguage(newLang);
-
-                    // Update the button text after changing the language
-                    toggleButton.textContent = newLang === 'ar' ? 'English' : 'العربية';
-                });
+                return cookieValue || 'en';  // Default to English if no language is set
             }
 
-            // Update text direction based on the preferred language
-            const body = document.body;
-            if (selectedLanguage === 'ar') {
-                body.classList.add('rtl');
-                body.classList.remove('ltr');
-            } else {
-                body.classList.add('ltr');
-                body.classList.remove('rtl');
+            function loadTranslations(language) {
+                // Fetch translations based on the selected language
+                fetch(`/api/method/iau.custom_api.get_translations?lang=${language}`)
+                    .then(response => response.json())
+                    .then(data => {
+                        applyTranslations(data.message);
+                    })
+                    .catch(error => console.error('Error loading translations:', error));
             }
-        });
+
+            document.addEventListener('DOMContentLoaded', function () {
+                // Retrieve the preferred language from cookies or default to 'en'
+                const selectedLanguage = getPreferredLanguage();
+                loadTranslations(selectedLanguage);
+
+                // Set up language toggle button
+                const toggleButton = document.getElementById('toggle-btn');
+                if (toggleButton) {
+                    // Update the button text based on the current language
+                    toggleButton.textContent = selectedLanguage === 'ar' ? 'English' : 'العربية';
+
+                    // Add event listener for the language toggle button
+                    toggleButton.addEventListener('click', function () {
+                        const currentLang = getPreferredLanguage();
+                        const newLang = currentLang === 'en' ? 'ar' : 'en';
+                        setLanguage(newLang);
+
+                        // Update the button text after changing the language
+                        toggleButton.textContent = newLang === 'ar' ? 'English' : 'العربية';
+                    });
+                }
+
+                // Update text direction based on the preferred language
+                const body = document.body;
+                if (selectedLanguage === 'ar') {
+                    body.classList.add('rtl');
+                    body.classList.remove('ltr');
+                } else {
+                    body.classList.add('ltr');
+                    body.classList.remove('rtl');
+                }
+            });
 
     </script>
 </body>

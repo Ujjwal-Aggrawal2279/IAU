@@ -221,6 +221,15 @@ document.addEventListener('DOMContentLoaded', async function () {
     checkInputFields();
 });
 
+document.getElementById('fileInput').addEventListener('change', function () {
+    const fileNameDisplay = document.getElementById('fileNameDisplay');
+    if (this.files.length > 0) {
+        fileNameDisplay.textContent = this.files[0].name;
+    } else {
+        fileNameDisplay.textContent = 'No file selected';
+    }
+});
+
 async function submitJobApplication(event) {
     event.preventDefault();  // Prevent default form submission
 
@@ -233,9 +242,9 @@ async function submitJobApplication(event) {
     const coverLetter = document.getElementById('cover_letter').value;
     const resumeFile = document.getElementById('fileInput').files[0];
 
-    // Ensure the resume file is selected
-    if (!resumeFile) {
-        console.error('No resume file selected.');
+    // Validate required fields
+    if (!jobTitle || !applicantName || !applicantEmail || !applicantPhone || !countryOfResidence || !coverLetter || !resumeFile) {
+        alert('Please fill out all required fields and upload your resume.');
         return;
     }
 
@@ -268,7 +277,7 @@ async function submitJobApplication(event) {
         if (response.ok) {
             const result = await response.json();
             showToast('Job application submitted successfully!');
-            window.location.pathname = "/Profile"
+            window.location.pathname = "/Profile";
         } else {
             console.error('Failed to submit job application:', response.statusText);
         }
@@ -276,6 +285,7 @@ async function submitJobApplication(event) {
         console.error('Error submitting job application:', error);
     }
 }
+
 
 // Utility function to read file as base64
 function readFileAsBase64(file) {
@@ -308,22 +318,3 @@ document.getElementById('jobApplicationForm').addEventListener('submit', submitJ
 // Add submit event listener
 const form = document.getElementById('jobApplicationForm');
 form.addEventListener('submit', submitJobApplication);
-
-document.addEventListener("DOMContentLoaded", function () {
-    const formFields = document.querySelectorAll('#jobApplicationForm input, #jobApplicationForm textarea');
-    const saveButton = document.getElementById('saveButton');
-
-    function checkFormFields() {
-        let allFilled = true;
-        formFields.forEach(field => {
-            if (field.value.trim() === "") {
-                allFilled = false;
-            }
-        });
-
-        if (allFilled) {
-        } else {
-            alert("Please Fill all the fields!");
-        }
-    }
-});
