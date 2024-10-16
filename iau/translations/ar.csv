@@ -1,6 +1,6 @@
 key,value
-HOME,بيت
-ABOUT,عن
+HOME,الرئيسية
+ABOUT US,عن المعهد
 NEWS,أخبار
 JOBS,وظائف
 SERVICES,خدمات
@@ -8,7 +8,6 @@ PROJECTS,المشاريع
 PARTNERSHIPS,الشراكات
 PARTNERS,الشركاء
 E-SERVICES,الخدمات الإلكترونية
-ABOUT US,"معلومات عنا"
 LATEST NEWS,"آخر الأخبار"
 ALL NEWS,"كل الأخبار"
 RECENT JOB OPENINGS,"فرص العمل الأخيرة"
@@ -38,5 +37,3 @@ CALL CENTERS, خدمات مراكز الاتصال
 SUPPORT SERVICES, خدمات الدعم والإسناد
 LOGISTICS, الخدمات اللوجستية
 TRAINGING, خدمات التدريب 
-HOME,الرئيسية
-ABOUT US,عن المعهد

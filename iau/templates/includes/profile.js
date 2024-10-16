@@ -103,9 +103,9 @@ async function getUserFullName() {
             const jobDetailsUrl = `/jobApplication?email=${encodeURIComponent(userDetails.email)}&job_title=${encodeURIComponent(job.job_title)}`;
             const row = document.createElement('tr');
             row.innerHTML = `
-                <td><a href="${jobDetailsUrl}" style="color : black !important;">${job.job_title}</a></td>
-                <td>${formatDate(job.creation)}</td>
-                <td class="${statusClass}">${statusText} <span class="status-dot"></span></td>
+                <td><a href="${jobDetailsUrl}" style="color: #10142380 !important; font-size : 18px">${job.job_title}</a></td>
+                <td style="color: #10142380 !important; font-size : 18px">${formatDate(job.creation)}</td>
+                <td class="${statusClass}" style="color: #10142380 !important; font-size : 18px">${statusText} <span class="status-dot"></span></td>
             `;
             jobsTableBody.appendChild(row);
         });
