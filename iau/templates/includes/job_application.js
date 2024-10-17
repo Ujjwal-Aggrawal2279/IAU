@@ -10,7 +10,7 @@ function getQueryParams() {
 async function fetchJobApplication(email, jobTitle) {
     try {
         const notSavedIndicator = document.querySelector('#not-saved-indicator');
-        notSavedIndicator.textContent = 'Saved';
+        // notSavedIndicator.textContent = 'Saved';
         notSavedIndicator.style.display = 'none';
         const submit_button_container = document.querySelector('.submit-button-container');
         submit_button_container.style.display = 'none';
@@ -40,6 +40,7 @@ async function fetchJobApplication(email, jobTitle) {
         }
 
         const jobApplication = data.data[0];
+        notSavedIndicator.textContent = `Status : ${jobApplication.status}`;
 
         // Set Job Applicant fields
         const jobInputEle = document.querySelector('input#job_title');
