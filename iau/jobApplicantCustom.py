@@ -20,7 +20,7 @@ def submit_job_application(applicant_name, jobTitle, email_id, phone_number, cou
     # Save the file to the record
     if resume_file_data:
         file_doc = save_file(fname=resume_file_data.get("filename"), content=resume_file_data.get("content"), 
-                             dt="Job Applicant", dn=job_applicant.name, is_private=True)
+                             dt="Job Applicant", dn=job_applicant.name, is_private=True, decode = True)
         job_applicant.resume_attachment = file_doc.file_url
         job_applicant.save()
     

@@ -57,7 +57,15 @@ async function fetchJobApplication(email, jobTitle) {
         applicantPhone.value = jobApplication.phone_number;
         countryOfResidence.value = jobApplication.country;
         coverLetter.value = jobApplication.cover_letter;
-        fileInputEle.textContent = `File uploaded ${jobApplication.resume_attachment}`;
+
+        // make the hyperlink for the uploaded file path
+        var fileInputEle_anchor = document.createElement("a");
+        fileInputEle_anchor.href = `${jobApplication.resume_attachment}`;
+        fileInputEle_anchor.target = "_blank";
+        fileInputEle_anchor.textContent = `${jobApplication.resume_attachment}`;
+        fileInputEle.textContent = "File Uploaded "
+        fileInputEle.appendChild(fileInputEle_anchor);
+
 
         // Set all fields to readonly
         jobInputEle.readOnly = true;
