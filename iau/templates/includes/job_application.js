@@ -5,7 +5,46 @@ function getQueryParams() {
     const jobTitle = params.get('job_title');
     return { email, jobTitle };
 }
-
+get_jobs_apply_permission();
+async function get_jobs_apply_permission(){
+    try{
+        const job_title = getQueryParam('JobTitle');
+        user_roles = await fetch(`/api/method/iau.custom_login.get_user_roles`)
+        if(!user_roles.ok){
+            throw new Error("Error while fetching the user roles")
+        }
+        user_roles = await user_roles.json()
+        if(!user_roles.message.includes("Job Applicant")){
+            alert("You are not allowed to apply for the job since you don't have Job Applicant role\nplease signup with other email id")
+            window.location.href = "/home"
+        }
+        user_email = await fetchLoggedInUserDetails();
+        if(!user_email){
+            throw new Error("There is no such user")
+        }
+        user_email = user_email.email;
+        jobopeningtitile = await fetch(`/api/resource/Job%20Opening?filters=[["job_title", "=", "${job_title}"]]&fields=["*"]`)
+        if(!jobopeningtitile.ok){
+            throw new Error("Error while fetching the job opening id from job opening")
+        }
+        jobopeningtitile = await jobopeningtitile.json();
+        if(jobopeningtitile.data && jobopeningtitile.data.length>0){
+            jobopeningtitile = jobopeningtitile.data[0].name
+            response = await fetch(`/api/resource/Job%20Applicant?filters=[["job_title", "=", "${jobopeningtitile}"],["email_id","=","${user_email}"]]&fields=["*"]`);
+            if(!response.ok){
+                throw new Error("Error while fetching the Job Applicant")
+            }
+            const data = await response.json();
+            if (data.data && data.data.length > 0) {
+                alert("You have already applied for this Job")
+                window.location.href = "/home"
+            }
+       }
+    }
+    catch(error){
+        console.error("Error while checking the permission for the user to apply the job", error)
+    }
+}
 // Fetch job application and job details using Frappe API
 async function fetchJobApplication(email, jobTitle) {
     try {
