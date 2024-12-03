@@ -26,7 +26,7 @@ def custom_login(usr, pwd):
         has_desk_access = frappe.utils.has_common(user_roles, desk_access_roles)
 
         # Check if the user has the "Job Applicant" role
-        if "Job Applicant" in user_roles:
+        if "Job Applicant" in user_roles and usr not in ["Administrator", "administrator"]:
             return {
                 "message": _("Login successful"),
                 "redirect_url": "/Profile",
@@ -34,20 +34,20 @@ def custom_login(usr, pwd):
             }
 
         # Check for Supplier, Customer, or Employee roles
-        if any(role in user_roles for role in ["Supplier", "Customer", "Employee"]):
-            if has_desk_access:
+        if any(role in user_roles for role in ["Supplier", "Customer", "Employee"]) and usr not in ["Administrator", "administrator"]:
+            # if has_desk_access:
                 # Redirect to desk if user has desk access
-                return {
-                    "message": _("Login successful"),
-                    "redirect_url": "/desk",
-                    "user": usr
-                }
-            else:
-                return {
-                    "message": _("Login successful"),
-                    "redirect_url": "/me",
-                    "user": usr
-                }
+            return {
+                "message": _("Login successful"),
+                "redirect_url": "/me",
+                "user": usr
+            }
+            # else:
+            #     return {
+            #         "message": _("Login successful"),
+            #         "redirect_url": "/me",
+            #         "user": usr
+            #     }
 
         # For other users, redirect based on desk access
         if has_desk_access:
@@ -97,4 +97,9 @@ def logout():
 @frappe.whitelist(allow_guest=True)
 def get_user_roles():
     return frappe.get_roles()
+
+@frappe.whitelist(allow_guest=True)
+def get_user_type():
+    user_details = frappe.get_doc('User', frappe.session.user)
+    return user_details.user_type
     
