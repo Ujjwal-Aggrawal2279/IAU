@@ -349,19 +349,35 @@
                 const userImage = userDetails.user_image;
                 const userName = userDetails.full_name;
                 const userInitial = userName.charAt(0).toUpperCase(); // Get the first letter of the user's full name
-
+                const userTypeDetails = await fetch(`/api/method/iau.custom_login.get_user_type`);
+                if (!userTypeDetails.ok) {
+                    throw new Error('Failed to fetch user type details.');
+                }
+                const userTypeJson = await userTypeDetails.json();
+                const userType = userTypeJson.message;
                 // Prepare the Profile link based on jobApplicantResponse length
                 let profileLink = '';
                 let menuContent = ''; // Variable to hold dropdown content
-
-                if (jobApplicants.message.includes("Job Applicant")) {
+                if (jobApplicants.message.includes("Job Applicant") && userName!= "Administrator") {
                     profileLink = `<a href="/Profile" style="display: block; padding: 12px 16px; text-decoration: none; color: #000; font-family: 'Encode Sans Condensed', system-ui; font-size: 16px; font-weight: bold;">Profile</a>`;
                     menuContent = `${profileLink}
                         <a href="#" id="logout-link" style="display: block; padding: 12px 16px; text-decoration: none; color: #000; font-family: 'Encode Sans Condensed', system-ui; font-size: 16px; font-weight: bold;">Logout</a>`;
-                                } else {
-                                    menuContent = `<a href="/me" style="display: block; padding: 12px 16px; text-decoration: none; color: #000; font-family: 'Encode Sans Condensed', system-ui; font-size: 16px; font-weight: bold;">My Account</a>
-                        <a href="#" id="logout-link" style="display: block; padding: 12px 16px; text-decoration: none; color: #000; font-family: 'Encode Sans Condensed', system-ui; font-size: 16px; font-weight: bold;">Logout</a>`;
-                                }
+                    }
+                else if(userType === "System User" && userName!= "Administrator" ){
+                    menuContent = `<a href="/me" style="display: block; padding: 12px 16px; text-decoration: none; color: #000; font-family: 'Encode Sans Condensed', system-ui; font-size: 16px; font-weight: bold;">My Account</a>
+                    <a href="/app" style="display: block; padding: 12px 16px; text-decoration: none; color: #000; font-family: 'Encode Sans Condensed', system-ui; font-size: 16px; font-weight: bold;">Switch To Desk</a>
+                    <a href="#" id="logout-link" style="display: block; padding: 12px 16px; text-decoration: none; color: #000; font-family: 'Encode Sans Condensed', system-ui; font-size: 16px; font-weight: bold;">Logout</a>`;
+                }
+                else if(userType === "System User" && userName === "Administrator"){
+                    menuContent = `<a href="/me" style="display: block; padding: 12px 16px; text-decoration: none; color: #000; font-family: 'Encode Sans Condensed', system-ui; font-size: 16px; font-weight: bold;">My Account</a>
+                    <a href="/app" style="display: block; padding: 12px 16px; text-decoration: none; color: #000; font-family: 'Encode Sans Condensed', system-ui; font-size: 16px; font-weight: bold;">Switch To Desk</a>
+                    <a href="/apps" style="display: block; padding: 12px 16px; text-decoration: none; color: #000; font-family: 'Encode Sans Condensed', system-ui; font-size: 16px; font-weight: bold;">Apps</a>
+                    <a href="#" id="logout-link" style="display: block; padding: 12px 16px; text-decoration: none; color: #000; font-family: 'Encode Sans Condensed', system-ui; font-size: 16px; font-weight: bold;">Logout</a>`;
+                }
+                else {
+                    menuContent = `<a href="/me" style="display: block; padding: 12px 16px; text-decoration: none; color: #000; font-family: 'Encode Sans Condensed', system-ui; font-size: 16px; font-weight: bold;">My Account</a>
+                    <a href="#" id="logout-link" style="display: block; padding: 12px 16px; text-decoration: none; color: #000; font-family: 'Encode Sans Condensed', system-ui; font-size: 16px; font-weight: bold;">Logout</a>`;
+                }
 
                                 // Replace the "E-services" link with the user's avatar and dropdown menu
                                 const navItemEservices = document.getElementById('nav-item-eservices');
