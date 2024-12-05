@@ -16,7 +16,7 @@ async function get_jobs_apply_permission(){
         user_roles = await user_roles.json()
         if(!user_roles.message.includes("Job Applicant")){
             alert("You are not allowed to apply for the job since you don't have Job Applicant role\nplease signup with other email id")
-            window.location.href = "/home"
+            window.location.href = "/me"
         }
         user_email = await fetchLoggedInUserDetails();
         if(!user_email){
@@ -37,7 +37,7 @@ async function get_jobs_apply_permission(){
             const data = await response.json();
             if (data.data && data.data.length > 0) {
                 alert("You have already applied for this Job")
-                window.location.href = "/home"
+                window.location.href = "/home#jobs_openings"
             }
        }
     }
