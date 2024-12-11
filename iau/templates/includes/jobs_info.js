@@ -10,8 +10,32 @@ document.addEventListener('DOMContentLoaded', async function () {
     if (jobTitle) {
         const decodedTitle = decodeURIComponent(jobTitle);
         const currentHost = window.location.host;
-        const url = `http://${currentHost}/jobApplication?JobTitle=${decodedTitle}`;
+        let url = `http://${currentHost}/jobApplication?JobTitle=${decodedTitle}`;
+        async function UsercheckAuthentication() {
+            try {
+                const response = await fetch('/api/method/frappe.auth.get_logged_user', {
+                    method: 'GET',
+                });
 
+                if (response.ok) {
+                    const data = await response.json();
+                    if (!data.message) {
+                        return false;
+                    }
+                    return true;
+                } else {
+                    throw new Error('Failed to check authentication');
+                }
+            } catch (error) {
+                console.error('Error checking authentication:', error);
+                return false;
+            }
+        }
+        const isUserAuthenticated = await UsercheckAuthentication();
+        if(!isUserAuthenticated){
+            let login_redirect_url = `/jobApplication?JobTitle=${decodedTitle}`;
+            url = `http://${currentHost}/Login?redirect-to=${encodeURIComponent(login_redirect_url)}`;
+        }
         // Generate QR code
         const qr = new QRious({
             value: url,
