@@ -2,10 +2,11 @@
 const pswd_toggler = document.getElementById('password_toggler');
 pswd_toggler.addEventListener('click', () => {
     const password_input = document.querySelector('input[name="password"]');
-    if (password_input.type === 'password') {
-        password_input.type = 'text';
-    } else {
-        password_input.type = 'password';
+    if(password_input.style.webkitTextSecurity === "none") {
+        password_input.style.webkitTextSecurity = "disc";
+        }
+    else {
+        password_input.style.webkitTextSecurity = "none";
     }
 })
 
@@ -35,10 +36,10 @@ login_form_ele.addEventListener('submit', async (event) => {
         if (response.ok) {
             const result = await response.json();
             if (new URLSearchParams(window.location.search).get("redirect-to") && result.message.redirect_url !== "/Login") {
-                window.location.href = new URLSearchParams(window.location.search).get("redirect-to");
+                // window.location.href = new URLSearchParams(window.location.search).get("redirect-to");
                 return; 
             } else if(new URLSearchParams(window.location.search).get("redirect-to") && result.message.redirect_url === "/Login"){
-                location.reload();
+                // location.reload();
             } else {
                 window.location.href = result.message.redirect_url;
             }
