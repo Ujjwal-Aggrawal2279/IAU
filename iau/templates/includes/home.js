@@ -16,7 +16,7 @@ var swiper = new Swiper(".myBannerSwiper", {
 
 const fetchJobOpenings = async () => {
     try {
-        const response = await fetch('/api/resource/Job Opening?fields=["*"]&limit_page_length=9&order_by=creation desc');
+        const response = await fetch('/api/resource/Job Opening?fields=["*"]&filters=[["status","=","Open"]]&limit_page_length=9&order_by=creation desc');
         if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`);
         }
