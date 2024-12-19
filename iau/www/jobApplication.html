@@ -1,8 +1,8 @@
 <script>
-    const logged_user = '{{frappe.session.user}}'
+    const logged_user = '{{frappe.session.user}}';
     const currentHost = window.location.host;
     if(logged_user === "Guest"){
-        window.location.href = `http://${currentHost}/Login?redirect-to=${encodeURIComponent(window.location.href)}`
+        window.location.href = `http://${currentHost}/Login?redirect-to=${encodeURIComponent(window.location.href)}`;
         }
 </script>
 {% extends "templates/Base.html" %}
