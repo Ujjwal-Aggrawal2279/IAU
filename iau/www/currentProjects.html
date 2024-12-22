@@ -1,0 +1,21 @@
+{% extends "templates/Base.html" %}
+{% block title %}
+Current Projects
+{% endblock %}
+
+{% block content%}
+<section style="background-color: #EFE6D2; padding: 40px;">
+<div class="divider" style ="background-color: #2B354E;">
+    <span style="text-transform: uppercase; font-size: 30px; font-weight : bold; font-family: 'Encode Sans Condensed', system-ui; color : white; margin : 0px 15px;">
+        Current Projects
+    </span>
+</div>
+<div id="current_project_listing_container" style="width:100%;display: grid; grid-template-columns: 50% 50%">
+    <!-- dynamic current projects will be fetched here -->
+</div>
+<!-- <div id="current_project_page_number_container"></div> -->
+</section>
+<script>
+    {% include "templates/includes/current_projects.js" %}
+</script>
+{% endblock %}
