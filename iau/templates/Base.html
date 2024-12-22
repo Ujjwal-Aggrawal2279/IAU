@@ -102,9 +102,14 @@
                     <li><a href="/home#services"
                             style="text-decoration: none; font-family: 'Encode Sans Condensed', system-ui; text-transform: uppercase; font-weight : 500; letter-spacing : -1px;">Services</a>
                     </li>
-                    <li><a href="/home#projects"
+                    <li style="position: relative;"><a id = "projects_dropdown" href="/home#projects"
                             style="text-decoration: none; font-family: 'Encode Sans Condensed', system-ui; text-transform: uppercase; font-weight : 500; letter-spacing : -1px;">Projects</a>
-                    </li>
+                            <br>
+                            <div id="projects-dropdown-menu" style="display: none; position: absolute; top: 100%; right: 0; background-color: #fff; box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2); z-index: 1000; width: 170px; background-color: #EFE6D2;">
+                                <a href="/pastProjects" style="display: block; padding: 12px 16px; text-decoration: none; color: #000; font-family: 'Encode Sans Condensed', system-ui; font-size: 16px; font-weight: bold;">Past Projects</a>
+                                <a href="/currentProjects" style="display: block; padding: 12px 16px; text-decoration: none; color: #000; font-family: 'Encode Sans Condensed', system-ui; font-size: 16px; font-weight: bold;">Current Projects</a>
+                            </div>
+                        </li>
                     <!-- <li><a href="/home#partnerships"
                             style="text-decoration: none; font-family: 'Encode Sans Condensed', system-ui; text-transform: uppercase; font-weight : 500; letter-spacing : -1px;">Partnerships</a>
                     </li> -->
@@ -161,7 +166,9 @@
                 </ul>
             </div>
     </div>
+    {% block authentication %}
 
+    {% endblock %}
     {% block content %}
     <!-- Default content -->
     {% endblock %}
@@ -261,7 +268,12 @@
         </select>
     </div>
     <script>
-
+        // open dropdown when project in navbar has been clicked
+        document.getElementById("projects_dropdown").addEventListener("click", (event)=>{
+                event.preventDefault();
+                const projects_dropdown_menu = document.getElementById('projects-dropdown-menu');
+                projects_dropdown_menu.style.display = (projects_dropdown_menu.style.display === 'none' || projects_dropdown_menu.style.display === '') ? 'block' : 'none';
+            })
         document.addEventListener('DOMContentLoaded', () => {
             const navLinks = document.querySelectorAll('#nav_items li a');
 
@@ -417,8 +429,12 @@
                 // Close dropdown when clicking outside of it
                 document.addEventListener('click', (event) => {
                     const dropdownMenu = document.getElementById('dropdown-menu');
+                    const projectdropdownMenu = document.getElementById('projects-dropdown-menu');
                     if (!event.target.closest('#nav-item-eservices')) {
                         dropdownMenu.style.display = 'none';
+                    }
+                    if(!event.target.closest('#projects_dropdown')){
+                        projectdropdownMenu.style.display = 'none';
                     }
                 });
 
