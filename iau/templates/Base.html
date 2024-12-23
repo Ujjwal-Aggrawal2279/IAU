@@ -102,12 +102,12 @@
                     <li><a href="/home#services"
                             style="text-decoration: none; font-family: 'Encode Sans Condensed', system-ui; text-transform: uppercase; font-weight : 500; letter-spacing : -1px;">Services</a>
                     </li>
-                    <li style="position: relative;"><a id = "projects_dropdown" href="/home#projects"
-                            style="text-decoration: none; font-family: 'Encode Sans Condensed', system-ui; text-transform: uppercase; font-weight : 500; letter-spacing : -1px;">Projects</a>
+                    <li id = "project_dropdown_navbar" style="position: relative;"><a id = "projects_dropdown" href="/home#projects"
+                            style="border-bottom:0px;text-decoration: none; font-family: 'Encode Sans Condensed', system-ui; text-transform: uppercase; font-weight : 500; letter-spacing : -1px;">Projects</a>
                             <br>
-                            <div id="projects-dropdown-menu" style="display: none; position: absolute; top: 100%; right: 0; background-color: #fff; box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2); z-index: 1000; width: 170px; background-color: #EFE6D2;">
-                                <a href="/pastProjects" style="display: block; padding: 12px 16px; text-decoration: none; color: #000; font-family: 'Encode Sans Condensed', system-ui; font-size: 16px; font-weight: bold;">Past Projects</a>
-                                <a href="/currentProjects" style="display: block; padding: 12px 16px; text-decoration: none; color: #000; font-family: 'Encode Sans Condensed', system-ui; font-size: 16px; font-weight: bold;">Current Projects</a>
+                            <div id="projects-dropdown-menu" style="border-bottom:0px;display: none; position: absolute; top: 100%; right: 0; background-color: #fff; box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2); z-index: 1000; width: 170px; background-color: #EFE6D2;">
+                                <a href="/pastProjects" style="border-bottom:0px;display: block; padding: 12px 16px; text-decoration: none; color: #000; font-family: 'Encode Sans Condensed', system-ui; font-size: 16px; font-weight: bold;">Past Projects</a>
+                                <a href="/currentProjects" style="border-bottom:0px;display: block; padding: 12px 16px; text-decoration: none; color: #000; font-family: 'Encode Sans Condensed', system-ui; font-size: 16px; font-weight: bold;">Current Projects</a>
                             </div>
                         </li>
                     <!-- <li><a href="/home#partnerships"
@@ -268,13 +268,15 @@
         </select>
     </div>
     <script>
-        // open dropdown when project in navbar has been clicked
-        document.getElementById("projects_dropdown").addEventListener("click", (event)=>{
+        document.addEventListener('DOMContentLoaded', () => {
+
+            // open dropdown when project in navbar has been clicked
+            document.getElementById("projects_dropdown").addEventListener("click", (event)=>{
                 event.preventDefault();
                 const projects_dropdown_menu = document.getElementById('projects-dropdown-menu');
                 projects_dropdown_menu.style.display = (projects_dropdown_menu.style.display === 'none' || projects_dropdown_menu.style.display === '') ? 'block' : 'none';
             })
-        document.addEventListener('DOMContentLoaded', () => {
+
             const navLinks = document.querySelectorAll('#nav_items li a');
 
             // Function to handle adding 'active' class on click
@@ -433,7 +435,7 @@
                     if (!event.target.closest('#nav-item-eservices')) {
                         dropdownMenu.style.display = 'none';
                     }
-                    if(!event.target.closest('#projects_dropdown')){
+                    if(!event.target.closest('#project_dropdown_navbar')){
                         projectdropdownMenu.style.display = 'none';
                     }
                 });
@@ -495,7 +497,7 @@
             const outside_university_heading_ele = document.querySelector('#outside_university_heading');
             const within_university_heading_ele = document.querySelector('#within_university_heading');
             const partner_heading_ele = document.querySelector('#partner_heading');
-            const projects_heading_ele = document.querySelector('#projects_heading');
+            // const projects_heading_ele = document.querySelector('#projects_heading');
             const services_heading_ele = document.querySelector('#services_heading');
             const data_management_text_ele = document.querySelector('#data_management_text');
             const financial_strategic_ele = document.querySelector('#financial_strategic');
@@ -546,7 +548,7 @@
             translateElement(outside_university_heading_ele, 'OUTSIDE THE UNIVERSITY');  // Key is 'Outside University'
             translateElement(within_university_heading_ele, 'WITHIN THE UNIVERSITY');  // Key is 'Within University'
             translateElement(partner_heading_ele, "PARTNERS"); // Key is 'Partners"
-            translateElement(projects_heading_ele, 'PROJECTS');  // Key is 'Projects'
+            // translateElement(projects_heading_ele, 'PROJECTS');  // Key is 'Projects'
             translateElement(services_heading_ele, 'SERVICES'); // Key is 'Services'
             translateElement(data_management_text_ele, 'DATA MANAGEMENT'); // Key is 'DATA MANAGEMENT'
             translateElement(financial_strategic_ele, 'FINANCIAL STRATEGIC'); // Key is 'FINANCIAL STRATEGIC'
