@@ -27,7 +27,7 @@ past_project_list.forEach(element => {
     pastProject.className = "past_project"
     pastProject.style.backgroundImage = 'linear-gradient(to bottom, #FFFBF1, #EAE2C4)';
     pastProject.style.margin = '10px 10px 10px 10px';  
-    pastProject.style.padding = '2px 2px 2px 2px';
+    pastProject.style.padding = '2px 15px 2px 15px';
     pastProject.style.textAlign = "center";
     
     pastProject.innerHTML = `
