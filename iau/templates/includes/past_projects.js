@@ -17,6 +17,7 @@ const fetchpastprojects = async()=>{
     }
 }
 
+// render past project into the page
 const renderpastprojects = (past_project_list) =>{
 past_project_container = document.querySelector("#past_project_listing_container");
 past_project_container.innerHTML = '' // clear the already existing record 
@@ -30,8 +31,8 @@ past_project_list.forEach(element => {
     pastProject.style.textAlign = "center";
     
     pastProject.innerHTML = `
-    <p class="project-name" style="font-size:20px;font-family: 'Encode Sans Condensed', system-ui; font-weight: 700; color: #101423; margin-bottom:20px;">
-    ${element.project_name}<p>
+    <p class="project_name" style="font-size:15px;font-family: 'Encode Sans Condensed', system-ui; font-weight: 500; color: #101423; margin-bottom:40px;">
+      ${element.project_name}  <p>
     <a href=${element.custom_attach_rfp} style="text-decoration:none;" target="_blank"; rel="noopener";>
     <button type="button" style="font-size:20px; width:25%;">
     Download

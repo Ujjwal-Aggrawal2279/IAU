@@ -31,8 +31,8 @@ current_project_list.forEach(element => {
     currentProject.style.textAlign = "center";
     
     currentProject.innerHTML = `
-    <p class="project-name" style="font-size:20px;font-family: 'Encode Sans Condensed', system-ui; font-weight: 700; color: #101423; margin-bottom:20px;">
-    ${element.project_name}<p>
+    <p class="project_name" style="font-size:15px;font-family: 'Encode Sans Condensed', system-ui; font-weight: 500; color: #101423; margin-bottom:40px;">
+      ${element.project_name}  <p>
     <a href=${element.custom_attach_rfp} style="text-decoration:none;" target="_blank"; rel="noopener";>
     <button type="button" style="font-size:20px; width:25%;">
     Download
