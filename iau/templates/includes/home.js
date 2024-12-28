@@ -166,7 +166,7 @@ const renderBlogPost = (blogs) => {
                     <h4 style="font-family: 'Encode Sans Condensed', system-ui; font-size: 24px; font-weight: 700; line-height: 28px; color: #101423;">
                         ${blog.title}
                     </h4>
-                    <p style="font-size: 22px;">
+                    <p>
                         ${blog.blog_intro}
                     </p>
                     <p style="color: #3D4667; font-family: "Inter", sans-serif; font-weight: 500; font-size: 22px; line-height: 32px; margin-top: 6px;">
