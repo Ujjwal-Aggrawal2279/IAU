@@ -64,7 +64,7 @@ const renderJobOpenings = (jobOpenings) => {
             // Customize the content inside the div
             jobDiv.innerHTML = `
                 <a href="/jobInfo?JobTitle=${encodeURIComponent(job.job_title)}" style="text-decoration : none;">
-                    <p style="font-family: 'Encode Sans Condensed', system-ui; font-size: 18px; font-weight: 700; line-height: 28px; color: #101423">${job.job_title}</p>
+                    <p style="font-family: 'Encode Sans Condensed', system-ui; font-size: 24px; font-weight: 700; line-height: 28px; color: #101423">${job.job_title}</p>
                     <div style="margin-top: 36px;">
                         <p style="font-family: Inter Display; font-size: 18px; line-height: 32px; color: #8092A7;">${formattedDate}</p>
                     </div>
@@ -163,10 +163,10 @@ const renderBlogPost = (blogs) => {
                     <img src="${blog.meta_image}" alt="news 1" />
                 </div>
                 <article style="padding: 24px">
-                    <h4 style="font-family: 'Encode Sans Condensed', system-ui; font-size: 22px; font-weight: 700; line-height: 28px; color: #101423;">
+                    <h4 style="font-family: 'Encode Sans Condensed', system-ui; font-size: 24px; font-weight: 700; line-height: 28px; color: #101423;">
                         ${blog.title}
                     </h4>
-                    <p>
+                    <p style="font-size: 22px;">
                         ${blog.blog_intro}
                     </p>
                     <p style="color: #3D4667; font-family: "Inter", sans-serif; font-weight: 500; font-size: 22px; line-height: 32px; margin-top: 6px;">
