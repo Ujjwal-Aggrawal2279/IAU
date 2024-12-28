@@ -38,6 +38,9 @@
     #past_project_listing_container{
         grid-template-columns: 1fr !important;
     }
+    #current_project_listing_container{
+        grid-template-columns: 1fr !important;
+    }
     #news_slider_section {
         height: 90vh;
         overflow: hidden;
@@ -280,6 +283,9 @@
     grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
 }
 #past_project_listing_container{
+    grid-template-columns: repeat(auto-fit, minmax(600px, 1fr));
+}
+#current_project_listing_container{
     grid-template-columns: repeat(auto-fit, minmax(600px, 1fr));
 }
 .footer_text {
