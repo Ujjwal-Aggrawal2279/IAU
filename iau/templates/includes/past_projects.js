@@ -28,16 +28,25 @@ past_project_list.forEach(element => {
     pastProject.style.backgroundImage = 'linear-gradient(to bottom, #FFFBF1, #EAE2C4)';
     pastProject.style.margin = '10px 10px 10px 10px';  
     pastProject.style.padding = '2px 15px 2px 15px';
+    pastProject.style.fontSize = '22px';
     pastProject.style.textAlign = "center";
-    
+    pastProject.style.display = "grid";
+    pastProject.style.alignItems = "flex-end";
+    let start_date_obj = new Date(element.expected_start_date);
+    let start_date_options = {year: "numeric", month: "long", day: "numeric"};
+    let start_date_formatted = start_date_obj.toLocaleDateString("en-US", start_date_options);
     pastProject.innerHTML = `
-    <p class="project_name" style="font-size:15px;font-family: 'Encode Sans Condensed', system-ui; font-weight: 500; color: #101423; margin-bottom:40px;">
+    <p style="font-size:22px;font-family: Inter, system-ui; font-weight: 500; color: #101423; margin-bottom:20px;">
     ${element.project_name}<p>
-    <a href=${element.custom_attach_rfp} style="text-decoration:none;" target="_blank"; rel="noopener";>
-    <button type="button" style="font-size:20px; width:25%;">
-    Download
-    </button>
-    </a>
+    <p style="margin-bottom:10px;font-size:22px;font-family:Inter, system-ui;"><span>${start_date_formatted}</span></p>
+    <div class="container" style="width : 100%; display: flex; justify-content: center; align-items: center;">
+        <a href=${element.custom_attach_rfp} target="_blank"; rel="noopener;">
+            <button
+                style="padding: 11px 20px; background-color: #101423; color: white; font-size: 22px; font-weight: 700; border: none; font-family : Inter, sans-serif; cursor : pointer;">
+                Download
+            </button>
+        </a>
+    </div>
     `
 
     past_project_container.appendChild(pastProject)
