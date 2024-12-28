@@ -648,7 +648,7 @@
     background-color: #EFE6D2;
 }
 
-.first-row::before {
+/* .first-row::before {
     content: '';
     position: absolute;
     background: linear-gradient(180deg, rgba(67, 73, 85, 0) 0%, #93A1BB 50%, rgba(67, 73, 85, 0.2) 100%);
@@ -703,7 +703,7 @@
     height: 1px;
     bottom: 0;
     left: 0;
-}
+} */
 
 table {
     margin-top: 30px;
