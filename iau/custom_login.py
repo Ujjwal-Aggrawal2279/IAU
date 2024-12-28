@@ -76,12 +76,14 @@ def custom_login(usr, pwd):
         frappe.clear_messages()
         return {
             "message": _("Invalid login credentials. Please try again."),
+            "redirect_url": "/Login",
             "status_code": 401
         }
     except Exception as e:
         frappe.log_error(frappe.get_traceback(), _("Login Error"))
         return {
             "message": str(e),
+            "redirect_url": "/Login",
             "status_code": 500
         }
 

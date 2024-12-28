@@ -39,6 +39,10 @@ login_form_ele.addEventListener('submit', async (event) => {
                 window.location.href = new URLSearchParams(window.location.search).get("redirect-to");
                 return; 
             } else if(new URLSearchParams(window.location.search).get("redirect-to") && result.message.redirect_url === "/Login"){
+                alert(result.message.message)
+                location.reload();
+            } else if(result.message.redirect_url === "/Login"){
+                alert(result.message.message);
                 location.reload();
             } else {
                 window.location.href = result.message.redirect_url;
