@@ -40,7 +40,7 @@ past_project_list.forEach(element => {
     ${element.project_name}<p>
     <p style="margin-bottom:10px;font-size:22px;font-family:Inter, system-ui;"><span>${start_date_formatted}</span></p>
     <div class="container" style="width : 100%; display: flex; justify-content: center; align-items: center;">
-        <a href=${element.custom_attach_rfp} target="_blank"; rel="noopener;">
+        <a href=${encodeURI(element.custom_attach_rfp)} target="_blank"; rel="noopener;">
             <button
                 style="padding: 11px 20px; background-color: #101423; color: white; font-size: 22px; font-weight: 700; border: none; font-family : Inter, sans-serif; cursor : pointer;">
                 Download
