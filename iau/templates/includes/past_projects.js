@@ -36,9 +36,11 @@ past_project_list.forEach(element => {
     let start_date_options = {year: "numeric", month: "long", day: "numeric"};
     let start_date_formatted = start_date_obj.toLocaleDateString("en-US", start_date_options);
     pastProject.innerHTML = `
-    <p style="font-size:22px;font-family: Inter, system-ui; font-weight: 500; color: #101423; margin-bottom:20px;">
+    <p style="font-size:20px;font-family: Inter, system-ui; font-weight: 500; color: #101423;">
     ${element.project_name}<p>
-    <p style="margin-bottom:10px;font-size:22px;font-family:Inter, system-ui;"><span>${start_date_formatted}</span></p>
+    <br><br>
+    <p style="font-size:22px;font-family:Inter, system-ui;"><span>${start_date_formatted}</span></p>
+    <br>
     <div class="container" style="width : 100%; display: flex; justify-content: center; align-items: center;">
         <a href=${encodeURI(element.custom_attach_rfp)} target="_blank"; rel="noopener;">
             <button
