@@ -161,7 +161,7 @@
                             style="text-decoration: none; font-family: 'Encode Sans Condensed', system-ui; text-transform: uppercase;">SERVICES</a>
                     </li>
                     <li id = "mobile_project_dropdown_navbar" style="position: relative;"><a id = "mobile_projects_dropdown" href="/home#projects"
-                        style="text-decoration: none; font-family: 'Encode Sans Condensed', system-ui; text-transform: uppercase;">Projects</a>
+                        style="text-decoration: none; font-family: 'Encode Sans Condensed', system-ui; text-transform: uppercase;">PROJECTS</a>
                         <div id="mobile-projects-dropdown-menu" style="display: none; position: absolute; top: 0%; right: 100%; background-color: #fff; box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2); z-index: 1000; width: 170px; background-color: #EFE6D2;">
                             <a href="/pastProjects" style="display: block; padding: 12px 16px; text-decoration: none; color: #000; font-family: 'Encode Sans Condensed', system-ui; font-size: 16px; font-weight: bold;">Past Projects</a>
                             <a href="/currentProjects" style="display: block; padding: 12px 16px; text-decoration: none; color: #000; font-family: 'Encode Sans Condensed', system-ui; font-size: 16px; font-weight: bold;">Current Projects</a>
@@ -607,9 +607,24 @@
             const logistics_services_ele = document.querySelector('#logistics_services');
             const training_ele = document.querySelector('#training');
             const connect_with_us_heading_ele = document.querySelector('#connect_with_us_heading');
-
+            const past_project_heading_ele = document.querySelector('#past_project_heading span');
+            const current_project_heading_ele = document.querySelector('#current_project_heading span');
+            const past_project_download_buttons = document.querySelectorAll('.past_project button');
+            const current_project_download_buttons = document.querySelectorAll('.current_project button');
             // Apply translations to each navigation link
             navItems.forEach(link => {
+                const text = link.innerText.trim();
+                if (text in translations) {
+                    link.innerText = translations[text];
+                }
+            });
+            past_project_download_buttons.forEach(link => {
+                const text = link.innerText.trim();
+                if (text in translations) {
+                    link.innerText = translations[text];
+                }
+            });
+            current_project_download_buttons.forEach(link => {
                 const text = link.innerText.trim();
                 if (text in translations) {
                     link.innerText = translations[text];
@@ -658,6 +673,8 @@
             translateElement(logistics_services_ele, 'LOGISTICS'); // Key is 'LOGISTICS'
             translateElement(training_ele, 'TRAINGING'); // Key is 'TRAINGING'
             translateElement(connect_with_us_heading_ele, 'CONNECT WITH US');  // Key is 'CONNECT WITH US'
+            translateElement(past_project_heading_ele, 'Past Projects'); // Key is 'Past Projects'
+            translateElement(current_project_heading_ele,'Current Projects'); // Key is 'Current Projects'
         }
 
 
