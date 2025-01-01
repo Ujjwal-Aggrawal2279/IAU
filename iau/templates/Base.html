@@ -7,6 +7,8 @@
     <title>{% block title %}Default Title{% endblock %}</title>
     <link rel="stylesheet" href="/assets/iau/css/customGlobal.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Encode+Sans+Condensed:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/qrious/dist/qrious.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
@@ -87,8 +89,15 @@
             </div>
             <div>
                 <ul id="nav_items">
-                    <li class="active"><a href="/home"
+                    <!-- <li class="active"><a href="/home"
                             style="text-decoration: none; font-family: 'Encode Sans Condensed', system-ui; text-transform: uppercase; font-weight : 500; letter-spacing : -1px;">Home</a>
+                    </li> -->
+                    <li>
+                        <a href="/home">
+                            <div style="position: relative; width: 40px; height: 40px; background-color: #FFFBF1; display: flex; align-items: center; justify-content: center;">
+                                <img src="/files/home.svg" alt="Home icon" style="width: 100%; height: 100%;">
+                            </div>
+                        </a>
                     </li>
                     <li><a href="/home#about_us"
                             style="text-decoration: none; font-family: 'Encode Sans Condensed', system-ui; text-transform: uppercase; font-weight : 500; letter-spacing : -1px;">About US</a>
@@ -125,13 +134,19 @@
                     </li>
                 </ul>
             </div>
-            <div class="mobile_nav" onclick="toggleMenu()">
+            <div id="mobile_nav_button" class="mobile_nav" onclick="toggleMenu()">
                 <i class="fas fa-bars"></i>
             </div>
             <div id="mobile_menu" style="display: none;">
                 <ul>
-                    <li><a href="/home"
-                            style="text-decoration: none; font-family: 'Encode Sans Condensed', system-ui; text-transform: uppercase;">HOME</a>
+                    <li>
+                        <!-- <a href="/home"
+                            style="text-decoration: none; font-family: 'Encode Sans Condensed', system-ui; text-transform: uppercase;">HOME</a> -->
+                            <a href="/home">
+                                <div style="position: relative; width: 40px; height: 40px; background-color: #FFFBF1; display: flex; align-items: center; justify-content: center;">
+                                    <img src="/files/home.svg" alt="Home icon" style="width: 100%; height: 100%;">
+                                </div>
+                            </a>
                     </li>
                     <li><a href="/home#about_us"
                             style="text-decoration: none; font-family: 'Encode Sans Condensed', system-ui; text-transform: uppercase;">ABOUT US</a>
@@ -145,8 +160,12 @@
                     <li><a href="/home#services"
                             style="text-decoration: none; font-family: 'Encode Sans Condensed', system-ui; text-transform: uppercase;">SERVICES</a>
                     </li>
-                    <li><a href="/home#projects"
-                            style="text-decoration: none; font-family: 'Encode Sans Condensed', system-ui; text-transform: uppercase;">PROJECTS</a>
+                    <li id = "mobile_project_dropdown_navbar" style="position: relative;"><a id = "mobile_projects_dropdown" href="/home#projects"
+                        style="text-decoration: none; font-family: 'Encode Sans Condensed', system-ui; text-transform: uppercase;">Projects</a>
+                        <div id="mobile-projects-dropdown-menu" style="display: none; position: absolute; top: 0%; right: 100%; background-color: #fff; box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2); z-index: 1000; width: 170px; background-color: #EFE6D2;">
+                            <a href="/pastProjects" style="display: block; padding: 12px 16px; text-decoration: none; color: #000; font-family: 'Encode Sans Condensed', system-ui; font-size: 16px; font-weight: bold;">Past Projects</a>
+                            <a href="/currentProjects" style="display: block; padding: 12px 16px; text-decoration: none; color: #000; font-family: 'Encode Sans Condensed', system-ui; font-size: 16px; font-weight: bold;">Current Projects</a>
+                        </div>
                     </li>
                     <!-- <li><a href="/home#partnerships"
                             style="text-decoration: none; font-family: 'Encode Sans Condensed', system-ui; text-transform: uppercase;">PARTNERSHIPS</a>
@@ -160,8 +179,9 @@
                             CONNECT WITH US
                         </a>
                     </li>
-                    <li class="dropdown">
-                        <a href="/Login">E-SERVICES</a>
+                    <li id="nav-mobile-item-eservices" style="position: relative;" class="dropdown">
+                        <a href="/Login"
+                        style="text-decoration: none; font-family: 'Encode Sans Condensed', system-ui; text-transform: uppercase;">E-SERVICES</a>
                     </li>
                 </ul>
             </div>
@@ -178,7 +198,7 @@
         <div class="container" style="padding-top: 62px; padding-bottom : 62px;">
             <div class="divider">
                 <span id="connect_with_us_heading"
-                    style="text-transform: uppercase; font-size: 30px; font-weight : bold; font-family: 'Encode Sans Condensed', system-ui; color : white; margin : 0px 15px;">
+                    style="text-transform: uppercase; font-size: 40px; font-weight : bold; font-family: 'Encode Sans Condensed', system-ui; color : white; margin : 0px 15px;">
                     CONNECT WITH US</span>
             </div>
             <div class="connect_with_us_paras" style="margin-top : 40px; display: grid; gap: 30px;">
@@ -243,17 +263,17 @@
                 </div>
                 <div>
                     <p class="footer-copyright"
-                        style="font-size : 18px; font-family : 'Inter', sans-serif; font-weight : 400; color : white; white-space: nowrap;">
+                        style="font-size : 22px; font-family : 'Inter', sans-serif; font-weight : 400; color : white; white-space: nowrap;">
                         © 2024 Imam Abdulrahman Bin Faisal University
                     </p>
                     <p class="footer-copyright"
-                        style="font-size : 18px; font-family : 'Inter', sans-serif; font-weight : 400; color : white">
+                        style="font-size : 22px; font-family : 'Inter', sans-serif; font-weight : 400; color : white">
                         All rights reserved
                     </p>
                 </div>
                 <div>
                     <p class="footer-implementation"
-                        style="font-size : 18px; font-weight: 400; color : white; font-family : 'Inter', sans-serif;">
+                        style="font-size : 22px; font-weight: 400; color : white; font-family : 'Inter', sans-serif;">
                         Implemented by Makwiz Technologies</p>
                 </div>
             </div>
@@ -275,6 +295,13 @@
                 event.preventDefault();
                 const projects_dropdown_menu = document.getElementById('projects-dropdown-menu');
                 projects_dropdown_menu.style.display = (projects_dropdown_menu.style.display === 'none' || projects_dropdown_menu.style.display === '') ? 'block' : 'none';
+            })
+            
+            // open dropdown when project in mobile menu has been clicked in the mobile
+            document.getElementById("mobile_projects_dropdown").addEventListener("click", (event)=>{
+                event.preventDefault();
+                const mobile_projects_dropdown_menu = document.getElementById('mobile-projects-dropdown-menu');
+                mobile_projects_dropdown_menu.style.display = (mobile_projects_dropdown_menu.style.display === 'none' || mobile_projects_dropdown_menu.style.display === '') ? 'block' : 'none';
             })
 
             const navLinks = document.querySelectorAll('#nav_items li a');
@@ -325,6 +352,23 @@
                 header.classList.remove('sticky');
             }
         }
+        // close the mobile dropdown when clicking outside
+        document.addEventListener('click', (event)=>{
+            const mobiledropdownMenu = document.getElementById('mobile-dropdown-menu');
+            const mobileprojectdropdown = document.getElementById('mobile-projects-dropdown-menu');
+            const mobilemenudropdown = document.getElementById('mobile_menu');
+
+            if (mobiledropdownMenu && !event.target.closest('#nav-mobile-item-eservices')) {
+                mobiledropdownMenu.style.display = 'none';
+            }
+            if(mobileprojectdropdown && !event.target.closest('#mobile_project_dropdown_navbar')){
+                mobileprojectdropdown.style.display = 'none';
+            }
+            if(mobilemenudropdown && !event.target.closest('#mobile_nav_button')  && !event.target.closest('#mobile_menu')){
+                mobilemenudropdown.style.display = 'none'
+            }
+        });
+
         // Async function to check if the User is logged in and get their avatar
         async function getUserAvatar() {
             try {
@@ -372,25 +416,37 @@
                 // Prepare the Profile link based on jobApplicantResponse length
                 let profileLink = '';
                 let menuContent = ''; // Variable to hold dropdown content
+                let mobilemenuContent = ''; // Variable to hold the dropdown content of mobile profile icon
                 if (jobApplicants.message.includes("Job Applicant") && userName!= "Administrator") {
                     profileLink = `<a href="/Profile" style="display: block; padding: 12px 16px; text-decoration: none; color: #000; font-family: 'Encode Sans Condensed', system-ui; font-size: 16px; font-weight: bold;">Profile</a>`;
                     menuContent = `${profileLink}
                         <a href="#" id="logout-link" style="display: block; padding: 12px 16px; text-decoration: none; color: #000; font-family: 'Encode Sans Condensed', system-ui; font-size: 16px; font-weight: bold;">Logout</a>`;
+                    mobilemenuContent = `${profileLink}
+                        <a href="#" id="mobile-logout-link" style="display: block; padding: 12px 16px; text-decoration: none; color: #000; font-family: 'Encode Sans Condensed', system-ui; font-size: 16px; font-weight: bold;">Logout</a>`;
                     }
                 else if(userType === "System User" && userName!= "Administrator" ){
                     menuContent = `<a href="/me" style="display: block; padding: 12px 16px; text-decoration: none; color: #000; font-family: 'Encode Sans Condensed', system-ui; font-size: 16px; font-weight: bold;">My Account</a>
                     <a href="/app" style="display: block; padding: 12px 16px; text-decoration: none; color: #000; font-family: 'Encode Sans Condensed', system-ui; font-size: 16px; font-weight: bold;">Switch To Desk</a>
                     <a href="#" id="logout-link" style="display: block; padding: 12px 16px; text-decoration: none; color: #000; font-family: 'Encode Sans Condensed', system-ui; font-size: 16px; font-weight: bold;">Logout</a>`;
+                    mobilemenuContent = `<a href="/me" style="display: block; padding: 12px 16px; text-decoration: none; color: #000; font-family: 'Encode Sans Condensed', system-ui; font-size: 16px; font-weight: bold;">My Account</a>
+                    <a href="/app" style="display: block; padding: 12px 16px; text-decoration: none; color: #000; font-family: 'Encode Sans Condensed', system-ui; font-size: 16px; font-weight: bold;">Switch To Desk</a>
+                    <a href="#" id="mobile-logout-link" style="display: block; padding: 12px 16px; text-decoration: none; color: #000; font-family: 'Encode Sans Condensed', system-ui; font-size: 16px; font-weight: bold;">Logout</a>`;
                 }
                 else if(userType === "System User" && userName === "Administrator"){
                     menuContent = `<a href="/me" style="display: block; padding: 12px 16px; text-decoration: none; color: #000; font-family: 'Encode Sans Condensed', system-ui; font-size: 16px; font-weight: bold;">My Account</a>
                     <a href="/app" style="display: block; padding: 12px 16px; text-decoration: none; color: #000; font-family: 'Encode Sans Condensed', system-ui; font-size: 16px; font-weight: bold;">Switch To Desk</a>
                     <a href="/apps" style="display: block; padding: 12px 16px; text-decoration: none; color: #000; font-family: 'Encode Sans Condensed', system-ui; font-size: 16px; font-weight: bold;">Apps</a>
                     <a href="#" id="logout-link" style="display: block; padding: 12px 16px; text-decoration: none; color: #000; font-family: 'Encode Sans Condensed', system-ui; font-size: 16px; font-weight: bold;">Logout</a>`;
+                    mobilemenuContent = `<a href="/me" style="display: block; padding: 12px 16px; text-decoration: none; color: #000; font-family: 'Encode Sans Condensed', system-ui; font-size: 16px; font-weight: bold;">My Account</a>
+                    <a href="/app" style="display: block; padding: 12px 16px; text-decoration: none; color: #000; font-family: 'Encode Sans Condensed', system-ui; font-size: 16px; font-weight: bold;">Switch To Desk</a>
+                    <a href="/apps" style="display: block; padding: 12px 16px; text-decoration: none; color: #000; font-family: 'Encode Sans Condensed', system-ui; font-size: 16px; font-weight: bold;">Apps</a>
+                    <a href="#" id="mobile-logout-link" style="display: block; padding: 12px 16px; text-decoration: none; color: #000; font-family: 'Encode Sans Condensed', system-ui; font-size: 16px; font-weight: bold;">Logout</a>`;              
                 }
                 else {
                     menuContent = `<a href="/me" style="display: block; padding: 12px 16px; text-decoration: none; color: #000; font-family: 'Encode Sans Condensed', system-ui; font-size: 16px; font-weight: bold;">My Account</a>
                     <a href="#" id="logout-link" style="display: block; padding: 12px 16px; text-decoration: none; color: #000; font-family: 'Encode Sans Condensed', system-ui; font-size: 16px; font-weight: bold;">Logout</a>`;
+                    mobilemenuContent = `<a href="/me" style="display: block; padding: 12px 16px; text-decoration: none; color: #000; font-family: 'Encode Sans Condensed', system-ui; font-size: 16px; font-weight: bold;">My Account</a>
+                    <a href="#" id="mobile-logout-link" style="display: block; padding: 12px 16px; text-decoration: none; color: #000; font-family: 'Encode Sans Condensed', system-ui; font-size: 16px; font-weight: bold;">Logout</a>`;
                 }
 
                                 // Replace the "E-services" link with the user's avatar and dropdown menu
@@ -406,11 +462,31 @@
                         ${menuContent}
                     </div>
                 `;
+                //Replace the "E-Services" link with the user's avatar and dropdown menu for mobile
+                const navMobileItemServices = document.getElementById('nav-mobile-item-eservices');
+                navMobileItemServices.innerHTML =  `
+                    <a href="#" id="mobile-user-menu-toggle" style="text-decoration: none; font-family: 'Encode Sans Condensed', system-ui; text-transform: uppercase; display: flex; align-items: center;">
+                        <div id="mobile-avatar-container" style="position: relative; width: 40px; height: 40px; border-radius: 50%; background-color: #FFFBF1; border: 1px solid #101423; display: flex; align-items: center; justify-content: center; margin-right: 10px;">
+                            <img src="${userImage}" alt="User Avatar" id="mobile-user-avatar" style="width: 100%; height: 100%; border-radius: 50%; object-fit: cover; ${userImage ? '' : 'display: none;'}">
+                            <span id="mobile-user-initials" style="position: absolute; font-size: 18px; font-weight: bold; color: #101423; ${userImage ? 'display: none;' : 'display: block;'}">${userInitial}</span>
+                        </div>
+                    </a>
+                    <div id="mobile-dropdown-menu" style="display: none; position: absolute; top: 0%; right: 100%; background-color: #fff; box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2); z-index: 1000; width: 200px; background-color: #EFE6D2;">
+                        ${mobilemenuContent}
+                    </div>
+                `;
                 // Add event listener for the dropdown toggle
                 document.getElementById('user-menu-toggle').addEventListener('click', (event) => {
                     event.preventDefault();
                     const dropdownMenu = document.getElementById('dropdown-menu');
                     dropdownMenu.style.display = (dropdownMenu.style.display === 'none' || dropdownMenu.style.display === '') ? 'block' : 'none';
+                });
+
+                // Add event listener for the mobile dropdown toggle
+                document.getElementById('mobile-user-menu-toggle').addEventListener('click', (event) => {
+                    event.preventDefault();
+                    const mobiledropdownMenu = document.getElementById('mobile-dropdown-menu');
+                    mobiledropdownMenu.style.display = (mobiledropdownMenu.style.display === 'none' || mobiledropdownMenu.style.display === '') ? 'block' : 'none';
                 });
 
                 // Logout Link
@@ -427,6 +503,21 @@
                         console.error('Error:', error.message);
                     }
                 });
+                // mobile Logout Link
+                document.getElementById('mobile-logout-link').addEventListener('click', async (event) => {
+                    event.preventDefault();
+                    try {
+                        const logoutResponse = await fetch('/api/method/logout');
+                        if (logoutResponse.ok) {
+                            window.location.href = '/home';
+                        } else {
+                            throw new Error('Logout failed.');
+                        }
+                    } catch (error) {
+                        console.error('Error:', error.message);
+                    }
+                });
+
 
                 // Close dropdown when clicking outside of it
                 document.addEventListener('click', (event) => {
