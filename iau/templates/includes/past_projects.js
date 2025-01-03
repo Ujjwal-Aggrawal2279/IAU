@@ -20,7 +20,9 @@ const fetchpastprojects = async()=>{
 // render past project into the page
 const renderpastprojects = (past_project_list) =>{
 past_project_container = document.querySelector("#past_project_listing_container");
-past_project_container.innerHTML = '' // clear the already existing record 
+past_project_container.innerHTML = ''; // clear the already existing record 
+let selected_language_cookie = getPreferredLanguage();
+let download_button_value = (selected_language_cookie==="en")?"Download":"تحميل";
 
 past_project_list.forEach(element => {
     const pastProject = document.createElement("div")
@@ -45,7 +47,7 @@ past_project_list.forEach(element => {
         <a href=${encodeURI(element.custom_attach_rfp)} target="_blank"; rel="noopener;">
             <button
                 style="padding: 11px 20px; background-color: #101423; color: white; font-size: 22px; font-weight: 700; border: none; font-family : Inter, sans-serif; cursor : pointer;">
-                Download
+                ${download_button_value}
             </button>
         </a>
     </div>

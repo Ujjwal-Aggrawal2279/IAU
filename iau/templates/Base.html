@@ -609,22 +609,8 @@
             const connect_with_us_heading_ele = document.querySelector('#connect_with_us_heading');
             const past_project_heading_ele = document.querySelector('#past_project_heading span');
             const current_project_heading_ele = document.querySelector('#current_project_heading span');
-            const past_project_download_buttons = document.querySelectorAll('.past_project button');
-            const current_project_download_buttons = document.querySelectorAll('.current_project button');
             // Apply translations to each navigation link
             navItems.forEach(link => {
-                const text = link.innerText.trim();
-                if (text in translations) {
-                    link.innerText = translations[text];
-                }
-            });
-            past_project_download_buttons.forEach(link => {
-                const text = link.innerText.trim();
-                if (text in translations) {
-                    link.innerText = translations[text];
-                }
-            });
-            current_project_download_buttons.forEach(link => {
                 const text = link.innerText.trim();
                 if (text in translations) {
                     link.innerText = translations[text];

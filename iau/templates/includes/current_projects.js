@@ -20,7 +20,10 @@ const fetchcurrentprojects = async()=>{
 // render current project into the page
 const rendercurrentprojects = (current_project_list) =>{
 current_project_container = document.querySelector("#current_project_listing_container");
-current_project_container.innerHTML = '' // clear the already existing record 
+current_project_container.innerHTML = ''; // clear the already existing record 
+let selected_language_cookie = getPreferredLanguage();
+let download_button_value = (selected_language_cookie==="en")?"Download":"تحميل";
+
 
 current_project_list.forEach(element => {
     const currentProject = document.createElement("div")
@@ -45,7 +48,7 @@ current_project_list.forEach(element => {
         <a href=${encodeURI(element.custom_attach_rfp)} target="_blank"; rel="noopener;">
             <button
                 style="padding: 11px 20px; background-color: #101423; color: white; font-size: 22px; font-weight: 700; border: none; font-family : Inter, sans-serif; cursor : pointer;">
-                Download
+                ${download_button_value}
             </button>
         </a>
     </div>
