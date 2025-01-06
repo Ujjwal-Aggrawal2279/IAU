@@ -16,115 +16,115 @@ Job Application
 {% block content %}
 <section class="job_application" style="background-color: #EFE6D2;">
     <div class="container">
-        <div style="display: flex; align-items: center; justify-content: space-between; padding : 40px 0px; border-bottom: 2px solid transparent; /* Make the border transparent initially */
+        <div style="display: flex; align-items: center; justify-content: space-between; padding : 2.5rem 0rem; border-bottom: 0.125rem solid transparent; /* Make the border transparent initially */
         border-image: linear-gradient(90deg, #93A1BB 0%, rgba(67, 73, 85, 0) 100%);
         border-image-slice: 1; flex-wrap : wrap;">
             <div>
                 <h1 id="job_title"
-                    style="text-transform: capitalize; font-size: 40px; font-weight: 700; color: #3D4667; font-family: 'Encode Sans Condensed', system-ui">
+                    style="text-transform: capitalize; font-size: 2.5rem; font-weight: 700; color: #3D4667; font-family: 'Encode Sans Condensed', system-ui">
                 </h1>
                 <div class="bulletin-container">
-                    <div id="department" style="padding: 20px 20px 20px 0; color: #8092A7; font-size: 22px;
+                    <div id="department" style="padding: 1.25rem 1.25rem 1.25rem 0; color: #8092A7; font-size: 1.375rem;
                         font-family: Arial, sans-serif; font-weight: 400;"></div>
                     <div class="disc-bulletin"></div>
-                    <div id="employment_type" class="bulletin" style="padding: 20px 20px 20px 0;"></div>
+                    <div id="employment_type" class="bulletin" style="padding: 1.25rem 1.25rem 1.25rem 0;"></div>
                     <div class="disc-bulletin"></div>
-                    <div id="location" class="bulletin" style="padding: 20px 20px 20px 0;"></div>
+                    <div id="location" class="bulletin" style="padding: 1.25rem 1.25rem 1.25rem 0;"></div>
                 </div>
             </div>
             <div>
-                <div id="not-saved-indicator" style="background: #f2e6ce; padding : 10px 140px; font-family: Arial, sans-serif; font-size: 20px;
-                        font-weight: 700;line-height: 26.62px; letter-spacing: -0.03em; text-align: center; color : black;
+                <div id="not-saved-indicator" style="background: #f2e6ce; padding : 0.625rem 8.75rem; font-family: Arial, sans-serif; font-size: 1.25rem;
+                        font-weight: 700;line-height: 1.66375rem; letter-spacing: -0.03em; text-align: center; color : black;
                         display: none;">
                     Not Saved
                 </div>
             </div>
         </div>
-        <form style="padding-top: 40px;" id="jobApplicationForm">
+        <form style="padding-top: 2.5rem;" id="jobApplicationForm">
             <div style="display : flex; justify-content: space-between; flex-wrap : wrap">
                 <div id="job_title_div" style="display : flex; flex-direction: column;">
                     <label for="job_title"
-                        style="font-family: Arial, sans-serif; font-size: 20px; line-height: 24px; color : black; font-weight: 600">
+                        style="font-family: Arial, sans-serif; font-size: 1.25rem; line-height: 1.5rem; color : black; font-weight: 600">
                         Job Title
                     </label>
                     <input type="text" class="form-control" id="job_title" readonly required
-                        style="border: 1px solid #324362;font-family: Arial, sans-serif; margin-top: 14px; font-size: 18px; font-weight: 500; line-height: 26.63px; letter-spacing: -0.02em; text-align: left; color : black; padding : 10px 24px; background-color: #f2e6ce;">
+                        style="border: 0.0625rem solid #324362;font-family: Arial, sans-serif; margin-top: 0.875rem; font-size: 1.125rem; font-weight: 500; line-height: 1.664375rem; letter-spacing: -0.02em; text-align: left; color : black; padding : 0.625rem 1.5rem; background-color: #f2e6ce;">
                 </div>
                 <div id="applicant_name_div" style="display : flex; flex-direction: column;">
                     <label for="applicant_name"
-                        style="font-family: Arial, sans-serif; font-size: 20px; line-height: 24px; color : black; font-weight: 600">
+                        style="font-family: Arial, sans-serif; font-size: 1.25rem; line-height: 1.5rem; color : black; font-weight: 600">
                         Applicant Name
                     </label>
                     <input type="text" class="form-control" id="applicant_name" readonly required placeholder="johndoe@gmail.com"
-                        style="border: 1px solid #324362;font-family: Arial, sans-serif; margin-top: 14px; font-size: 18px; font-weight: 500; line-height: 26.63px; letter-spacing: -0.02em; text-align: left; color : black; padding : 10px 24px; background-color: #f2e6ce;">
+                        style="border: 0.0625rem solid #324362;font-family: Arial, sans-serif; margin-top: 0.875rem; font-size: 1.125rem; font-weight: 500; line-height: 1.664375rem; letter-spacing: -0.02em; text-align: left; color : black; padding : 0.625rem 1.5rem; background-color: #f2e6ce;">
                 </div>
             </div>
-            <div style="display : flex; justify-content: space-between; margin-top: 24px; flex-wrap : wrap;">
+            <div style="display : flex; justify-content: space-between; margin-top: 1.5rem; flex-wrap : wrap;">
                 <div style="display : flex; flex-direction: column;" id="applicant_email_div">
                     <label for="applicant_email"
-                        style="font-family: Arial, sans-serif; font-size: 20px; line-height: 24px; color : black; font-weight: 600">
+                        style="font-family: Arial, sans-serif; font-size: 1.25rem; line-height: 1.5rem; color : black; font-weight: 600">
                         Email
                     </label>
                     <input type="email" class="form-control" id="applicant_email" readonly required placeholder="johndoe@gmail.com"
-                        style="border: 1px solid #324362;font-family: Arial, sans-serif; margin-top: 14px; font-size: 18px; font-weight: 500; line-height: 26.63px; letter-spacing: -0.02em; text-align: left; color : black; padding : 10px 24px; background-color: #f2e6ce;">
+                        style="border: 0.0625rem solid #324362;font-family: Arial, sans-serif; margin-top: 0.875rem; font-size: 1.125rem; font-weight: 500; line-height: 1.664375rem; letter-spacing: -0.02em; text-align: left; color : black; padding : 0.625rem 1.5rem; background-color: #f2e6ce;">
                 </div>
                 <div id="phone_country_div" style="display : flex; justify-content: space-between; flex-wrap : wrap">
                     <div id="applicant_phone_number_div" style="display : flex; flex-direction: column;">
                         <label for="applicant_phone_number"
-                            style="font-family: Arial, sans-serif; font-size: 20px; line-height: 24px; color : black; font-weight: 600">
+                            style="font-family: Arial, sans-serif; font-size: 1.25rem; line-height: 1.5rem; color : black; font-weight: 600">
                             Phone Number
                         </label>
                         <input type="tel" class="form-control" id="applicant_phone_number" required
                             pattern="\d{10}"
                             placeholder="+91 99999 22222"
                             title="Please fill in 10 digit number(9865324756)"
-                            style="border: 1px solid #324362;font-family: Arial, sans-serif; margin-top: 14px; font-size: 18px; font-weight: 500; line-height: 26.63px; letter-spacing: -0.02em; text-align: left; color : black; padding : 10px 24px;">
+                            style="border: 0.0625rem solid #324362;font-family: Arial, sans-serif; margin-top: 0.875rem; font-size: 1.125rem; font-weight: 500; line-height: 1.664375rem; letter-spacing: -0.02em; text-align: left; color : black; padding : 0.625rem 1.5rem;">
                     </div>
                     <div id="country_div" style="display : flex; flex-direction: column;">
                         <label for="country_of_residence"
-                            style="font-family: Arial, sans-serif; font-size: 20px; line-height: 24px; color : black; font-weight: 600">
+                            style="font-family: Arial, sans-serif; font-size: 1.25rem; line-height: 1.5rem; color : black; font-weight: 600">
                             Country of Residence
                         </label>
                         <input type="text" class="form-control" id="country_of_residence" required placeholder="Saudi Arabia"
                             pattern="[A-Za-z\s]+"
-                            style="border: 1px solid #324362;font-family: Arial, sans-serif; margin-top: 14px; font-size: 18px; font-weight: 500; line-height: 26.63px; letter-spacing: -0.02em; text-align: left; color : black; padding : 10px 24px;">
+                            style="border: 0.0625rem solid #324362;font-family: Arial, sans-serif; margin-top: 0.875rem; font-size: 1.125rem; font-weight: 500; line-height: 1.664375rem; letter-spacing: -0.02em; text-align: left; color : black; padding : 0.625rem 1.5rem;">
                     </div>
                 </div>
             </div>
-            <div style="margin-top: 24px;">
+            <div style="margin-top: 1.5rem;">
                 <label for="cover_letter"
-                    style="font-family: Arial, sans-serif; font-size: 20px; line-height: 24px; color: black; font-weight: 600;">
+                    style="font-family: Arial, sans-serif; font-size: 1.25rem; line-height: 1.5rem; color: black; font-weight: 600;">
                     Cover Letter
                 </label>
                 <textarea id="cover_letter" required
-                    style="border: 1px solid #324362; font-family: Arial, sans-serif; margin-top: 14px; font-size: 18px; font-weight: 500; line-height: 26.63px; letter-spacing: -0.02em; text-align: left; color: black; padding: 10px 14px; width: 100%; box-sizing: border-box; min-height: 221px;"></textarea>
+                    style="border: 0.0625rem solid #324362; font-family: Arial, sans-serif; margin-top: 0.875rem; font-size: 1.125rem; font-weight: 500; line-height: 1.664375rem; letter-spacing: -0.02em; text-align: left; color: black; padding: 0.625rem 0.875rem; width: 100%; box-sizing: border-box; min-height: 13.8125rem;"></textarea>
             </div>
             <input type="file" required id="fileInput" style="opacity: 0; position: absolute; z-index: -1;" accept=".pdf, .doc,.docx" />
             <button type="button" id="uploadButton"
-                style="width: 100%; background: linear-gradient(180deg, #FFFBF1 0%, rgba(255, 251, 241, 0) 100%); font-family: Arial, sans-serif; margin-top: 22px; font-size: 20px; font-weight: 700; line-height: 32px; letter-spacing: -0.02em; text-align: center; color : #101423; outline: none; box-shadow: none; border: 1px solid transparent !important; border-image: linear-gradient(180deg, #324362 -77.78%, rgba(50, 67, 98, 0) 129.63%) !important; border-image-slice: 1 !important;">
+                style="width: 100%; background: linear-gradient(180deg, #FFFBF1 0%, rgba(255, 251, 241, 0) 100%); font-family: Arial, sans-serif; margin-top: 1.375rem; font-size: 1.25rem; font-weight: 700; line-height: 2rem; letter-spacing: -0.02em; text-align: center; color : #101423; outline: none; box-shadow: none; border: 0.0625rem solid transparent !important; border-image: linear-gradient(180deg, #324362 -77.78%, rgba(50, 67, 98, 0) 129.63%) !important; border-image-slice: 1 !important;">
                 Upload Resume
             </button>
-            <p id="fileNameDisplay" style="text-align: center; font-weight : 500; font-size : 20px; margin-top : 10px; font-family: Arial, sans-serif;">
+            <p id="fileNameDisplay" style="text-align: center; font-weight : 500; font-size : 1.25rem; margin-top : 0.625rem; font-family: Arial, sans-serif;">
                 No file selected
             </p>
             <br>
-            <div class="submit-button-container" style="display: flex; gap: 20px; justify-content: flex-end; margin-top: 40px;">
+            <div class="submit-button-container" style="display: flex; gap: 1.25rem; justify-content: flex-end; margin-top: 2.5rem;">
                 <button type="button"
-                    style="background: linear-gradient(180deg, #FFFBF1 0%, rgba(255, 251, 241, 0) 100%); font-family: Arial, sans-serif; font-size: 20px; font-weight: 700; line-height: 32px; letter-spacing: -0.02em; text-align: center; color: #101423; outline: none; box-shadow: none; padding: 10px 40px; cursor : pointer; border: 1px solid transparent; border-image: linear-gradient(180deg, #324362 -77.78%, rgba(50, 67, 98, 0) 129.63%); border-image-slice: 1;"
+                    style="background: linear-gradient(180deg, #FFFBF1 0%, rgba(255, 251, 241, 0) 100%); font-family: Arial, sans-serif; font-size: 1.25rem; font-weight: 700; line-height: 2rem; letter-spacing: -0.02em; text-align: center; color: #101423; outline: none; box-shadow: none; padding: 0.625rem 2.5rem; cursor : pointer; border: 0.0625rem solid transparent; border-image: linear-gradient(180deg, #324362 -77.78%, rgba(50, 67, 98, 0) 129.63%); border-image-slice: 1;"
                     onclick="window.history.back();">
                     Discard
                 </button>
                 <button type="submit" id="saveButton"
-                    style="background-color: #101423; color: white; font-family: Arial, sans-serif; font-size: 20px; font-weight: 700; line-height: 32px; letter-spacing: -0.02em; padding: 10px 40px; outline: none; box-shadow: none; cursor: pointer; border: 1px solid transparent; border-image: linear-gradient(180deg, #324362 -77.78%, rgba(50, 67, 98, 0) 129.63%); border-image-slice: 1;">
+                    style="background-color: #101423; color: white; font-family: Arial, sans-serif; font-size: 1.25rem; font-weight: 700; line-height: 2rem; letter-spacing: -0.02em; padding: 0.625rem 2.5rem; outline: none; box-shadow: none; cursor: pointer; border: 0.0625rem solid transparent; border-image: linear-gradient(180deg, #324362 -77.78%, rgba(50, 67, 98, 0) 129.63%); border-image-slice: 1;">
                     Save
                 </button>
             </div>
         </form>
     </div>
 </section>
-<div id="toastContainer" style="position: fixed; bottom: 20px; right: 20px; z-index: 9999; display: none;">
+<div id="toastContainer" style="position: fixed; bottom: 1.25rem; right: 1.25rem; z-index: 9999; display: none;">
     <div id="toastMessage"
-        style="background-color: #4CAF50; color: white; padding: 10px 20px; border-radius: 5px; font-size: 18px;">
+        style="background-color: #4CAF50; color: white; padding: 0.625rem 1.25rem; border-radius: 0.3125rem; font-size: 1.125rem;">
         Job application submitted successfully!
     </div>
 </div>
