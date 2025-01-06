@@ -24,14 +24,13 @@ current_project_container.innerHTML = ''; // clear the already existing record
 let selected_language_cookie = getPreferredLanguage();
 let download_button_value = (selected_language_cookie==="en")?"Download":"تحميل";
 
-
 current_project_list.forEach(element => {
     const currentProject = document.createElement("div")
     currentProject.className = "current_project"
     currentProject.style.backgroundImage = 'linear-gradient(to bottom, #FFFBF1, #EAE2C4)';
-    currentProject.style.margin = '10px 10px 10px 10px';  
-    currentProject.style.padding = '2px 15px 2px 15px';
-    currentProject.style.fontSize = '22px';
+    currentProject.style.margin = '0.625rem 0.625rem 0.625rem 0.625rem';  
+    currentProject.style.padding = '0.125rem 0.9375rem 0.125rem 0.9375rem';
+    currentProject.style.fontSize = '1.375rem';
     currentProject.style.textAlign = "center";
     currentProject.style.display = "grid";
     currentProject.style.alignItems = "flex-end";
@@ -39,15 +38,15 @@ current_project_list.forEach(element => {
     let start_date_options = {year: "numeric", month: "long", day: "numeric"};
     let start_date_formatted = start_date_obj.toLocaleDateString("en-US", start_date_options);
     currentProject.innerHTML = `
-    <p style="font-size:20px;font-family: Inter, system-ui; font-weight: 500; color: #101423;">
+    <p style="font-size:1.25rem;font-family: Inter, system-ui; font-weight: 500; color: #101423;">
     ${element.project_name}<p>
     <br><br>
-    <p style="font-size:22px;font-family:Inter, system-ui;"><span>${start_date_formatted}</span></p>
+    <p style="font-size:1.375rem;font-family:Inter, system-ui;"><span>${start_date_formatted}</span></p>
     <br>
     <div class="container" style="width : 100%; display: flex; justify-content: center; align-items: center;">
         <a href=${encodeURI(element.custom_attach_rfp)} target="_blank"; rel="noopener;">
             <button
-                style="padding: 11px 20px; background-color: #101423; color: white; font-size: 22px; font-weight: 700; border: none; font-family : Inter, sans-serif; cursor : pointer;">
+                style="padding: 0.6875rem 1.25rem; background-color: #101423; color: white; font-size: 1.375rem; font-weight: 700; border: none; font-family : Inter, sans-serif; cursor : pointer;">
                 ${download_button_value}
             </button>
         </a>
