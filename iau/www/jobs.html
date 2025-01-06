@@ -5,16 +5,16 @@ Jobs Listings
 {% endblock %}
 
 {% block content %}
-<section style="background-color: #EFE6D2; padding: 40px;">
+<section style="background-color: #EFE6D2; padding: 2.5rem;">
     <div class="container">
         <div id="search_section"
             >
             <div id="search_div">
                 <input id="jobSearchInput"
-                    style="width : 100%;padding : 11px; border : 1px solid #324362; font-size : 22px; font-family : Inter; line-height : 26.63px"
+                    style="width : 100%;padding : 0.6875rem; border : 0.0625rem solid #324362; font-size : 1.375rem; font-family : Inter; line-height : 1.664375rem;"
                     type="text" placeholder="Type in a job title" />
                 <button
-                    style="padding : 11px 36px; text-align : center; background-color : #101243; color : white; font-weight : 700; font-family : Inter Display ; font-size : 22px; line-height : 32px">Search</button>
+                    style="padding : 0.6875rem 2.25rem; text-align : center; background-color : #101243; color : white; font-weight : 700; font-family : Inter Display ; font-size : 1.375rem; line-height : 2rem">Search</button>
             </div>
             <div class="select_container">
                 <label for="sort" class="custom-label">Sort by:</label>
@@ -24,76 +24,76 @@ Jobs Listings
                 </select>
             </div>
         </div>
-        <div class="listing_section" style="display: flex; justify-content: space-between; margin-top :53px;">
+        <div class="listing_section" style="display: flex; justify-content: space-between; margin-top :3.3125rem;">
             <!-- Filter Section -->
-            <div class="filter_section" style="width: 300px;">
-                <div style="margin-bottom: 60px; display : flex; justify-content : space-between;">
-                    <p style="font-size : 28px; font-weight : 700; line-height : 35px; color : #3D4667">Filters</p>
+            <div class="filter_section" style="width: 18.75rem;">
+                <div style="margin-bottom: 3.75rem; display : flex; justify-content : space-between;">
+                    <p style="font-size : 1.75rem; font-weight : 700; line-height : 2.1875rem; color : #3D4667">Filters</p>
                     <button
-                        style="padding: 10px 16px; background-color: #101423; color: white; font-size: 18px; font-weight: 600; border: none; font-family : Inter Display; cursor : pointer">
-                        Clear all<span style="margin-left: 8px;">&#10006;</span>
+                        style="padding: 0.625rem 1rem; background-color: #101423; color: white; font-size: 1.125rem; font-weight: 600; border: none; font-family : Inter Display; cursor : pointer">
+                        Clear all<span style="margin-left: 0.5rem;">&#10006;</span>
                     </button>
                 </div>
 
                 <!-- Department Filter -->
-                <div style="margin-bottom: 60px;">
+                <div style="margin-bottom: 3.75rem;">
                     <h4
-                        style="font-size: 24px; font-weight: 700; margin-bottom: 18px; color : #3D4667B2; font-family : 'Encode Sans Condensed';">
+                        style="font-size: 1.5rem; font-weight: 700; margin-bottom: 1.125rem; color : #3D4667B2; font-family : 'Encode Sans Condensed';">
                         Department
                     </h4>
                     <div>
                         <label class="custom-checkbox"
-                            style="display: flex; align-items: center; font-size: 20px; margin-bottom: 16px;">
+                            style="display: flex; align-items: center; font-size: 1.25rem; margin-bottom: 1rem;">
                             <input type="checkbox" checked>
-                            <span style="margin: 0 18px;">Human Resources</span>
+                            <span style="margin: 0rem 1.125rem;">Human Resources</span>
                         </label>
-                        <label class="custom-checkbox" style="display: flex; font-size: 20px; margin-bottom : 16px;">
+                        <label class="custom-checkbox" style="display: flex; font-size: 1.25rem; margin-bottom : 1rem;">
                             <input type="checkbox" checked>
-                            <span style="margin: 0 18px;">Management</span>
+                            <span style="margin: 0 1.125rem;">Management</span>
                         </label>
-                        <label class="custom-checkbox" style="display: flex; font-size: 20px; margin-bottom : 16px;">
+                        <label class="custom-checkbox" style="display: flex; font-size: 1.25rem; margin-bottom : 1rem;">
                             <input type="checkbox" checked>
-                            <span style="margin:0 18px;">Operation</span>
+                            <span style="margin:0 1.125rem;">Operation</span>
                         </label>
-                        <label class="custom-checkbox" style="display: flex; font-size: 20px; margin-bottom : 16px;">
+                        <label class="custom-checkbox" style="display: flex; font-size: 1.25rem; margin-bottom : 1rem;">
                             <input type="checkbox" checked>
-                            <span style="margin:0 18px;">Sales</span>
+                            <span style="margin:0 1.125rem;">Sales</span>
                         </label>
                     </div>
                 </div>
 
 
                 <!-- Employment Type Filter -->
-                <div style="margin-bottom: 40px;">
+                <div style="margin-bottom: 2.5rem;">
                     <h4
-                        style="font-size: 24px; font-weight: 700; margin-bottom: 18px; color : #3D4667B2; font-family : 'Encode Sans Condensed';">
+                        style="font-size: 1.5; font-weight: 700; margin-bottom: 1.125rem; color : #3D4667B2; font-family : 'Encode Sans Condensed';">
                         Employment Type
                     </h4>
                     <div>
-                        <label class="custom-checkbox" style="display: flex; font-size: 20px; margin-bottom : 16px;">
+                        <label class="custom-checkbox" style="display: flex; font-size: 1.25rem; margin-bottom : 1rem;">
                             <input type="checkbox" checked>
-                            <span style="margin:0 18px;">Full Time</span>
+                            <span style="margin:0 1.125rem;">Full Time</span>
                         </label>
                     </div>
                 </div>
 
                 <!-- Location Filter -->
-                <div style="margin-bottom: 40px;">
+                <div style="margin-bottom: 2.5rem;">
                     <h4
-                        style="font-size: 24px; font-weight: 700; margin-bottom: 18px; color : #3D4667B2; font-family : 'Encode Sans Condensed';">
+                        style="font-size: 1.5rem; font-weight: 700; margin-bottom: 1.125rem; color : #3D4667B2; font-family : 'Encode Sans Condensed';">
                         Location
                     </h4>
                     <div>
-                        <label class="custom-checkbox" style="display: flex; font-size: 20px; margin-bottom : 16px;">
+                        <label class="custom-checkbox" style="display: flex; font-size: 1.25rem; margin-bottom : 1rem;">
                             <input type="checkbox" checked>
-                            <span style="margin:0 18px;">Riyadh</span>
+                            <span style="margin:0 1.125rem;">Riyadh</span>
                         </label>
                     </div>
                 </div>
             </div>
 
             <div id="listings_container"
-                style="display: grid; gap: 20px; grid-auto-rows: 120px;">
+                style="display: grid; gap: 1.25rem; grid-auto-rows: 7.5rem;">
                 <!-- Dynamic Divs will be rendering here -->
             </div>
         </div>
