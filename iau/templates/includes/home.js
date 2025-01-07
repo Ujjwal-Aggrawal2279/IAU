@@ -40,10 +40,10 @@ const renderJobOpenings = (jobOpenings) => {
         messageDiv.style.display = 'flex';
         messageDiv.style.justifyContent = 'center';
         messageDiv.style.alignItems = 'center';
-        messageDiv.style.height = '100px';
+        messageDiv.style.height = '6.25rem';
         messageDiv.style.textAlign = 'center';
         messageDiv.innerHTML = `
-            <p style="font-family: 'Encode Sans Condensed', system-ui; font-size: 22px; font-weight: 700; color: #101423;">
+            <p style="font-family: 'Encode Sans Condensed', system-ui; font-size: 1.375rem; font-weight: 700; color: #101423;">
                 No openings available right now!
             </p>
         `;
@@ -56,17 +56,17 @@ const renderJobOpenings = (jobOpenings) => {
             const formattedDate = date.toLocaleDateString('en-US', options);
             const jobDiv = document.createElement('div');
             jobDiv.className = 'job-opening';
-            jobDiv.style.minWidth = '377.67px';
-            jobDiv.style.height = '127px';
+            jobDiv.style.minWidth = '23.604375rem';
+            jobDiv.style.height = '7.9375rem';
             jobDiv.style.backgroundImage = 'linear-gradient(to bottom, #FFFBF1, #EAE2C4)';
-            jobDiv.style.padding = '21px 24px';
+            jobDiv.style.padding = '1.3125rem 1.5rem';
 
             // Customize the content inside the div
             jobDiv.innerHTML = `
                 <a href="/jobInfo?JobTitle=${encodeURIComponent(job.job_title)}" style="text-decoration : none;">
-                    <p style="font-family: 'Encode Sans Condensed', system-ui; font-size: 24px; font-weight: 700; line-height: 28px; color: #101423">${job.job_title}</p>
-                    <div style="margin-top: 36px;">
-                        <p style="font-family: Inter Display; font-size: 18px; line-height: 32px; color: #8092A7;">${formattedDate}</p>
+                    <p style="font-family: 'Encode Sans Condensed', system-ui; font-size: 1.5rem; font-weight: 700; line-height: 1.75rem; color: #101423">${job.job_title}</p>
+                    <div style="margin-top: 2.25rem;">
+                        <p style="font-family: Inter Display; font-size: 1.125rem; line-height: 2rem; color: #8092A7;">${formattedDate}</p>
                     </div>
                 </a>
             `;
@@ -137,10 +137,10 @@ const renderBlogPost = (blogs) => {
         messageDiv.style.display = 'flex';
         messageDiv.style.justifyContent = 'center';
         messageDiv.style.alignItems = 'center';
-        messageDiv.style.height = '100px';
+        messageDiv.style.height = '6.25rem';
         messageDiv.style.textAlign = 'center';
         messageDiv.innerHTML = `
-            <p style="font-family: 'Encode Sans Condensed'; font-size: 22px; font-weight: 700; color: #101423;">
+            <p style="font-family: 'Encode Sans Condensed'; font-size: 1.375rem; font-weight: 700; color: #101423;">
                 No News available right now!
             </p>
         `;
@@ -159,17 +159,17 @@ const renderBlogPost = (blogs) => {
 
             blogDiv.innerHTML = `
             <a href="/newsinfo?NewsTitle=${encodeURIComponent(blog.title)}" style="text-decoration : none;">
-                <div style="height: 243px;">
+                <div style="height: 15.1875rem;">
                     <img src="${blog.meta_image}" alt="news 1" />
                 </div>
-                <article style="padding: 24px">
-                    <h4 style="font-family: 'Encode Sans Condensed', system-ui; font-size: 24px; font-weight: 700; line-height: 28px; color: #101423;">
+                <article style="padding: 1.5rem">
+                    <h4 style="font-family: 'Encode Sans Condensed', system-ui; font-size: 1.5rem; font-weight: 700; line-height: 1.75rem; color: #101423;">
                         ${blog.title}
                     </h4>
                     <p>
                         ${blog.blog_intro}
                     </p>
-                    <p style="color: #3D4667; font-family: "Inter", sans-serif; font-weight: 500; font-size: 22px; line-height: 32px; margin-top: 6px;">
+                    <p style="color: #3D4667; font-family: "Inter", sans-serif; font-weight: 500; font-size: 1.375rem; line-height: 2rem; margin-top: 0.375rem;">
                         ${formattedDate}
                     </p>
                 </article>
