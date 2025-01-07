@@ -26,7 +26,7 @@
 
         /* Specific styles for RTL languages */
         body.rtl #nav_items a {
-            letter-spacing: 1.25px;
+            letter-spacing: 0.078125rem;
             line-height: 1.5;
         }
 
@@ -55,20 +55,20 @@
 
         .language-toggle {
             position: fixed;
-            bottom: 20px;
-            right: 20px;
+            bottom: 1.25rem;
+            right: 1.25rem;
             z-index: 1000;
         }
 
         .toggle-btn {
-            font-size: 16px;
-            padding: 10px 20px;
+            font-size: 1rem;
+            padding: 0.625rem 1.25rem;
             background-color: #007bff;
             color: white;
             border: none;
-            border-radius: 25px;
+            border-radius: 1.5625rem;
             cursor: pointer;
-            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.514);
+            box-shadow: 0rem 0.25rem 0.375rem rgba(0, 0, 0, 0.514);
         }
 
         .toggle-btn:hover {
@@ -76,7 +76,11 @@
         }
 
         .active a {
-            border-bottom: 1px black solid;
+            border-bottom: 0.0625rem black solid;
+        }
+        #partners_img_grid .partners_image_custom_style{
+            width: 9.375rem;
+            height:9.375rem;
         }
     </style>
 </head>
@@ -94,43 +98,43 @@
                     </li> -->
                     <li>
                         <a href="/home">
-                            <div style="position: relative; width: 40px; height: 40px; background-color: #FFFBF1; display: flex; align-items: center; justify-content: center;">
+                            <div style="position: relative; width: 2.5rem; height: 2.5rem; background-color: #FFFBF1; display: flex; align-items: center; justify-content: center;">
                                 <img src="/files/home.svg" alt="Home icon" style="width: 100%; height: 100%;">
                             </div>
                         </a>
                     </li>
                     <li><a href="/home#about_us"
-                            style="text-decoration: none; font-family: 'Encode Sans Condensed', system-ui; text-transform: uppercase; font-weight : 500; letter-spacing : -1px;">About US</a>
+                            style="text-decoration: none; font-family: 'Encode Sans Condensed', system-ui; text-transform: uppercase; font-weight : 500; letter-spacing : -0.0625rem;">About US</a>
                     </li>
                     <li><a href="/home#latest_news"
-                            style="text-decoration: none; font-family: 'Encode Sans Condensed', system-ui; text-transform: uppercase; font-weight : 500; letter-spacing : -1px;">News</a>
+                            style="text-decoration: none; font-family: 'Encode Sans Condensed', system-ui; text-transform: uppercase; font-weight : 500; letter-spacing : -0.0625rem;">News</a>
                     </li>
                     <li><a href="/home#jobs_openings"
-                            style="text-decoration: none; font-family: 'Encode Sans Condensed', system-ui; text-transform: uppercase; font-weight : 500; letter-spacing : -1px;">Jobs</a>
+                            style="text-decoration: none; font-family: 'Encode Sans Condensed', system-ui; text-transform: uppercase; font-weight : 500; letter-spacing : -0.0625rem;">Jobs</a>
                     </li>
                     <li><a href="/home#services"
-                            style="text-decoration: none; font-family: 'Encode Sans Condensed', system-ui; text-transform: uppercase; font-weight : 500; letter-spacing : -1px;">Services</a>
+                            style="text-decoration: none; font-family: 'Encode Sans Condensed', system-ui; text-transform: uppercase; font-weight : 500; letter-spacing : -0.0625rem;">Services</a>
                     </li>
                     <li id = "project_dropdown_navbar" style="position: relative;"><a id = "projects_dropdown" href="/home#projects"
-                            style="border-bottom:0px;text-decoration: none; font-family: 'Encode Sans Condensed', system-ui; text-transform: uppercase; font-weight : 500; letter-spacing : -1px;">Projects</a>
+                            style="border-bottom:0rem;text-decoration: none; font-family: 'Encode Sans Condensed', system-ui; text-transform: uppercase; font-weight : 500; letter-spacing : -0.0625rem;">Projects</a>
                             <br>
-                            <div id="projects-dropdown-menu" style="border-bottom:0px;display: none; position: absolute; top: 100%; right: 0; background-color: #fff; box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2); z-index: 1000; width: 170px; background-color: #EFE6D2;">
-                                <a href="/pastProjects" style="border-bottom:0px;display: block; padding: 12px 16px; text-decoration: none; color: #000; font-family: 'Encode Sans Condensed', system-ui; font-size: 16px; font-weight: bold;">Past Projects</a>
-                                <a href="/currentProjects" style="border-bottom:0px;display: block; padding: 12px 16px; text-decoration: none; color: #000; font-family: 'Encode Sans Condensed', system-ui; font-size: 16px; font-weight: bold;">Current Projects</a>
+                            <div id="projects-dropdown-menu" style="border-bottom:0rem;display: none; position: absolute; top: 100%; right: 0; background-color: #fff; box-shadow: 0rem 0.5rem 1rem 0rem rgba(0,0,0,0.2); z-index: 1000; width: 10.625rem; background-color: #EFE6D2;">
+                                <a href="/pastProjects" style="border-bottom:0rem;display: block; padding: 0.75rem 1rem; text-decoration: none; color: #000; font-family: 'Encode Sans Condensed', system-ui; font-size: 1rem; font-weight: bold;">Past Projects</a>
+                                <a href="/currentProjects" style="border-bottom:0rem;display: block; padding: 0.75rem 1rem; text-decoration: none; color: #000; font-family: 'Encode Sans Condensed', system-ui; font-size: 1rem; font-weight: bold;">Current Projects</a>
                             </div>
                         </li>
                     <!-- <li><a href="/home#partnerships"
                             style="text-decoration: none; font-family: 'Encode Sans Condensed', system-ui; text-transform: uppercase; font-weight : 500; letter-spacing : -1px;">Partnerships</a>
                     </li> -->
                     <li><a href="/home#partners"
-                            style="text-decoration: none; font-family: 'Encode Sans Condensed', system-ui; text-transform: uppercase; font-weight : 500; letter-spacing : -1px;">Partners</a>
+                            style="text-decoration: none; font-family: 'Encode Sans Condensed', system-ui; text-transform: uppercase; font-weight : 500; letter-spacing : -0.0625rem;">Partners</a>
                     </li>
                     <li><a href="/home#connect_with_us"
-                            style="text-decoration: none; font-family: 'Encode Sans Condensed', system-ui; text-transform: uppercase; font-weight : 500; letter-spacing : -1px;">CONNECT
+                            style="text-decoration: none; font-family: 'Encode Sans Condensed', system-ui; text-transform: uppercase; font-weight : 500; letter-spacing : -0.0625rem;">CONNECT
                             WITH US</a>
                     </li>
                     <li id="nav-item-eservices" style="position: relative;" class="dropdown"><a href="/Login"
-                            style="text-decoration: none; font-family: 'Encode Sans Condensed', system-ui; text-transform: uppercase; font-weight : 500; letter-spacing : -1px;">E-services</a>
+                            style="text-decoration: none; font-family: 'Encode Sans Condensed', system-ui; text-transform: uppercase; font-weight : 500; letter-spacing : -0.0625rem;">E-services</a>
                     </li>
                 </ul>
             </div>
@@ -143,7 +147,7 @@
                         <!-- <a href="/home"
                             style="text-decoration: none; font-family: 'Encode Sans Condensed', system-ui; text-transform: uppercase;">HOME</a> -->
                             <a href="/home">
-                                <div style="position: relative; width: 40px; height: 40px; background-color: #FFFBF1; display: flex; align-items: center; justify-content: center;">
+                                <div style="position: relative; width: 2.5rem; height: 2.5rem; background-color: #FFFBF1; display: flex; align-items: center; justify-content: center;">
                                     <img src="/files/home.svg" alt="Home icon" style="width: 100%; height: 100%;">
                                 </div>
                             </a>
@@ -162,9 +166,9 @@
                     </li>
                     <li id = "mobile_project_dropdown_navbar" style="position: relative;"><a id = "mobile_projects_dropdown" href="/home#projects"
                         style="text-decoration: none; font-family: 'Encode Sans Condensed', system-ui; text-transform: uppercase;">PROJECTS</a>
-                        <div id="mobile-projects-dropdown-menu" style="display: none; position: absolute; top: 0%; right: 100%; background-color: #fff; box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2); z-index: 1000; width: 170px; background-color: #EFE6D2;">
-                            <a href="/pastProjects" style="display: block; padding: 12px 16px; text-decoration: none; color: #000; font-family: 'Encode Sans Condensed', system-ui; font-size: 16px; font-weight: bold;">Past Projects</a>
-                            <a href="/currentProjects" style="display: block; padding: 12px 16px; text-decoration: none; color: #000; font-family: 'Encode Sans Condensed', system-ui; font-size: 16px; font-weight: bold;">Current Projects</a>
+                        <div id="mobile-projects-dropdown-menu" style="display: none; position: absolute; top: 0%; right: 100%; background-color: #fff; box-shadow: 0rem 0.5rem 1rem 0rem rgba(0,0,0,0.2); z-index: 1000; width: 10.625rem; background-color: #EFE6D2;">
+                            <a href="/pastProjects" style="display: block; padding: 0.75rem 1rem; text-decoration: none; color: #000; font-family: 'Encode Sans Condensed', system-ui; font-size: 1rem; font-weight: bold;">Past Projects</a>
+                            <a href="/currentProjects" style="display: block; padding: 0.75rem 1rem; text-decoration: none; color: #000; font-family: 'Encode Sans Condensed', system-ui; font-size: 1rem; font-weight: bold;">Current Projects</a>
                         </div>
                     </li>
                     <!-- <li><a href="/home#partnerships"
@@ -195,17 +199,17 @@
 
     <div class="footer" id="connect_with_us"
         style="background-image: linear-gradient(180deg, #2B354E 0%, #101423 100%); height : auto;">
-        <div class="container" style="padding-top: 62px; padding-bottom : 62px;">
+        <div class="container" style="padding-top: 3.875rem; padding-bottom : 3.875rem;">
             <div class="divider">
                 <span id="connect_with_us_heading"
-                    style="text-transform: uppercase; font-size: 40px; font-weight : bold; font-family: 'Encode Sans Condensed', system-ui; color : white; margin : 0px 15px;">
+                    style="text-transform: uppercase; font-size: 2.5rem; font-weight : bold; font-family: 'Encode Sans Condensed', system-ui; color : white; margin : 0rem 0.9375rem;">
                     CONNECT WITH US</span>
             </div>
-            <div class="connect_with_us_paras" style="margin-top : 40px; display: grid; gap: 30px;">
+            <div class="connect_with_us_paras" style="margin-top : 2.5rem; display: grid; gap: 1.875rem;">
                 <div
-                    style="height : 101px; display: flex; align-items : center; padding : 11px;background: linear-gradient(180deg, #FFFFFF 0%, #EFE6D2 100%); gap: 35px">
+                    style="height : 6.3125rem; display: flex; align-items : center; padding : 0.6875rem;background: linear-gradient(180deg, #FFFFFF 0%, #EFE6D2 100%); gap: 2.1875rem">
                     <div
-                        style="background: linear-gradient(180deg, #5C6B8F 0%, #1E2439 100%); width : 79px; height : 79px; display : flex; justify-content: center; align-items: center;">
+                        style="background: linear-gradient(180deg, #5C6B8F 0%, #1E2439 100%); width : 4.9375rem; height : 4.9375rem; display : flex; justify-content: center; align-items: center;">
                         <svg width="34" height="33" viewBox="0 0 34 33" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path
                                 d="M2.28772 1.23118C3.6088 -0.0892547 7.6026 -0.309897 7.63261 0.389079C7.66261 1.08694 11.2293 8.83192 11.2601 9.53107C11.2911 10.2298 8.90916 12.61 8.21249 13.3067C7.52185 13.9963 12.8729 20.0409 12.9742 20.1551C13.088 20.2573 19.1357 25.6048 19.8263 24.9141C20.5232 24.2175 22.906 21.8373 23.6027 21.8683C24.3014 21.8982 32.0521 25.4626 32.751 25.4946C33.4497 25.5245 33.2296 29.5146 31.9084 30.836C30.7784 31.9647 24.9282 36.0629 14.7555 28.7445C13.64 28.1033 11.8733 26.6324 9.19378 23.9556C9.19286 23.9547 9.19078 23.9526 9.1887 23.9514C9.18663 23.9485 9.18455 23.9473 9.18247 23.9452C9.18039 23.9432 9.17832 23.9411 9.17624 23.939C9.17532 23.9369 9.17324 23.9349 9.17209 23.934C6.49459 21.256 5.02233 19.4892 4.38037 18.375C-2.94193 8.2075 1.15897 2.35983 2.28782 1.23129L2.28772 1.23118Z"
@@ -213,13 +217,13 @@
                         </svg>
                     </div>
                     <p
-                        style="font-family: 'Encode Sans Condensed', system-ui; font-size : 28px; color : #101423; font-weight : 700; line-height : 35px">
+                        style="font-family: 'Encode Sans Condensed', system-ui; font-size : 1.75rem; color : #101423; font-weight : 700; line-height : 2.1875rem">
                         0114602839</p>
                 </div>
                 <div
-                    style="height : 101px; display: flex; align-items : center; padding : 11px;background: linear-gradient(180deg, #FFFFFF 0%, #EFE6D2 100%); gap: 35px">
+                    style="height : 6.3125rem; display: flex; align-items : center; padding : 0.6875rem;background: linear-gradient(180deg, #FFFFFF 0%, #EFE6D2 100%); gap: 2.1875rem">
                     <div
-                        style="background: linear-gradient(180deg, #5C6B8F 0%, #1E2439 100%); width : 79px; height : 79px; display : flex; justify-content: center; align-items: center;">
+                        style="background: linear-gradient(180deg, #5C6B8F 0%, #1E2439 100%); width : 4.9375rem; height : 4.9375rem; display : flex; justify-content: center; align-items: center;">
                         <svg width="38" height="21" viewBox="0 0 38 21" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path
                                 d="M1.34082 0L18.8998 13.6111L36.4588 0H1.34082ZM0.390625 1.41736V19.845L11.4909 10.0274L0.390625 1.41736ZM37.4099 1.41736L26.3096 10.0274L37.4099 19.845V1.41736ZM12.8681 11.0909L1.6852 21H36.1153L24.9324 11.0909L19.4513 15.3434H19.4516C19.1294 15.5892 18.672 15.5892 18.3498 15.3434L12.8687 11.0909H12.8681Z"
@@ -227,13 +231,13 @@
                         </svg>
                     </div>
                     <p
-                        style="font-family: 'Encode Sans Condensed', system-ui; font-size : 28px; color : #101423; font-weight : 700; line-height : 35px">
+                        style="font-family: 'Encode Sans Condensed', system-ui; font-size : 1.75rem; color : #101423; font-weight : 700; line-height : 2.1875rem">
                         ics@iau.edu.sa</p>
                 </div>
                 <div
-                    style="height : 101px; display: flex; align-items : center; padding : 11px;background: linear-gradient(180deg, #FFFFFF 0%, #EFE6D2 100%); gap: 35px">
+                    style="height : 6.3125rem; display: flex; align-items : center; padding : 0.6875rem;background: linear-gradient(180deg, #FFFFFF 0%, #EFE6D2 100%); gap: 2.1875rem">
                     <div
-                        style="background: linear-gradient(180deg, #5C6B8F 0%, #1E2439 100%); width : 79px; height : 79px; display : flex; justify-content: center; align-items: center;">
+                        style="background: linear-gradient(180deg, #5C6B8F 0%, #1E2439 100%); width : 4.9375rem; height : 4.9375rem; display : flex; justify-content: center; align-items: center;">
                         <svg width="33" height="32" viewBox="0 0 33 32" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <g clip-path="url(#clip0_288_537)">
                                 <path
@@ -248,32 +252,32 @@
                         </svg>
                     </div>
                     <p
-                        style="font-family: 'Encode Sans Condensed', system-ui; font-size : 28px; color : #101423; font-weight : 700; line-height : 35px; direction: ltr">
+                        style="font-family: 'Encode Sans Condensed', system-ui; font-size : 1.75rem; color : #101423; font-weight : 700; line-height : 2.1875rem; direction: ltr">
                         @iau_icss</p>
                 </div>
             </div>
             <div class="footer_text"
-                style="margin-top : 120px; display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 30px">
+                style="margin-top : 7.5rem; display: grid; grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr)); gap: 1.875rem">
                 <div>
                     <a href="/home" style="text-decoration: none;">
                         <p
-                            style="text-decoration: underline; font-size : 18px; font-weight: 400; color : white; font-family : 'Inter', sans-serif;">
+                            id="homepage_bottom" style="text-decoration: underline; font-size : 1.125rem; font-weight: 400; color : white; font-family : 'Inter', sans-serif;">
                             Homepage</p>
                     </a>
                 </div>
                 <div>
-                    <p class="footer-copyright"
-                        style="font-size : 22px; font-family : 'Inter', sans-serif; font-weight : 400; color : white; white-space: nowrap;">
+                    <p id="university_bottom"class="footer-copyright"
+                        style="font-size : 1.375rem; font-family : 'Inter', sans-serif; font-weight : 400; color : white; white-space: nowrap;">
                         © 2024 Imam Abdulrahman Bin Faisal University
                     </p>
-                    <p class="footer-copyright"
-                        style="font-size : 22px; font-family : 'Inter', sans-serif; font-weight : 400; color : white">
+                    <p id="rights_bottom"class="footer-copyright"
+                        style="font-size : 1.375rem; font-family : 'Inter', sans-serif; font-weight : 400; color : white">
                         All rights reserved
                     </p>
                 </div>
                 <div>
-                    <p class="footer-implementation"
-                        style="font-size : 22px; font-weight: 400; color : white; font-family : 'Inter', sans-serif;">
+                    <p id="makwiz_bottom"class="footer-implementation"
+                        style="font-size : 1.375rem; font-weight: 400; color : white; font-family : 'Inter', sans-serif;">
                         Implemented by Makwiz Technologies</p>
                 </div>
             </div>
@@ -357,6 +361,8 @@
             const mobiledropdownMenu = document.getElementById('mobile-dropdown-menu');
             const mobileprojectdropdown = document.getElementById('mobile-projects-dropdown-menu');
             const mobilemenudropdown = document.getElementById('mobile_menu');
+            const projectdropdownMenu = document.getElementById('projects-dropdown-menu');
+
 
             if (mobiledropdownMenu && !event.target.closest('#nav-mobile-item-eservices')) {
                 mobiledropdownMenu.style.display = 'none';
@@ -366,6 +372,9 @@
             }
             if(mobilemenudropdown && !event.target.closest('#mobile_nav_button')  && !event.target.closest('#mobile_menu')){
                 mobilemenudropdown.style.display = 'none'
+            }
+            if(!event.target.closest('#project_dropdown_navbar')){
+                        projectdropdownMenu.style.display = 'none';
             }
         });
 
@@ -418,47 +427,47 @@
                 let menuContent = ''; // Variable to hold dropdown content
                 let mobilemenuContent = ''; // Variable to hold the dropdown content of mobile profile icon
                 if (jobApplicants.message.includes("Job Applicant") && userName!= "Administrator") {
-                    profileLink = `<a href="/Profile" style="display: block; padding: 12px 16px; text-decoration: none; color: #000; font-family: 'Encode Sans Condensed', system-ui; font-size: 16px; font-weight: bold;">Profile</a>`;
+                    profileLink = `<a href="/Profile" style="display: block; padding: 0.75rem 1rem; text-decoration: none; color: #000; font-family: 'Encode Sans Condensed', system-ui; font-size: 1rem; font-weight: bold;">Profile</a>`;
                     menuContent = `${profileLink}
-                        <a href="#" id="logout-link" style="display: block; padding: 12px 16px; text-decoration: none; color: #000; font-family: 'Encode Sans Condensed', system-ui; font-size: 16px; font-weight: bold;">Logout</a>`;
+                        <a href="#" id="logout-link" style="display: block; padding: 0.75rem 1rem; text-decoration: none; color: #000; font-family: 'Encode Sans Condensed', system-ui; font-size: 1rem; font-weight: bold;">Logout</a>`;
                     mobilemenuContent = `${profileLink}
-                        <a href="#" id="mobile-logout-link" style="display: block; padding: 12px 16px; text-decoration: none; color: #000; font-family: 'Encode Sans Condensed', system-ui; font-size: 16px; font-weight: bold;">Logout</a>`;
+                        <a href="#" id="mobile-logout-link" style="display: block; padding: 0.75rem 1rem; text-decoration: none; color: #000; font-family: 'Encode Sans Condensed', system-ui; font-size: 1rem; font-weight: bold;">Logout</a>`;
                     }
                 else if(userType === "System User" && userName!= "Administrator" ){
-                    menuContent = `<a href="/me" style="display: block; padding: 12px 16px; text-decoration: none; color: #000; font-family: 'Encode Sans Condensed', system-ui; font-size: 16px; font-weight: bold;">My Account</a>
-                    <a href="/app" style="display: block; padding: 12px 16px; text-decoration: none; color: #000; font-family: 'Encode Sans Condensed', system-ui; font-size: 16px; font-weight: bold;">Switch To Desk</a>
-                    <a href="#" id="logout-link" style="display: block; padding: 12px 16px; text-decoration: none; color: #000; font-family: 'Encode Sans Condensed', system-ui; font-size: 16px; font-weight: bold;">Logout</a>`;
-                    mobilemenuContent = `<a href="/me" style="display: block; padding: 12px 16px; text-decoration: none; color: #000; font-family: 'Encode Sans Condensed', system-ui; font-size: 16px; font-weight: bold;">My Account</a>
-                    <a href="/app" style="display: block; padding: 12px 16px; text-decoration: none; color: #000; font-family: 'Encode Sans Condensed', system-ui; font-size: 16px; font-weight: bold;">Switch To Desk</a>
-                    <a href="#" id="mobile-logout-link" style="display: block; padding: 12px 16px; text-decoration: none; color: #000; font-family: 'Encode Sans Condensed', system-ui; font-size: 16px; font-weight: bold;">Logout</a>`;
+                    menuContent = `<a href="/me" style="display: block; padding: 0.75rem 1rem; text-decoration: none; color: #000; font-family: 'Encode Sans Condensed', system-ui; font-size: 1rem; font-weight: bold;">My Account</a>
+                    <a href="/app" style="display: block; padding: 0.75rem 1rem; text-decoration: none; color: #000; font-family: 'Encode Sans Condensed', system-ui; font-size: 1rem; font-weight: bold;">Switch To Desk</a>
+                    <a href="#" id="logout-link" style="display: block; padding: 0.75rem 1rem; text-decoration: none; color: #000; font-family: 'Encode Sans Condensed', system-ui; font-size: 1rem; font-weight: bold;">Logout</a>`;
+                    mobilemenuContent = `<a href="/me" style="display: block; padding: 0.75rem 1rem; text-decoration: none; color: #000; font-family: 'Encode Sans Condensed', system-ui; font-size: 1rem; font-weight: bold;">My Account</a>
+                    <a href="/app" style="display: block; padding: 0.75rem 1rem; text-decoration: none; color: #000; font-family: 'Encode Sans Condensed', system-ui; font-size: 1rem; font-weight: bold;">Switch To Desk</a>
+                    <a href="#" id="mobile-logout-link" style="display: block; padding: 0.75rem 1rem; text-decoration: none; color: #000; font-family: 'Encode Sans Condensed', system-ui; font-size: 1rem; font-weight: bold;">Logout</a>`;
                 }
                 else if(userType === "System User" && userName === "Administrator"){
-                    menuContent = `<a href="/me" style="display: block; padding: 12px 16px; text-decoration: none; color: #000; font-family: 'Encode Sans Condensed', system-ui; font-size: 16px; font-weight: bold;">My Account</a>
-                    <a href="/app" style="display: block; padding: 12px 16px; text-decoration: none; color: #000; font-family: 'Encode Sans Condensed', system-ui; font-size: 16px; font-weight: bold;">Switch To Desk</a>
-                    <a href="/apps" style="display: block; padding: 12px 16px; text-decoration: none; color: #000; font-family: 'Encode Sans Condensed', system-ui; font-size: 16px; font-weight: bold;">Apps</a>
-                    <a href="#" id="logout-link" style="display: block; padding: 12px 16px; text-decoration: none; color: #000; font-family: 'Encode Sans Condensed', system-ui; font-size: 16px; font-weight: bold;">Logout</a>`;
-                    mobilemenuContent = `<a href="/me" style="display: block; padding: 12px 16px; text-decoration: none; color: #000; font-family: 'Encode Sans Condensed', system-ui; font-size: 16px; font-weight: bold;">My Account</a>
-                    <a href="/app" style="display: block; padding: 12px 16px; text-decoration: none; color: #000; font-family: 'Encode Sans Condensed', system-ui; font-size: 16px; font-weight: bold;">Switch To Desk</a>
-                    <a href="/apps" style="display: block; padding: 12px 16px; text-decoration: none; color: #000; font-family: 'Encode Sans Condensed', system-ui; font-size: 16px; font-weight: bold;">Apps</a>
-                    <a href="#" id="mobile-logout-link" style="display: block; padding: 12px 16px; text-decoration: none; color: #000; font-family: 'Encode Sans Condensed', system-ui; font-size: 16px; font-weight: bold;">Logout</a>`;              
+                    menuContent = `<a href="/me" style="display: block; padding: 0.75rem 1rem; text-decoration: none; color: #000; font-family: 'Encode Sans Condensed', system-ui; font-size: 1rem; font-weight: bold;">My Account</a>
+                    <a href="/app" style="display: block; padding: 0.75rem 1rem; text-decoration: none; color: #000; font-family: 'Encode Sans Condensed', system-ui; font-size: 1rem; font-weight: bold;">Switch To Desk</a>
+                    <a href="/apps" style="display: block; padding: 0.75rem 1rem; text-decoration: none; color: #000; font-family: 'Encode Sans Condensed', system-ui; font-size: 1rem; font-weight: bold;">Apps</a>
+                    <a href="#" id="logout-link" style="display: block; padding: 0.75rem 1rem; text-decoration: none; color: #000; font-family: 'Encode Sans Condensed', system-ui; font-size: 1rem; font-weight: bold;">Logout</a>`;
+                    mobilemenuContent = `<a href="/me" style="display: block; padding: 0.75rem 1rem; text-decoration: none; color: #000; font-family: 'Encode Sans Condensed', system-ui; font-size: 1rem; font-weight: bold;">My Account</a>
+                    <a href="/app" style="display: block; padding: 0.75rem 1rem; text-decoration: none; color: #000; font-family: 'Encode Sans Condensed', system-ui; font-size: 1rem; font-weight: bold;">Switch To Desk</a>
+                    <a href="/apps" style="display: block; padding: 0.75rem 1rem; text-decoration: none; color: #000; font-family: 'Encode Sans Condensed', system-ui; font-size: 1rem; font-weight: bold;">Apps</a>
+                    <a href="#" id="mobile-logout-link" style="display: block; padding: 0.75rem 1rem; text-decoration: none; color: #000; font-family: 'Encode Sans Condensed', system-ui; font-size: 1rem; font-weight: bold;">Logout</a>`;              
                 }
                 else {
-                    menuContent = `<a href="/me" style="display: block; padding: 12px 16px; text-decoration: none; color: #000; font-family: 'Encode Sans Condensed', system-ui; font-size: 16px; font-weight: bold;">My Account</a>
-                    <a href="#" id="logout-link" style="display: block; padding: 12px 16px; text-decoration: none; color: #000; font-family: 'Encode Sans Condensed', system-ui; font-size: 16px; font-weight: bold;">Logout</a>`;
-                    mobilemenuContent = `<a href="/me" style="display: block; padding: 12px 16px; text-decoration: none; color: #000; font-family: 'Encode Sans Condensed', system-ui; font-size: 16px; font-weight: bold;">My Account</a>
-                    <a href="#" id="mobile-logout-link" style="display: block; padding: 12px 16px; text-decoration: none; color: #000; font-family: 'Encode Sans Condensed', system-ui; font-size: 16px; font-weight: bold;">Logout</a>`;
+                    menuContent = `<a href="/me" style="display: block; padding: 0.75rem 1rem; text-decoration: none; color: #000; font-family: 'Encode Sans Condensed', system-ui; font-size: 1rem; font-weight: bold;">My Account</a>
+                    <a href="#" id="logout-link" style="display: block; padding: 0.75rem 1rem; text-decoration: none; color: #000; font-family: 'Encode Sans Condensed', system-ui; font-size: 1rem; font-weight: bold;">Logout</a>`;
+                    mobilemenuContent = `<a href="/me" style="display: block; padding: 0.75rem 1rem; text-decoration: none; color: #000; font-family: 'Encode Sans Condensed', system-ui; font-size: 1rem; font-weight: bold;">My Account</a>
+                    <a href="#" id="mobile-logout-link" style="display: block; padding: 0.75rem 1rem; text-decoration: none; color: #000; font-family: 'Encode Sans Condensed', system-ui; font-size: 1rem; font-weight: bold;">Logout</a>`;
                 }
 
                                 // Replace the "E-services" link with the user's avatar and dropdown menu
                                 const navItemEservices = document.getElementById('nav-item-eservices');
                                 navItemEservices.innerHTML = `
                     <a href="#" id="user-menu-toggle" style="text-decoration: none; font-family: 'Encode Sans Condensed', system-ui; text-transform: uppercase; display: flex; align-items: center;">
-                        <div id="avatar-container" style="position: relative; width: 40px; height: 40px; border-radius: 50%; background-color: #FFFBF1; border: 1px solid #101423; display: flex; align-items: center; justify-content: center; margin-right: 10px;">
+                        <div id="avatar-container" style="position: relative; width: 2.5rem; height: 2.5rem; border-radius: 50%; background-color: #FFFBF1; border: 0.0625rem solid #101423; display: flex; align-items: center; justify-content: center; margin-right: 0.625rem;">
                             <img src="${userImage}" alt="User Avatar" id="user-avatar" style="width: 100%; height: 100%; border-radius: 50%; object-fit: cover; ${userImage ? '' : 'display: none;'}">
-                            <span id="user-initials" style="position: absolute; font-size: 18px; font-weight: bold; color: #101423; ${userImage ? 'display: none;' : 'display: block;'}">${userInitial}</span>
+                            <span id="user-initials" style="position: absolute; font-size: 1.125rem; font-weight: bold; color: #101423; ${userImage ? 'display: none;' : 'display: block;'}">${userInitial}</span>
                         </div>
                     </a>
-                    <div id="dropdown-menu" style="display: none; position: absolute; top: 100%; right: 0; background-color: #fff; box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2); z-index: 1000; width: 200px; background-color: #EFE6D2;">
+                    <div id="dropdown-menu" style="display: none; position: absolute; top: 100%; right: 0; background-color: #fff; box-shadow: 0rem 0.5rem 1rem 0rem rgba(0,0,0,0.2); z-index: 1000; width: 12.5rem; background-color: #EFE6D2;">
                         ${menuContent}
                     </div>
                 `;
@@ -466,12 +475,12 @@
                 const navMobileItemServices = document.getElementById('nav-mobile-item-eservices');
                 navMobileItemServices.innerHTML =  `
                     <a href="#" id="mobile-user-menu-toggle" style="text-decoration: none; font-family: 'Encode Sans Condensed', system-ui; text-transform: uppercase; display: flex; align-items: center;">
-                        <div id="mobile-avatar-container" style="position: relative; width: 40px; height: 40px; border-radius: 50%; background-color: #FFFBF1; border: 1px solid #101423; display: flex; align-items: center; justify-content: center; margin-right: 10px;">
+                        <div id="mobile-avatar-container" style="position: relative; width: 2.5rem; height: 2.5rem; border-radius: 50%; background-color: #FFFBF1; border: 0.0625rem solid #101423; display: flex; align-items: center; justify-content: center; margin-right: 0.625rem;">
                             <img src="${userImage}" alt="User Avatar" id="mobile-user-avatar" style="width: 100%; height: 100%; border-radius: 50%; object-fit: cover; ${userImage ? '' : 'display: none;'}">
-                            <span id="mobile-user-initials" style="position: absolute; font-size: 18px; font-weight: bold; color: #101423; ${userImage ? 'display: none;' : 'display: block;'}">${userInitial}</span>
+                            <span id="mobile-user-initials" style="position: absolute; font-size: 1.125rem; font-weight: bold; color: #101423; ${userImage ? 'display: none;' : 'display: block;'}">${userInitial}</span>
                         </div>
                     </a>
-                    <div id="mobile-dropdown-menu" style="display: none; position: absolute; top: 0%; right: 100%; background-color: #fff; box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2); z-index: 1000; width: 200px; background-color: #EFE6D2;">
+                    <div id="mobile-dropdown-menu" style="display: none; position: absolute; top: 0%; right: 100%; background-color: #fff; box-shadow: 0rem 0.5rem 1rem 0rem rgba(0,0,0,0.2); z-index: 1000; width: 12.5rem; background-color: #EFE6D2;">
                         ${mobilemenuContent}
                     </div>
                 `;
@@ -522,12 +531,8 @@
                 // Close dropdown when clicking outside of it
                 document.addEventListener('click', (event) => {
                     const dropdownMenu = document.getElementById('dropdown-menu');
-                    const projectdropdownMenu = document.getElementById('projects-dropdown-menu');
                     if (!event.target.closest('#nav-item-eservices')) {
                         dropdownMenu.style.display = 'none';
-                    }
-                    if(!event.target.closest('#project_dropdown_navbar')){
-                        projectdropdownMenu.style.display = 'none';
                     }
                 });
 
@@ -609,6 +614,21 @@
             const connect_with_us_heading_ele = document.querySelector('#connect_with_us_heading');
             const past_project_heading_ele = document.querySelector('#past_project_heading span');
             const current_project_heading_ele = document.querySelector('#current_project_heading span');
+            const homepage_bottom_ele = document.querySelector("#homepage_bottom");
+            const rights_bottom_ele = document.querySelector('#rights_bottom');
+            const job_listing_search_div_button_ele = document.querySelector('#search_div button');
+            const job_listing_sort_most_recent_ele = document.querySelector('#sort option[value="most-recent"]');
+            const job_listing_sort_oldest_ele = document.querySelector('#sort option[value="oldest"]');
+            const job_listing_sortby_label_ele = document.querySelector('label[for="sort"]');
+            const job_info_applynow_button_ele = document.querySelector('#apply-link button');
+            const job_info_qrcode_scan_ele = document.querySelector('#qrcode button center');
+            const job_info_above_qrcode_or_ele = document.querySelector('#above_qrcode_or span');
+            const job_application_job_title_label_ele = document.querySelector('label[for="job_title"]');
+            const job_application_applicant_name_label_ele = document.querySelector('label[for="applicant_name"]');
+            const job_application_applicant_email_label_ele = document.querySelector('label[for="applicant_email"]');
+            const job_application_applicant_phone_number_label_ele = document.querySelector('label[for="applicant_phone_number"]');
+            const job_application_country_of_residence_label_ele = document.querySelector('label[for="country_of_residence"]');
+            const job_application_cover_letter_label_ele = document.querySelector('label[for="cover_letter"]');
             // Apply translations to each navigation link
             navItems.forEach(link => {
                 const text = link.innerText.trim();
@@ -661,6 +681,22 @@
             translateElement(connect_with_us_heading_ele, 'CONNECT WITH US');  // Key is 'CONNECT WITH US'
             translateElement(past_project_heading_ele, 'Past Projects'); // Key is 'Past Projects'
             translateElement(current_project_heading_ele,'Current Projects'); // Key is 'Current Projects'
+            translateElement(homepage_bottom_ele,'Homepage'); // Key is 'Homepage'
+            translateElement(rights_bottom_ele, 'All rights reserved'); // Key is 'All rights reserved'
+            // translateElement(job_listing_jobSearchInput_ele, 'Type in a job title'); // Key is 'Type in a job title'
+            translateElement(job_listing_sort_most_recent_ele, 'Most Recent'); // Key is 'Most Recent'
+            translateElement(job_listing_sort_oldest_ele,'Oldest'); // Key is 'Oldest'
+            translateElement(job_listing_sortby_label_ele,'Sort by:'); // Key is 'Sort by:'
+            translateElement(job_listing_search_div_button_ele,'Search'); // Key is 'Search'
+            translateElement(job_info_applynow_button_ele, 'Apply Now'); // Key is 'Apply Now'
+            translateElement(job_info_qrcode_scan_ele, 'Scan to Apply'); // Key is 'Scan to Apply'
+            translateElement(job_info_above_qrcode_or_ele, 'OR'); // Key is 'OR'
+            translateElement(job_application_job_title_label_ele,'Job Title'); // Key is 'Job Title'
+            translateElement(job_application_applicant_name_label_ele,'Applicant Name'); // Key is 'Applicant Name'
+            translateElement(job_application_applicant_email_label_ele,'Email'); // Key is 'Email'
+            translateElement(job_application_applicant_phone_number_label_ele,'Phone Number'); // Key is 'Phone Number'
+            translateElement(job_application_country_of_residence_label_ele,'Country of Residence'); // Key is 'Country of Residence'
+            translateElement(job_application_cover_letter_label_ele,'Cover Letter'); // Key is 'Cover Letter'
         }
 
 
