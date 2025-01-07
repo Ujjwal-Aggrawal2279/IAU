@@ -4,6 +4,9 @@
     box-sizing: border-box;
     scroll-behavior: smooth
 }
+html {
+    font-size: 16px;
+}
 
 @import url('https://fonts.googleapis.com/css2?family=Encode+Sans+Condensed:wght@100;200;300;400;500;600;700;800;900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
@@ -11,19 +14,22 @@
 
 .container {
     width: 100%;
-    padding-right: 20px;
-    padding-left: 20px;
+    padding-right: 1.25rem;
+    padding-left: 1.25rem;
     margin-right: auto;
     margin-left: auto;
-    max-width: 1323px;
+    max-width: 82.6875rem;
     /* Ensure max-width is 100% */
 }
 
 @media (max-width: 1023px) {
+    html{
+        font-size: 12px;
+    }
     .container {
-        padding-right: 15px;
-        padding-left: 15px;
-        max-width: 610px;
+        padding-right: 0.9375rem;
+        padding-left: 0.9375rem;
+        max-width: 38.125rem;
     }
 
     .job_application_div {
@@ -57,21 +63,25 @@
 
     .about_us_section {
         height: auto;
-        padding: 50px 0px;
+        padding: 3.125rem 0rem;
     }
 
     .header {
-        padding: 8px 0;
+        padding: 0.5rem 0;
     }
 }
 
 @media (min-width: 1024px) {
+    html{
+        font-size:14px;
+    }
+    
     .container {
-        max-width: 974px;
+        max-width: 60.875rem;
     }
 
     #news_slider_section {
-        height: 504px;
+        height: 31.5rem;
         overflow: hidden;
         position: relative;
     }
@@ -86,39 +96,42 @@
 
     .about_us_section {
         height: auto;
-        padding: 52px 0px;
+        padding: 3.25rem 0rem;
     }
 
     .header {
-        padding: 12px 0;
+        padding: 0.75rem 0;
     }
 }
 
 @media (min-width: 1280px) {
+    html{
+        font-size:16px;
+    }
     .container {
-        max-width: 1180px;
+        max-width: 73.75rem;
     }
 
     #news_slider_section {
-        height: 584px;
+        height: 36.5rem;
         overflow: hidden;
         position: relative;
     }
 
     #nav_items {
         display: flex;
-        gap: 12px;
+        gap: 1.25rem;
         list-style: none;
         align-items: center;
     }
 
     #nav_items li a {
-        font-size: 14px;
+        font-size: 1.25rem;
     }
 
     .about_us_section {
         height: auto;
-        padding: 62px 0px;
+        padding: 3.875rem 0rem;
     }
 
     .footer-copyright {
@@ -134,7 +147,7 @@
     }
 
     .header {
-        padding: 15px 0;
+        padding: 0.9375rem 0;
     }
 
     .about_us_divider {
@@ -143,34 +156,37 @@
 }
 
 @media (min-width: 1536px) {
+    html{
+        font-size: 16px;
+    }
     .about_us_divider {
         display: block !important;
     }
 
     .container {
-        max-width: 1323px;
+        max-width: 82.6875rem;
     }
 
     #nav_items {
         display: flex;
-        gap: 20px;
+        gap: 1.5rem;
         list-style: none;
         align-items: center;
     }
 
     #nav_items li a {
-        font-size: 16px;
+        font-size: 1.5rem;
     }
 
     #news_slider_section {
-        height: 584px;
+        height: 36.5rem;
         overflow: hidden;
         position: relative;
     }
 
     .about_us_section {
-        height: 950px;
-        padding: 100px 0px;
+        height: 59.375rem;
+        padding: 6.25rem 0rem;
     }
 
     .footer-copyright {
@@ -186,7 +202,7 @@
     }
 
     .header {
-        padding: 20px 0;
+        padding: 1.25rem 0;
     }
 
     .company_logo {
@@ -195,7 +211,7 @@
 
     #search_div {
         display: flex;
-        width: 1032px !important;
+        width: 64.5rem !important;
     }
 
     .select_container {
@@ -209,7 +225,7 @@
     #search_section {
         display: flex !important;
         flex-wrap: wrap !important;
-        gap: 20px !important;
+        gap: 1.25rem !important;
         justify-content: space-between !important;
     }
 
@@ -218,9 +234,9 @@
     }
 
     #job_desc {
-        width: 1000px !important;
-        padding: 66px 0px !important;
-        border-top: 2px solid #93A1BB !important;
+        width: 62.5rem !important;
+        padding: 4.125rem 0rem !important;
+        border-top: 0.125rem solid #93A1BB !important;
     }
 
     #news_para1 {
@@ -244,26 +260,26 @@
     }
 
     #listings_container {
-        grid-template-columns: repeat(auto-fit, minmax(450px, 1fr)) !important;
-        width: 970px !important;
+        grid-template-columns: repeat(auto-fit, minmax(28.125rem, 1fr)) !important;
+        width: 60.625rem !important;
     }
 
     .job-opening {
-        height: 127px !important;
+        height: 7.9375rem !important;
     }
 
     .job-opening1 {
-        width: 450px !important;
+        width: 28.125rem !important;
     }
 
     .job-title-class {
-        font-size: 24px !important;
+        font-size: 1.5rem !important;
     }
 }
 
 
 .job-title-class {
-    font-size: 18px;
+    font-size: 1.125rem;
 }
 
 #listings_container {
@@ -276,20 +292,20 @@
 }
 
 .about_us_container {
-    grid-template-columns: repeat(auto-fit, minmax(600px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(37.5rem, 1fr));
 }
 
 .connect_with_us_paras {
-    grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(23.75rem, 1fr));
 }
 #past_project_listing_container{
-    grid-template-columns: repeat(auto-fit, minmax(600px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(37.5rem, 1fr));
 }
 #current_project_listing_container{
-    grid-template-columns: repeat(auto-fit, minmax(600px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(37.5rem, 1fr));
 }
 .footer_text {
-    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
 }
 
 .about_us_divider {
@@ -318,8 +334,8 @@
 
 #job_desc {
     width: 100%;
-    padding: 46px 0px;
-    border-top: 2px solid #93A1BB;
+    padding: 2.875rem 0rem;
+    border-top: 0.125rem solid #93A1BB;
 }
 
 .filter_section {
@@ -340,13 +356,13 @@
 /* Hide the mobile menu by default */
 #mobile_menu {
     position: absolute;
-    top: 77px;
+    top: 4.8125rem;
     right: 0;
     background-color: #fff;
-    border: 1px solid #ddd;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-    padding: 10px;
-    width: 200px;
+    border: 0.0625rem solid #ddd;
+    box-shadow: 0rem 0.25rem 0.375rem rgba(0, 0, 0, 0.1);
+    padding: 0.625rem;
+    width: 12.5rem;
     height: 100vh;
     z-index: 999;
 }
@@ -358,7 +374,7 @@
 }
 
 #mobile_menu ul li {
-    margin: 10px 0;
+    margin: 0.625rem 0;
 }
 
 #mobile_menu ul li a {
@@ -383,7 +399,7 @@
             rgba(15, 15, 44, 0.825) 0%,
             rgba(217, 217, 217, 0.25) 50%,
             rgba(15, 15, 44, 0.825) 100%), url('/assets/iau/images/jobs_listings_banner.png');
-    height: 784px;
+    height: 49rem;
     background-repeat: no-repeat;
     background-size: cover;
     background-color: rgb(30, 30, 53);
@@ -412,36 +428,36 @@
 
 #login_card,
 #signup_card {
-    width: 570px;
-    height: 470px;
-    padding: 20px;
+    width: 35.625rem;
+    height: 29.375rem;
+    padding: 1.25rem;
     background-image: linear-gradient(#ffffff 25%, #efe6d2 75%);
 }
 
 #signup_card {
-    height : 400px !important;
+    height : 25rem !important;
 }
 
 .banner_section .container {
     position: absolute;
     bottom: 0;
-    padding: 80px 0px;
+    padding: 5rem 0rem;
 }
 
 .select_container {
-    margin-top: 20px;
+    margin-top: 1.25rem;
     display: flex;
     align-items: center;
     font-family: Arial, sans-serif;
     background-color: #2e3a59;
-    padding-left: 10px;
+    padding-left: 0.625rem;
     position: relative;
 }
 
 .custom-label {
     color: #b0b0b0;
-    margin-right: 8px;
-    font-size: 16px;
+    margin-right: 0.5rem;
+    font-size: 1rem;
 }
 
 .custom-select {
@@ -449,11 +465,11 @@
     appearance: none;
     color: white;
     border: none;
-    padding: 8px 12px;
-    font-size: 16px;
-    border-radius: 4px;
+    padding: 0.5rem 0.75rem;
+    font-size: 1rem;
+    border-radius: 0.25rem;
     cursor: pointer;
-    padding-right: 24px;
+    padding-right: 1.5rem;
     outline: none;
 }
 
@@ -464,7 +480,7 @@
 .custom-select::after {
     content: '▼';
     position: absolute;
-    right: 10px;
+    right: 0.625rem;
     top: 50%;
     transform: translateY(-50%);
     pointer-events: none;
@@ -474,7 +490,7 @@
 .select_container::after {
     content: '\25BE';
     position: absolute;
-    right: 4px;
+    right: 0.25rem;
     top: 50%;
     transform: translateY(-50%);
     pointer-events: none;
@@ -489,10 +505,10 @@
 /* Style for unchecked checkboxes */
 .custom-checkbox input[type="checkbox"] {
     appearance: none;
-    width: 24px;
-    height: 24px;
-    border: 1px solid #101423;
-    border-radius: 4px;
+    width: 1.5rem;
+    height: 1.5rem;
+    border: 0.0625rem solid #101423;
+    border-radius: 0.25rem;
     position: relative;
     cursor: pointer;
 }
@@ -509,7 +525,7 @@
 /* Optional: Checkmark style */
 .custom-checkbox input[type="checkbox"]:checked::before {
     content: "\2713";
-    font-size: 16px;
+    font-size: 1rem;
     color: white;
     position: absolute;
 }
@@ -524,29 +540,29 @@
 .divider::after {
     content: '';
     flex: 1;
-    border-bottom: 1px solid #ccc;
+    border-bottom: 0.0625rem solid #ccc;
     margin: 0;
 }
 
 .divider .text_span {
     font-family: DM Sans, sans-serif;
-    font-size: 20px;
+    font-size: 1.25rem;
     color: #929292;
     font-weight: 700;
-    padding: 0 80px;
+    padding: 0 5rem;
 }
 
 .divider div {
-    font-size: 20px;
+    font-size: 1.25rem;
     color: #929292;
     font-weight: 700;
-    padding: 0 20px;
+    padding: 0 1.25rem;
 }
 
 .swiper {
-    margin: 40px 0px;
+    margin: 2.5rem 0rem;
     width: 100%;
-    height: 499px;
+    height: 31.1875rem;
 }
 
 .swiper-wrapper {
@@ -555,7 +571,7 @@
 }
 
 .swiper-pagination {
-    bottom: -30px;
+    bottom: -1.875rem;
 }
 
 .swiper-pagination-bullet {
@@ -572,24 +588,24 @@
 
 .swiper-slide img {
     width: 100%;
-    height: 243px;
+    height: 15.1875rem;
 }
 
 .swiper-slide h4 {
     font-family: "Encode Sans Condensed", system-ui !important;
     color: #101423;
     font-weight: 700;
-    font-size: 24px;
+    font-size: 1.5rem;
 }
 
 .swiper-slide p {
     font-family: "Inter", sans-serif;
-    font-size: 22px;
+    font-size: 1.375rem;
     font-weight: 500;
     color: #101423;
-    line-height: 24px;
-    margin-top: 8px;
-    min-height: 32px;
+    line-height: 1.5rem;
+    margin-top: 0.5rem;
+    min-height: 2rem;
 }
 
 .about_us_section {
@@ -604,11 +620,11 @@
 
 .partnerships_section {
     background-color: #FFFBF1;
-    padding: 60px 0px;
+    padding: 3.75rem 0rem;
 }
 
 .partners_section {
-    padding: 123px 0px;
+    padding: 7.6875rem 0rem;
 }
 
 .job_info,
@@ -617,34 +633,34 @@
 .job_application,
 .profile_section {
     position: relative;
-    padding-top: 60px;
+    padding-top: 3.75rem;
 }
 
 .bulletin-container {
     display: flex;
     align-items: center;
     /* Align items vertically centered */
-    gap: 20px;
+    gap: 1.25rem;
     /* Space between each bulletin */
 }
 
 .bulletin {
     color: #8092A7;
-    font-size: 22px;
+    font-size: 1.375rem;
     font-family: "Inter", sans-serif;
     font-weight: 400;
 }
 
 .disc-bulletin {
-    width: 5px;
-    height: 5px;
+    width: 0.3125rem;
+    height: 0.3125rem;
     background-color: #8092A7;
     border-radius: 50%;
     align-self: center;
 }
 
 .services_section {
-    padding: 100px 0px;
+    padding: 6.25rem 0rem;
     background-color: #EFE6D2;
 }
 
@@ -706,7 +722,7 @@
 } */
 
 table {
-    margin-top: 30px;
+    margin-top: 1.875rem;
     width: 100%;
     border-collapse: collapse;
 }
@@ -718,28 +734,28 @@ thead {
 }
 
 thead th {
-    padding: 12px;
+    padding: 0.75rem;
     color: #10142380;
     font-family: "Inter", sans-serif;
-    font-size: 22px;
+    font-size: 1.375rem;
     font-weight: 700;
-    line-height: 32px;
+    line-height: 2rem;
     letter-spacing: 0.03em;
     text-align: left;
-    border-bottom: 1px solid #ccc;
+    border-bottom: 0.0625rem solid #ccc;
 }
 
 tbody tr {
-    border-bottom: 1px solid #e7dac7;
+    border-bottom: 0.0625rem solid #e7dac7;
 }
 
 tbody td {
     font-family: "Inter", sans-serif;
-    font-size: 22px;
+    font-size: 1.375rem;
     font-weight: 600;
-    line-height: 26.62px;
+    line-height: 1.66375rem;
     letter-spacing: -0.03em;
-    padding: 12px;
+    padding: 0.75rem;
 }
 
 tbody td:nth-child(3) {
@@ -775,9 +791,9 @@ tbody td:nth-child(3) {
 
 .status-dot {
     display: inline-block;
-    margin-left: 8px;
-    width: 8px;
-    height: 8px;
+    margin-left: 0.5rem;
+    width: 0.5rem;
+    height: 0.5rem;
     border-radius: 50%;
 }
 
@@ -820,22 +836,22 @@ tbody td:nth-child(3) {
 .pagination-container {
     display: flex;
     justify-content: flex-start;
-    margin-top: 20px;
-    gap: 10px;
+    margin-top: 1.25rem;
+    gap: 0.625rem;
 }
 
 /* Pagination Buttons */
 .page-button {
-    padding: 10px 15px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+    padding: 0.625rem 0.9375rem;
+    border: 0.0625rem solid #ccc;
+    border-radius: 0.3125rem;
     background-color: #f8f9fa;
     /* Light background */
     color: #007bff;
     /* Blue text */
     cursor: pointer;
     font-family: 'Inter', sans-serif;
-    font-size: 16px;
+    font-size: 1rem;
     transition: background-color 0.3s ease, color 0.3s ease;
 }
 
@@ -870,7 +886,7 @@ tbody td:nth-child(3) {
 .news-display:hover {
     transform: scale(1.02);
     /* Slightly increase the size of the div on hover */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.2);
     /* Add shadow on hover */
 }
 
@@ -879,5 +895,5 @@ tbody td:nth-child(3) {
 }
 
 .job-opening1 {
-    max-height: 130px;
+    max-height: 8.125rem;
 }
