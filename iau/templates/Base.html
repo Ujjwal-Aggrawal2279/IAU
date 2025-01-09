@@ -82,6 +82,31 @@
             width: 9.375rem;
             height:9.375rem;
         }
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5); 
+            z-index: 1002; 
+            display: none;
+        }
+        .custom-popup{
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            font-size:1.375rem;
+            font-family: 'Encode Sans Condensed';
+            background-image: linear-gradient(to bottom, #FFFBF1, #EAE2C4);
+            transform: translate(-50%, -50%);
+            background: #EFE6D2;
+            margin: 0.625rem 0.625rem 0.625rem 0.625rem;
+            padding: 0.125rem 0.9375rem 0.125rem 0.9375rem;
+            text-align: center;
+            z-index: 1003; 
+            display: none;
+        }
     </style>
 </head>
 
@@ -190,6 +215,27 @@
                 </ul>
             </div>
     </div>
+    <div class="overlay" id="page_overlay" ></div>
+    <div class="custom-popup" id="cookie_agree_message_box">
+        <div style="display:grid;padding:0.125rem 0.9375rem 0.125rem 0.9375rem;margin:0.625rem 0.625rem 0.625rem 0.625rem;">
+            <p>
+                The website uses only necessary cookies to ensure easy access and a better browsing experience. 
+            </p>
+            <br>
+            <div style="display:flex;gap:0.625rem;">
+                <input type="checkbox" id="policy_agree_checkbox">
+                <p>I acknowledge that I have read the</p>
+                <a href="/cookies_privacy_policy" target="_blank";rel="noopener";>Privacy Policy and Terms of Use</a>
+            </div>
+            <br>
+            <div  class="container" style="width : 100%; display: flex; justify-content: center; align-items: center;">
+                <button  id="cookie_agree_button"
+                    style="padding: 0.6875rem 1.25rem; background-color: #101423; color: white; font-size: 1.375rem; font-weight: 700; border: none; font-family : Inter, sans-serif; cursor : pointer;" disabled>
+                    Ok,I agree
+                </button>
+            </div>
+        </div>
+    </div>
     {% block authentication %}
 
     {% endblock %}
@@ -294,6 +340,38 @@
     <script>
         document.addEventListener('DOMContentLoaded', () => {
 
+        const screen_overlay_ele = document.getElementById('page_overlay');
+        const policy_agree_message_box_ele = document.getElementById('cookie_agree_message_box');
+        const cookie_agree_button_ele = document.getElementById('cookie_agree_button');
+        const cookie_agree_checkbox_ele = document.getElementById('policy_agree_checkbox');
+        function getpolicyAgreeCookie(){
+            const cookie_agreed_cookieValue = document.cookie
+                    .split('; ')
+                    .find(row => row.trim().startsWith('cookie-agreed='))
+                    ?.split('=')[1];
+            return cookie_agreed_cookieValue || ""
+        }
+        if(!getpolicyAgreeCookie() && window.location.pathname!=="/cookies_privacy_policy"){
+            screen_overlay_ele.style.display = 'block';
+            policy_agree_message_box_ele.style.display = 'block';
+        }
+        cookie_agree_checkbox_ele.addEventListener("click",()=>{
+            if(cookie_agree_checkbox_ele.checked){
+            cookie_agree_button_ele.disabled = false;
+            }
+            else{
+                cookie_agree_button_ele.disabled = true;
+            }
+        })
+        cookie_agree_button_ele.addEventListener("click",()=>{
+            let current_time = new Date();
+            current_time.setMonth(current_time.getMonth() + 6 );
+            if(!getpolicyAgreeCookie()){
+                document.cookie = `cookie-agreed = 1; expires=${current_time.toUTCString()};path =/`;
+                screen_overlay_ele.style.display = 'none';
+                policy_agree_message_box_ele.style.display = 'none';
+            }
+        })
             // open dropdown when project in navbar has been clicked
             document.getElementById("projects_dropdown").addEventListener("click", (event)=>{
                 event.preventDefault();
