@@ -96,14 +96,11 @@
             position: fixed;
             top: 50%;
             left: 50%;
-            font-size:1.375rem;
+            font-size:1rem;
             font-family: 'Encode Sans Condensed';
-            background-image: linear-gradient(to bottom, #FFFBF1, #EAE2C4);
             transform: translate(-50%, -50%);
-            background: #EFE6D2;
-            margin: 0.625rem 0.625rem 0.625rem 0.625rem;
-            padding: 0.125rem 0.9375rem 0.125rem 0.9375rem;
-            text-align: center;
+            background: white;
+            text-align: left;
             z-index: 1003; 
             display: none;
         }
@@ -222,15 +219,17 @@
                 The website uses only necessary cookies to ensure easy access and a better browsing experience. 
             </p>
             <br>
-            <div style="display:flex;gap:0.625rem;">
+            <div style="display:flex;gap:0.3125rem;">
+                <p>
                 <input type="checkbox" id="policy_agree_checkbox">
-                <p>I acknowledge that I have read the</p>
+                I acknowledge that I have read the
                 <a href="/cookies_privacy_policy" target="_blank";rel="noopener";>Privacy Policy and Terms of Use</a>
+                </p>
             </div>
             <br>
-            <div  class="container" style="width : 100%; display: flex; justify-content: center; align-items: center;">
+            <div  class="container" style="width : 100%; display: flex; align-items:center;padding-left:0rem;">
                 <button  id="cookie_agree_button"
-                    style="padding: 0.6875rem 1.25rem; background-color: #101423; color: white; font-size: 1.375rem; font-weight: 700; border: none; font-family : Inter, sans-serif; cursor : pointer;" disabled>
+                    style="padding: 0.6875rem 1.25rem; background-color: #101423; color: white; font-size: 1rem; font-weight: 700; border: none; font-family : Inter, sans-serif; cursor : pointer;" disabled>
                     Ok,I agree
                 </button>
             </div>
