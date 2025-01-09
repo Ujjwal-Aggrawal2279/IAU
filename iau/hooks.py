@@ -262,6 +262,6 @@ fixtures = [
 ]
 
 
-website_redirects = [
-    {"source": "/login", "target": "/Login"}
-]
+# website_redirects = [
+#     {"source": "/login", "target": "/Login"}
+# ]
