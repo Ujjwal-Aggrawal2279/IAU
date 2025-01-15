@@ -38,15 +38,15 @@ past_project_list.forEach(element => {
     let start_date_options = {year: "numeric", month: "long", day: "numeric"};
     let start_date_formatted = start_date_obj.toLocaleDateString("en-US", start_date_options);
     pastProject.innerHTML = `
-    <p style="font-size:1.25rem;font-family: Inter, system-ui; font-weight: 500; color: #101423;">
+    <p style="font-size:1.25rem;font-family: 'Encode Sans Condensed', system-ui; font-weight: 500; color: #101423;">
     ${element.project_name}<p>
     <br><br>
-    <p style="font-size:1.375rem;font-family:Inter, system-ui;"><span>${start_date_formatted}</span></p>
+    <p style="font-size:1.375rem;font-family:'Encode Sans Condensed', system-ui;"><span>${start_date_formatted}</span></p>
     <br>
     <div class="container" style="width : 100%; display: flex; justify-content: center; align-items: center;">
         <a href=${encodeURI(element.custom_attach_rfp)} target="_blank"; rel="noopener;">
             <button
-                style="padding: 0.6875rem 1.25rem; background-color: #101423; color: white; font-size: 1.375rem; font-weight: 700; border: none; font-family : Inter, sans-serif; cursor : pointer;">
+                style="padding: 0.6875rem 1.25rem; background-color: #101423; color: white; font-size: 1.375rem; font-weight: 700; border: none; font-family : 'Encode Sans Condensed', system-ui; cursor : pointer;">
                 ${download_button_value}
             </button>
         </a>
