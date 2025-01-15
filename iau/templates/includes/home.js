@@ -66,7 +66,7 @@ const renderJobOpenings = (jobOpenings) => {
                 <a href="/jobInfo?JobTitle=${encodeURIComponent(job.job_title)}" style="text-decoration : none;">
                     <p style="font-family: 'Encode Sans Condensed', system-ui; font-size: 1.5rem; font-weight: 700; line-height: 1.75rem; color: #101423">${job.job_title}</p>
                     <div style="margin-top: 2.25rem;">
-                        <p style="font-family: Inter Display; font-size: 1.125rem; line-height: 2rem; color: #8092A7;">${formattedDate}</p>
+                        <p style="font-family: 'Encode Sans Condensed', system-ui; font-size: 1.125rem; line-height: 2rem; color: #8092A7;">${formattedDate}</p>
                     </div>
                 </a>
             `;
@@ -169,7 +169,7 @@ const renderBlogPost = (blogs) => {
                     <p>
                         ${blog.blog_intro}
                     </p>
-                    <p style="color: #3D4667; font-family: "Inter", sans-serif; font-weight: 500; font-size: 1.375rem; line-height: 2rem; margin-top: 0.375rem;">
+                    <p style="color: #3D4667; font-family: 'Encode Sans Condensed', system-ui; font-weight: 500; font-size: 1.375rem; line-height: 2rem; margin-top: 0.375rem;">
                         ${formattedDate}
                     </p>
                 </article>
