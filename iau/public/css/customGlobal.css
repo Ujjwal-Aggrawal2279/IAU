@@ -153,6 +153,12 @@ html {
     .about_us_divider {
         display: block !important;
     }
+    #past_project_listing_container{
+        grid-template-columns: repeat(2, 1fr) !important;
+    }
+    #current_project_listing_container{
+        grid-template-columns: repeat(2, 1fr) !important;
+    }
 }
 
 @media (min-width: 1536px) {
@@ -169,13 +175,13 @@ html {
 
     #nav_items {
         display: flex;
-        gap: 1.5rem;
+        gap: 1.25rem;
         list-style: none;
         align-items: center;
     }
 
     #nav_items li a {
-        font-size: 1.5rem;
+        font-size: 1.25rem;
     }
 
     #news_slider_section {
@@ -275,6 +281,12 @@ html {
     .job-title-class {
         font-size: 1.5rem !important;
     }
+    #past_project_listing_container{
+        grid-template-columns: repeat(2, 1fr) !important;
+    }
+    #current_project_listing_container{
+        grid-template-columns: repeat(2, 1fr) !important;
+    }
 }
 
 
@@ -298,12 +310,12 @@ html {
 .connect_with_us_paras {
     grid-template-columns: repeat(auto-fit, minmax(23.75rem, 1fr));
 }
-#past_project_listing_container{
+/* #past_project_listing_container{
     grid-template-columns: repeat(auto-fit, minmax(37.5rem, 1fr));
 }
 #current_project_listing_container{
     grid-template-columns: repeat(auto-fit, minmax(37.5rem, 1fr));
-}
+} */
 .footer_text {
     grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
 }
@@ -448,7 +460,7 @@ html {
     margin-top: 1.25rem;
     display: flex;
     align-items: center;
-    font-family: Arial, sans-serif;
+    font-family: 'Encode Sans Condensed', system-ui;
     background-color: #2e3a59;
     padding-left: 0.625rem;
     position: relative;
@@ -599,7 +611,7 @@ html {
 }
 
 .swiper-slide p {
-    font-family: "Inter", sans-serif;
+    font-family: 'Encode Sans Condensed', system-ui;
     font-size: 1.375rem;
     font-weight: 500;
     color: #101423;
@@ -647,7 +659,7 @@ html {
 .bulletin {
     color: #8092A7;
     font-size: 1.375rem;
-    font-family: "Inter", sans-serif;
+    font-family: 'Encode Sans Condensed', system-ui;
     font-weight: 400;
 }
 
@@ -736,7 +748,7 @@ thead {
 thead th {
     padding: 0.75rem;
     color: #10142380;
-    font-family: "Inter", sans-serif;
+    font-family: 'Encode Sans Condensed', system-ui;
     font-size: 1.375rem;
     font-weight: 700;
     line-height: 2rem;
@@ -750,7 +762,7 @@ tbody tr {
 }
 
 tbody td {
-    font-family: "Inter", sans-serif;
+    font-family: 'Encode Sans Condensed', system-ui;
     font-size: 1.375rem;
     font-weight: 600;
     line-height: 1.66375rem;
@@ -850,7 +862,7 @@ tbody td:nth-child(3) {
     color: #007bff;
     /* Blue text */
     cursor: pointer;
-    font-family: 'Inter', sans-serif;
+    font-family: 'Encode Sans Condensed', system-ui;
     font-size: 1rem;
     transition: background-color 0.3s ease, color 0.3s ease;
 }
