@@ -60,9 +60,9 @@ const renderBlogPosts = async (blogPosts) => {
                 </div>
                 <article style="padding: 0.875rem">
                     <h4 style="color : #101423; font-weight : 700; font-size : 1.5rem; line-height : 1.875rem; font-family : Encode Sans Condensed;">${blog.name}</h4>
-                    <p style="margin-top : 0.75rem; font-family : Inter Display; font-size : 1.375rem; line-height : 2rem; color : #101423; font-weight : 500;">${blog.blog_intro}</p>
+                    <p style="margin-top : 0.75rem; font-family : 'Encode Sans Condensed', system-ui; font-size : 1.375rem; line-height : 2rem; color : #101423; font-weight : 500;">${blog.blog_intro}</p>
                     <div style="display : flex; gap : 1.25rem; align-items : center; margin-top : 0.875rem;">
-                        <p style="color: #3D4667; font-family: Inter Display; font-weight: 500; font-size: 1.375rem; line-height: 2rem; margin-top: 0.375rem;">
+                        <p style="color: #3D4667; font-family: 'Encode Sans Condensed', system-ui; font-weight: 500; font-size: 1.375rem; line-height: 2rem; margin-top: 0.375rem;">
                         ${formattedDate}
                         </p>
                     </div>
