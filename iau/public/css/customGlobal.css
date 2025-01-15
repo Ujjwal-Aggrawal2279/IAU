@@ -102,6 +102,12 @@ html {
     .header {
         padding: 0.75rem 0;
     }
+    #past_project_listing_container{
+        grid-template-columns: 1fr !important;
+    }
+    #current_project_listing_container{
+        grid-template-columns: 1fr !important;
+    }
 }
 
 @media (min-width: 1280px) {
