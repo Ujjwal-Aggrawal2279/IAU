@@ -40,7 +40,7 @@ const renderJobOpenings = (jobOpenings) => {
                 ${job.job_title}
             </p>
             <div style="display: flex; justify-content: space-between; margin-top: 2.25rem;">
-                <p style="font-family: 'Inter', sans-serif; font-size: 1.125rem; color: #8092A7;">
+                <p style="font-family: 'Encode Sans Condensed', system-ui; font-size: 1.125rem; color: #8092A7;">
                     ${formattedDate}
                 </p>
             </div>
