@@ -11,6 +11,22 @@ var swiper = new Swiper(".myBannerSwiper", {
         clickable: true,
     },
 });
+async function total_projects_count(){
+    try{
+        const projects_count_response = await fetch(`/api/resource/Project?fields=["count(name)"]`);
+        if (!projects_count_response.ok) {
+            throw new Error('Failed to fetch project count details.');
+        }
+        const projects_count = await projects_count_response.json();
+        document.getElementById('ics_no_of_project_count').innerHTML = ``;
+        document.getElementById('ics_no_of_project_count').innerHTML = `
+        ${projects_count.data[0]['count(name)']} <br><span>Number of Projects<span>
+        `;
+    }catch(error){
+        console.error("Error in projects count:",error)
+    }
+}
+total_projects_count();
 
 // Fetching the Job Openings Record for rendering
 
