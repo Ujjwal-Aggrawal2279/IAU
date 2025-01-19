@@ -37,7 +37,7 @@ if(prefered_language==="ar"){
 else{
     document.getElementById("services").innerHTML = ``;
     document.getElementById("services").innerHTML=`
-    <img src="/files/new_services_english.png" style="width:100%;height:100%">
+    <img src="/files/new_img_services_english2.jpg" style="width:100%;height:100%">
 `;
 }
 // Fetching the Job Openings Record for rendering
