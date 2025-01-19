@@ -23,11 +23,23 @@ async function total_projects_count(){
         ${projects_count.data[0]['count(name)']} <br><span>Number of Projects<span>
         `;
     }catch(error){
-        console.error("Error in projects count:",error)
+        console.error("Error in projects count:",error);
     }
-}
+};
 total_projects_count();
-
+const prefered_language = document.cookie.split('; ').find(row => row.trim().startsWith('preferred_language='))?.split('=')[1] || "en";
+if(prefered_language==="ar"){
+    document.getElementById("services").innerHTML = ``;
+    document.getElementById("services").innerHTML=`
+    <img src="/files/new_services_arabic.png" style="width:100%;height: 100%;">
+    `;
+}
+else{
+    document.getElementById("services").innerHTML = ``;
+    document.getElementById("services").innerHTML=`
+    <img src="/files/new_services_english.png" style="width:100%;height:100%">
+`;
+}
 // Fetching the Job Openings Record for rendering
 
 const fetchJobOpenings = async () => {
