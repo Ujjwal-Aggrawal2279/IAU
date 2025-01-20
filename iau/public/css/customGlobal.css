@@ -902,7 +902,7 @@ tbody td:nth-child(3) {
 .job-opening:hover,
 .job-opening1:hover,
 .news-display:hover {
-    transform: scale(1.02);
+    transform: scale(1.1);
     /* Slightly increase the size of the div on hover */
     box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.2);
     /* Add shadow on hover */

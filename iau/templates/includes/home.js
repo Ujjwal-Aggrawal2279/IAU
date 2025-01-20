@@ -28,16 +28,23 @@ async function total_projects_count(){
 };
 total_projects_count();
 const prefered_language = document.cookie.split('; ').find(row => row.trim().startsWith('preferred_language='))?.split('=')[1] || "en";
+service_container = document.querySelector('#services .container');
 if(prefered_language==="ar"){
-    document.getElementById("services").innerHTML = ``;
-    document.getElementById("services").innerHTML=`
+    service_container.innerHTML=`
+    <div class="divider">
+            <span class="text_span" id="services_heading"
+                style="text-transform: uppercase; font-size: 2rem; font-weight : bold; font-family: 'Encode Sans Condensed' , sans-serif; color : #3D4667;">Services</span>
+    </div>
     <img src="/files/new_services_arabic.png" style="width:100%;height: 100%;">
     `;
 }
 else{
-    document.getElementById("services").innerHTML = ``;
-    document.getElementById("services").innerHTML=`
-    <img src="/files/new_img_services_english2.jpg" style="width:100%;height:100%">
+    service_container.innerHTML=`
+    <div class="divider">
+            <span class="text_span" id="services_heading"
+                style="text-transform: uppercase; font-size: 2rem; font-weight : bold; font-family: 'Encode Sans Condensed' , sans-serif; color : #3D4667;">Services</span>
+    </div>
+    <img src="/files/new_img_services_english2.jpg" style="width:100%;height:100%;">
 `;
 }
 // Fetching the Job Openings Record for rendering
@@ -88,6 +95,7 @@ const renderJobOpenings = (jobOpenings) => {
             jobDiv.style.height = '7.9375rem';
             jobDiv.style.backgroundImage = 'linear-gradient(to bottom, #FFFBF1, #EAE2C4)';
             jobDiv.style.padding = '1.3125rem 1.5rem';
+            jobDiv.style.borderRadius = "0.666rem";
 
             // Customize the content inside the div
             jobDiv.innerHTML = `
@@ -181,6 +189,8 @@ const renderBlogPost = (blogs) => {
             const formattedDate = date.toLocaleDateString('en-US', options);
             const blogDiv = document.createElement('div');
             blogDiv.className = 'news-display';
+            blogDiv.style.borderRadius = "0.666rem";
+            blogDiv.style.overflow = 'hidden';
 
             // Add the global class and swiper-slide class
             blogDiv.classList.add('blogDiv', 'swiper-slide');
