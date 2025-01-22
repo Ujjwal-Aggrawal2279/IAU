@@ -18,7 +18,7 @@ async function total_projects_count(){
             throw new Error('Failed to fetch project count details.');
         }
         const projects_count = await projects_count_response.json();
-        document.getElementById('ics_no_of_project_count').innerHTML = ``;
+        // document.getElementById('ics_no_of_project_count').innerHTML = ``;
         document.getElementById('ics_no_of_project_count').innerHTML = `
         ${projects_count.data[0]['count(name)']} <br><span>Number of Projects<span>
         `;
@@ -27,9 +27,8 @@ async function total_projects_count(){
     }
 };
 total_projects_count();
-const prefered_language = document.cookie.split('; ').find(row => row.trim().startsWith('preferred_language='))?.split('=')[1] || "en";
 service_container = document.querySelector('#services .container');
-if(prefered_language==="ar"){
+if(preferred_language_value==="ar"){
     service_container.innerHTML=`
     <div class="divider">
             <span class="text_span" id="services_heading"
@@ -79,7 +78,7 @@ const renderJobOpenings = (jobOpenings) => {
         messageDiv.style.textAlign = 'center';
         messageDiv.innerHTML = `
             <p style="font-family: 'Encode Sans Condensed', system-ui; font-size: 1.375rem; font-weight: 700; color: #101423;">
-                No openings available right now!
+                ${(preferred_language_value==="ar")?("لا يوجد فتحات متاحة الآن!"):("No openings available right now!")}
             </p>
         `;
         listingsContainer.appendChild(messageDiv);
@@ -100,7 +99,7 @@ const renderJobOpenings = (jobOpenings) => {
             // Customize the content inside the div
             jobDiv.innerHTML = `
                 <a href="/jobInfo?JobTitle=${encodeURIComponent(job.job_title)}" style="text-decoration : none;">
-                    <p style="font-family: 'Encode Sans Condensed', system-ui; font-size: 1.5rem; font-weight: 700; line-height: 1.75rem; color: #101423">${job.job_title}</p>
+                    <p style="font-family: 'Encode Sans Condensed', system-ui; font-size: 1.5rem; font-weight: 700; line-height: 1.75rem; color: #101423">${(preferred_language_value==="ar" && job.custom_job_title_arabic)?job.custom_job_title_arabic:job.job_title}</p>
                     <div style="margin-top: 2.25rem;">
                         <p style="font-family: 'Encode Sans Condensed', system-ui; font-size: 1.125rem; line-height: 2rem; color: #8092A7;">${formattedDate}</p>
                     </div>
@@ -177,7 +176,7 @@ const renderBlogPost = (blogs) => {
         messageDiv.style.textAlign = 'center';
         messageDiv.innerHTML = `
             <p style="font-family: 'Encode Sans Condensed'; font-size: 1.375rem; font-weight: 700; color: #101423;">
-                No News available right now!
+            ${(preferred_language_value==="ar")?("لا توجد أخبار متاحة الآن!"):("No News available right now!")}
             </p>
         `;
         listingsContainer.appendChild(messageDiv);
@@ -193,7 +192,7 @@ const renderBlogPost = (blogs) => {
             blogDiv.style.overflow = 'hidden';
 
             // Add the global class and swiper-slide class
-            blogDiv.classList.add('blogDiv', 'swiper-slide');
+            blogDiv.classList.add('blogDiv', 'swiper-slide', 'swiper-slide2');
 
             blogDiv.innerHTML = `
             <a href="/newsinfo?NewsTitle=${encodeURIComponent(blog.title)}" style="text-decoration : none;">
@@ -202,10 +201,10 @@ const renderBlogPost = (blogs) => {
                 </div>
                 <article style="padding: 1.5rem">
                     <h4 style="font-family: 'Encode Sans Condensed', system-ui; font-size: 1.5rem; font-weight: 700; line-height: 1.75rem; color: #101423;">
-                        ${blog.title}
+                        ${(preferred_language_value==="ar" && blog.custom_title_arabic)?blog.custom_title_arabic:blog.title}
                     </h4>
                     <p>
-                        ${blog.blog_intro}
+                        ${(preferred_language_value==="ar" && blog.custom_blog_intro_arabic)?blog.custom_blog_intro_arabic:blog.blog_intro}
                     </p>
                     <p style="color: #3D4667; font-family: 'Encode Sans Condensed', system-ui; font-weight: 500; font-size: 1.375rem; line-height: 2rem; margin-top: 0.375rem;">
                         ${formattedDate}
