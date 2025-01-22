@@ -105,7 +105,7 @@
             z-index: 1003; 
             display: none;
         }
-        .swiper-slide:hover{
+        .swiper-slide2:hover{
             transform: scale(1.1);
         }
     </style>
@@ -238,6 +238,9 @@
             </div>
         </div>
     </div>
+    <script>
+        const preferred_language_value = document.cookie.split('; ').find(row => row.trim().startsWith('preferred_language='))?.split('=')[1] || "en";
+    </script>
     {% block authentication %}
 
     {% endblock %}
