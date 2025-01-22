@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', async function () {
     const newsTitle = getQueryParam('NewsTitle');
     if (newsTitle) {
         const decodedTitle = decodeURIComponent(newsTitle);
-        document.getElementById('news-title').textContent = decodedTitle;
+        // document.getElementById('news-title').textContent = decodedTitle;
         document.title = decodedTitle; // Set the title of the page
         try {
             // Fetch the job record details from the Frappe API
@@ -31,13 +31,13 @@ document.addEventListener('DOMContentLoaded', async function () {
 
             if (data.data && data.data.length > 0) {
                 const BlogDetails = data.data[0];
-
+                document.getElementById('news-title').textContent = (preferred_language_value==="ar" && BlogDetails.custom_title_arabic)?(BlogDetails.custom_title_arabic):(decodedTitle);
                 // Format the published date
                 const publishEle = document.getElementById('published_on');
                 publishEle.textContent = ` Published on ${formatDate(BlogDetails.published_on)}`;
 
                 // Get paragraphs
-                const paragraphs = getParagraphs(BlogDetails.custom_blog_description);
+                const paragraphs = getParagraphs((preferred_language_value==="ar" && BlogDetails.custom_blog_description_arabic)?(BlogDetails.custom_blog_description_arabic):(BlogDetails.custom_blog_description));
 
                 // Set the image
                 const news_image_ele = document.getElementById('news_image');
