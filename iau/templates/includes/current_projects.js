@@ -39,7 +39,7 @@ current_project_list.forEach(element => {
     let start_date_formatted = start_date_obj.toLocaleDateString("en-US", start_date_options);
     currentProject.innerHTML = `
     <p style="font-size:1.25rem;font-family: 'Encode Sans Condensed', system-ui; font-weight: 500; color: #101423;">
-    ${element.project_name}<p>
+    ${(preferred_language_value==="ar" && element.custom_project_name_arabic)?element.custom_project_name_arabic:element.project_name}<p>
     <br><br>
     <p style="font-size:1.375rem;font-family:'Encode Sans Condensed', system-ui;"><span>${start_date_formatted}</span></p>
     <br>
