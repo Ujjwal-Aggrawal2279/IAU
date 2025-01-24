@@ -128,6 +128,11 @@ const fetchBlogPosts = async () => {
             slidesPerView: 3,
             slidesPerGroup: 1,
             spaceBetween: 30,
+            loop: true,
+            autoplay: {
+                delay: 3000,
+                disableOnInteraction: false,
+            },
             pagination: {
                 el: ".swiper-pagination",
                 clickable: true,
@@ -188,7 +193,7 @@ const renderBlogPost = (blogs) => {
             const formattedDate = date.toLocaleDateString('en-US', options);
             const blogDiv = document.createElement('div');
             blogDiv.className = 'news-display';
-            blogDiv.style.borderRadius = "0.666rem";
+            blogDiv.style.borderRadius = "0.5rem";
             blogDiv.style.overflow = 'hidden';
 
             // Add the global class and swiper-slide class
