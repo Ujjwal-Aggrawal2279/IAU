@@ -78,23 +78,23 @@ async function getUserFullName() {
             switch (job.status) {
                 case 'Open':
                     statusClass = 'status-open';
-                    statusText = 'Open';
+                    statusText = (preferred_language_value==="ar")?('يفتح'):('Open');
                     break;
                 case 'Hold':
                     statusClass = 'status-hold';
-                    statusText = 'Hold';
+                    statusText = (preferred_language_value==="ar")?('يمسك'):('Hold');
                     break;
                 case 'Accepted':
                     statusClass = 'status-accepted';
-                    statusText = 'Accepted';
+                    statusText = (preferred_language_value==="ar")?('مقبول'):('Accepted');
                     break;
                 case 'Rejected':
                     statusClass = 'status-rejected';
-                    statusText = 'Rejected';
+                    statusText = (preferred_language_value==="ar")?('مرفوض'):('Rejected');
                     break;
                 case 'Replied':
                     statusClass = 'status-replied';
-                    statusText = 'Replied';
+                    statusText = (preferred_language_value==="ar")?('أجاب'):('Replied');
                     break;
                 default:
                     statusClass = '';
@@ -132,3 +132,5 @@ document.getElementById('jobSearchInput').addEventListener('input', function () 
         }
     });
 });
+const search_box_ele = document.getElementById('jobSearchInput');
+search_box_ele.placeholder = (preferred_language_value==="ar")?("اكتب المسمى الوظيفي"):("Type in a job title");

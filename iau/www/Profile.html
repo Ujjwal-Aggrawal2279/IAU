@@ -1,7 +1,7 @@
 {% extends "templates/Base.html" %}
 
 {% block title %}
-News
+Profile
 {% endblock %}
 
 {% block content %}
@@ -10,7 +10,7 @@ News
         style="background: linear-gradient(180deg, #FFFBF1 0%, rgba(255, 251, 241, 0) 100%); margin-top: 3.125rem;">
         <div style="padding-top : 2.5rem;">
             <div style="display: flex; justify-content: space-between; align-items: center;">
-                <h1
+                <h1 id="profile_page_your_profile_icon"
                     style="font-family: 'Encode Sans Condensed', system-ui; font-size: 1.75rem; font-weight: 700; line-height: 2.1875rem; text-align: left; color : #3D4667; text-transform : uppercase">
                     Your Profile </h1>
                 <div
@@ -62,7 +62,7 @@ News
         </div>
         <div style="padding-top : 2.5rem;">
             <div style="display : flex; justify-content: space-between; align-items: center;">
-                <h1
+                <h1 id="profile_page_your_jobs_icon"
                     style="font-family: 'Encode Sans Condensed', system-ui; font-size: 1.75rem; font-weight: 700; line-height: 2.1875rem; text-align: left; color : #3D4667; text-transform : uppercase">
                     Your Jobs</h1>
                 <div
@@ -75,7 +75,7 @@ News
                     <input id="jobSearchInput"
                         style="width : 100%;padding : 0.6875rem; border : 0.0625rem solid #324362; font-size : 1.375rem; font-family : 'Encode Sans Condensed', system-ui; line-height : 1.664375rem"
                         type="text" placeholder="Type in a job title" />
-                    <button
+                    <button id="profile_page_search_button"
                         style="padding : 0.6875rem 2.25rem; text-align : center; background-color : #101243; color : white; font-weight : 700; font-family : 'Encode Sans Condensed', system-ui ; font-size : 1.375rem; line-height : 2rem">Search</button>
                 </div>
                 <div class="select_container" style="padding : 0.6875rem !important">
@@ -89,9 +89,9 @@ News
             <table>
                 <thead>
                     <tr>
-                        <th style="color : black;">Job Title</th>
-                        <th style="color : black;">Applied On</th>
-                        <th style="text-align: right !important;color : black;">Status</th>
+                        <th id="profile_page_job_title_label" style="color : black;">Job Title</th>
+                        <th id="profile_page_applied_on_label" style="color : black;">Applied On</th>
+                        <th id="profile_page_status_label" style="text-align: right !important;color : black;">Status</th>
                     </tr>
                 </thead>
                 <tbody id="jobsTableBody">
