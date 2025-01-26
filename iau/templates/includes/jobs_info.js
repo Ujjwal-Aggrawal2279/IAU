@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', async function () {
 
         // Set the data URL as the src of the img element
         document.getElementById('qrcode-img').src = qrDataUrl;
-        document.getElementById('job-title').textContent = decodedTitle;
+        // document.getElementById('job-title').textContent = decodedTitle;
         document.title = decodedTitle + ' - Job Information'; // Set the title of the page
 
         try {
@@ -40,12 +40,13 @@ document.addEventListener('DOMContentLoaded', async function () {
                 jobDescriptionEle.style.fontWeight = 500;
                 const applyLink = document.getElementById('apply-link');
 
-                departmentEle.textContent = jobDetails.department;
-                employmentTypeEle.textContent = jobDetails.employment_type;
-                locationEle.textContent = jobDetails.location;
+                document.getElementById('job-title').textContent = (preferred_language_value==="ar" && jobDetails.custom_job_title_arabic)?jobDetails.custom_job_title_arabic:decodedTitle;
+                departmentEle.textContent = (preferred_language_value==="ar" && jobDetails.custom_department_arabic)?jobDetails.custom_department_arabic:jobDetails.department;
+                employmentTypeEle.textContent = (preferred_language_value==="ar" && jobDetails.custom_employment_type_arabic)?jobDetails.custom_employment_type_arabic:jobDetails.employment_type;
+                locationEle.textContent = (preferred_language_value==="ar" && jobDetails.custom_location_arabic)?jobDetails.custom_location_arabic:jobDetails.location;
 
                 // Replace newlines with <br> for job description
-                const formattedDescription = jobDetails.custom_job_description.replace(/\n/g, '<br>');
+                const formattedDescription = (preferred_language_value==="ar" && jobDetails.custom_job_description_arabic)?jobDetails.custom_job_description_arabic.replace(/\n/g, '<br>'):jobDetails.custom_job_description.replace(/\n/g, '<br>');
                 jobDescriptionEle.innerHTML = formattedDescription;
 
                 // Set the href dynamically using the job title
