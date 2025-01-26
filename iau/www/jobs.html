@@ -28,7 +28,7 @@ Jobs Listings
             <!-- Filter Section -->
             <div class="filter_section" style="width: 18.75rem;">
                 <div style="margin-bottom: 3.75rem; display : flex; justify-content : space-between;">
-                    <p style="font-size : 1.75rem; font-weight : 700; line-height : 2.1875rem; color : #3D4667">Filters</p>
+                    <p id="job_listing_page_filter_label" style="font-size : 1.75rem; font-weight : 700; line-height : 2.1875rem; color : #3D4667">Filters</p>
                     <button
                         style="padding: 0.625rem 1rem; background-color: #101423; color: white; font-size: 1.125rem; font-weight: 600; border: none; font-family : 'Encode Sans Condensed', system-ui; cursor : pointer">
                         Clear all<span style="margin-left: 0.5rem;">&#10006;</span>
@@ -37,7 +37,7 @@ Jobs Listings
 
                 <!-- Department Filter -->
                 <div style="margin-bottom: 3.75rem;">
-                    <h4
+                    <h4 id="job_listing_page_department_filter_heading_label"
                         style="font-size: 1.5rem; font-weight: 700; margin-bottom: 1.125rem; color : #3D4667B2; font-family : 'Encode Sans Condensed';">
                         Department
                     </h4>
@@ -45,19 +45,19 @@ Jobs Listings
                         <label class="custom-checkbox"
                             style="display: flex; align-items: center; font-size: 1.25rem; margin-bottom: 1rem;">
                             <input type="checkbox" checked>
-                            <span style="margin: 0 1.125rem;">Human Resources</span>
+                            <span id="job_listing_page_department_filter_human_resource_checkbox" style="margin: 0 1.125rem;">Human Resources</span>
                         </label>
                         <label class="custom-checkbox" style="display: flex; font-size: 1.25rem; margin-bottom : 1rem;">
                             <input type="checkbox" checked>
-                            <span style="margin: 0 1.125rem;">Management</span>
+                            <span id="job_listing_page_department_filter_management_checkbox" style="margin: 0 1.125rem;">Management</span>
                         </label>
                         <label class="custom-checkbox" style="display: flex; font-size: 1.25rem; margin-bottom : 1rem;">
                             <input type="checkbox" checked>
-                            <span style="margin:0 1.125rem;">Operation</span>
+                            <span id="job_listing_page_department_filter_operation_checkbox" style="margin:0 1.125rem;">Operation</span>
                         </label>
                         <label class="custom-checkbox" style="display: flex; font-size: 1.25rem; margin-bottom : 1rem;">
                             <input type="checkbox" checked>
-                            <span style="margin:0 1.125rem;">Sales</span>
+                            <span id="job_listing_page_department_filter_sales_checkbox" style="margin:0 1.125rem;">Sales</span>
                         </label>
                     </div>
                 </div>
@@ -65,28 +65,28 @@ Jobs Listings
 
                 <!-- Employment Type Filter -->
                 <div style="margin-bottom: 2.5rem;">
-                    <h4
+                    <h4 id="job_listing_page_employment_type_filter_heading_label"
                         style="font-size: 1.5rem; font-weight: 700; margin-bottom: 1.125rem; color : #3D4667B2; font-family : 'Encode Sans Condensed';">
                         Employment Type
                     </h4>
                     <div>
                         <label class="custom-checkbox" style="display: flex; font-size: 1.25rem; margin-bottom : 1rem;">
                             <input type="checkbox" checked>
-                            <span style="margin:0 1.125rem;">Full Time</span>
+                            <span id="job_listing_page_employment_type_filter_full_time_checkbox" style="margin:0 1.125rem;">Full Time</span>
                         </label>
                     </div>
                 </div>
 
                 <!-- Location Filter -->
                 <div style="margin-bottom: 2.5rem;">
-                    <h4
+                    <h4 id="job_listing_page_location_filter_heading_label"
                         style="font-size: 1.5rem; font-weight: 700; margin-bottom: 1.125rem; color : #3D4667B2; font-family : 'Encode Sans Condensed';">
                         Location
                     </h4>
                     <div>
                         <label class="custom-checkbox" style="display: flex; font-size: 1.25rem; margin-bottom : 1rem;">
                             <input type="checkbox" checked>
-                            <span style="margin:0 1.125rem;">Riyadh</span>
+                            <span id="job_listing_page_location_filter_riyadh_checkbox" style="margin:0 1.125rem;">Riyadh</span>
                         </label>
                     </div>
                 </div>
