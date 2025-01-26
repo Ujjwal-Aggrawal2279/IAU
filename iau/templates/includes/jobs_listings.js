@@ -37,7 +37,7 @@ const renderJobOpenings = (jobOpenings) => {
         jobDiv.innerHTML = `
         <a href="/jobInfo?JobTitle=${encodeURIComponent(job.job_title)}" style="text-decoration: none !important;">
             <p class="job-title-class" style="font-family: 'Encode Sans Condensed', system-ui; font-weight: 700; color: #101423">
-                ${job.job_title}
+                ${(preferred_language_value==="ar" && job.custom_job_title_arabic)?job.custom_job_title_arabic:job.job_title}
             </p>
             <div style="display: flex; justify-content: space-between; margin-top: 2.25rem;">
                 <p style="font-family: 'Encode Sans Condensed', system-ui; font-size: 1.125rem; color: #8092A7;">
