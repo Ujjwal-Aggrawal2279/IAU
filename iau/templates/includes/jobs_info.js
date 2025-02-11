@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', async function () {
     if (jobTitle) {
         const decodedTitle = decodeURIComponent(jobTitle);
         const currentHost = window.location.host;
-        const url = `http://${currentHost}/jobApplication?JobTitle=${decodedTitle}`;
+        const url = `https://${currentHost}/jobApplication?JobTitle=${decodedTitle}`;
         // Generate QR code
         const qr = new QRious({
             value: url,
