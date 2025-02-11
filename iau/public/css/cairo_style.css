@@ -1,1 +1,6 @@
-body{font-family:'Cairo' !important; }
+/* body{font-family:'Cairo' !important; } */
+.sr-only2{
+    position: relative;
+    width: 5rem;
+    height: 1.5rem;
+}
