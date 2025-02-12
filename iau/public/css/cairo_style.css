@@ -1,6 +1,6 @@
 /* body{font-family:'Cairo' !important; } */
 .sr-only2{
-    position: relative;
-    width: 5rem;
-    height: 1.5rem;
+    position: relative !important;
+    width: 5rem !important;
+    height: 1.5rem !important;
 }
