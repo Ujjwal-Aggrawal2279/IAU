@@ -49,22 +49,22 @@ Search,يبحث
 Apply Now,تقدم بطلبك الآن
 Scan to Apply,المسح للتقديم
 OR,أو
-Job Title,مسمى وظيفي
-Applicant Name,اسم مقدم الطلب
-Email,بريد إلكتروني
-Phone Number,رقم التليفون
-Country of Residence,بلد الإقامة
-Cover Letter,غطاء الرسالة
+Job Id *,معرف الوظيفة *
+Applicant Name *,اسم مقدم الطلب *
+Email *,بريد إلكتروني *
+Phone Number *,رقم التليفون *
+Country of Residence *,بلد الإقامة *
+Cover Letter (Optional),خطاب تعريفي (اختياري)
 ICS in Numbers,المعهد بالارقام
 Number of Projects,عدد المشاريع
 Number of Consultants,عدد الاستشاريين
 And More Services,والمزيد من الخدمات
 CONTACT US,اتصل بنا
 Number of Services,عدد الخدمات
-Upload Resume,تحميل السيرة الذاتية
+Upload Resume *,إرفاق السيرة الذاتية *
 No file selected,لم يتم تحديد أي ملف
-Discard,ينبذ
-Save,يحفظ
+Discard,تجاهل
+Save,حفظ
 © 2024 Imam Abdulrahman Bin Faisal University,© 2024 جامعة الإمام عبدالرحمن بن فيصل
 Implemented by Makwiz Technologies,تم التنفيذ بواسطة Makwiz Technologies
 Department,قسم

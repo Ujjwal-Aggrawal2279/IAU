@@ -388,7 +388,7 @@
                     ?.split('=')[1];
             return cookie_agreed_cookieValue || ""
         }
-        if(!getpolicyAgreeCookie() && window.location.pathname!=="/cookies_privacy_policy"){
+        if(!getpolicyAgreeCookie() && window.location.pathname!=="/cookies_privacy_policy" && window.location.pathname!=="/cookies_privacy_policy_arabic"){
             screen_overlay_ele.style.display = 'block';
             policy_agree_message_box_ele.style.display = 'block';
         }
@@ -664,7 +664,7 @@
             function translateElement(element, key) {
                 if (element && key in translations) {
                     // Set the element's HTML content to the translated value
-                    element.innerHTML = translations[key];
+                    element.innerText = translations[key];
                 }
             }
 
@@ -738,16 +738,52 @@
             const job_info_applynow_button_ele = document.querySelector('#apply-link button');
             const job_info_qrcode_scan_ele = document.querySelector('#qrcode button center');
             const job_info_above_qrcode_or_ele = document.querySelector('#above_qrcode_or span');
+            //Job Application Translation Elements
             const job_application_job_title_label_ele = document.querySelector('label[for="job_title"]');
             const job_application_applicant_name_label_ele = document.querySelector('label[for="applicant_name"]');
             const job_application_applicant_email_label_ele = document.querySelector('label[for="applicant_email"]');
             const job_application_applicant_phone_number_label_ele = document.querySelector('label[for="applicant_phone_number"]');
             const job_application_country_of_residence_label_ele = document.querySelector('label[for="country_of_residence"]');
             const job_application_cover_letter_label_ele = document.querySelector('label[for="cover_letter"]');
+            const upload_resume_button_ele = document.querySelector('#uploadButton');
+            const job_application_discard_button_ele = document.querySelector('#discardButton');
+            const job_application_save_button_ele = document.querySelector('#saveButton');
+            //Home Page ICS Section Translation Elements
             const ics_numbers_heading_ele = document.querySelector('#ics_numbers_heading span');
             const ics_no_of_project_count_ele = document.querySelector('#ics_no_of_project_count span');
             const ics_no_of_consultants_ele = document.querySelector('#ics_no_of_consultants span');
             const ics_no_of_services_ele = document.querySelector('#ics_no_of_services span');
+            //Home Page Bottom Section Translation Elements
+            const university_bottom_ele = document.querySelector('#university_bottom');
+            const makwiz_bottom_ele = document.querySelector('#makwiz_bottom');
+            //Job Listing Translation Elements
+            const job_listing_page_filter_label_ele = document.querySelector('#job_listing_page_filter_label');
+            const job_listing_department_filter_heading_label_ele = document.querySelector('#job_listing_page_department_filter_heading_label');
+            const job_listing_page_department_filter_human_resource_checkbox_ele = document.querySelector('#job_listing_page_department_filter_human_resource_checkbox');
+            const job_listing_page_department_filter_management_checkbox_ele = document.querySelector('#job_listing_page_department_filter_management_checkbox');
+            const job_listing_page_department_filter_operation_checkbox_ele = document.querySelector('#job_listing_page_department_filter_operation_checkbox');
+            const job_listing_page_department_filter_sales_checkbox_ele = document.querySelector('#job_listing_page_department_filter_sales_checkbox');
+            const job_listing_page_employment_type_filter_heading_label_ele = document.querySelector('#job_listing_page_employment_type_filter_heading_label');
+            const job_listing_page_employment_type_filter_full_time_checkbox_ele = document.querySelector('#job_listing_page_employment_type_filter_full_time_checkbox');
+            const job_listing_page_location_filter_heading_label_ele = document.querySelector('#job_listing_page_location_filter_heading_label');
+            const job_listing_page_location_filter_riyadh_checkbox_ele = document.querySelector('#job_listing_page_location_filter_riyadh_checkbox');
+            //Login Page Translation Elements
+            const login_page_email_id_label_ele = document.querySelector('#login_page_email_id_label');
+            const login_page_signin_icon_ele = document.querySelector('#login_page_signin_icon');
+            const login_page_password_label_ele = document.querySelector('#login_page_password_label');
+            const login_page_forgot_password_link_ele = document.querySelector('#login_page_forgot_password_link');
+            const login_page_login_button_ele = document.querySelector('#login_button');
+            const login_page_or_icon_ele = document.querySelector('.or-text');
+            const login_page_signup_button_ele = document.querySelector('#login_page_signup_button');
+            // Profile Page Translation Elements
+            const profile_page_your_profile_icon_ele = document.querySelector('#profile_page_your_profile_icon');
+            const profile_page_your_jobs_icon_ele = document.querySelector('#profile_page_your_jobs_icon');
+            const profile_page_search_button_ele = document.querySelector('#profile_page_search_button');
+            const profile_page_job_title_label_ele = document.querySelector('#profile_page_job_title_label');
+            const profile_page_applied_on_label_ele = document.querySelector('#profile_page_applied_on_label');
+            const profile_page_status_label_ele = document.querySelector('#profile_page_status_label');
+            //News Listing Translation Elements
+            const news_listing_all_news_heading_ele = document.querySelector('#news_listing_all_news_heading');
             // Apply translations to each navigation link
             navItems.forEach(link => {
                 const text = link.innerText.trim();
@@ -809,16 +845,52 @@
             translateElement(job_info_applynow_button_ele, 'Apply Now'); // Key is 'Apply Now'
             translateElement(job_info_qrcode_scan_ele, 'Scan to Apply'); // Key is 'Scan to Apply'
             translateElement(job_info_above_qrcode_or_ele, 'OR'); // Key is 'OR'
-            translateElement(job_application_job_title_label_ele,'Job Title'); // Key is 'Job Title'
-            translateElement(job_application_applicant_name_label_ele,'Applicant Name'); // Key is 'Applicant Name'
-            translateElement(job_application_applicant_email_label_ele,'Email'); // Key is 'Email'
-            translateElement(job_application_applicant_phone_number_label_ele,'Phone Number'); // Key is 'Phone Number'
-            translateElement(job_application_country_of_residence_label_ele,'Country of Residence'); // Key is 'Country of Residence'
-            translateElement(job_application_cover_letter_label_ele,'Cover Letter'); // Key is 'Cover Letter'
+            //Job Application Translation Elements
+            translateElement(job_application_job_title_label_ele,'Job Id *'); // Key is 'Job Id *'
+            translateElement(job_application_applicant_name_label_ele,'Applicant Name *'); // Key is 'Applicant Name *'
+            translateElement(job_application_applicant_email_label_ele,'Email *'); // Key is 'Email *'
+            translateElement(job_application_applicant_phone_number_label_ele,'Phone Number *'); // Key is 'Phone Number *'
+            translateElement(job_application_country_of_residence_label_ele,'Country of Residence *'); // Key is 'Country of Residence *'
+            translateElement(job_application_cover_letter_label_ele,'Cover Letter (Optional)'); // Key is 'Cover Letter (Optional)'
+            translateElement(upload_resume_button_ele,'Upload Resume *'); //Key is 'Upload Resume'
+            translateElement(job_application_discard_button_ele,'Discard');//Key is 'Discard'
+            translateElement(job_application_save_button_ele,'Save');//Key is 'Save'
+            //Home Page ICS Section Translation Elements
             translateElement(ics_numbers_heading_ele,'ICS in Numbers'); //Key is 'ICS in Numbers'
             translateElement(ics_no_of_project_count_ele,'Number of Projects'); //Key is 'Number of Projects'
             translateElement(ics_no_of_consultants_ele,'Number of Consultants'); //Key is 'Number of Consultants'
-            translateElement(ics_no_of_services_ele,'Number of Services'); //Key is 'Number of services'
+            translateElement(ics_no_of_services_ele,'Number of Services'); //Key is 'Number of Services'
+            //Home Page Bottom Section Translation Elements
+            translateElement(university_bottom_ele,'© 2024 Imam Abdulrahman Bin Faisal University');//Key is '© 2024 Imam Abdulrahman Bin Faisal University'
+            translateElement(makwiz_bottom_ele,'Implemented by Makwiz Technologies'); //Key is 'Implemented by Makwiz Technologies'
+            //Job Listing Translation Elements 
+            translateElement(job_listing_page_filter_label_ele,"Filters");//Key is 'Filters'
+            translateElement(job_listing_department_filter_heading_label_ele,'Department');//Key is 'Department'
+            translateElement(job_listing_page_department_filter_human_resource_checkbox_ele,'Human Resources');//Key is 'Human Resources'
+            translateElement(job_listing_page_department_filter_management_checkbox_ele,'Management');//Key is 'Management'
+            translateElement(job_listing_page_department_filter_operation_checkbox_ele,'Operation');//Key is 'Operation'
+            translateElement(job_listing_page_department_filter_sales_checkbox_ele,'Sales');//Key is 'Sales'
+            translateElement(job_listing_page_employment_type_filter_heading_label_ele,"Employment Type");//Key is 'Employment Type'
+            translateElement(job_listing_page_employment_type_filter_full_time_checkbox_ele,"Full Time");//Key is 'Full Time'
+            translateElement(job_listing_page_location_filter_heading_label_ele,'Location');//Key is 'Location'
+            translateElement(job_listing_page_location_filter_riyadh_checkbox_ele,"Riyadh");//Key is 'Riyadh'
+            //Login Page Translation Elements
+            translateElement(login_page_email_id_label_ele,'E-mail');//Key is 'E-mail'
+            translateElement(login_page_signin_icon_ele,'Sign in');//Key is 'Sign in'
+            translateElement(login_page_password_label_ele,'Password');//Key is 'Password'
+            translateElement(login_page_forgot_password_link_ele,'Forgot Password?');//Key is 'Forgot Password?'
+            translateElement(login_page_login_button_ele,'Log in ->');//Key is 'Log in ->'
+            translateElement(login_page_or_icon_ele,'OR');//Key is 'OR'
+            translateElement(login_page_signup_button_ele,'Signup');//Key is 'Signup'
+            //Profile Page Translation Elements
+            translateElement(profile_page_your_profile_icon_ele,'Your Profile');//Key is 'Your Profile'
+            translateElement(profile_page_your_jobs_icon_ele,'Your Jobs');//Key is 'Your Jobs'
+            translateElement(profile_page_search_button_ele,'Search');//Key is 'Search'
+            translateElement(profile_page_job_title_label_ele,'Job Title');//Key is 'Job Title'
+            translateElement(profile_page_applied_on_label_ele,'Applied On');//Key is 'Applied On'
+            translateElement(profile_page_status_label_ele,'Status'); //Key is 'Status'
+            //News Listing Translate Elements
+            translateElement(news_listing_all_news_heading_ele,'All News');//Key is 'All News'
         }
 
 
@@ -879,6 +951,12 @@
 
                         // Update the button text after changing the language
                         toggleButton.textContent = newLang === 'ar' ? 'English' : 'العربية';
+                        if(window.location.pathname==="/cookies_privacy_policy" && newLang==="ar"){
+                            window.location.href = "/cookies_privacy_policy_arabic"
+                        }
+                        if(window.location.pathname==="/cookies_privacy_policy_arabic" && newLang==="en"){
+                            window.location.href = "/cookies_privacy_policy"
+                        }
                     });
                 }
 
