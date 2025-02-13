@@ -1,4 +1,4 @@
-async function getUserFullName() {
+async function getUserFullName(sortOrder='desc') {
     try {
         // Fetch the logged-in user's ID
         const response = await fetch('/api/method/frappe.auth.get_logged_user', {
@@ -47,7 +47,7 @@ async function getUserFullName() {
         }
 
         // Fetch job applicant data using the email ID
-        const jobApplicantResponse = await fetch(`/api/resource/Job Applicant?limit_page_length=null&fields=["*"]&filters=[["email_id", "=", "${userEmailId}"]]`, {
+        const jobApplicantResponse = await fetch(`/api/resource/Job Applicant?limit_page_length=null&fields=["*"]&filters=[["email_id", "=", "${userEmailId}"]]&order_by=creation ${sortOrder}`, {
             method: 'GET',
         });
 
@@ -134,3 +134,9 @@ document.getElementById('jobSearchInput').addEventListener('input', function () 
 });
 const search_box_ele = document.getElementById('jobSearchInput');
 search_box_ele.placeholder = (preferred_language_value==="ar")?("اكتب المسمى الوظيفي"):("Type in a job title");
+
+//Applying the sorting functionality
+document.getElementById('sort').addEventListener('change', (event) => {
+    const sortOrder = event.target.value === 'most-recent'?'desc':'asc';
+    getUserFullName(sortOrder);
+});
