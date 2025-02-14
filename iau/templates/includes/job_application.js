@@ -95,7 +95,7 @@ async function fetchJobApplication(email, jobTitle) {
         applicantInputEle.value = jobApplication.applicant_name;
         emailInputEle.value = jobApplication.email_id;
         applicantPhone.value = jobApplication.phone_number;
-        country_selected_option_value_ele = document.createElement('option');
+        const country_selected_option_value_ele = document.createElement('option');
         country_selected_option_value_ele.value = jobApplication.country;
         country_selected_option_value_ele.selected = true;
         country_selected_option_value_ele.textContent = (preferred_language_value==="ar" && jobApplication.custom_country_name_arabic)?jobApplication.custom_country_name_arabic:jobApplication.country;
@@ -254,7 +254,7 @@ document.addEventListener('DOMContentLoaded', async function () {
                 emailInputEle.value = userDetails.email;
 
                 if(country_list_data.data && country_list_data.data.length > 0){
-                    country_select_field_ele = document.querySelector('#country_of_residence');
+                    const country_select_field_ele = document.querySelector('#country_of_residence');
                     let country_default_option_ele = document.createElement('option');
                     country_default_option_ele.value = "";
                     country_default_option_ele.textContent = (preferred_language_value==="ar")?('اختر بلدك'):('Select your country'); 
