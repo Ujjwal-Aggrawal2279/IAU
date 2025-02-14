@@ -89,12 +89,20 @@ async function fetchJobApplication(email, jobTitle) {
         const countryOfResidence = document.getElementById('country_of_residence');
         const coverLetter = document.getElementById('cover_letter');
         const fileInputEle = document.querySelector('#fileNameDisplay');
+        const countryIsdCodeEle = document.querySelector('#country_isd_code');
 
         jobInputEle.value = jobApplication.job_title;
         applicantInputEle.value = jobApplication.applicant_name;
         emailInputEle.value = jobApplication.email_id;
         applicantPhone.value = jobApplication.phone_number;
-        countryOfResidence.value = jobApplication.country;
+        country_selected_option_value_ele = document.createElement('option');
+        country_selected_option_value_ele.value = jobApplication.country;
+        country_selected_option_value_ele.selected = true;
+        country_selected_option_value_ele.textContent = (preferred_language_value==="ar" && jobApplication.custom_country_name_arabic)?jobApplication.custom_country_name_arabic:jobApplication.country;
+        country_selected_option_value_ele.disabled = true;
+        countryOfResidence.appendChild(country_selected_option_value_ele);
+        countryOfResidence.disabled = true;
+        countryIsdCodeEle.value = jobApplication.custom_country_isd_code || 'null';
         coverLetter.value = jobApplication.cover_letter;
 
         // make the hyperlink for the uploaded file path
@@ -139,10 +147,10 @@ async function fetchJobApplication(email, jobTitle) {
         const employmentTypeEle = document.getElementById('employment_type');
         const locationEle = document.getElementById('location');
 
-        jobTitleEle.textContent = `Applied for ${jobDetails.job_title}`;
-        departmentEle.textContent = jobDetails.department;
-        employmentTypeEle.textContent = jobDetails.employment_type;
-        locationEle.textContent = jobDetails.location;
+        jobTitleEle.textContent = (preferred_language_value==="ar" && jobDetails.custom_job_title_arabic)?`تقدم بطلب للحصول على ${jobDetails.custom_job_title_arabic}`:`Applied for ${jobDetails.job_title}`;
+        departmentEle.textContent = (preferred_language_value==="ar" && jobDetails.custom_department_arabic)?jobDetails.custom_department_arabic:jobDetails.department;
+        employmentTypeEle.textContent = (preferred_language_value==="ar" && jobDetails.custom_employment_type_arabic)?jobDetails.custom_employment_type_arabic:jobDetails.employment_type;
+        locationEle.textContent = (preferred_language_value==="ar" && jobDetails.custom_location_arabic)?jobDetails.custom_location_arabic:jobDetails.location;
 
     } catch (error) {
         console.error('Error fetching job application or job details:', error.message);
@@ -226,7 +234,8 @@ document.addEventListener('DOMContentLoaded', async function () {
             // Fetch the job record details from the Frappe API
             const response = await fetch(`/api/resource/Job%20Opening?limit_page_length=null&fields=["*"]&filters=[["job_title", "=", "${decodedTitle}"]]`);
             const data = await response.json();
-
+            const country_list_response = await fetch(`/api/resource/Country?limit_page_length=null&fields=["country_name","custom_country_name_arabic","custom_isd_code"]`);
+            const country_list_data = await country_list_response.json();
             if (data.data && data.data.length > 0) {
                 const jobDetails = data.data[0];
                 const jobTitleEle = document.getElementById('job_title');
@@ -236,13 +245,33 @@ document.addEventListener('DOMContentLoaded', async function () {
                 const jobInputEle = document.querySelector('input#job_title');
                 const applicantInputEle = document.querySelector('input#applicant_name');
                 const emailInputEle = document.querySelector('input#applicant_email');
-                jobTitleEle.textContent = `Applying for ${jobDetails.job_title}`;
-                departmentEle.textContent = jobDetails.department;
-                employmentTypeEle.textContent = jobDetails.employment_type;
-                locationEle.textContent = jobDetails.location;
+                jobTitleEle.textContent = (preferred_language_value==="ar" && jobDetails.custom_job_title_arabic)?`التقدم بطلب للحصول ${jobDetails.custom_job_title_arabic}`:`Applying for ${jobDetails.job_title}`;
+                departmentEle.textContent = (preferred_language_value==="ar" && jobDetails.custom_department_arabic)?jobDetails.custom_department_arabic:jobDetails.department;
+                employmentTypeEle.textContent = (preferred_language_value==="ar" && jobDetails.custom_employment_type_arabic)?jobDetails.custom_employment_type_arabic:jobDetails.employment_type;
+                locationEle.textContent = (preferred_language_value==="ar" && jobDetails.custom_location_arabic)?jobDetails.custom_location_arabic:jobDetails.location;
                 jobInputEle.value = jobDetails.name;
                 applicantInputEle.value = userDetails.full_name;
                 emailInputEle.value = userDetails.email;
+
+                if(country_list_data.data && country_list_data.data.length > 0){
+                    country_select_field_ele = document.querySelector('#country_of_residence');
+                    let country_default_option_ele = document.createElement('option');
+                    country_default_option_ele.value = "";
+                    country_default_option_ele.textContent = (preferred_language_value==="ar")?('اختر بلدك'):('Select your country'); 
+                    country_default_option_ele.selected = true;
+                    country_default_option_ele.disabled = true;
+                    country_select_field_ele.appendChild(country_default_option_ele);
+                    country_list_data.data.forEach((element)=>{
+                        let country_option_ele = document.createElement('option');
+                        country_option_ele.value = element.country_name;
+                        country_option_ele.textContent = (preferred_language_value==="ar" && element.custom_country_name_arabic)?element.custom_country_name_arabic:element.country_name;
+                        country_option_ele.setAttribute('data-country_code',element.custom_isd_code);
+                        country_select_field_ele.appendChild(country_option_ele);
+                    });
+                }
+                else{
+                    console.error('country not found');
+                }
             } else {
                 console.error('Job not found');
             }
@@ -277,7 +306,11 @@ document.getElementById('fileInput').addEventListener('change', function () {
         fileNameDisplay.textContent = 'No file selected';
     }
 });
-
+document.getElementById('country_of_residence').addEventListener('change', (event)=>{
+    const selected_option = event.target.options[event.target.selectedIndex];
+    const data_country_code = selected_option.getAttribute('data-country_code');
+    document.getElementById('country_isd_code').value = data_country_code;
+})
 async function submitJobApplication(event) {
     event.preventDefault();  // Prevent default form submission
 
@@ -291,7 +324,7 @@ async function submitJobApplication(event) {
     const resumeFile = document.getElementById('fileInput').files[0];
 
     // Validate required fields
-    if (!jobTitle || !applicantName || !applicantEmail || !applicantPhone || !countryOfResidence || !coverLetter || !resumeFile) {
+    if (!jobTitle || !applicantName || !applicantEmail || !applicantPhone || !countryOfResidence || !resumeFile) {
         alert('Please fill out all required fields and upload your resume.');
         return;
     }
