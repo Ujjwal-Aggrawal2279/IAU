@@ -103,12 +103,12 @@ const clear_all_button_ele = document.getElementById('jobs_listing_page_clearall
 if(preferred_language_value==="ar"){
     clear_all_button_ele.innerHTML=`
     مسح الكل<span style="margin-left: 0.5rem;">&#10006;</span>
-    `
+    `;
 }
 else{
     clear_all_button_ele.innerHTML=`
     Clear all<span style="margin-left: 0.5rem;">&#10006;</span>
-    `
+    `;
 }
 
 //Translate the job search placeholder
