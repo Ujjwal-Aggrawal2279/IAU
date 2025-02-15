@@ -34,7 +34,7 @@ document.addEventListener('DOMContentLoaded', async function () {
                 document.getElementById('news-title').textContent = (preferred_language_value==="ar" && BlogDetails.custom_title_arabic)?(BlogDetails.custom_title_arabic):(decodedTitle);
                 // Format the published date
                 const publishEle = document.getElementById('published_on');
-                publishEle.textContent = ` Published on ${formatDate(BlogDetails.published_on)}`;
+                publishEle.textContent = (preferred_language_value==="ar")?` تم النشر بتاريخ ${formatDate(BlogDetails.published_on)}`:` Published on ${formatDate(BlogDetails.published_on)}`;
 
                 // Get paragraphs
                 const paragraphs = getParagraphs((preferred_language_value==="ar" && BlogDetails.custom_blog_description_arabic)?(BlogDetails.custom_blog_description_arabic):(BlogDetails.custom_blog_description));
