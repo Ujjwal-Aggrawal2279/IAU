@@ -98,3 +98,24 @@ document.getElementById('jobSearchInput').addEventListener('input', function () 
 
 // Initial Fetch for All Job Openings
 fetchAllJobOpenings();
+//Translate the clear all button
+const clear_all_button_ele = document.getElementById('jobs_listing_page_clearall_button');
+if(preferred_language_value==="ar"){
+    clear_all_button_ele.innerHTML=`
+    مسح الكل<span style="margin-left: 0.5rem;">&#10006;</span>
+    `
+}
+else{
+    clear_all_button_ele.innerHTML=`
+    Clear all<span style="margin-left: 0.5rem;">&#10006;</span>
+    `
+}
+
+//Translate the job search placeholder
+const job_search_box_ele = document.getElementById('jobSearchInput');
+if(preferred_language_value==="ar"){
+    job_search_box_ele.placeholder = "اكتب المسمى الوظيفي";
+}
+else{
+    job_search_box_ele.placeholder = "Type in a job title";
+}
