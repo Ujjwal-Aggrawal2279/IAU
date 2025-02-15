@@ -79,7 +79,22 @@ async function fetchJobApplication(email, jobTitle) {
         }
 
         const jobApplication = data.data[0];
-        notSavedIndicator.textContent = `Status : ${jobApplication.status}`;
+        // notSavedIndicator.textContent = `Status : ${jobApplication.status}`;
+        if(jobApplication.status === "Open"){
+            notSavedIndicator.textContent = (preferred_language_value==="ar")?"الحالة : مفتوح":"Status : Open";
+        }
+        else if(jobApplication.status === "Replied"){
+            notSavedIndicator.textContent = (preferred_language_value==="ar")?"الحالة : تم الرد":"Status : Replied";
+        }
+        else if(jobApplication.status === "Rejected"){
+            notSavedIndicator.textContent = (preferred_language_value==="ar")?"الحالة : مرفوض":"Status : Rejected";
+        }
+        else if(jobApplication.status === "Hold"){
+            notSavedIndicator.textContent = (preferred_language_value==="ar")?"الحالة: عقد":"Status : Hold";
+        }
+        else{
+            notSavedIndicator.textContent = (preferred_language_value==="ar")?"الحالة : مقبول":"Status : Accepted";
+        }
 
         // Set Job Applicant fields
         const jobInputEle = document.querySelector('input#job_title');
@@ -110,7 +125,7 @@ async function fetchJobApplication(email, jobTitle) {
         fileInputEle_anchor.href = `${jobApplication.resume_attachment}`;
         fileInputEle_anchor.target = "_blank";
         fileInputEle_anchor.textContent = `${jobApplication.resume_attachment}`;
-        fileInputEle.textContent = "File Uploaded "
+        fileInputEle.textContent = (preferred_language_value==="ar")?"تم تحميل الملف ":"File Uploaded ";
         fileInputEle.appendChild(fileInputEle_anchor);
 
 
@@ -310,7 +325,14 @@ document.getElementById('country_of_residence').addEventListener('change', (even
     const selected_option = event.target.options[event.target.selectedIndex];
     const data_country_code = selected_option.getAttribute('data-country_code');
     document.getElementById('country_isd_code').value = data_country_code;
-})
+});
+const fileNameDisplay_ele = document.getElementById('fileNameDisplay');
+if(fileNameDisplay_ele.textContent === "No file selected" && preferred_language_value==="ar"){
+    fileNameDisplay_ele.textContent = 'لم يتم تحديد أي ملف';
+}
+else if(fileNameDisplay_ele.textContent === "لم يتم تحديد أي ملف" && preferred_language_value==="en"){
+    fileNameDisplay_ele.textContent = "No file selected";
+}
 async function submitJobApplication(event) {
     event.preventDefault();  // Prevent default form submission
 
