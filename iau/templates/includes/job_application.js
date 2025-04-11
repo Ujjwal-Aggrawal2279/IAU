@@ -295,6 +295,12 @@ document.addEventListener('DOMContentLoaded', async function () {
         }
     }
     const notSavedIndicator = document.getElementById('not-saved-indicator');
+    if(notSavedIndicator.textContent === "Not Saved" && preferred_language_value === "ar"){
+        notSavedIndicator.textContent = 'لم يتم الحفظ'
+    }
+    else if(notSavedIndicator.textContent === "لم يتم الحفظ" && preferred_language_value === "en"){
+        notSavedIndicator.textContent = 'Not Saved'
+    }
     const inputFields = document.querySelectorAll('input:not(#job_title):not(#applicant_name):not(#applicant_email), textarea');
 
     function checkInputFields() {
