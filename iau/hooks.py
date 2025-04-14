@@ -47,7 +47,9 @@ web_include_css = "/assets/iau/css/cairo_style.css"
 # doctype_tree_js = {"doctype" : "public/js/doctype_tree.js"}
 # doctype_calendar_js = {"doctype" : "public/js/doctype_calendar.js"}
 doctype_list_js = {
-    "Employee": "public/js/employee_list.js"
+    "Employee": "public/js/employee_list.js",
+    "CRM Lead": "public/js/crm_lead_list.js",
+    "CRM Deal": "public/js/crm_deal_list.js"
 }
 # Svg Icons
 # ------------------
