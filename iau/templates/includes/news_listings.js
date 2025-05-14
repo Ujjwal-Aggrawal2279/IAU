@@ -1,7 +1,8 @@
+const today_date = new Date().toISOString().slice(0,10);
 // Fetching the Blog Post Records for rendering
 const fetchBlogPosts = async (sortOrder = 'desc') => {
     try {
-        const response = await fetch(`/api/resource/Blog Post?fields=["*"]&order_by=creation ${sortOrder}`);
+        const response = await fetch(`/api/resource/Blog Post?fields=["*"]&filters=[["meta_image","!=",""],["published", "=", "1"],["custom_publish_end_date",">=","${today_date}"]]&order_by=creation ${sortOrder}`);
         if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`);
         }

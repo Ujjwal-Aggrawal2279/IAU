@@ -1,3 +1,4 @@
+const today_date = new Date().toISOString().slice(0,10);
 var swiper = new Swiper(".myBannerSwiper", {
     slidesPerView: 1,
     spaceBetween: 0,
@@ -116,7 +117,7 @@ fetchJobOpenings();
 
 const fetchBlogPosts = async () => {
     try {
-        const response = await fetch('/api/resource/Blog%20Post?fields=["*"]&filters=[["meta_image","!=",""]]&limit_page_length=9&order_by=creation desc');
+        const response = await fetch(`/api/resource/Blog%20Post?fields=["*"]&filters=[["meta_image","!=",""],["published", "=", "1"],["custom_publish_end_date",">=","${today_date}"]]&limit_page_length=9&order_by=creation desc`);
         if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`);
         }
