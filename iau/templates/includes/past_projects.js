@@ -3,12 +3,12 @@ let all_past_project_list = []
 
 const fetchpastprojects = async()=>{
     try{
-    response = await fetch(`api/resource/Project?fields=["*"]&filters=[["is_active","=","No"]]&order_by=creation desc&limit_page_length=null`)
+    response = await fetch(`api/method/iau_edu.hooks_call.project.past_projects`)
     if(!response.ok){
         throw new Error("Error while fetching past project details")
     }
     const data = await response.json();
-    all_past_project_list = data.data;
+    all_past_project_list = data.message;
 
     renderpastprojects(all_past_project_list);
     }

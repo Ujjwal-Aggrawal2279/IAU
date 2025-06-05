@@ -3,12 +3,12 @@ let all_current_project_list = []
 
 const fetchcurrentprojects = async()=>{
     try{
-    response = await fetch(`api/resource/Project?fields=["*"]&filters=[["is_active","=","Yes"]]&order_by=creation desc&limit_page_length=null`)
+    response = await fetch(`api/method/iau_edu.hooks_call.project.current_projects`)
     if(!response.ok){
         throw new Error("Error while fetching current project details")
     }
     const data = await response.json();
-    all_current_project_list = data.data;
+    all_current_project_list = data.message;
 
     rendercurrentprojects(all_current_project_list);
     }
