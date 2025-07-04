@@ -541,35 +541,35 @@
                 let profileLink = '';
                 let menuContent = ''; // Variable to hold dropdown content
                 let mobilemenuContent = ''; // Variable to hold the dropdown content of mobile profile icon
-                if (jobApplicants.message.includes("Job Applicant") && userName!= "Administrator") {
+                if (jobApplicants.message.includes("Job Applicant") && userName!== "Administrator") {
                     profileLink = `<a href="/Profile" style="display: block; padding: 0.75rem 1rem; text-decoration: none; color: #000; font-family: 'Encode Sans Condensed', system-ui; font-size: 1rem; font-weight: bold;">${preferred_language_value==='ar'?'حساب تعريفي':'Profile'}</a>`;
                     menuContent = `${profileLink}
                         <a href="#" id="logout-link" style="display: block; padding: 0.75rem 1rem; text-decoration: none; color: #000; font-family: 'Encode Sans Condensed', system-ui; font-size: 1rem; font-weight: bold;">${preferred_language_value==='ar'?'تسجيل الخروج':'Logout'}</a>`;
                     mobilemenuContent = `${profileLink}
                         <a href="#" id="mobile-logout-link" style="display: block; padding: 0.75rem 1rem; text-decoration: none; color: #000; font-family: 'Encode Sans Condensed', system-ui; font-size: 1rem; font-weight: bold;">${preferred_language_value==='ar'?'تسجيل الخروج':'Logout'}</a>`;
                     }
-                else if(userType === "System User" && userName!= "Administrator" ){
-                    menuContent = `<a href="/me" style="display: block; padding: 0.75rem 1rem; text-decoration: none; color: #000; font-family: 'Encode Sans Condensed', system-ui; font-size: 1rem; font-weight: bold;">${preferred_language_value==='ar'?'الخدمة الذاتية':'Self Service'}</a>
+                else if(userType === "System User" && userName!== "Administrator" ){
+                    menuContent = `<a href="/me" style="display: block; padding: 0.75rem 1rem; text-decoration: none; color: #000; font-family: 'Encode Sans Condensed', system-ui; font-size: 1rem; font-weight: bold;">${preferred_language_value==='ar'?'الخدمات الذاتية':'Self Service'}</a>
                     <a href="/app" style="display: block; padding: 0.75rem 1rem; text-decoration: none; color: #000; font-family: 'Encode Sans Condensed', system-ui; font-size: 1rem; font-weight: bold;">${preferred_language_value==='ar'?'انتقل إلى تطبيق ERP':'Go To ERP Application'}</a>
                     <a href="#" id="logout-link" style="display: block; padding: 0.75rem 1rem; text-decoration: none; color: #000; font-family: 'Encode Sans Condensed', system-ui; font-size: 1rem; font-weight: bold;">${preferred_language_value==='ar'?'تسجيل الخروج':'Logout'}</a>`;
-                    mobilemenuContent = `<a href="/me" style="display: block; padding: 0.75rem 1rem; text-decoration: none; color: #000; font-family: 'Encode Sans Condensed', system-ui; font-size: 1rem; font-weight: bold;">${preferred_language_value==='ar'?'الخدمة الذاتية':'Self Service'}</a>
+                    mobilemenuContent = `<a href="/me" style="display: block; padding: 0.75rem 1rem; text-decoration: none; color: #000; font-family: 'Encode Sans Condensed', system-ui; font-size: 1rem; font-weight: bold;">${preferred_language_value==='ar'?'الخدمات الذاتية':'Self Service'}</a>
                     <a href="/app" style="display: block; padding: 0.75rem 1rem; text-decoration: none; color: #000; font-family: 'Encode Sans Condensed', system-ui; font-size: 1rem; font-weight: bold;">${preferred_language_value==='ar'?'انتقل إلى تطبيق ERP':'Go To ERP Application'}</a>
                     <a href="#" id="mobile-logout-link" style="display: block; padding: 0.75rem 1rem; text-decoration: none; color: #000; font-family: 'Encode Sans Condensed', system-ui; font-size: 1rem; font-weight: bold;">${preferred_language_value==='ar'?'تسجيل الخروج':'Logout'}</a>`;
                 }
                 else if(userType === "System User" && userName === "Administrator"){
-                    menuContent = `<a href="/me" style="display: block; padding: 0.75rem 1rem; text-decoration: none; color: #000; font-family: 'Encode Sans Condensed', system-ui; font-size: 1rem; font-weight: bold;">${preferred_language_value==='ar'?'الخدمة الذاتية':'Self Service'}</a>
+                    menuContent = `<a href="/me" style="display: block; padding: 0.75rem 1rem; text-decoration: none; color: #000; font-family: 'Encode Sans Condensed', system-ui; font-size: 1rem; font-weight: bold;">${preferred_language_value==='ar'?'الخدمات الذاتية':'Self Service'}</a>
                     <a href="/app" style="display: block; padding: 0.75rem 1rem; text-decoration: none; color: #000; font-family: 'Encode Sans Condensed', system-ui; font-size: 1rem; font-weight: bold;">${preferred_language_value==='ar'?'انتقل إلى تطبيق ERP':'Go To ERP Application'}</a>
                     <a href="/apps" style="display: block; padding: 0.75rem 1rem; text-decoration: none; color: #000; font-family: 'Encode Sans Condensed', system-ui; font-size: 1rem; font-weight: bold;">${preferred_language_value==='ar'?'تطبيقات':'Apps'}</a>
                     <a href="#" id="logout-link" style="display: block; padding: 0.75rem 1rem; text-decoration: none; color: #000; font-family: 'Encode Sans Condensed', system-ui; font-size: 1rem; font-weight: bold;">${preferred_language_value==='ar'?'تسجيل الخروج':'Logout'}</a>`;
-                    mobilemenuContent = `<a href="/me" style="display: block; padding: 0.75rem 1rem; text-decoration: none; color: #000; font-family: 'Encode Sans Condensed', system-ui; font-size: 1rem; font-weight: bold;">${preferred_language_value==='ar'?'الخدمة الذاتية':'Self Service'}</a>
+                    mobilemenuContent = `<a href="/me" style="display: block; padding: 0.75rem 1rem; text-decoration: none; color: #000; font-family: 'Encode Sans Condensed', system-ui; font-size: 1rem; font-weight: bold;">${preferred_language_value==='ar'?'الخدمات الذاتية':'Self Service'}</a>
                     <a href="/app" style="display: block; padding: 0.75rem 1rem; text-decoration: none; color: #000; font-family: 'Encode Sans Condensed', system-ui; font-size: 1rem; font-weight: bold;">${preferred_language_value==='ar'?'انتقل إلى تطبيق ERP':'Go To ERP Application'}</a>
                     <a href="/apps" style="display: block; padding: 0.75rem 1rem; text-decoration: none; color: #000; font-family: 'Encode Sans Condensed', system-ui; font-size: 1rem; font-weight: bold;">${preferred_language_value==='ar'?'تطبيقات':'Apps'}</a>
                     <a href="#" id="mobile-logout-link" style="display: block; padding: 0.75rem 1rem; text-decoration: none; color: #000; font-family: 'Encode Sans Condensed', system-ui; font-size: 1rem; font-weight: bold;">${preferred_language_value==='ar'?'تسجيل الخروج':'Logout'}</a>`;              
                 }
                 else {
-                    menuContent = `<a href="/me" style="display: block; padding: 0.75rem 1rem; text-decoration: none; color: #000; font-family: 'Encode Sans Condensed', system-ui; font-size: 1rem; font-weight: bold;">${preferred_language_value==='ar'?'الخدمة الذاتية':'Self Service'}</a>
+                    menuContent = `<a href="/me" style="display: block; padding: 0.75rem 1rem; text-decoration: none; color: #000; font-family: 'Encode Sans Condensed', system-ui; font-size: 1rem; font-weight: bold;">${preferred_language_value==='ar'?'الخدمات الذاتية':'Self Service'}</a>
                     <a href="#" id="logout-link" style="display: block; padding: 0.75rem 1rem; text-decoration: none; color: #000; font-family: 'Encode Sans Condensed', system-ui; font-size: 1rem; font-weight: bold;">${preferred_language_value==='ar'?'تسجيل الخروج':'Logout'}</a>`;
-                    mobilemenuContent = `<a href="/me" style="display: block; padding: 0.75rem 1rem; text-decoration: none; color: #000; font-family: 'Encode Sans Condensed', system-ui; font-size: 1rem; font-weight: bold;">${preferred_language_value==='ar'?'الخدمة الذاتية':'Self Service'}</a>
+                    mobilemenuContent = `<a href="/me" style="display: block; padding: 0.75rem 1rem; text-decoration: none; color: #000; font-family: 'Encode Sans Condensed', system-ui; font-size: 1rem; font-weight: bold;">${preferred_language_value==='ar'?'الخدمات الذاتية':'Self Service'}</a>
                     <a href="#" id="mobile-logout-link" style="display: block; padding: 0.75rem 1rem; text-decoration: none; color: #000; font-family: 'Encode Sans Condensed', system-ui; font-size: 1rem; font-weight: bold;">${preferred_language_value==='ar'?'تسجيل الخروج':'Logout'}</a>`;
                 }
 
