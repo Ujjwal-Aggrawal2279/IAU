@@ -13,4 +13,13 @@ def get_context(context):
 		frappe.throw(_("You need to be logged in to access this page"), frappe.PermissionError)
 
 	context.current_user = frappe.get_doc("User", frappe.session.user)
-	context.show_sidebar = True
+	user_doc = frappe.get_doc("User", {"name": frappe.session.user})
+	user_roles = {r.role for r in user_doc.roles}
+	if "Employee" in user_roles:
+		employee_doc = frappe.get_doc("Employee", {"user_id": frappe.session.user})
+		if employee_doc.custom_enable_self_service:
+			context.show_sidebar = True
+		else:
+			context.show_sidebar = False
+	else:			
+		context.show_sidebar = True
