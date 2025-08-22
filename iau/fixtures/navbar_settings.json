@@ -90,7 +90,7 @@
     "route": "https://frappe.io/support"
    }
   ],
-  "modified": "2025-06-12 14:48:02.973766",
+  "modified": "2025-08-22 16:44:39.266008",
   "name": "Navbar Settings",
   "settings_dropdown": [
    {
@@ -183,6 +183,18 @@
     "hidden": 0,
     "is_standard": 1,
     "item_label": "Toggle Theme",
+    "item_type": "Action",
+    "parent": "Navbar Settings",
+    "parentfield": "settings_dropdown",
+    "parenttype": "Navbar Settings",
+    "route": null
+   },
+   {
+    "action": "frappe.call({method:'iau_edu.hooks_call.change_language.switch_language',callback:(r)=>{location.reload();}});",
+    "condition": null,
+    "hidden": 0,
+    "is_standard": 0,
+    "item_label": "Change Language",
     "item_type": "Action",
     "parent": "Navbar Settings",
     "parentfield": "settings_dropdown",
