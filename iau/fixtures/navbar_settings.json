@@ -90,7 +90,7 @@
     "route": "https://frappe.io/support"
    }
   ],
-  "modified": "2025-08-22 16:44:39.266008",
+  "modified": "2025-08-24 19:12:52.956153",
   "name": "Navbar Settings",
   "settings_dropdown": [
    {
@@ -191,10 +191,22 @@
    },
    {
     "action": "frappe.call({method:'iau_edu.hooks_call.change_language.switch_language',callback:(r)=>{location.reload();}});",
-    "condition": null,
+    "condition": "frappe.boot.lang == \"ar\"",
     "hidden": 0,
     "is_standard": 0,
-    "item_label": "Change Language",
+    "item_label": "Switch to English",
+    "item_type": "Action",
+    "parent": "Navbar Settings",
+    "parentfield": "settings_dropdown",
+    "parenttype": "Navbar Settings",
+    "route": null
+   },
+   {
+    "action": "frappe.call({method:'iau_edu.hooks_call.change_language.switch_language',callback:(r)=>{location.reload();}});",
+    "condition": "frappe.boot.lang == \"en\"",
+    "hidden": 0,
+    "is_standard": 0,
+    "item_label": "Switch to Arabic",
     "item_type": "Action",
     "parent": "Navbar Settings",
     "parentfield": "settings_dropdown",
