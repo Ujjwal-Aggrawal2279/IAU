@@ -39,6 +39,11 @@
 <ul class="list-unstyled">
 	<li class="sidebar-item">
 		<!-- <a href="/me">{{ _("My Account") }}</a> -->
+		{% if frappe.boot.lang == "en" %}
+		<p onclick="change_language()">Switch to Arabic</p>
+		{% else %}
+		<p onclick="change_language()">Switch to English</p>
+		{% endif %}
 	</li>
 </ul>
 {% endif %}
@@ -79,4 +84,12 @@
 				.scrollIntoView({behavior: "auto", block: "center", inline: "nearest"});
 		}
 	});
+	function change_language(){
+			frappe.call({
+				method:'iau_edu.hooks_call.change_language.switch_language',
+				callback:(r)=>{
+					location.reload();
+				}
+			});
+		}
 </script>
