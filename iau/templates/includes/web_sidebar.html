@@ -39,11 +39,7 @@
 <ul class="list-unstyled">
 	<li class="sidebar-item">
 		<!-- <a href="/me">{{ _("My Account") }}</a> -->
-		{% if frappe.boot.lang == "en" %}
-		<p onclick="change_language()">Switch to Arabic</p>
-		{% else %}
-		<p onclick="change_language()">Switch to English</p>
-		{% endif %}
+		<p id="switch_lang" onclick="change_language()"></p>
 	</li>
 </ul>
 {% endif %}
@@ -63,6 +59,12 @@
 
 <script>
 	frappe.ready(function () {
+		if(frappe.boot.lang === "en"){
+			document.getElementById("switch_lang").textContent = "التبديل إلى اللغة العربية";
+		}
+		else{
+			document.getElementById("switch_lang").textContent = "Switch to English"
+		}
 		$('.sidebar-item a').each(function (index) {
 			const active_class = 'active'
 			const non_active_class = ''
